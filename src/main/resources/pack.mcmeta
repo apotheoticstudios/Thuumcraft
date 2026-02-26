@@ -1,8 +1,7 @@
 {
   "pack": {
     "description": {
-      "text": "${mod_id} resources"
-    },
+      "text": "Thu'umcraft Skyrim mod for 1.20.1 Forge" },
     "pack_format": 15
   }
 }

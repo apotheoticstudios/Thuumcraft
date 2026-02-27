@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "RRR",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "thuumcraft:refined_malachite"
+    }
+  },
+  "result": {
+    "item": "thuumcraft:refined_malachite_block"
+  }
+}

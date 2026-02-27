@@ -2,10 +2,12 @@ package net.apotheoticstudios.thuumcraft.block;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,7 +22,17 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, Thuumcraft.MOD_ID);
 
     public static final RegistryObject<Block> REFINED_MALACHITE_BLOCK = registerBlock("refined_malachite_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).sound(SoundType.AMETHYST)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).sound(SoundType.AMETHYST)));
+
+
+    public static final RegistryObject<Block> MALACHITE_ORE_VEIN = registerBlock("malachite_ore_vein",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST), UniformInt.of(1, 3)));
+    public static final RegistryObject<Block> DEEPSLATE_MALACHITE_ORE_VEIN = registerBlock("deepslate_malachite_ore_vein",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(3f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST), UniformInt.of(1, 4)));
+
+
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

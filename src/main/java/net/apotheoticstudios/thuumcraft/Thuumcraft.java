@@ -2,6 +2,7 @@ package net.apotheoticstudios.thuumcraft;
 
 import com.mojang.logging.LogUtils;
 import net.apotheoticstudios.thuumcraft.block.ModBlocks;
+import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,8 +25,9 @@ public class Thuumcraft {
     public Thuumcraft(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        ModItems.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
 
+        ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -40,6 +42,8 @@ public class Thuumcraft {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

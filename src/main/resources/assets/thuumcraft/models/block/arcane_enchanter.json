@@ -1,6 +1,0 @@
-{
-  "parent": "thuumcraft:geo/arcane_enchanter.geo",
-  "textures": {
-    "all": "thuumcraft:block/arcane_enchanter"
-  }
-}

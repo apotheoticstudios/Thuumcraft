@@ -1,6 +1,9 @@
 package net.apotheoticstudios.thuumcraft;
 
 import com.mojang.logging.LogUtils;
+import net.apotheoticstudios.thuumcraft.block.ModBlocks;
+import net.apotheoticstudios.thuumcraft.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -8,20 +11,22 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 @Mod(Thuumcraft.MOD_ID)
-public class Thuumcraft
-{
+public class Thuumcraft {
     public static final String MOD_ID = "thuumcraft";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public Thuumcraft(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
+
+        ModItems.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

@@ -2,8 +2,15 @@
   "block.thuumcraft.refined_malachite_block": "Block of Refined Malachite",
   "block.thuumcraft.malachite_ore_vein": "Malachite Ore Vein",
   "block.thuumcraft.deepslate_malachite_ore_vein": "Deepslate Malachite Ore Vein",
+
   "item.thuumcraft.refined_malachite": "Refined Malachite",
   "item.thuumcraft.malachite_ore": "Malachite Ore",
+
+  "item.thuumcraft.glass_sword": "Glass Sword",
+  "item.thuumcraft.glass_pickaxe": "Glass Pickaxe",
+  "item.thuumcraft.glass_axe": "Glass Axe",
+
+  "item.thuumcraft.juniper_berries": "Juniper Berries",
 
   "creativetab.thuumcraft_tab": "Thu'umcraft"
 }

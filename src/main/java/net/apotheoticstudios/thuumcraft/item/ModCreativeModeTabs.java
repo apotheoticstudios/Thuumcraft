@@ -30,6 +30,12 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModItems.MALACHITE_ORE.get());
 
+                        pOutput.accept(ModItems.JUNIPER_BERRIES.get());
+
+                        pOutput.accept(ModItems.GLASS_SWORD.get());
+                        pOutput.accept(ModItems.GLASS_PICKAXE.get());
+                        pOutput.accept(ModItems.GLASS_AXE.get());
+
                     })
                     .build());
 

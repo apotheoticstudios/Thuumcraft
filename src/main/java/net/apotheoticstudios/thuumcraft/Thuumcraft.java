@@ -3,6 +3,7 @@ package net.apotheoticstudios.thuumcraft;
 import com.mojang.logging.LogUtils;
 import net.apotheoticstudios.thuumcraft.block.ModBlocks;
 import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
+import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;

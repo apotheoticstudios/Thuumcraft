@@ -11,12 +11,12 @@ _**Credits**_
 
 **Textures**:
 
-Apotheotic Studios
+- Apotheotic Studios
 
 **Models**:
 
-Apotheotic Studios
+- Apotheotic Studios
 
 **Animations**:
 
-Apotheotic Studios
+- Apotheotic Studios

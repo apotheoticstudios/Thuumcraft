@@ -7,7 +7,6 @@ _**Credits**_
 **Code**:
 
 Apotheotic Studios
-
 Erebus_Inc
 
 **Textures**:

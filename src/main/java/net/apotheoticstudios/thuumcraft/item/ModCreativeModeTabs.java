@@ -20,21 +20,22 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.thuumcraft_tab"))
                     .displayItems((pParameters, pOutput) -> {
 
-                        pOutput.accept(ModBlocks.MALACHITE_ORE_VEIN.get());
-
-                        pOutput.accept(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get());
-
-                        pOutput.accept(ModBlocks.REFINED_MALACHITE_BLOCK.get());
-
-                        pOutput.accept(ModItems.REFINED_MALACHITE.get());
-
-                        pOutput.accept(ModItems.MALACHITE_ORE.get());
-
                         pOutput.accept(ModItems.JUNIPER_BERRIES.get());
+
+                        pOutput.accept(ModBlocks.MALACHITE_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.REFINED_MALACHITE_BLOCK.get());
+                        pOutput.accept(ModItems.MALACHITE_ORE.get());
+                        pOutput.accept(ModItems.REFINED_MALACHITE.get());
 
                         pOutput.accept(ModItems.GLASS_SWORD.get());
                         pOutput.accept(ModItems.GLASS_PICKAXE.get());
                         pOutput.accept(ModItems.GLASS_AXE.get());
+
+                        pOutput.accept(ModItems.DWARVEN_METAL_INGOT.get());
+                        pOutput.accept(ModItems.DWARVEN_SWORD.get());
+                        pOutput.accept(ModItems.DWARVEN_PICKAXE.get());
+                        pOutput.accept(ModItems.DWARVEN_AXE.get());
 
                     })
                     .build());

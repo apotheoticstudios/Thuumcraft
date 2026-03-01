@@ -16,6 +16,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> REFINED_MALACHITE = ITEMS.register("refined_malachite",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DWARVEN_METAL_INGOT = ITEMS.register("dwarven_metal_ingot",
+            () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> MALACHITE_ORE = ITEMS.register("malachite_ore",
             () -> new Item(new Item.Properties()));
@@ -24,11 +26,18 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoods.JUNIPER_BERRIES)));
 
     public static final RegistryObject<Item> GLASS_SWORD = ITEMS.register("glass_sword",
-            () -> new SwordItem(ModToolTiers.GLASS, 3, 2, new Item.Properties()));
+            () -> new SwordItem(ModToolTiers.GLASS, 3, -2.4f, new Item.Properties()));
     public static final RegistryObject<Item> GLASS_PICKAXE = ITEMS.register("glass_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.GLASS, 1, 1, new Item.Properties()));
+            () -> new PickaxeItem(ModToolTiers.GLASS, 1, -2.8f, new Item.Properties()));
     public static final RegistryObject<Item> GLASS_AXE = ITEMS.register("glass_axe",
-            () -> new AxeItem(ModToolTiers.GLASS, 5, 1, new Item.Properties()));
+            () -> new AxeItem(ModToolTiers.GLASS, 5, -3, new Item.Properties()));
+
+    public static final RegistryObject<Item> DWARVEN_SWORD = ITEMS.register("dwarven_sword",
+            () -> new SwordItem(ModToolTiers.DWARVEN, 3, -2.4f, new Item.Properties()));
+    public static final RegistryObject<Item> DWARVEN_PICKAXE = ITEMS.register("dwarven_pickaxe",
+            () -> new PickaxeItem(ModToolTiers.DWARVEN, 1, -2.8f, new Item.Properties()));
+    public static final RegistryObject<Item> DWARVEN_AXE = ITEMS.register("dwarven_axe",
+            () -> new AxeItem(ModToolTiers.DWARVEN, 5, -3, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

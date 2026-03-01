@@ -41,6 +41,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(ModTags.Blocks.NEEDS_MALACHITE_TOOL);
 
 
+        this.tag(ModTags.Blocks.NEEDS_DWARVEN_TOOL);
+
+
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL);
 
 

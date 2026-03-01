@@ -19,6 +19,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(ModItems.REFINED_MALACHITE);
         simpleItem(ModItems.MALACHITE_ORE);
+        simpleItem(ModItems.DWARVEN_METAL_INGOT);
 
         simpleItem(ModItems.JUNIPER_BERRIES);
 
@@ -26,6 +27,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.GLASS_PICKAXE);
         handheldItem(ModItems.GLASS_AXE);
 
+        handheldItem(ModItems.DWARVEN_SWORD);
+        handheldItem(ModItems.DWARVEN_PICKAXE);
+        handheldItem(ModItems.DWARVEN_AXE);
 
     }
 

@@ -40,6 +40,7 @@ public class ModItems {
             () -> new AxeItem(ModToolTiers.DWARVEN, 5, -3, new Item.Properties()));
 
 
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

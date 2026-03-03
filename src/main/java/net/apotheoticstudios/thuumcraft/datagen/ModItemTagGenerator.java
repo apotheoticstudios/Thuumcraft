@@ -1,6 +1,7 @@
 package net.apotheoticstudios.thuumcraft.datagen;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
+import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;

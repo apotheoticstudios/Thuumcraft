@@ -47,6 +47,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> LEATHER_STRIPS = ITEMS.register("leather_strips",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HANDLE = ITEMS.register("handle",
+            () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> JUNIPER_BERRIES = ITEMS.register("juniper_berries",
             () -> new Item(new Item.Properties().food(ModFoods.JUNIPER_BERRIES)));

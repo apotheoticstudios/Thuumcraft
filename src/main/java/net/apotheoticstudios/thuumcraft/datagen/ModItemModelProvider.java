@@ -32,6 +32,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.EBONY_INGOT);
 
         simpleItem(ModItems.LEATHER_STRIPS);
+        simpleItem(ModItems.HANDLE);
 
         simpleItem(ModItems.JUNIPER_BERRIES);
 

@@ -16,7 +16,7 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Thuumcraft.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> THUUMCRAFT_TAB = CREATIVE_MODE_TABS.register("thuumcraft_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.REFINED_MALACHITE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MALACHITE_ORE.get()))
                     .title(Component.translatable("creativetab.thuumcraft_tab"))
                     .displayItems((pParameters, pOutput) -> {
 
@@ -52,6 +52,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.EBONY_INGOT.get());
 
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
+                        pOutput.accept(ModItems.HANDLE.get());
 
 
                     })

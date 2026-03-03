@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "forge:ingots"
+    },
+    "L": {
+      "item": "thuumcraft:leather_strips"
+    }
+  },
+  "pattern": [
+    "   ",
+    "LIL",
+    "   "
+  ],
+  "result": {
+    "item": "thuumcraft:handle"
+  },
+  "show_notification": true
+}

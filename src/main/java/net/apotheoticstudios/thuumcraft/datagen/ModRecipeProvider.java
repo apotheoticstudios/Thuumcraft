@@ -6,14 +6,18 @@ import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MinecartItem;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.common.data.ForgeItemTagsProvider;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -28,6 +32,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+
+        //REFINED_MALACHITE and REFINED_MALACHITE_BLOCK
         oreSmelting(pWriter, MALACHITE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MALACHITE.get(), 0.7f, 400, "refined_malachite");
         oreBlasting(pWriter, MALACHITE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MALACHITE.get(), 0.7f, 200, "refined_malachite");
 
@@ -42,6 +48,44 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.REFINED_MALACHITE.get(), 9)
                 .requires(ModBlocks.REFINED_MALACHITE_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.REFINED_MALACHITE_BLOCK.get()), has(ModBlocks.REFINED_MALACHITE_BLOCK.get()))
+                .save(pWriter);
+
+        //INGOTS
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL_INGOT.get())
+                .requires(ModItems.CORUNDUM_INGOT.get())
+                .requires(Items.IRON_INGOT)
+                .unlockedBy(getHasName(ModItems.CORUNDUM_INGOT.get()), has(ModItems.CORUNDUM_INGOT.get()))
+                .save(pWriter);
+
+        //HANDLE
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HANDLE.get())
+                .pattern("   ")
+                .pattern("LIL")
+                .pattern("   ")
+                .define('L', ModItems.LEATHER_STRIPS.get())
+                .define('I', Tags.Items.INGOTS)
+                .unlockedBy(getHasName(ModItems.LEATHER_STRIPS.get()), has(ModItems.LEATHER_STRIPS.get()))
+                .save(pWriter);
+
+        //STEEL
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD.get())
+                .pattern(" S ")
+                .pattern(" S ")
+                .pattern(" H ")
+                .define('S', ModItems.STEEL_INGOT.get())
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.STEEL_INGOT.get()), has(ModItems.STEEL_INGOT.get()))
+                .save(pWriter);
+
+        //GLASS
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GLASS_SWORD.get())
+                .pattern(" R ")
+                .pattern(" M ")
+                .pattern(" H ")
+                .define('R', ModItems.REFINED_MALACHITE.get())
+                .define('M', ModItems.REFINED_MOONSTONE.get())
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
                 .save(pWriter);
 
 

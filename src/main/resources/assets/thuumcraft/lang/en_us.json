@@ -22,11 +22,9 @@
 
 
   "item.thuumcraft.glass_sword": "Glass Sword",
-  "item.thuumcraft.glass_pickaxe": "Glass Pickaxe",
-  "item.thuumcraft.glass_axe": "Glass Axe",
+  "item.thuumcraft.glass_war_axe": "Glass War Axe",
   "item.thuumcraft.dwarven_sword": "Dwarven Sword",
-  "item.thuumcraft.dwarven_pickaxe": "Dwarven Pickaxe",
-  "item.thuumcraft.dwarven_axe": "Dwarven Axe",
+  "item.thuumcraft.dwarven_war_axe": "Dwarven War Axe",
   "item.thuumcraft.steel_sword": "Steel Sword",
 
   "item.thuumcraft.juniper_berries": "Juniper Berries",

@@ -3,7 +3,6 @@ package net.apotheoticstudios.thuumcraft.item;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -56,16 +55,12 @@ public class ModItems {
 
     public static final RegistryObject<Item> GLASS_SWORD = ITEMS.register("glass_sword",
             () -> new SwordItem(ModToolTiers.GLASS, 3, -2.4f, new Item.Properties()));
-    public static final RegistryObject<Item> GLASS_PICKAXE = ITEMS.register("glass_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.GLASS, 1, -2.8f, new Item.Properties()));
-    public static final RegistryObject<Item> GLASS_AXE = ITEMS.register("glass_axe",
+    public static final RegistryObject<Item> GLASS_WAR_AXE = ITEMS.register("glass_war_axe",
             () -> new AxeItem(ModToolTiers.GLASS, 5, -3, new Item.Properties()));
 
     public static final RegistryObject<Item> DWARVEN_SWORD = ITEMS.register("dwarven_sword",
             () -> new SwordItem(ModToolTiers.DWARVEN, 3, -2.4f, new Item.Properties()));
-    public static final RegistryObject<Item> DWARVEN_PICKAXE = ITEMS.register("dwarven_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.DWARVEN, 1, -2.8f, new Item.Properties()));
-    public static final RegistryObject<Item> DWARVEN_AXE = ITEMS.register("dwarven_axe",
+    public static final RegistryObject<Item> DWARVEN_WAR_AXE = ITEMS.register("dwarven_war_axe",
             () -> new AxeItem(ModToolTiers.DWARVEN, 5, -3, new Item.Properties()));
 
     public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword",

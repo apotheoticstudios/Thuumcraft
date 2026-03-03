@@ -6,7 +6,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -29,13 +28,11 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.REFINED_MALACHITE.get());
 
                         pOutput.accept(ModItems.GLASS_SWORD.get());
-                        pOutput.accept(ModItems.GLASS_PICKAXE.get());
-                        pOutput.accept(ModItems.GLASS_AXE.get());
+                        pOutput.accept(ModItems.GLASS_WAR_AXE.get());
 
                         pOutput.accept(ModItems.DWARVEN_METAL_INGOT.get());
                         pOutput.accept(ModItems.DWARVEN_SWORD.get());
-                        pOutput.accept(ModItems.DWARVEN_PICKAXE.get());
-                        pOutput.accept(ModItems.DWARVEN_AXE.get());
+                        pOutput.accept(ModItems.DWARVEN_WAR_AXE.get());
 
                         pOutput.accept(ModItems.CORUNDUM_ORE.get());
                         pOutput.accept(ModItems.CORUNDUM_INGOT.get());
@@ -53,7 +50,6 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
-
 
                     })
                     .build());

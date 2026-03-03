@@ -37,12 +37,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.JUNIPER_BERRIES);
 
         handheldItem(ModItems.GLASS_SWORD);
-        handheldItem(ModItems.GLASS_PICKAXE);
-        handheldItem(ModItems.GLASS_AXE);
+        handheldItem(ModItems.GLASS_WAR_AXE);
 
         handheldItem(ModItems.DWARVEN_SWORD);
-        handheldItem(ModItems.DWARVEN_PICKAXE);
-        handheldItem(ModItems.DWARVEN_AXE);
+        handheldItem(ModItems.DWARVEN_WAR_AXE);
 
         handheldItem(ModItems.STEEL_SWORD);
 

@@ -15,6 +15,10 @@ public class ModTags {
 
         public static final TagKey<Block> NEEDS_DWARVEN_TOOL = tag("needs_dwarven_tool");
 
+        public static final TagKey<Block> NEEDS_STEEL_TOOL = tag("needs_dwarven_tool");
+
+        public static final TagKey<Block> NEEDS_EBONY_TOOL = tag("needs_ebony_tool");
+
 
         private static TagKey<Block> tag(String name){
             return BlockTags.create(ResourceLocation.tryBuild(Thuumcraft.MOD_ID,name));

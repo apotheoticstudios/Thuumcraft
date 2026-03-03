@@ -47,6 +47,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL);
 
 
+        this.tag(ModTags.Blocks.NEEDS_STEEL_TOOL);
+
+
+        this.tag(ModTags.Blocks.NEEDS_EBONY_TOOL);
+
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.REFINED_MALACHITE_BLOCK.get(),
                         ModBlocks.MALACHITE_ORE_VEIN.get(),

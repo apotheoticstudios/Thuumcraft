@@ -37,6 +37,23 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.DWARVEN_PICKAXE.get());
                         pOutput.accept(ModItems.DWARVEN_AXE.get());
 
+                        pOutput.accept(ModItems.CORUNDUM_ORE.get());
+                        pOutput.accept(ModItems.CORUNDUM_INGOT.get());
+
+                        pOutput.accept(ModItems.STEEL_INGOT.get());
+                        pOutput.accept(ModItems.STEEL_SWORD.get());
+
+                        pOutput.accept(ModItems.MOONSTONE_ORE.get());
+                        pOutput.accept(ModItems.SILVER_ORE.get());
+                        pOutput.accept(ModItems.ORICHALCUM_ORE.get());
+                        pOutput.accept(ModItems.EBONY_ORE.get());
+                        pOutput.accept(ModItems.REFINED_MOONSTONE.get());
+                        pOutput.accept(ModItems.SILVER_INGOT.get());
+                        pOutput.accept(ModItems.EBONY_INGOT.get());
+
+                        pOutput.accept(ModItems.LEATHER_STRIPS.get());
+
+
                     })
                     .build());
 

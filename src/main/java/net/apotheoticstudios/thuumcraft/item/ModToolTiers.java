@@ -22,4 +22,16 @@ public class ModToolTiers {
                     ModTags.Blocks.NEEDS_DWARVEN_TOOL, () -> Ingredient.of(ModItems.DWARVEN_METAL_INGOT.get())),
                     new ResourceLocation(Thuumcraft.MOD_ID,"dwarven"), List.of(Tiers.STONE), List.of());
 
+    public static final Tier STEEL = TierSortingRegistry.registerTier(
+            new ForgeTier(2, 800, 5, 2f, 8,
+                    ModTags.Blocks.NEEDS_STEEL_TOOL, () -> Ingredient.of(ModItems.STEEL_INGOT.get())),
+            new ResourceLocation(Thuumcraft.MOD_ID,"steel"), List.of(Tiers.STONE), List.of());
+
+    public static final Tier EBONY = TierSortingRegistry.registerTier(
+            new ForgeTier(4, 2000, 7, 4f, 20,
+                    ModTags.Blocks.NEEDS_EBONY_TOOL, () -> Ingredient.of(ModItems.EBONY_INGOT.get())),
+            new ResourceLocation(Thuumcraft.MOD_ID,"ebony"), List.of(Tiers.DIAMOND), List.of());
+
+
+
 }

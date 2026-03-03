@@ -6,6 +6,18 @@
   "item.thuumcraft.refined_malachite": "Refined Malachite",
   "item.thuumcraft.malachite_ore": "Malachite Ore",
   "item.thuumcraft.dwarven_metal_ingot": "Dwarven Metal Ingot",
+  "item.thuumcraft.corundum_ore": "Corundum Ore",
+  "item.thuumcraft.corundum_ingot": "Corundum Ingot",
+  "item.thuumcraft.steel_ingot": "Steel Ingot",
+  "item.thuumcraft.moonstone_ore": "Moonstone Ore",
+  "item.thuumcraft.silver_ore": "Silver Ore",
+  "item.thuumcraft.orichalcum_ore": "Orichalcum Ore",
+  "item.thuumcraft.ebony_ore": "Ebony Ore",
+  "item.thuumcraft.refined_moonstone": "Refined Moonstone",
+  "item.thuumcraft.silver_ingot": "Silver Ingot",
+  "item.thuumcraft.ebony_ingot": "Ebony Ingot",
+
+  "item.thuumcraft.leather_strips": "Leather Strips",
 
   "item.thuumcraft.glass_sword": "Glass Sword",
   "item.thuumcraft.glass_pickaxe": "Glass Pickaxe",
@@ -13,8 +25,10 @@
   "item.thuumcraft.dwarven_sword": "Dwarven Sword",
   "item.thuumcraft.dwarven_pickaxe": "Dwarven Pickaxe",
   "item.thuumcraft.dwarven_axe": "Dwarven Axe",
+  "item.thuumcraft.steel_sword": "Steel Sword",
 
   "item.thuumcraft.juniper_berries": "Juniper Berries",
+
 
   "creativetab.thuumcraft_tab": "Thu'umcraft"
 }

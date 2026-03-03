@@ -20,6 +20,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.REFINED_MALACHITE);
         simpleItem(ModItems.MALACHITE_ORE);
         simpleItem(ModItems.DWARVEN_METAL_INGOT);
+        simpleItem(ModItems.CORUNDUM_ORE);
+        simpleItem(ModItems.CORUNDUM_INGOT);
+        simpleItem(ModItems.STEEL_INGOT);
+        simpleItem(ModItems.MOONSTONE_ORE);
+        simpleItem(ModItems.SILVER_ORE);
+        simpleItem(ModItems.ORICHALCUM_ORE);
+        simpleItem(ModItems.EBONY_ORE);
+        simpleItem(ModItems.REFINED_MOONSTONE);
+        simpleItem(ModItems.SILVER_INGOT);
+        simpleItem(ModItems.EBONY_INGOT);
+
+        simpleItem(ModItems.LEATHER_STRIPS);
 
         simpleItem(ModItems.JUNIPER_BERRIES);
 
@@ -30,6 +42,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.DWARVEN_SWORD);
         handheldItem(ModItems.DWARVEN_PICKAXE);
         handheldItem(ModItems.DWARVEN_AXE);
+
+        handheldItem(ModItems.STEEL_SWORD);
 
     }
 

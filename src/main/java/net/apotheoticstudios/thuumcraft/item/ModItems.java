@@ -18,8 +18,34 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DWARVEN_METAL_INGOT = ITEMS.register("dwarven_metal_ingot",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> REFINED_MOONSTONE = ITEMS.register("refined_moonstone",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EBONY_INGOT = ITEMS.register("ebony_ingot",
+            () -> new Item(new Item.Properties()));
+
+
+
 
     public static final RegistryObject<Item> MALACHITE_ORE = ITEMS.register("malachite_ore",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CORUNDUM_ORE = ITEMS.register("corundum_ore",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CORUNDUM_INGOT = ITEMS.register("corundum_ingot",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MOONSTONE_ORE = ITEMS.register("moonstone_ore",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_ORE = ITEMS.register("silver_ore",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ORICHALCUM_ORE = ITEMS.register("orichalcum_ore",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EBONY_ORE = ITEMS.register("ebony_ore",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LEATHER_STRIPS = ITEMS.register("leather_strips",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> JUNIPER_BERRIES = ITEMS.register("juniper_berries",
@@ -38,6 +64,12 @@ public class ModItems {
             () -> new PickaxeItem(ModToolTiers.DWARVEN, 1, -2.8f, new Item.Properties()));
     public static final RegistryObject<Item> DWARVEN_AXE = ITEMS.register("dwarven_axe",
             () -> new AxeItem(ModToolTiers.DWARVEN, 5, -3, new Item.Properties()));
+
+    public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword",
+            () -> new SwordItem(ModToolTiers.STEEL, 3, -2.4f, new Item.Properties()));
+
+
+
 
 
 

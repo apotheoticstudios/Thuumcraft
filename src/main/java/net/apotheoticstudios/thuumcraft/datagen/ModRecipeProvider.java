@@ -50,13 +50,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModBlocks.REFINED_MALACHITE_BLOCK.get()), has(ModBlocks.REFINED_MALACHITE_BLOCK.get()))
                 .save(pWriter);
 
-        //INGOTS
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL_INGOT.get())
-                .requires(ModItems.CORUNDUM_INGOT.get())
-                .requires(Items.IRON_INGOT)
-                .unlockedBy(getHasName(ModItems.CORUNDUM_INGOT.get()), has(ModItems.CORUNDUM_INGOT.get()))
-                .save(pWriter);
-
         //HANDLE
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HANDLE.get())
                 .pattern("   ")
@@ -67,7 +60,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.LEATHER_STRIPS.get()), has(ModItems.LEATHER_STRIPS.get()))
                 .save(pWriter);
 
-        //STEEL
+        //INGOTS
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL_INGOT.get())
+                .requires(ModItems.CORUNDUM_INGOT.get())
+                .requires(Items.IRON_INGOT)
+                .unlockedBy(getHasName(ModItems.CORUNDUM_INGOT.get()), has(ModItems.CORUNDUM_INGOT.get()))
+                .save(pWriter);
+
+
+        //SWORDS
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD.get())
                 .pattern(" S ")
                 .pattern(" S ")
@@ -77,7 +78,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.STEEL_INGOT.get()), has(ModItems.STEEL_INGOT.get()))
                 .save(pWriter);
 
-        //GLASS
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GLASS_SWORD.get())
                 .pattern(" R ")
                 .pattern(" M ")
@@ -87,6 +87,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('H', ModItems.HANDLE.get())
                 .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
                 .save(pWriter);
+
+        //WAR AXES
+
 
 
     }

@@ -32,6 +32,14 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
                     .strength(3f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST), UniformInt.of(1, 4)));
 
+    public static final RegistryObject<Block> CORUNDUM_ORE_VEIN = registerBlock("corundum_ore_vein",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f).requiresCorrectToolForDrops().sound(SoundType.COPPER), UniformInt.of(1, 3)));
+    public static final RegistryObject<Block> DEEPSLATE_CORUNDUM_ORE_VEIN = registerBlock("deepslate_corundum_ore_vein",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(3f).requiresCorrectToolForDrops().sound(SoundType.COPPER), UniformInt.of(1, 4)));
+
+
 
 
 

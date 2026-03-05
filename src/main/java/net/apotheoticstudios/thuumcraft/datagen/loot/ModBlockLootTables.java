@@ -21,12 +21,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         this.dropSelf(ModBlocks.REFINED_MALACHITE_BLOCK.get());
 
-
-
         this.add(ModBlocks.MALACHITE_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.MALACHITE_ORE_VEIN.get(), ModItems.MALACHITE_ORE.get()));
         this.add(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get(), ModItems.MALACHITE_ORE.get()));
+
+        this.add(ModBlocks.CORUNDUM_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.CORUNDUM_ORE_VEIN.get(), ModItems.CORUNDUM_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get(), ModItems.CORUNDUM_ORE.get()));
     }
 
 

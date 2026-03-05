@@ -26,6 +26,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private static final List<ItemLike> MALACHITE_SMELTABLES = List.of(ModItems.MALACHITE_ORE.get(),
             ModBlocks.MALACHITE_ORE_VEIN.get(), ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get());
 
+    private static final List<ItemLike> CORUNDUM_SMELTABLES = List.of(ModItems.CORUNDUM_ORE.get(),
+            ModBlocks.CORUNDUM_ORE_VEIN.get(), ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
+
+
     public ModRecipeProvider(PackOutput pOutput) {
         super(pOutput);
     }
@@ -61,6 +65,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
         //INGOTS
+        oreSmelting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_ORE.get(), 0.6f, 300, "corundum_ore");
+        oreBlasting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_ORE.get(), 0.6f, 150, "corundum_ore");
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL_INGOT.get())
                 .requires(ModItems.CORUNDUM_INGOT.get())
                 .requires(Items.IRON_INGOT)

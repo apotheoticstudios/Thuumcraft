@@ -34,6 +34,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.DWARVEN_SWORD.get());
                         pOutput.accept(ModItems.DWARVEN_WAR_AXE.get());
 
+                        pOutput.accept(ModBlocks.CORUNDUM_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
                         pOutput.accept(ModItems.CORUNDUM_ORE.get());
                         pOutput.accept(ModItems.CORUNDUM_INGOT.get());
 

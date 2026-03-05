@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -19,6 +20,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.REFINED_MALACHITE_BLOCK);
         blockWithItem(ModBlocks.MALACHITE_ORE_VEIN);
         blockWithItem(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN);
+        blockWithItem(ModBlocks.CORUNDUM_ORE_VEIN);
+        blockWithItem(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

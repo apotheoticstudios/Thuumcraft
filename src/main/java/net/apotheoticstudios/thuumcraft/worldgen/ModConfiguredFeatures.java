@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_MALACHITE_ORE_KEY = registerKey("malachite_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_CORUNDUM_ORE_KEY = registerKey("corundum_ore");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
@@ -25,10 +26,14 @@ public class ModConfiguredFeatures {
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
         List<OreConfiguration.TargetBlockState> overworldMalachiteOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
-                ModBlocks.MALACHITE_ORE_VEIN.get().defaultBlockState()),
+                        ModBlocks.MALACHITE_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get().defaultBlockState()));
+        register(context, OVERWORLD_MALACHITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMalachiteOreVeins, 4));
 
-        register(context, OVERWORLD_MALACHITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMalachiteOreVeins, 5));
+        List<OreConfiguration.TargetBlockState> overworldCorundumOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
+                        ModBlocks.CORUNDUM_ORE_VEIN.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get().defaultBlockState()));
+        register(context, OVERWORLD_CORUNDUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCorundumOreVeins, 5));
 
 
     }

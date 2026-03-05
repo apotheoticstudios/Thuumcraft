@@ -28,7 +28,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.REFINED_MALACHITE_BLOCK.get(),
                         ModBlocks.MALACHITE_ORE_VEIN.get(),
-                        ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get()
+                        ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get(),
+
+                        ModBlocks.CORUNDUM_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get()
+
 
 
                         );
@@ -56,7 +60,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.REFINED_MALACHITE_BLOCK.get(),
                         ModBlocks.MALACHITE_ORE_VEIN.get(),
-                        ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get()
+                        ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get(),
+
+                        ModBlocks.CORUNDUM_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get()
+
 
 
                         );

@@ -2,6 +2,7 @@ package net.apotheoticstudios.thuumcraft;
 
 import com.mojang.logging.LogUtils;
 import net.apotheoticstudios.thuumcraft.block.ModBlocks;
+import net.apotheoticstudios.thuumcraft.entity.ModEntities;
 import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
@@ -30,6 +31,8 @@ public class Thuumcraft {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

@@ -6,6 +6,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ModModelLayers {
     public static final ModelLayerLocation DRAUGR_LAYER = new ModelLayerLocation(
-            new ResourceLocation(Thuumcraft.MOD_ID, "draugr_layer"), "main")
-    )
+            new ResourceLocation(Thuumcraft.MOD_ID, "draugr_layer"), "main");
+
 }

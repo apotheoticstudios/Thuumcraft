@@ -3,11 +3,14 @@ package net.apotheoticstudios.thuumcraft;
 import com.mojang.logging.LogUtils;
 import net.apotheoticstudios.thuumcraft.block.ModBlocks;
 import net.apotheoticstudios.thuumcraft.entity.ModEntities;
+import net.apotheoticstudios.thuumcraft.entity.client.DraugrRenderer;
 import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -62,7 +65,7 @@ public class Thuumcraft {
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.DRAUGR.get(), DraugrRenderer::new);
         }
     }
 }

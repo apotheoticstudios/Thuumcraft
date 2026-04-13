@@ -1,0 +1,9 @@
+// 1.20.1	2026-04-13T20:02:05.821968	Tags for minecraft:block mod id thuumcraft
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/forge/tags/blocks/needs_netherite_tool.json
+2c2f751a24b5fda840d1dc5dd812c7b50743290d data/minecraft/tags/blocks/mineable/pickaxe.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_diamond_tool.json
+2c2f751a24b5fda840d1dc5dd812c7b50743290d data/minecraft/tags/blocks/needs_iron_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_stone_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/thuumcraft/tags/blocks/needs_dwarven_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/thuumcraft/tags/blocks/needs_ebony_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/thuumcraft/tags/blocks/needs_malachite_tool.json

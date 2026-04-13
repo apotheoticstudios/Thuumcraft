@@ -1,0 +1,7 @@
+// 1.20.1	2026-04-13T20:02:05.822756	Registries
+2c6edc09babd2c86f0607dcc956eff57cd27978c data/thuumcraft/forge/biome_modifier/add_corundum_ore_vein.json
+ae14dab908bad4dd6d44081a218d80f7a745b0ca data/thuumcraft/forge/biome_modifier/add_malachite_ore_vein.json
+084bf7c97ee9808ac94777848f989b26bca9e4e9 data/thuumcraft/worldgen/configured_feature/corundum_ore.json
+a8892e535927657e66559a8f369122536559aa00 data/thuumcraft/worldgen/configured_feature/malachite_ore.json
+3afff3d38db8327b6a10e108bfe6eae978d68cf7 data/thuumcraft/worldgen/placed_feature/corundum_ore_vein_placed.json
+098245632d33608fd03667a3042e704e7ad945d8 data/thuumcraft/worldgen/placed_feature/malachite_ore_vein_placed.json

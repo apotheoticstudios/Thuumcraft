@@ -20,6 +20,8 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class DraugrEntity extends Monster {
+    private static final int ATTACK_ANIMATION_LENGTH = 10;
+
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(DraugrEntity.class, EntityDataSerializers.BOOLEAN);
 
@@ -32,6 +34,7 @@ public class DraugrEntity extends Monster {
 
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
+    private boolean wasAttacking = false;
 
 
     @Override
@@ -52,16 +55,23 @@ public class DraugrEntity extends Monster {
 
         }
 
-        if(this.isAttacking() && attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 10; // Length in ticks of animation
-            attackAnimationState.start(this.tickCount);
+        if (this.isAttacking()) {
+            if (!this.wasAttacking) {
+                attackAnimationTimeout = ATTACK_ANIMATION_LENGTH;
+                attackAnimationState.start(this.tickCount);
+            } else if (attackAnimationTimeout > 0) {
+                --this.attackAnimationTimeout;
+            }
         } else {
-            --this.attackAnimationTimeout;
-        }
-
-        if(!this.isAttacking()) {
+            attackAnimationTimeout = 0;
             attackAnimationState.stop();
         }
+
+        if (attackAnimationTimeout <= 0 && this.wasAttacking && !this.isAttacking()) {
+            attackAnimationState.stop();
+        }
+
+        this.wasAttacking = this.isAttacking();
     }
 
     @Override
@@ -93,7 +103,8 @@ public class DraugrEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Animal.class, 8.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.addBehaviourGoals();
     }

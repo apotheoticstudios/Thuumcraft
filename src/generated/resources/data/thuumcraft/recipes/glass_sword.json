@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "thuumcraft:handle"
+    },
+    "M": {
+      "item": "thuumcraft:refined_moonstone"
+    },
+    "R": {
+      "item": "thuumcraft:refined_malachite"
+    }
+  },
+  "pattern": [
+    " R ",
+    " M ",
+    " H "
+  ],
+  "result": {
+    "item": "thuumcraft:glass_sword"
+  },
+  "show_notification": true
+}

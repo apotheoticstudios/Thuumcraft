@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_corundum_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thuumcraft:corundum_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thuumcraft:corundum_ore_from_smelting_corundum_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_corundum_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thuumcraft:corundum_ore_from_smelting_corundum_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

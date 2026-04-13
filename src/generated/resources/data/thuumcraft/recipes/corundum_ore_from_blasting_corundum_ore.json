@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.6,
+  "group": "corundum_ore",
+  "ingredient": {
+    "item": "thuumcraft:corundum_ore"
+  },
+  "result": "thuumcraft:corundum_ore"
+}

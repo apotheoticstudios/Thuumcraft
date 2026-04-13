@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "thuumcraft:malachite_ore_vein_placed",
+  "step": "underground_ores"
+}

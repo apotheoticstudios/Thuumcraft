@@ -8,10 +8,12 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class DraugrAttackGoal extends MeleeAttackGoal {
+    private static final int ATTACK_ANIMATION_TICKS = 10;
+    private static final int ATTACK_COOLDOWN_TICKS = 40;
+
     private final DraugrEntity entity;
-    private int attackDelay = 4;
     private int ticksUntilNextAttack = 6;
-    private boolean shouldCountTillNextAttack = true;
+    private boolean shouldCountTillNextAttack = false;
 
     public DraugrAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
         super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
@@ -21,18 +23,16 @@ public class DraugrAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = 4;
         ticksUntilNextAttack = 6;
+        shouldCountTillNextAttack = false;
+        entity.setAttacking(false);
     }
 
     @Override
     protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
         if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
             shouldCountTillNextAttack = true;
-
-            if(isTimeToStartAttackAnimation()) {
-                entity.setAttacking(true);
-            }
+            entity.setAttacking(isTimeToStartAttackAnimation());
 
             if(isTimeToAttack()) {
                 this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
@@ -40,7 +40,7 @@ public class DraugrAttackGoal extends MeleeAttackGoal {
             }
         } else {
             resetAttackCooldown();
-            shouldCountTillNextAttack = true;
+            shouldCountTillNextAttack = false;
             entity.setAttacking(false);
             entity.attackAnimationTimeout = 0;
         }
@@ -51,7 +51,7 @@ public class DraugrAttackGoal extends MeleeAttackGoal {
     }
 
     protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay * 2);
+        this.ticksUntilNextAttack = this.adjustedTickDelay(ATTACK_COOLDOWN_TICKS);
     }
 
     protected boolean isTimeToAttack() {
@@ -59,7 +59,7 @@ public class DraugrAttackGoal extends MeleeAttackGoal {
     }
 
     protected boolean isTimeToStartAttackAnimation() {
-        return this.ticksUntilNextAttack <= attackDelay;
+        return this.ticksUntilNextAttack <= ATTACK_ANIMATION_TICKS;
     }
 
     protected int getTicksUntilNextAttack() {

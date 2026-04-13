@@ -1,0 +1,6 @@
+// 1.20.1	2026-04-13T20:02:05.82217	Loot Tables
+4a78bbe69e26f40656a6c755d0e4b4d49bf692db data/thuumcraft/loot_tables/blocks/corundum_ore_vein.json
+e04d18e26020ac0394bcfbca720b377f01859b13 data/thuumcraft/loot_tables/blocks/deepslate_corundum_ore_vein.json
+11984bfc97a45208a0e908e401a993d107b0d63c data/thuumcraft/loot_tables/blocks/deepslate_malachite_ore_vein.json
+ca94b304ae60b38a0888ce95024ad9b27618ae1b data/thuumcraft/loot_tables/blocks/malachite_ore_vein.json
+371cac9d2f1a9c0a43ce2c2c98c0772608fde371 data/thuumcraft/loot_tables/blocks/refined_malachite_block.json

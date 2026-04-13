@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.6,
+  "group": "corundum_ore",
+  "ingredient": {
+    "item": "thuumcraft:deepslate_corundum_ore_vein"
+  },
+  "result": "thuumcraft:corundum_ore"
+}

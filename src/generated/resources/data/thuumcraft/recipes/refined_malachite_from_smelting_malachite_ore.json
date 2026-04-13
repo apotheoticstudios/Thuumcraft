@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "refined_malachite",
+  "ingredient": {
+    "item": "thuumcraft:malachite_ore"
+  },
+  "result": "thuumcraft:refined_malachite"
+}

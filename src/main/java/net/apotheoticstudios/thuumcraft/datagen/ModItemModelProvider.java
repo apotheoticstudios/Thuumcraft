@@ -44,6 +44,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         handheldItem(ModItems.STEEL_SWORD);
 
+        withExistingParent(ModItems.DRAUGR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

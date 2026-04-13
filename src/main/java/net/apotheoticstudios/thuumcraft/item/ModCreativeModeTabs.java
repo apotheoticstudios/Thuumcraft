@@ -55,6 +55,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
 
+                        pOutput.accept(ModItems.DRAUGR_SPAWN_EGG.get());
+
+
                     })
                     .build());
 

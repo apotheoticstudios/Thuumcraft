@@ -6,7 +6,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -19,7 +18,6 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -106,7 +104,7 @@ public class GiantEntity extends Monster {
 
     @Override
     public int getExperienceReward() {
-        return 40;
+        return 60;
     }
 
     @Override
@@ -127,7 +125,7 @@ public class GiantEntity extends Monster {
                 add(Attributes.MAX_HEALTH, 100.0D).
                 add(Attributes.MOVEMENT_SPEED, (double) 0.43F).
                 add(Attributes.ATTACK_DAMAGE, 30.0D).
-                add(Attributes.ATTACK_KNOCKBACK, 4.0D).
+                add(Attributes.ATTACK_KNOCKBACK, 6.0D).
                 add(Attributes.ARMOR, 6.0D);
     }
 

@@ -4,7 +4,10 @@ import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.entity.ModEntities;
 import net.apotheoticstudios.thuumcraft.entity.custom.DraugrEntity;
 import net.apotheoticstudios.thuumcraft.entity.custom.GiantEntity;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -16,4 +19,6 @@ public class ModEventBusEvents {
         event.put(ModEntities.DRAUGR.get(), DraugrEntity.createAttributes().build());
         event.put(ModEntities.GIANT.get(), GiantEntity.createAttributes().build());
     }
+
+
 }

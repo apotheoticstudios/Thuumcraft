@@ -1,0 +1,14 @@
+{
+  "giant_idle": {
+    "subtitle": "Giant Grumbles",
+    "sounds": [ "thuumcraft:giant_idle" ]
+  },
+  "giant_damaged": {
+    "subtitle": "Giant Hurt",
+    "sounds": [ "thuumcraft:giant_damaged" ]
+  },
+  "giant_death": {
+    "subtitle": "Giant Dies",
+    "sounds": [ "thuumcraft:giant_death" ]
+  }
+}

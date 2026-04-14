@@ -56,6 +56,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.HANDLE.get());
 
                         pOutput.accept(ModItems.DRAUGR_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.GIANT_SPAWN_EGG.get());
 
 
                     })

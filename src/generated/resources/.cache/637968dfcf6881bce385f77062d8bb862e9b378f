@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-13T20:02:05.821134	Item Models: thuumcraft
+// 1.20.1	2026-04-14T11:34:54.497885	Item Models: thuumcraft
 96348a8cb7afd84dad51dff7eba092188caf4c4c assets/thuumcraft/models/item/corundum_ingot.json
 0ce5581e7d4237bca43622c4b01653406c96af04 assets/thuumcraft/models/item/corundum_ore.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/thuumcraft/models/item/draugr_spawn_egg.json
@@ -7,6 +7,7 @@ b6f335d6a209d116738a1b107dbccff125811288 assets/thuumcraft/models/item/dwarven_m
 57ae8183728911709e507be2318d132f6cab664c assets/thuumcraft/models/item/dwarven_war_axe.json
 966edd8378632d9cd57202199ab0804484c8b6b4 assets/thuumcraft/models/item/ebony_ingot.json
 94bcdff52e97400d2e47681b14e247205c5b46ce assets/thuumcraft/models/item/ebony_ore.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/thuumcraft/models/item/giant_spawn_egg.json
 bb2a2d2f778b8f8cd404e81c814e293db62e07eb assets/thuumcraft/models/item/glass_sword.json
 1d89400568ef57be6434c96ce05fdab8682f9276 assets/thuumcraft/models/item/glass_war_axe.json
 2dc53254c01a60bc4106386884fb461b8c43a8da assets/thuumcraft/models/item/handle.json

@@ -8,6 +8,7 @@ import net.apotheoticstudios.thuumcraft.entity.client.GiantRenderer;
 import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
+import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,6 +38,8 @@ public class Thuumcraft {
         ModBlocks.register(modEventBus);
 
         ModEntities.register(modEventBus);
+
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

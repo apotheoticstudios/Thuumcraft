@@ -32,6 +32,10 @@
   "item.thuumcraft.juniper_berries": "Juniper Berries",
 
   "item.thuumcraft.draugr_spawn_egg": "Draugr Spawn Egg",
+  "item.thuumcraft.giant_spawn_egg": "Giant Spawn Egg",
+
+  "entity.thuumcraft.giant": "Giant",
+  "entity.thuumcraft.draugr": "Draugr",
 
 
   "creativetab.thuumcraft_tab": "Thu'umcraft"

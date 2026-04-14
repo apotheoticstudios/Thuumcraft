@@ -72,6 +72,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> DRAUGR_SPAWN_EGG = ITEMS.register("draugr_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.DRAUGR, 0x7e9680, 0xc5d1c5, new Item.Properties()));
+    public static final RegistryObject<Item> GIANT_SPAWN_EGG = ITEMS.register("giant_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.GIANT, 0x805009, 0xbf9521, new Item.Properties()));
 
 
 

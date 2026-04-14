@@ -1,6 +1,5 @@
 package net.apotheoticstudios.thuumcraft.entity.ai;
 
-import net.apotheoticstudios.thuumcraft.entity.custom.DraugrEntity;
 import net.apotheoticstudios.thuumcraft.entity.custom.GiantEntity;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
@@ -8,10 +7,14 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class GiantAttackGoal extends MeleeAttackGoal {
+    private static final int ATTACK_ANIMATION_TICKS = 35;
+    private static final int ATTACK_DAMAGE_TICK = 18;
+    private static final int ATTACK_RECOVERY_TICKS = 18;
+
     private final GiantEntity entity;
-    private int attackDelay = 40;
-    private int ticksUntilNextAttack = 40;
-    private boolean shouldCountTillNextAttack = false;
+    private int attackAnimationTick = 0;
+    private int attackRecoveryTicks = 0;
+    private boolean hasAppliedDamage = false;
 
     public GiantAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
         super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
@@ -21,27 +24,42 @@ public class GiantAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = 40;
-        ticksUntilNextAttack = 40;
+        this.attackAnimationTick = 0;
+        this.attackRecoveryTicks = 0;
+        this.hasAppliedDamage = false;
+        this.entity.setAttacking(false);
     }
 
     @Override
     protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
         if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
-            shouldCountTillNextAttack = true;
+            this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
 
-            if(isTimeToStartAttackAnimation()) {
-                entity.setAttacking(true);
-            }
+            if (this.entity.isAttacking()) {
+                this.attackAnimationTick++;
 
-            if(isTimeToAttack()) {
-                this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-                performAttack(pEnemy);
+                if (!this.hasAppliedDamage && this.attackAnimationTick >= ATTACK_DAMAGE_TICK) {
+                    this.hasAppliedDamage = true;
+                    performAttack(pEnemy);
+                }
+
+                if (this.attackAnimationTick >= ATTACK_ANIMATION_TICKS) {
+                    this.entity.setAttacking(false);
+                    this.attackAnimationTick = 0;
+                    this.attackRecoveryTicks = ATTACK_RECOVERY_TICKS;
+                }
+            } else if (this.attackRecoveryTicks > 0) {
+                this.attackRecoveryTicks--;
+            } else {
+                this.entity.setAttacking(true);
+                this.attackAnimationTick = 0;
+                this.hasAppliedDamage = false;
             }
         } else {
-            resetAttackCooldown();
-            shouldCountTillNextAttack = false;
-            entity.setAttacking(false);
+            this.attackAnimationTick = 0;
+            this.attackRecoveryTicks = 0;
+            this.hasAppliedDamage = false;
+            this.entity.setAttacking(false);
         }
     }
 
@@ -49,40 +67,21 @@ public class GiantAttackGoal extends MeleeAttackGoal {
         return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
     }
 
-    protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay * 2);
-    }
-
-    protected boolean isTimeToAttack() {
-        return this.ticksUntilNextAttack <= 0;
-    }
-
-    protected boolean isTimeToStartAttackAnimation() {
-        return this.ticksUntilNextAttack <= attackDelay;
-    }
-
-    protected int getTicksUntilNextAttack() {
-        return this.ticksUntilNextAttack;
-    }
-
-
     protected void performAttack(LivingEntity pEnemy) {
-        this.resetAttackCooldown();
+        if (!this.mob.isAlive() || !pEnemy.isAlive()) {
+            return;
+        }
+
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
     }
 
     @Override
-    public void tick() {
-        super.tick();
-        if(shouldCountTillNextAttack) {
-            this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
-        }
-    }
-
-    @Override
     public void stop() {
-        entity.setAttacking(false);
+        this.attackAnimationTick = 0;
+        this.attackRecoveryTicks = 0;
+        this.hasAppliedDamage = false;
+        this.entity.setAttacking(false);
         super.stop();
     }
 }

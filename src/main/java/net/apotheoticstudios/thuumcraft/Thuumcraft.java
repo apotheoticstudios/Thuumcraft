@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.apotheoticstudios.thuumcraft.block.ModBlocks;
 import net.apotheoticstudios.thuumcraft.entity.ModEntities;
 import net.apotheoticstudios.thuumcraft.entity.client.DraugrRenderer;
+import net.apotheoticstudios.thuumcraft.entity.client.GiantRenderer;
 import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
@@ -66,6 +67,7 @@ public class Thuumcraft {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.DRAUGR.get(), DraugrRenderer::new);
+            EntityRenderers.register(ModEntities.GIANT.get(), GiantRenderer::new);
         }
     }
 }

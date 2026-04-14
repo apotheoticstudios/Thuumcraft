@@ -2,6 +2,7 @@ package net.apotheoticstudios.thuumcraft.event;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.entity.client.DraugrModel;
+import net.apotheoticstudios.thuumcraft.entity.client.GiantModel;
 import net.apotheoticstudios.thuumcraft.entity.client.ModModelLayers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -13,6 +14,7 @@ public class ModEventBusClientEvents {
     @SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.DRAUGR_LAYER, DraugrModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.GIANT_LAYER, GiantModel::createBodyLayer);
     }
 
 }

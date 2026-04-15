@@ -1,33 +1,33 @@
-[14Apr2026 15:03:59.642] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
-[14Apr2026 15:03:59.650] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 26.3.1
-[14Apr2026 15:03:59.767] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[14Apr2026 15:03:59.839] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/bowieconnors/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
-[14Apr2026 15:04:00.351] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.10/ccc533c7dd67e0983217197d7549c8b49e7ab453/javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[14Apr2026 15:04:00.354] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.10/e9a2879fe3612ea34b9728ec2633304a1e67d480/lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[14Apr2026 15:04:00.355] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.10/ec5cefbbc65c67302b8fac317010faab85fa14b9/mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[14Apr2026 15:04:00.357] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.10/94dae566be650566ea9115a1414ab76bfcf5a804/fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
-[14Apr2026 15:04:00.438] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[14Apr2026 15:04:02.007] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
-[14Apr2026 15:04:02.371] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [thuumcraft]
-[14Apr2026 15:04:07.305] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
-[14Apr2026 15:04:07.306] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
-[14Apr2026 15:04:07.545] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[14Apr2026 15:04:07.549] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 1.621 ms
-[14Apr2026 15:04:07.908] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
-[14Apr2026 15:04:07.909] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
-[14Apr2026 15:04:08.330] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[14Apr2026 15:04:08.452] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 120 ms
-[14Apr2026 15:04:08.452] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[14Apr2026 15:04:08.517] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 64 ms
-[14Apr2026 15:04:08.518] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: thuumcraft
-[14Apr2026 15:04:08.603] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: thuumcraft finished after 84 ms
-[14Apr2026 15:04:08.604] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: thuumcraft
-[14Apr2026 15:04:08.611] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: thuumcraft finished after 7 ms
-[14Apr2026 15:04:08.611] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id thuumcraft
-[14Apr2026 15:04:08.657] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id thuumcraft finished after 45 ms
-[14Apr2026 15:04:08.657] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id thuumcraft
-[14Apr2026 15:04:08.659] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id thuumcraft finished after 1 ms
-[14Apr2026 15:04:08.660] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[14Apr2026 15:04:08.676] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 16 ms
-[14Apr2026 15:04:08.676] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 346 ms
-[14Apr2026 15:04:08.684] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 94, old count: 94, new count: 95, removed stale: 0, written: 0
+[15Apr2026 15:17:50.080] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
+[15Apr2026 15:17:50.083] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 26.3.1
+[15Apr2026 15:17:50.142] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[15Apr2026 15:17:50.178] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/bowieconnors/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
+[15Apr2026 15:17:50.389] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.10/ccc533c7dd67e0983217197d7549c8b49e7ab453/javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[15Apr2026 15:17:50.390] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.10/e9a2879fe3612ea34b9728ec2633304a1e67d480/lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[15Apr2026 15:17:50.390] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.10/ec5cefbbc65c67302b8fac317010faab85fa14b9/mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[15Apr2026 15:17:50.391] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.10/94dae566be650566ea9115a1414ab76bfcf5a804/fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
+[15Apr2026 15:17:50.429] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[15Apr2026 15:17:51.264] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
+[15Apr2026 15:17:51.422] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [thuumcraft]
+[15Apr2026 15:17:53.941] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
+[15Apr2026 15:17:53.941] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
+[15Apr2026 15:17:54.081] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[15Apr2026 15:17:54.090] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 5.072 ms
+[15Apr2026 15:17:54.300] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
+[15Apr2026 15:17:54.300] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
+[15Apr2026 15:17:54.374] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[15Apr2026 15:17:54.395] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 20 ms
+[15Apr2026 15:17:54.395] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[15Apr2026 15:17:54.416] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 20 ms
+[15Apr2026 15:17:54.416] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: thuumcraft
+[15Apr2026 15:17:54.453] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: thuumcraft finished after 36 ms
+[15Apr2026 15:17:54.454] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: thuumcraft
+[15Apr2026 15:17:54.457] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: thuumcraft finished after 3 ms
+[15Apr2026 15:17:54.457] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id thuumcraft
+[15Apr2026 15:17:54.500] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id thuumcraft finished after 42 ms
+[15Apr2026 15:17:54.500] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id thuumcraft
+[15Apr2026 15:17:54.501] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id thuumcraft finished after 0 ms
+[15Apr2026 15:17:54.501] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[15Apr2026 15:17:54.506] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 5 ms
+[15Apr2026 15:17:54.506] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 133 ms
+[15Apr2026 15:17:54.510] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 96, old count: 94, new count: 97, removed stale: 0, written: 2

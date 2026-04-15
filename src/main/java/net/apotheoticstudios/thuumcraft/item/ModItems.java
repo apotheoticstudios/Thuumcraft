@@ -69,6 +69,9 @@ public class ModItems {
     public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword",
             () -> new SwordItem(ModToolTiers.STEEL, 3, -2.4f, new Item.Properties()));
 
+    public static final RegistryObject<Item> SEPTIM = ITEMS.register("septim",
+            () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> DRAUGR_SPAWN_EGG = ITEMS.register("draugr_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.DRAUGR, 0x7e9680, 0xc5d1c5, new Item.Properties()));

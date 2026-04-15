@@ -35,5 +35,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
                 );
 
+        this.tag(Tags.Items.RAW_MATERIALS_GOLD)
+                .add(ModItems.SEPTIM.get()
+
+                );
     }
 }

@@ -3,10 +3,7 @@
   "biomes": [
     "minecraft:plains",
     "minecraft:jagged_peaks",
-    "minecraft:frozen_peaks",
-    "minecraft:stony_peaks",
-    "minecraft:snowy_slopes",
-    "minecraft:meadow"
+    "minecraft:stony_peaks"
   ],
   "spawners": {
     "type": "thuumcraft:giant",

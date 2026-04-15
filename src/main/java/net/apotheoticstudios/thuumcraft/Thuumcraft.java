@@ -29,6 +29,7 @@ public class Thuumcraft {
     public static final String MOD_ID = "thuumcraft";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+
     public Thuumcraft(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
@@ -47,7 +48,7 @@ public class Thuumcraft {
         modEventBus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(final FMLCommonSetupEvent event)  {
 
     }
 

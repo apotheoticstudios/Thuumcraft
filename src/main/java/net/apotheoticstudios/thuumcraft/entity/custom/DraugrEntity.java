@@ -124,7 +124,7 @@ public class DraugrEntity extends Monster {
                 add(Attributes.ATTACK_DAMAGE, 3.0D).
                 add(Attributes.ARMOR, 2.0D);
     }
-    
+
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
         return SoundEvents.HUSK_AMBIENT;

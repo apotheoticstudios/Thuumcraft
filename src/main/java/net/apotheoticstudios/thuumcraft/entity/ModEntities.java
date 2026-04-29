@@ -21,7 +21,7 @@ public class ModEntities {
                     .sized(1f, 2f).build("draugr"));
 
     public static final RegistryObject<EntityType<GiantEntity>> GIANT =
-            ENTITY_TYPES.register("giant", () -> EntityType.Builder.of(GiantEntity::new, MobCategory.CREATURE)
+            ENTITY_TYPES.register("giant", () -> EntityType.Builder.of(GiantEntity::new, MobCategory.MONSTER)
                     .sized(3f, 7f).build("giant"));
 
     public static void register(IEventBus eventBus) {

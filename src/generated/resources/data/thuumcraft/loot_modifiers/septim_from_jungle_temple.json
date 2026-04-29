@@ -6,5 +6,7 @@
       "loot_table_id": "minecraft:chests/jungle_temple"
     }
   ],
-  "item": "thuumcraft:septim"
+  "item": "thuumcraft:septim",
+  "max_count": 20,
+  "min_count": 2
 }

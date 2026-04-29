@@ -28,15 +28,13 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EBONY_INGOT = ITEMS.register("ebony_ingot",
             () -> new Item(new Item.Properties()));
-
-
+    public static final RegistryObject<Item> CORUNDUM_INGOT = ITEMS.register("corundum_ingot",
+            () -> new Item(new Item.Properties()));
 
 
     public static final RegistryObject<Item> MALACHITE_ORE = ITEMS.register("malachite_ore",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CORUNDUM_ORE = ITEMS.register("corundum_ore",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CORUNDUM_INGOT = ITEMS.register("corundum_ingot",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MOONSTONE_ORE = ITEMS.register("moonstone_ore",
             () -> new Item(new Item.Properties()));

@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class ModFoods {
     public static final FoodProperties JUNIPER_BERRIES = new FoodProperties.Builder().nutrition(1).fast().alwaysEat()
-            .saturationMod(0.2f).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 20), 1f).build();
+            .saturationMod(0.2f).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 30), 1f).build();
 
 
 }

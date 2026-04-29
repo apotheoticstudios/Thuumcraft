@@ -32,11 +32,20 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.REFINED_MALACHITE.get(),
                         ModItems.REFINED_MOONSTONE.get()
 
-
                 );
 
         this.tag(Tags.Items.RAW_MATERIALS_GOLD)
                 .add(ModItems.SEPTIM.get()
+
+                );
+
+        this.tag(Tags.Items.ORES)
+                .add(ModItems.ORICHALCUM_ORE.get(),
+                        ModItems.MALACHITE_ORE.get(),
+                        ModItems.CORUNDUM_ORE.get(),
+                        ModItems.EBONY_ORE.get(),
+                        ModItems.MOONSTONE_ORE.get(),
+                        ModItems.SILVER_ORE.get()
 
                 );
     }

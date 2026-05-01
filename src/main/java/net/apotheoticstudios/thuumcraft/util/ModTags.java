@@ -3,10 +3,14 @@ package net.apotheoticstudios.thuumcraft.util;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 
 public class ModTags {
     public static class Blocks {
@@ -35,4 +39,6 @@ public class ModTags {
             return ItemTags.create(ResourceLocation.tryBuild(Thuumcraft.MOD_ID,name));
         }
     }
+
+
 }

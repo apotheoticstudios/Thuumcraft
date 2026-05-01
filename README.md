@@ -16,7 +16,9 @@ _**Credits**_
 **Models**:
 
 - Apotheotic Studios
+- Drecxi
 
 **Animations**:
 
 - Apotheotic Studios
+- danilerts

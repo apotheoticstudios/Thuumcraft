@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"2 Mid Year, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"2 Mid Year, 2920\\\\nby Carlovac Townway\\\\n\\\\nBalmora, Morrowind The Imperial army is gathered to the south,\\\\\\\" said Cassyr. \\\\\\\"They are a two weeks march from Ald Iuval and Lake Coronati, heavily armored.\\\\\\\" Vivec nodded. Ald Iuval and its sister city on the other side of the lake Ald Malak were\\\"}\",\"{\\\"text\\\": \\\"strategically important fortresses. He had been expecting a move against them for some time. His captain pulled down a map of southwestern Morrowind from the wall and smoothed it out, fighting a gentle summer sea breeze wafting in from the open window.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"They were heavily armored, you say?\\\\\\\" asked the captain. \\\\\\\"Yes, sir,\\\\\\\" said Cassyr. \\\\\\\"They were camped out near Bethal Gray in the Heartland, and I saw nothing but Ebony, Dwarven, and Daedric armor, fine weaponry, and siege equipment.\\\\\\\" \\\\\\\"How about\\\"}\",\"{\\\"text\\\": \\\"spellcasters and boats?\\\\\\\" asked Vivec. \\\\\\\"A horde of battlemages,\\\\\\\" replied Cassyr. \\\\\\\"But no boats.\\\\\\\" \\\\\\\"As heavily armored as they are, it will take them at least two weeks, like you said, to get from Bethal Gray to Lake Coronati,\\\\\\\" Vivec studied the map\\\"}\",\"{\\\"text\\\": \\\"carefully. \\\\\\\"They'd be dragged down in the bogs if they then tried to circle around to Ald Marak from the north, so they must be planning to cross the straits here and take Ald Iuval. Then they'd proceed around the lake to the east and take Ald Marak from\\\"}\",\"{\\\"text\\\": \\\"the south.\\\\\\\" \\\\\\\"They'll be vulnerable along the straits,\\\\\\\" said the captain. \\\\\\\"Provided we strike when they are more than halfway across and can't retreat back to the Heartland.\\\\\\\" \\\\\\\"Your intelligence has once again served us well,\\\\\\\" said Vivec, smiling to\\\"}\",\"{\\\"text\\\": \\\"Cassyr. \\\\\\\"We will beat back the Imperial aggressors yet again.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

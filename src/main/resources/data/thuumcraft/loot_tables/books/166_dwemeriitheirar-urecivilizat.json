@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Dwemer Inquiries, Volume II\",author:\"Thelwe Ghelein, Scholar\",pages:[\"{\\\"text\\\": \\\"Dwemer Inquiries - Volume II - Their Architecture and Civilization\\\\nby Thelwe Ghelein, Scholar\\\\n\\\\nIn the Deep Halls, far from Men Forsaken Red Mountain, Twisted Kin Hail the Mind, Hail the Stone Dwarven Pride, Stronger than bone The limited written record supports the perception of the Deep Elves as culturally revering the pursuits of logic and\\\"}\",\"{\\\"text\\\": \\\"science. This stands in stark contrast to the belief system of most other mer cultures. When we imagine a society structured around such a central ideology, it seems reasonable that prolific scholars, especially in fields such as mathematics, metallurgy\\\"}\",\"{\\\"text\\\": \\\"or architecture, would be elevated to social status like that of clergy in a more mystically-inclined culture. The idea is supported by a fragment of Dwemeris text recovered from a colony in Skyrim - Irkgnthand - which I believe to be associated with the\\\"}\",\"{\\\"text\\\": \\\"Clan Rourken. The original Dwemeris and my translation Follow: Risen by order cousin-of-privilege Cuolec of Scheziline privileged duties. Clanhome building Hoagen Kultorra tradition to Hailed World shaper\\\\\\\" \\\\\\\"To raise granted-cousin Cuolec of privilege\\\"}\",\"{\\\"text\\\": \\\"with duties for family-home building Hoagen Kultorra\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

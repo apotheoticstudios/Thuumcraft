@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"15 Last Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"15 Last Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nFervinthil, Morrowind A late summer squall blew through the small village, darkening the sky except for flashing of lightning which leapt from cloud to cloud like acrobats. Water rushed down the narrow streets ankle-deep, and the Prince had to shout to\\\"}\",\"{\\\"text\\\": \\\"be heard by his captains but a few feet away from him. \\\\\\\"There's an inn up ahead! We'll wait there for the storm to pass before pressing on to Ald Lambasi!\\\\\\\" The inn was warm and dry, and bustling with business. Barmaids were rushing back and forth,\\\"}\",\"{\\\"text\\\": \\\"bringing greef and wine to a back room, evidently excited about a famous visitor. Someone who was attracting more attention than the mere heir to the Empire of Tamriel. Amused, Juilek watched them run until he overheard the name of \\\\\\\"Vivec.\\\\\\\" \\\\\\\"My Lord\\\"}\",\"{\\\"text\\\": \\\"Vivec,\\\\\\\" he said, bursting into the back room. \\\\\\\"You must believe me, I knew nothing about the attack on Black Gate until after it happened. We will, of course, be returning it to your care forthwith. I wrote you a letter to that effect at your palace in\\\"}\",\"{\\\"text\\\": \\\"Balmora, but obviously you're not there,\\\\\\\" he paused, taking in the many new faces in the room. \\\\\\\"I'm sorry, let me introduce myself. I'm Juilek Cyrodiil.\\\\\\\" \\\\\\\"My name is Almalexia,\\\\\\\" said the most beautiful woman the Prince had ever seen. \\\\\\\"Won't you join us?\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Sotha Sil,\\\\\\\" said a serious-looking Dunmer in a white cloak, shaking the Prince's hand and showing him to a seat. \\\\\\\"Indoril Brindisi Dorom, Duke-Prince of Mournhold,\\\\\\\" said the massively-built man next to him as he sat down. \\\\\\\"I recognize that the events of\\\"}\",\"{\\\"text\\\": \\\"the last month suggest, at best, that the Imperial Army is not under my control,\\\\\\\" said the Prince after ordering some wine. \\\\\\\"This is true. The army is my father's.\\\\\\\" \\\\\\\"I understood that the Emperor was going to be coming to Ald Lambasi as well,\\\\\\\" said\\\"}\",\"{\\\"text\\\": \\\"Almalexia. \\\\\\\"Officially, he is,\\\\\\\" said the Prince cautiously. \\\\\\\"Unofficially, he's still back in the Imperial City. He's met with an unfortunate accident.\\\\\\\" Vivec glanced the Duke quickly before looking at the Prince: \\\\\\\"An accident?\\\\\\\" \\\\\\\"He's fine,\\\\\\\" said the\\\"}\",\"{\\\"text\\\": \\\"Prince quickly. \\\\\\\"He'll live, but it looks like he'll lose an eye. It was an altercation that has nothing to do with the war. The only good news is that while he recovers, I have the use of his seal. Any agreement we make here and now will be binding to\\\"}\",\"{\\\"text\\\": \\\"the Empire, both in my father's reign and in mine.\\\\\\\" \\\\\\\"Then let's start agreeing,\\\\\\\" smiled Almalexia.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

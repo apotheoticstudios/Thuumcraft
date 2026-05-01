@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"13 Sun's Dawn, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"13 Sun's Dawn, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind Turala stood at the black, bejeweled city gates. A wind howled around her, but she felt nothing. The Duke had been furious upon hearing his favorite mistress was pregnant and cast her from his sight. She tried again and again to see\\\"}\",\"{\\\"text\\\": \\\"him, but his guards turned her away. Finally, she returned to her family and told them the truth. If only she had lied and told them she did not know who the father was. A soldier, a wandering adventurer, anyone. But she told them that the father was the\\\"}\",\"{\\\"text\\\": \\\"Duke, a member of the House Indoril. And they did what she knew they would have to do, as proud members of the House Redoran. Upon her hand was burned the sign of Expulsion her weeping father had branded on her. But the Duke's cruelty hurt her far more.\\\"}\",\"{\\\"text\\\": \\\"She looked out the gate and into the wide winter plains. Twisted, sleeping trees and skies without birds. No one in Morrowind would take her in now. She must go far away. With slow, sad steps, she began her journey. 16 Sun's Dawn, 2920 Senchal, Anequina\\\"}\",\"{\\\"text\\\": \\\"(modern day Elsweyr) \\\\\\\"What troubles you?\\\\\\\" asked Queen Hasaama, noticing her husband's sour mood. At the end of most Lovers' Days he was in an excellent mood, dancing in the ballroom with all the guests, but tonight he retired early. When she found him,\\\"}\",\"{\\\"text\\\": \\\"he was curled in the bed, frowning. \\\\\\\"That blasted bard's tale about Polydor and Eloisa put me in a rotten state,\\\\\\\" he growled. \\\\\\\"Why did he have to be so depressing?\\\\\\\" \\\\\\\"But isn't that the truth of the tale, my dear? Weren't they doomed because of the cruel\\\"}\",\"{\\\"text\\\": \\\"nature of the world?\\\\\\\" \\\\\\\"It doesn't matter what the truth is, he did a rotten job of telling a rotten tale, and I'm not going to let him do it anymore,\\\\\\\" King Dro'Zel sprang from the bed. His eyes were rheumy with tears. \\\\\\\"Where did they say he was from\\\"}\",\"{\\\"text\\\": \\\"again?\\\\\\\" \\\\\\\"I believe Gilverdale in easternmost Valenwood,\\\\\\\" said the Queen, shaken. \\\\\\\"My husband, what are you going to do?\\\\\\\" Dro'Zel was out of the room in a single spring, bounding up the stairs to his tower. If Queen Hasaama knew what her husband was going\\\"}\",\"{\\\"text\\\": \\\"to do, she did not try to stop him. He had been erratic of late, prone to fits and even occasional seizures. But she never suspected the depths of his madness, and his loathing for the bard and his tale of the wickedness and perversity found in mortal\\\"}\",\"{\\\"text\\\": \\\"man.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

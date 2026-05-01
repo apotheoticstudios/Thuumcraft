@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"20 First Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"20 First Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nBodrum, Morrowind Miramor was exhausted. For last six days, he had gambled and whored all night and then marched all day. He was looking forward to the battle, but even more than that, he was looking forward to some rest afterwards. He was in the\\\"}\",\"{\\\"text\\\": \\\"Emperor's command at the rear flank, which was good because it seemed unlikely that he would be killed. On the other hand, it meant traveling over the mud and waste the army ahead left in their wake. As they began the trek through the wildflower field,\\\"}\",\"{\\\"text\\\": \\\"Miramor and all the soldiers around him sank ankle-deep in cold mud. It was an effort to even keep moving. Far, far up ahead, he could see the vanguard of the army led by Lord Storig emerging from the meadow at the base of a bluff. That was when it all\\\"}\",\"{\\\"text\\\": \\\"happened. An army of Dunmer appeared above the bluff like rising Daedra, pouring fire and floods of arrows down on the vanguard. Simultaneously, a company of men bearing the flag of the Duke of Mournhold galloped around the shore, disappearing along the\\\"}\",\"{\\\"text\\\": \\\"shallow river's edge where it dipped to a timbered glen to the east. Warchief Ulaqth nearby on the right flank let out a bellow of revenge at the sight and gave chase. Queen Naghea sent her flank towards the embankment to the west to intercept the army\\\"}\",\"{\\\"text\\\": \\\"on the bluff. The Emperor could think of nothing to do. His troops were too bogged down to move forward quickly and join the battle. He ordered them to face east towards the timber, in case Mournhold's company was trying to circle around through the\\\"}\",\"{\\\"text\\\": \\\"woods. They never came out, but many men, facing west, missed the battle entirely. Miramor kept his eyes on the bluff. A tall Dunmer he supposed must have been Vivec gave a signal, and the battlemages cast their spells at something to the west. From what\\\"}\",\"{\\\"text\\\": \\\"transpired, Miramor deduced it was a dam. A great torrent of water spilled out, washing Naghea's left flank into the remains of the vanguard and the two together down river to the east. The Emperor paused, as if waiting for his vanquished army to return,\\\"}\",\"{\\\"text\\\": \\\"and then called a retreat. Miramor hid in the rushes until they had passed by and then waded as quietly as he could to the bluff. The Morrowind army was retiring as well back to their camp. He could hear them celebrating above him as he padded along the\\\"}\",\"{\\\"text\\\": \\\"shore. To the east, he saw the Imperial Army. They had been washed into a net of spears strung across the river, Naghea's left flank on Storig's vanguard on Ulaqth's right flank, bodies of hundreds of soldiers strung together like beads. Miramor took\\\"}\",\"{\\\"text\\\": \\\"whatever valuables he could carry from the corpses and then ran down the river. He had to go many miles before the water was clear again, unpolluted by blood.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

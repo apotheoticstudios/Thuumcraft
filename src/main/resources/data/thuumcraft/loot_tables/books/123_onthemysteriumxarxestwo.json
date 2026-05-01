@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Xarxes Commentaries, Book Two\",author:\"Mankar Camoran\",pages:[\"{\\\"text\\\": \\\"Commentaries on the Mysterium Xarxes, Book Two\\\\nBy Mankar Camoran\\\\n\\\\nALTADOON Whosoever findeth this document, I call him brother. Answers are liberations, where the slaves of Malbioge that came to know Numantia cast down their jailer king, Maztiak, which the Xarxes Mysterium calls the Arkayn. Maztiak, whose carcass was\\\"}\",\"{\\\"text\\\": \\\"dragged through the streets by his own bone-walkers and whose flesh was opened on rocks thereon and those angels who loved him no longer did drink from his honeyed ichors screaming \\\\\\\"Let all know free will and do as they will!\\\\\\\" Your coming was foretold,\\\"}\",\"{\\\"text\\\": \\\"my brother, by the Lord Dagon in his book of razors. You are to come as Idols drop away from you one by one. You are exalted in eyes that have not yet set on you; you, swain to well-travelled to shatterer of mantles. You, brother, are to sit with me in\\\"}\",\"{\\\"text\\\": \\\"Paradise and be released of all unknowns. Indeed, I shall show you His book and its foul-and-many-feathered rubric so that you can put into symbols what you already know: the sphere of destruction is but the milk of the unenslaved. I fault not your\\\"}\",\"{\\\"text\\\": \\\"stumbling, for they are expected and given grace by the Oils. I crave not your downfalls, though without them you might surpass me even in the coming Earth of all infinities. Lord Dagon wishes you no ills but the momentous. And as He wants, you must\\\"}\",\"{\\\"text\\\": \\\"want, and so learn from the pages of God this: the Ritual of Want: Whisper to earth and earth, where the meddlers take no stones except to blood, as blood IS blood, and to the cracking of bone, as bone IS bone, and so to crack and answer and fall before\\\"}\",\"{\\\"text\\\": \\\"the one and one, I call you Dragon as brother and king. Tides of dreugh: 7 and 7, draught of Oil, 1 and 1, circles drawn by wet Dibellites: three concentric and let their lower blood fall where it may, a birth watched by blackbirds: Hearthfire 1st.\\\"}\",\"{\\\"text\\\": \\\"Incant the following when your hearing becomes blurred: Enraptured, he who finally goes unrecorded. Recorded, the slaves that without knowing turn the Wheel. Enslaved, all the children of the Aurbis As It Is.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

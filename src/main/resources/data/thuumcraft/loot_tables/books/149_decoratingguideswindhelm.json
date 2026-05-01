@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Decorating Guides, Windhelm\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Decorating Guides - Windhelm\\\\nby Unknown\\\\n\\\\nWelcome to your new home! This decorating guide provides a list of packages that you can purchase from the Steward of the hold. Each package contains furnishings and decor for a specific part of your house, and these will be delivered and placed for you\\\"}\",\"{\\\"text\\\": \\\"upon purchase. All you need to do is provide the gold, and the Steward will take care of the rest. The next time that you visit your home after making your purchases, you will see your new decorations and furnishings in place. Kitchen Includes a\\\"}\",\"{\\\"text\\\": \\\"fireplace, a table for two and ample shelving to store your food and cooking supplies. Living Room This package fills Hjerim's spacious ground floor living room with several tables, chairs and shelves. Decorations for the floor and walls are also\\\"}\",\"{\\\"text\\\": \\\"included. Alchemy Laboratory Adds an alchemy crafting station. Enchanting Laboratory Adds an enchanting crafting station. Upstairs Landing This package adds several weapon racks and display cases, and lines the walls with mounted animal heads. Bedroom\\\"}\",\"{\\\"text\\\": \\\"Provides an upgrade to your bed, as well as shelving, display cases, improved lighting and other bedroom furnishings and decor. Guest Room Improves the furnishings and decor in your home's guest bedroom, including a finer-quality bed, a small table, and\\\"}\",\"{\\\"text\\\": \\\"some shelves.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

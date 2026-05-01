@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Epilogue: Hammerfell Fights\",author:\"Legate Justianus Quintius\",pages:[\"{\\\"text\\\": \\\"Epilogue: Hammerfell Fights On Alone\\\\nby Legate Justianus Quintius\\\\n\\\\nHammerfell, however, refused to accept the White-Gold Concordat, being unwilling to concede defeat and the loss of so much of their territory. Titus II was forced to officially renounce Hammerfell as an Imperial province in order to preserve the hard-won\\\"}\",\"{\\\"text\\\": \\\"peace treaty. The Redguards, understandably, looked on this as a betrayal. In this, the Thalmor certainly achieved one of their long-term goals by sowing lasting bitterness between Hammerfell and the Empire. In the end, the heroic Redguards fought the\\\"}\",\"{\\\"text\\\": \\\"Aldmeri Dominion to a standstill, although the war lasted for five more years and left southern Hammerfell devastated. The Redguards say that this proves that the White-Gold Concordat was unnecessary, and that if Titus II had kept his nerve, the Aldmeri\\\"}\",\"{\\\"text\\\": \\\"could have been truly defeated by the combined forces of Hammerfell and the rest of the Empire. The truth of that assertion can, of course, never be known. But the Redguards should not forget the great sacrifice of Imperial blood - Breton, Nord, and\\\"}\",\"{\\\"text\\\": \\\"Cyrodilic - at the Battle of the Red Ring that weakened the Dominion enough to allow the eventual Second Treaty of Stros M'kai in 4E 180 and the withdrawal of Aldmeri forces from Hammerfell. There can be no doubt that the current peace cannot last\\\"}\",\"{\\\"text\\\": \\\"forever. The Thalmor take the long view, as is proved by the sequence of events leading up to the Great War. All those who value freedom over tyranny can only hope that before it is too late, Hammerfell and the Empire will be reconciled and stand united\\\"}\",\"{\\\"text\\\": \\\"against the Thalmor threat. Otherwise, any hope to stem the tide of Thalmor rule over all of Tamriel is dimmed.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

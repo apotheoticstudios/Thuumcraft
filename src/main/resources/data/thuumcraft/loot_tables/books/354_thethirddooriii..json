@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Third Door, III.\",author:\"Annanar Orme\",pages:[\"{\\\"text\\\": \\\"The Third Door - III.\\\\nby Annanar Orme\\\\n\\\\nLorinthyrae awoke in a house in the moors In a room lightly furnished except for three doors. Ellabeth explained that behind one of the doors the lass Would find Ellabeth's and her love, the great Nienolas. Behind the second lived a ravenous demon. And\\\"}\",\"{\\\"text\\\": \\\"behind the third, an exit to freedom. She must choose a door, and to aid her decision If she pondered too long, the axe'd make a division. Lorinthyrae wept, and Ellabeth felt contrite, And opened the door to her immediate right. It led to the moors, and\\\"}\",\"{\\\"text\\\": \\\"as she slipped through the gloom, She advised Lorinthyrae to likewise abandon the room. Lorinthyrae ignored her and did not feel her will bend. Nienolas was largely behind the first door she opened.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

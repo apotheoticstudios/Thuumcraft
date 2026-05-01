@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"4 Morning Star, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"4 Morning Star, 2920\\\\nby Carlovac Townway\\\\n\\\\nGideon, Black Marsh The Empress paced around her cell. Wintertide gave her wasteful energy, while in the summer she would merely sit by her window and be grateful for each breath of stale swamp wind that came to cool her. Across the room, her unfinished\\\"}\",\"{\\\"text\\\": \\\"tapestry of a dance at the Imperial Court seemed to mock her. She ripped it from its frame, tearing the pieces apart as they drifted to the floor. Then she laughed at her own useless gesture of defiance. She would have plenty of time to repair it and\\\"}\",\"{\\\"text\\\": \\\"craft a hundred more. The Emperor had locked her up in Castle Giovesse seven years ago, and would likely keep her here until he or she died. With a sigh, she pulled the cord to call her knight, Zuuk. He appeared at the door within minutes, fully\\\"}\",\"{\\\"text\\\": \\\"uniformed as befitted an Imperial Guard. Most of the native Kothringi tribesmen of Black Marsh preferred to go about naked, but Zuuk had taken a positive delight to fashion. His silver, reflective skin was scarcely visible, only on his face, neck, and\\\"}\",\"{\\\"text\\\": \\\"hands. \\\\\\\"Your Imperial Highness,\\\\\\\" he said with a bow. \\\\\\\"Zuuk,\\\\\\\" said Empress Tavia. \\\\\\\"I'm bored. Lets discuss methods of assassinating my husband today.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

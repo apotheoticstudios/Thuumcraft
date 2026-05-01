@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"21 Second Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"21 Second Seed, 2920\\\\nBy Carlovac Townway\\\\n\\\\nGideon, Black Marsh The Sow and Vulture tavern was the sort of out-of-the-way place that Zuuk favored for these sorts of interviews. Besides himself and his companion, there were only a couple of old seadogs in the shadowy room, and they were more\\\"}\",\"{\\\"text\\\": \\\"unconscious from drink than aware. The grime of the unwashed floor was something you felt rather than saw. Copious dust hung in the air unmoving in the sparse rays of dying sunlight. \\\\\\\"You have experience in heavy combat?\\\\\\\" asked Zuuk. \\\\\\\"The reward is good\\\"}\",\"{\\\"text\\\": \\\"for this assignment, but the risks are great as well.\\\\\\\" \\\\\\\"Certainly I have combat experience,\\\\\\\" replied Miramor haughtily. \\\\\\\"I was at the Battle of Bodrum just two months ago. If you do your part and get the Emperor to ride through Dozsa Pass with a minimal\\\"}\",\"{\\\"text\\\": \\\"escort on the day and the time we've discussed, I'll do my part. Just be certain that he's not traveling in disguise. I'm not going to slaughter every caravan that passes through in the hopes that it contains Emperor Reman.\\\\\\\" Zuuk smiled, and Miramor\\\"}\",\"{\\\"text\\\": \\\"looked at himself in the Kothringi's reflective face. He liked the way he looked: the consummate confident professional. \\\\\\\"Agreed,\\\\\\\" said Zuuk. \\\\\\\"And then you shall have the rest of your gold.\\\\\\\" Zuuk placed the large chest onto the table between them. He\\\"}\",\"{\\\"text\\\": \\\"stood up. \\\\\\\"Wait a few minutes before leaving,\\\\\\\" said Zuuk. \\\\\\\"I don't want you following me. Your employers wish to maintain their anonymity, if by chance you are caught and tortured.\\\\\\\" \\\\\\\"Fine by me,\\\\\\\" said Miramor, ordering more grog. Zuuk rode his mount\\\"}\",\"{\\\"text\\\": \\\"through the cramped labyrinthine streets of Gideon, and both he and his horse were happy to pass through the gates into the country. The main road to Castle Giovese was flooded as it was every year in springtide, but Zuuk knew a shorter way over the\\\"}\",\"{\\\"text\\\": \\\"hills. Riding fast under trees drooping with moss and treacherous slime-coated rocks, he arrived at the castle gates in two hours' time. He wasted no time in climbing to Tavia's cell at the top of the highest tower. \\\\\\\"What did you think of him?\\\\\\\" asked the\\\"}\",\"{\\\"text\\\": \\\"Empress. \\\\\\\"He's a fool,\\\\\\\" replied Zuuk. \\\\\\\"But that's what we want for this sort of assignment.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

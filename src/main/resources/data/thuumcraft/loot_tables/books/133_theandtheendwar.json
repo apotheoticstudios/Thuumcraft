@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The White-Gold Concordat\",author:\"Legate Justianus Quintius\",pages:[\"{\\\"text\\\": \\\"The White-Gold Concordat and the End of the War\\\\nby Legate Justianus Quintius\\\\n\\\\nAlthough victorious, the Imperial armies were in no shape to continue the war. The entire remaining Imperial force was gathered in Cyrodiil, exhausted and decimated by the Battle of the Red Ring. Not a single legion had more than half its soldiers fit\\\"}\",\"{\\\"text\\\": \\\"for duty. Two legions had been effectively annihilated, not counting the loss of the Eighth during the retreat from the Imperial City the previous year. Titus II knew that there would be no better time to negotiate peace, and late in 4E 175 the Empire\\\"}\",\"{\\\"text\\\": \\\"and the Aldmeri Dominion signed the White-Gold Concordat, ending the Great War. The terms were harsh, but Titus II believed that it was necessary to secure peace and give the Empire a chance to regain its strength. The two most controversial terms of the\\\"}\",\"{\\\"text\\\": \\\"Concordat were the banning of the worship of Talos and the cession of a large section of southern Hammerfell (most of what was already occupied by Aldmeri forces). Critics have pointed out that the Concordat is almost identical to the ultimatum the\\\"}\",\"{\\\"text\\\": \\\"Emperor rejected five years earlier. However, there is a great difference between agreeing to such terms under the mere threat of war, and agreeing to them at the end of a long and destructive war. No part of the Empire would have accepted these terms in\\\"}\",\"{\\\"text\\\": \\\"4E 171, dictated by the Thalmor at swords-point. Titus II would have faced civil war. By 4E 175, most of the Empire welcomed peace at almost any price.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

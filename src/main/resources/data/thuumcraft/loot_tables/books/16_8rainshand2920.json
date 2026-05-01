@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"8 Rain's Hand, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"8 Rain's Hand, 2920\\\\nBy Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil A storm billeted the windows of the Prince's bedchamber, bringing a smell of moist air to mix with the censors filled with burning incense and herbs. \\\\\\\"A letter has arrived from the Empress, your mother,\\\\\\\" said the courier.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Anxiously inquiring after your health.\\\\\\\" \\\\\\\"What frightened parents I have!\\\\\\\" laughed Prince Juilek from his bed. \\\\\\\"It is only natural for a mother to worry,\\\\\\\" said Savirien-Chorak, the Potentate's son. \\\\\\\"There is everything unnatural about my family, Akavir.\\\"}\",\"{\\\"text\\\": \\\"My exiled mother fears that my father will imagine me of being a traitor, covetous of the crown, and is having me poisoned,\\\\\\\" the Prince sank back into his pillow, annoyed. \\\\\\\"The Emperor has insisted on me having a taster for all my meals as he does.\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"There are many plots,\\\\\\\" agreed the Akavir. \\\\\\\"You have been abed for nearly three weeks with every healer in the empire shuffling through like a slow ballroom dance. At least, all can see that you're getting stronger.\\\\\\\" \\\\\\\"Strong enough to lead the vanguard\\\"}\",\"{\\\"text\\\": \\\"against Morrowind soon, I hope,\\\\\\\" said Juilek.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

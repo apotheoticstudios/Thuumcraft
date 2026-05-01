@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Rising Threat, Volume II\",author:\"Lathenil of Sunhold\",pages:[\"{\\\"text\\\": \\\"Rising Threat - Volume II\\\\nby Lathenil of Sunhold\\\\n\\\\nThe following is the account of Lathenil of Sunhold, an Altmer refugee from Summerset Isle who came to Cyrodiil in the early years of the Fourth Era. According to Lathenil, he did not flee the aftermath of the Oblivion Crisis in Summerset - rather he\\\"}\",\"{\\\"text\\\": \\\"fled \\\\\\\"the darkening shadow of the Thalmor upon my beloved homeland.\\\\\\\" Lathenil had a very intense presence, to put it politely, and some of his accusations of Thalmor involvement border on madness. This may be why his fervent warnings and outspoken\\\"}\",\"{\\\"text\\\": \\\"criticisms of the Thalmor and the Aldmeri Dominion went unheeded, but history has at least partially vindicated Lathenil's claims. Praxis Erratuim, Imperial Historian What happened after the tower of Crystal-like-law fell was a daze. It was as if my mind\\\"}\",\"{\\\"text\\\": \\\"simply... stopped. Instinct took over, as my every thought sank into a black abyss of despair. Time lost all meaning, and to this day I know not how long I was in this state. Eventually a conscious thought managed to break my fugue: the daedric horde had\\\"}\",\"{\\\"text\\\": \\\"vanished! Gone as suddenly as they had come. Before my numbed mind could comprehend the tumult that consumed my beloved Summerset Isle, before I could formulate the question \\\\\\\"how?\\\\\\\" they were there, dripping honeyed poison in our ears: the Thalmor. They\\\"}\",\"{\\\"text\\\": \\\"were the ones that saved us, they claimed, working deep and subtle magicks. It was their efforts, their sacrifices that delivered the Altmer from extinction. Oh, what fools we were. We wanted so desperately someone to thank for ending our tribulations,\\\"}\",\"{\\\"text\\\": \\\"we lavished it upon the first to step up and claim the glory. With that simple act of gratitude, we allowed a vile rot to seep into our homeland, to putrefy our once noble and distinguished civilization. It was months before I began to suspect the error\\\"}\",\"{\\\"text\\\": \\\"we had made. Small twinges of unease would vex me, but each one alone was easy enough to disregard and push aside. The exile of the great seer-mage Rynandor the Bold was the final doubt that I could not ignore. You see, Rynandor was one of the very few\\\"}\",\"{\\\"text\\\": \\\"who survived the collapse of the Crystal Tower - I saw some of his bravery and heroics with my own eyes. It was his leadership and sorcery that made the daedra pay such a high price for their destruction of the Crystal Tower. The Thalmor besmirched his\\\"}\",\"{\\\"text\\\": \\\"name when he had the audacity to publicly doubt and question their role in ending the Oblivion Crisis on Summerset Isle. Rynandor made the mistake of ignoring the consensus gentium, trusting instead to logic and facts. The shrewdness of the Thalmor,\\\"}\",\"{\\\"text\\\": \\\"however, was not such to allow something as trivial as the truth stand in their way. As soon as they shifted the collective opinion ever so slightly against Rynandor, they had him sequestered and intensified their efforts to tarnish his reputation.\\\"}\",\"{\\\"text\\\": \\\"Unable to mount any sort of defense to the Thalmor's attacks, Rynandor was quickly denounced and exiled.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

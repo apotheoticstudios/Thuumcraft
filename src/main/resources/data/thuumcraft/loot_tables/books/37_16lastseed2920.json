@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"16 Last Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"16 Last Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nWroth Naga, Cyrodiil The tiny hamlet of Wroth Naga greeted Cassyr with its colorful houses perched on a promontory overlooking the stretch of the Wrothgarian mountain plain and High Rock beyond. Had he been in a better mood, the sight would have been\\\"}\",\"{\\\"text\\\": \\\"breathtaking. As it was, he could only think that in practical terms, a small village like this would have meager provisions for himself and his horse. He rode down into the main square, where an inn called the Eagle's Cry stood. Directing the stable boy\\\"}\",\"{\\\"text\\\": \\\"to house and feed his horse, Cassyr walked into the inn and was surprised by its ambience. A minstrel he had heard play once in Gilderdale was performing a jaunty old tune to the clapping of the mountain men. Such forced merriment was not what Cassyr\\\"}\",\"{\\\"text\\\": \\\"wanted at that moment. A glum Dunmer woman was seated at the only table far from the noise, so he took his drink there and sat down without invitation. It was only when he did so that he noticed that she was holding a newborn baby. \\\\\\\"I've just come from\\\"}\",\"{\\\"text\\\": \\\"Morrowind,\\\\\\\" he said rather awkwardly, lowering his voice. \\\\\\\"I've been fighting for Vivec and the Duke of Mournhold against the Imperial army. A traitor to my people, I guess you'd call me.\\\\\\\" \\\\\\\"I am also a traitor to my people,\\\\\\\" said the woman, holding up\\\"}\",\"{\\\"text\\\": \\\"her hand which was scarred with a branded symbol. \\\\\\\"It means that I can never go back to my homeland.\\\\\\\" \\\\\\\"Well, you're not thinking of staying here, are you?\\\\\\\" laughed Cassyr. \\\\\\\"It's certainly quaint, but come wintertide, there's going to be snow up to your\\\"}\",\"{\\\"text\\\": \\\"eyelashes. It's no place for a new baby. What is her name?\\\\\\\" \\\\\\\"Bosriel. It means 'Beauty of the Forest.' Where are you going?\\\\\\\" \\\\\\\"Dwynnen, on the bay in High Rock. You're welcome to join me, I could use the company.\\\\\\\" He held out his hand. \\\\\\\"Cassyr Whitley.\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Turala,\\\\\\\" said the woman after a pause. She was going to use her family's name first, as is tradition, but she realized that it was no longer her name. \\\\\\\"I would love to accompany you, thank you.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

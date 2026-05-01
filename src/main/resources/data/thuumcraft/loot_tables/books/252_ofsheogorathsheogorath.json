@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Myths of Sheogorath, Music\",author:\"Mymophonus\",pages:[\"{\\\"text\\\": \\\"Myths of Sheogorath - Sheogorath Invents Music\\\\nby Mymophonus\\\\n\\\\nIn the earliest of days, in a time when the world was still raw, Sheogorath decided to walk amongst the mortals. He donned his guise of Gentleman With a Cane, and moved from place to place without being recognized. After eleven days and eleven nights,\\\"}\",\"{\\\"text\\\": \\\"Sheogorath decided that life among mortals was even more boring than his otherworldly existence. \\\\\\\"What can I do to make their lives more interesting?\\\\\\\" he said to himself. At that same moment, a young woman nearby commented wistfully to herself, \\\\\\\"The\\\"}\",\"{\\\"text\\\": \\\"sounds of the birds are so beautiful.\\\\\\\" Sheogorath silently agreed with her. Mortals could not make the beautiful and inspired calls of birds. Their voices were wretched and mundane. He could not change the nature of mortals, for that was the purview of\\\"}\",\"{\\\"text\\\": \\\"other Daedric Princes. However, he could give them tools to make beautiful sounds. Sheogorath took hold of the petulant woman and ripped her asunder. From her tendons he made lutes. From her skull and arm bones he made a drum. From her bones he made\\\"}\",\"{\\\"text\\\": \\\"flutes. He presented these gifts to the mortals, and thus Music was born.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"24 Frostfall, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"24 Frostfall, 2920\\\\nby Carlovac Townway\\\\n\\\\nDwynnen, High Rock Cassyr stood on the harbor and watched the early sleet fall on the water. It was a pity, he thought, that he was prone to sea-sickness. There was nothing for him now in Tamriel to the east or to the west. Vivec's tale of his poor\\\"}\",\"{\\\"text\\\": \\\"spycraft had spread to taverns everywhere. The Baron of Dwynnen had released him from his contract. No doubt they were laughing about him in Daggerfall, too, and Dawnstar, Lilmoth, Rimmen, Greenheart, probably in Akavir and Yokuda for that matter.\\\"}\",\"{\\\"text\\\": \\\"Perhaps it would be best to drop into the waves and sink. The thought, however, did not stay long in his mind: it was not despair that haunted him, but rage. Impotent fury that he could not assuage. \\\\\\\"Excuse me, sir,\\\\\\\" said a voice behind him, making him\\\"}\",\"{\\\"text\\\": \\\"jump. \\\\\\\"I'm sorry to disturb you, but I was wondering whether you could recommend an inexpensive tavern for me to spend the night.\\\\\\\" It was a young man, a Nord, with a sack over his shoulder. Obviously, he had just disembarked from one of the boats. For\\\"}\",\"{\\\"text\\\": \\\"the first time in weeks, someone was looking at Cassyr as something other than a colossal, famous idiot. He could not help, black as his mood was, but be friendly. \\\\\\\"You've just arrived from Skyrim?\\\\\\\" asked Cassyr. \\\\\\\"No, sir, that's where I'm going,\\\\\\\" said\\\"}\",\"{\\\"text\\\": \\\"the fellow. \\\\\\\"I'm working my way home. I've come up from Sentinel, and before that Stros M'kai, and before that Woodhearth in Valenwood, and before that Artaeum in Summurset. Welleg's my name.\\\\\\\" Cassyr introduced himself and shook Welleg's hand. \\\\\\\"Did you\\\"}\",\"{\\\"text\\\": \\\"say you came from Artaeum? Are you a Psijic?\\\\\\\" \\\\\\\"No, sir, not anymore,\\\\\\\" the fellow shrugged. \\\\\\\"I was expelled.\\\\\\\" \\\\\\\"Do you know anything about summoning daedra? You see, I want to cast a curse against a particularly powerful person, one might say a living god,\\\"}\",\"{\\\"text\\\": \\\"and I haven't had any luck. The Baron won't allow me in his sight, but the Baroness has sympathy for me and allowed me the use of their Summoning Chambers.\\\\\\\" Cassyr spat. \\\\\\\"I did all the rituals, made sacrifices, but nothing came of it.\\\\\\\" \\\\\\\"That'd be because\\\"}\",\"{\\\"text\\\": \\\"of Sotha Sil, my old master,\\\\\\\" replied Welleg with some bitterness. \\\\\\\"The Daedra princes have agreed not to be summoned by any amateurs at least until the war ends. Only the Psijics may counsel with the daedra, and a few nomadic sorcerers and witches.\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Witches, did you say?\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

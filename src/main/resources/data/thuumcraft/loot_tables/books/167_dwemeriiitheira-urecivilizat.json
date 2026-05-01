@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Dwemer Inquiries, Volume III\",author:\"Thelwe Ghelein, Scholar\",pages:[\"{\\\"text\\\": \\\"Dwemer Inquiries - Volume III - Their Architecture and Civilization\\\\nby Thelwe Ghelein, Scholar\\\\n\\\\nIn the Deep Halls, far from Men Forsaken Red Mountain, Twisted Kin Hail the Mind, Hail the Stone Dwarven Pride, Stronger than bone My studies, and this text, have focused heavily on the fact that Dwemer archaeological sites west of Vvardenfell seem to be\\\"}\",\"{\\\"text\\\": \\\"built at much greater depths than their counterparts near the Red Mountain. I believe there was a specific threshold to which Dwarven excavators would dig before the construction of vital structures would begin. I have referred to this threshold as the\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Geocline,\\\\\\\" but I have found that to often be redundant with the Deep Venue of a colony. Still, there is some variation in the actual depth of a Deep Venue, whereas the Geocline is always the marker where I reason the City proper begins. Tunnels and\\\"}\",\"{\\\"text\\\": \\\"chambers at more shallow depths, while often grand in their architectural style, appear to have served little in the way of critical civic purpose. Surplus stores of food, warehouse chambers that may have been used in trading with nearby surface\\\"}\",\"{\\\"text\\\": \\\"settlements, or barracks for topside patrols are common above the Geocline. These tunnels, I have observed, can meander in a seemingly more random pattern than those planned structures beneath. I hypothesize that this may be due to the unpredictable\\\"}\",\"{\\\"text\\\": \\\"nature of any excavation, even to a race as clever as the Dwemer. Surely unexpected deposits of stone or geological events could make the effort difficult, and I think that these haphazard tunnels are often the result of the search for suitable\\\"}\",\"{\\\"text\\\": \\\"substratum to build within. I have found in a small number of ruins reference to a geological anomaly or place known as \\\\\\\"FalZhardum Din\\\\\\\" . This is intriguing because the term not only appears in a few tablet fragments, but very specifically on ornate\\\"}\",\"{\\\"text\\\": \\\"metal frames in the deepest reaches of the Strongholds Alftand, Irkgnthand and Mzinchaleft of Skyrim. I have yet to decipher the meaning of these elaborate carvings, but consider it highly strange that they occur in the deepest part of each of these\\\"}\",\"{\\\"text\\\": \\\"ruin. Risen by order cousin-of-privilege Cuolec of Scheziline privileged duties. Clanhome building Hoagen Kultorra tradition to Hailed World shaper\\\\\\\" The most reasonable translation of \\\\\\\"FalZhardum Din\\\\\\\" I have managed to decipher is \\\\\\\"Blackest Kingdom\\\"}\",\"{\\\"text\\\": \\\"Reaches\\\\\\\", but I cannot imagine what that means. I suspect there may be some pattern I am failing to notice. This creeping doubt has haunted my career in recent years, and I have begun to doubt if I will unravel some grand secret of the Dwarves in my\\\"}\",\"{\\\"text\\\": \\\"lifetime, though it lies just under my nose - or indeed, under my feet.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

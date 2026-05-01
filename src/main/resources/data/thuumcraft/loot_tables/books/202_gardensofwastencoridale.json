@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Hanging Gardens\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Hanging Gardens of Wasten Coridale\\\\nby Unknown\\\\n\\\\nThis book was apparently written in Dwemer and translated to Aldmeris. Only fragments of the Aldmeris is readable, but it may be enough for a scholar of Aldmeris to translate fragments of other Dwemer books. ...guide Altmer-Estrial led with foot-flames\\\"}\",\"{\\\"text\\\": \\\"for the town-center where lay dead the quadrangular gardens... ...asked the foundations and chains and vessels their naming places... ...why they did not use solid sound to teach escape from the Earth Bones nor nourished them with frozen flames...\\\"}\",\"{\\\"text\\\": \\\"....the word I shall have once written of, this \\\\\\\"art\\\\\\\" our lesser cousins speak of when their admirable ignorance... ...but neither words nor experience cleanses the essence of the strange and terrible ways of defying our ancestors' transient rules. The\\\"}\",\"{\\\"text\\\": \\\"translation ends with a comment in Dwemer in a different hand, which you may be translated as follows: \\\\\\\"Put down your ardent cutting-globes, Nbthld. Your Aldmeris has the correct words, but they cannot be properly misinterpreted.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

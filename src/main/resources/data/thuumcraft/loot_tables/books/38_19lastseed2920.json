@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"19 Last Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"19 Last Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nAld Lambasi, Morrowind Five men and two women stood in the silence of the Great Room of the castle, the only sound the scrawl of quill on parchment and the gentle tapping of rain on the large picture window. As the Prince set the seal of Cyrodiil on the\\\"}\",\"{\\\"text\\\": \\\"document, the peace was made official. The Duke of Mournhold broke out in a roar of delight, ordering wine brought in to commemorate the end of eighty years of war. Only Sotha Sil stood apart from the group. His face betrayed no emotion. Those who knew\\\"}\",\"{\\\"text\\\": \\\"him best knew he did not believe in endings or beginnings, but in the continuous cycle of which this was but a small part. \\\\\\\"My Prince,\\\\\\\" said the castle steward, unhappy at breaking the celebration. \\\\\\\"There is a messenger here from your mother, the\\\"}\",\"{\\\"text\\\": \\\"Empress. He asked to see your father, but as he did not arrive --\\\\\\\" Juilek excused himself and went to speak with the messenger. \\\\\\\"The Empress does not live in the Imperial City?\\\\\\\" asked Vivec. \\\\\\\"No,\\\\\\\" said Almalexia, shaking her head sadly. \\\\\\\"Her husband has\\\"}\",\"{\\\"text\\\": \\\"imprisoned her in Black Marsh, fearing that she was plotting a revolution against him. She is extremely wealthy and has powerful allies in the western Colovian estates so he could not marry another or have her executed. They've been at an impasse for the\\\"}\",\"{\\\"text\\\": \\\"last seventeen years since Juilek was a child.\\\\\\\" The Prince returned a few minutes later. His face betrayed his anxiety, though he took troubles to hide it. \\\\\\\"My mother needs me,\\\\\\\" he said simply. \\\\\\\"I'm afraid I must leave at once. If I may have a copy of\\\"}\",\"{\\\"text\\\": \\\"the treaty, I will bring it with me to show the Empress the good we have done today, and then I will carry it on to the Imperial City so it may be made official.\\\\\\\" Prince Juilek left with the fond farewells of the Three of Morrowind. As they watched him\\\"}\",\"{\\\"text\\\": \\\"ride out into the rainswept night south towards Black Marsh, Vivec said, \\\\\\\"Tamriel will be much healed when he has the throne.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"8 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"8 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nCaer Suvio, Cyrodiil Lord Glavius, apologizing profusely for the quality of the road through the forest, was the first emissary to greet Vivec and his escort as they arrived. A string of burning globes decorated the leafless trees surrounding the villa,\\\"}\",\"{\\\"text\\\": \\\"bobbing in the gentle but frigid night breeze. From within, Vivec could smell the simple feast and a high sad melody. It was a traditional Akaviri wintertide carol. Versidue-Shaie greeted Vivec at the front door. \\\\\\\"I'm glad you received the message before\\\"}\",\"{\\\"text\\\": \\\"you got all the way to the City,\\\\\\\" said the Potentate, guiding his guest into the large, warm drawing room. \\\\\\\"We are in a difficult transition time, and for the moment, it is best not to conduct our business at the capitol.\\\\\\\" \\\\\\\"There is no heir?\\\\\\\" asked\\\"}\",\"{\\\"text\\\": \\\"Vivec. \\\\\\\"No official one, though there are distant cousins vying for the throne. While we sort the matter out, at least temporarily the nobles have decided that I may act in the office of my late master,\\\\\\\" Versidue-Shaie signaled for the servants to draw\\\"}\",\"{\\\"text\\\": \\\"two comfortable chairs in front of the fireplace. \\\\\\\"Would you feel most comfortable if we signed the treaty officially right now, or would you like to eat something first?\\\\\\\" \\\\\\\"You intend to honor the Emperor's treaty?\\\\\\\" \\\\\\\"I intend to do everything as the\\\"}\",\"{\\\"text\\\": \\\"Emperor,\\\\\\\" said the Potentate.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

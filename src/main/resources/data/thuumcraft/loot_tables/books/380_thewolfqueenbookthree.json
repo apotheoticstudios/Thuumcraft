@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Wolf Queen, Book Three\",author:\"Waughin Jarth\",pages:[\"{\\\"text\\\": \\\"The Wolf Queen, Book Three\\\\nby Waughin Jarth\\\\n\\\\nFrom the pen of the first century third era sage Montocai: 3E 98 The Emperor Pelagius Septim II died a few weeks before the end of the year, on the 15th of Evening Star during the festival of North Wind's Prayer, which was considered a bad omen for the\\\"}\",\"{\\\"text\\\": \\\"Empire. He had ruled over a difficult seventeen years. In order to fill the bankrupt treasury, Pelagius had dismissed the Elder Council, forcing them to buy back their positions. Several good but poor councilors had been lost. Many say the Emperor had\\\"}\",\"{\\\"text\\\": \\\"died as a result of being poisoned by a vengeful former Council member. His children came to attend his funeral and the coronation of the next Emperor. His youngest son Prince Magnus, 19 years of age, arrived from Almalexia, where he had been a councilor\\\"}\",\"{\\\"text\\\": \\\"to the royal court. 21-year-old Prince Cephorus arrived from Gilane with his Redguard bride, Queen Bianki. Prince Antiochus at 43 years of age, the eldest child and heir presumptive, had been with his father in the Imperial City. The last to appear was\\\"}\",\"{\\\"text\\\": \\\"his only daughter, Potema, the so-called Wolf Queen of Solitude. Thirty years old and radiantly beautiful, she arrived with a magnificent entourage, accompanied by her husband, the elderly King Mantiarco and her year-old son, Uriel. All expected\\\"}\",\"{\\\"text\\\": \\\"Antiochus to assume the throne of the Empire, but no one knew what to expect from the Wolf Queen.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

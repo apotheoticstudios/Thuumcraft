@@ -1,0 +1,1585 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/0_1morningstar2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/100_breathingwater"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/101_ahistoryoftheempireone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/102_ahistoryoftheempiretwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/103_aoftheempirethree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/104_aoftheempirefour"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/105_thebrothersofdarkness"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/106_thebuyinggame"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/107_cabininthewoodsvolumeii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/108_thecakeandthediamond"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/109_catsofskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/10_18firstseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/110_chancesfolly"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/111_charwichkoniingelettersbook"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/112_charwichkoniingelettersbook"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/113_charwichkoniingelettersbook"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/114_charwichkoniingelettersbook"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/115_chauruspiearecipe"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/116_childrenofthesky"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/117_childrensanuadtheanuad"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/118_thetheholybrothersofiv"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/119_chroniclesofnchuleft"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/11_19firstseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/120_thestoneasellswordsmarkarth"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/121_themalacathasel-detostrongho"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/122_onthemysteriumxarxesone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/123_onthemysteriumxarxestwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/124_themysteriumxarxesthree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/125_themysteriumxarxesfour"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/126_catalogueofenchantments"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/127_catalogueofenchantments"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/128_aaccountthebetw-aldmeridomin"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/129_thewarbegins"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/12_20firstseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/130_thealdmeriadvancecyrodiil"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/131_4ethesackofthecity"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/132_4ethebattleoftheredring"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/133_theandtheendwar"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/134_hammerfellfightsonalone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/135_adanceinfirechapter1"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/136_adanceinfirechapter2"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/137_adanceinfirechapter3"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/138_adanceinfirechapter4"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/139_adanceinfirechapter5"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/13_29firstseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/140_adanceinfirechapter6"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/141_adanceinfirechapter7"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/142_darkestdarkness"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/143_thedeathblowofabernanit"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/144_thedeathofawanderer"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/145_decoratingguidesmarkarth"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/146_decoratingguidesriften"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/147_decoratingguidessolitude"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/148_decoratingguideswhiterun"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/149_decoratingguideswindhelm"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/14_3rainshand2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/150_dererumdirennis"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/151_reportthecommis-artpreparati"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/152_reportofcommiss-onithiiofaka"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/153_reportimperialo-editionaryfo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/154_reportthecommis-tpartconclus"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/155_thedoorsofoblivion"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/156_thedragonbreakreexamined"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/157_dragonlanguagemythnomore"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/158_thedragonwar"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/159_adreamofsovngarde"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/15_5rainshand2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/160_thedreamstride"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/161_thedunmerofskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/162_dwarvesraceofta-lvolumeidesi"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/163_dwarvesraceofvo-weaponsmachi"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/164_dwarvesraceofta-olumeiiihist"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/165_dwemeritheirarc-urecivilizat"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/166_dwemeriitheirar-urecivilizat"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/167_dwemeriiitheira-urecivilizat"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/168_effectsoftheelderscrolls"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/169_eslaferolbeggar"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/16_8rainshand2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/170_eslaferolthief"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/171_eslaferolwarrior"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/172_eslaferolking"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/173_collecteddwemer-npopularcult"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/174_theexodus"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/175_thephysicalitiesofwerewolf"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/176_anexplorersguidetoskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/177_fallfromglory"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/178_thefallofsaarthal"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/179_fallofthesnowprince"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/17_11rainshand2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/180_thefalmerastudy"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/181_fatheroftheniben"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/182_feyfolkenbookone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/183_feyfolkenbooktwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/184_feyfolkenbookthree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/185_thefinallesson"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/186_darknessthebrotherhoodsdeath"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/187_thefirmament"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/188_thefirstholdrevolt"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/189_thefivesongsofkingwulfharth"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/18_10secondseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/190_flightfromthethalmor"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/191_forgehammerandanvil"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/192_fragmentonartaeum"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/193_frontieraccommo-asocialcyrod"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/194_galerionthemystic"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/195_agameatdinner"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/196_agentlemansguidetowhiterun"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/197_ghostsinthestorm"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/198_andlamentsamongtheruins"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/199_thegoldribbonofmerit"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/19_13secondseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/1_4morningstar2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/200_harbingersofthecompanions"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/201_hallgerdstale"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/202_gardensofwastencoridale"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/203_frostbitespidervenom"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/204_heavyarmorforging"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/205_herbalistsguidetoskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/206_theofskyrimafieldguide"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/207_thehopeoftheredoran"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/208_theofcastlexyraplay"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/209_howorsiniumpassedtotheorcs"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/20_21secondseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/210_treacheryaoneplay"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/211_iceandchitin"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/212_immortalblood"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/213_incidentinnecrom"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/214_interviewsvolum-cherimsanequ"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/215_invocationofazura"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/216_journalofgallusdesidenius"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/217_keepersoftherazor"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/218_killingbeforeyourekilled"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/219_akisssweetmother"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/21_30secondseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/220_theknightsofthenine"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/221_kolbdragonanadventureboys"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/222_benochswordsandphilosophy"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/223_thelastkingoftheayleids"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/224_thelastscabbardofakrash"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/225_thelegendarycityofsancretor"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/226_thelegendaryscourge"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/227_thelegendofredeagle"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/228_thelegendofthekratelyhouse"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/229_nirim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/22_31secondseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/230_lightarmorforging"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/231_liminalbridgeso-lingandobliv"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/232_thelockedroom"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/233_lordjornibretslastdance"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/234_lostlegendsofskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/235_thelunarlorkhan"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/236_lustyargonianmaidvolume1"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/237_lustyargonianmaidvolume2"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/238_lycanthropiclegendsofskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/239_maceetiquette"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/23_2midyear2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/240_thethereachacul-reatiseforsw"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/241_themadnessofpelagius"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/242_magicfromthesky"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/243_mannimarcokingofworms"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/244_themarksmanshiplesson"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/245_themirror"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/246_themonomyth"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/247_mysteriousakavir"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/248_ofprincesstalarai"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/249_ofprincesstalaraii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/24_3midyear2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/250_ofprincesstalaraiii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/251_ofprincesstalarav"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/252_ofsheogorathsheogorath"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/253_sheogorathsheogorathandlyand"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/254_sheogoraththecontestwills"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/255_nerevarmoonandstar"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/256_nightfallsonsentinel"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/257_volumeiwhoare"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/258_volumeiiwhatwere"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/259_nightingalesfactorfiction"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/25_16midyear2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/260_thenightmotherstruth"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/261_nirnootmissiverevised"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/262_nordsarise"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/263_nordsofskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/264_onracialphylogenyand"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/265_theoblivioncrisis"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/266_odetothetundrastriders"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/267_daggersthehistoryriften"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/268_offjoriandholgeir"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/269_olafandthedragon"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/26_19midyear2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/270_theoldways"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/271_onartaeum"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/272_onoblivion"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/273_onthenordicruinsskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/274_onthegreatcollapse"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/275_opusculuslamaem-alrestlessde"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/276_angodsandworshiptamriel"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/277_pallabooki"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/278_pallabookii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/279_pensionoftheancestormoth"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/27_21midyear2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/280_thepigchildren"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/281_thepostingofthehunt"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/282_aprimeronenchanting"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/283_lockdesignandconstruction"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/284_shadowschapterone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/285_shadowschaptertwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/286_therear-guard"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/287_therealbarenziahvolumeone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/288_therealbarenziahvolumetwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/289_therealbarenziahvolumethree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/28_4sunsheight2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/290_therealbarenziahvolumefour"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/291_therealbarenziahvolumefive"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/292_realityotherfalsehoods"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/293_theredbookofriddles"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/294_theredkitchenreader"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/295_therefugees"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/296_remanadasancretorandthereman"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/297_remanadathechev-rrenaldblade"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/298_responsetoberosspeech"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/299_theriseandfalloftheblades"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/29_6sunsheight2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/2_14morningstar2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/300_risingthreatvolumei"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/301_risingthreatvolumeii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/302_risingthreatvolumeiii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/303_risingthreatvolumeiv"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/304_rislavtherighteous"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/305_theruinsofkemel-ze"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/306_sacredtruehistoryofmother"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/307_scourgeofthegrayquarter"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/308_shadowmarks"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/309_shezarrandthedivines"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/30_23sunsheight2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/310_ashorthistoryofmorrowind"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/311_ashortlifeofurielseptimvii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/312_sinderionsfieldjournal"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/313_sithis"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/314_accordsofmadnessvolumevi"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/315_accordsofmadnessvolumeix"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/316_accordsofmadnessvolumexii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/317_ruleanoutsidersview"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/318_songofhrormir"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/319_thepelinalvolumename"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/31_24sunsheight2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/320_thepelinalvolumecoming"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/321_thepelinalvolumeenemy"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/322_thepelinalvolumedeeds"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/323_thepelinalvolumeonhismorihau"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/324_thepelinalvolumemadness"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/325_theofvolumehisb-isdismemberm"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/326_thesongvolumere-onatthetheal"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/327_songoftheaskeldemen"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/328_songsofskyrim"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/329_ofskyrimrevisededition"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/32_25sunsheight2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/330_songsreturnvolu-irsttaledaru"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/331_songsreturnvolu-hetalejorrva"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/332_songsreturnvolu-ondtaleylger"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/333_songsthevolumefirsttalethelo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/334_songsreturnvolu-finaltalechr"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/335_soulsblackandwhite"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/336_sovngardeareexamination"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/337_spiritofnirn"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/338_spiritofthedaedra"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/339_surfeitofthieves"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/33_27sunsheight2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/340_survivingahorkerattack"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/341_thetaleofdrozira"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/342_ancientthedwemerpartithezare"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/343_talesofthedwemerpartii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/344_ancientthedwemerpartiiithewh"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/345_ancientthedweme-esongalchemi"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/346_ancientthedweme-tchimarvamid"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/347_ancientthedwemerpartixazurab"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/348_ancientthedwemerpartdowry"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/349_thetalosmistake"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/34_oftheakatoshwayrest"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/350_therebedragons"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/351_thiefofvirtue"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/352_thethirddoori."
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/353_thethirddoorii."
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/354_thethirddooriii."
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/355_thethirddooriv."
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/356_thirdabbreviate-nelastyearof"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/357_threethieves"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/358_timeline1beforetheman"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/359_atragedyinblack"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/35_1lastseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/360_treatisecitiesv-efarivigumda"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/361_trialsofst.alessia"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/362_trollslaying"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/363_thetruenatureoforcs"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/364_twinsecrets"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/365_uncommontaste"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/366_varietiesofdaedra"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/367_vernaccusandbourlor"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/368_wabbajack"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/369_theworldvolumexisolitude"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/36_15lastseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/370_warofthefirstcouncil"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/371_thewarriorscharge"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/372_watcherofstones"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/373_thewatersofoblivion"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/374_thewildelves"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/375_thewindhelmletters"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/376_thewispmothertwotheories"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/377_withershins"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/378_thewolfqueenbookone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/379_thewolfqueenbooktwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/37_16lastseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/380_thewolfqueenbookthree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/381_3e99"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/382_thewolfqueenbookfour"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/383_thewolfqueenbookfive"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/384_thewolfqueenbooksix"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/385_3e121"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/386_thewolfqueenbookseven"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/387_thewolfqueenbookeight"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/388_thewoodcutterswifevolume1"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/389_wordsmotherahnissitodaughter"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/38_19lastseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/390_thewraithsweddingdowry"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/391_guidetobetterthieving"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/392_theyellowbookofriddles"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/393_yngolandthesea-ghosts"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/39_31lastseed2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/3_21morningstar2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/40_2hearthfire2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/41_5hearthfire2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/42_6hearthfire2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/43_9hearthfire2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/44_11hearthfire2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/45_18hearthfire2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/46_10frostfall2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/47_12frostfall2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/48_21frostfall2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/49_24frostfall2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/4_3sunsdawn2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/50_29frostfall2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/51_2sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/52_3sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/53_6sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/54_12sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/55_17sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/56_18sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/57_24sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/58_1sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/59_6sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/5_4sunsdawn2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/60_8sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/61_14sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/62_19sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/63_22sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/64_31sunsdusk2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/65_accountingoftheelder"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/66_theadabal-a1"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/67_theadabal-a2"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/68_theadabal-a3"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/69_advancesinlockpicking"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/6_13sunsdawn2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/70_ahzirrtrajijazaeri"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/71_isrealandheentakatosh"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/72_amongstthedraugr"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/73_theamuletofkings"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/74_ancestorsandthedunmer"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/75_theapprenticesassistant"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/76_arcanarestoredahandbook"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/77_thearcturianheresy"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/78_theargonianaccountbookone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/79_theargonianaccountbooktwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/7_19sunsdawn2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/80_theargonianaccountbookthree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/81_theargonianaccountbookfour"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/82_thearmorerschallenge"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/83_theartofwarmagic"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/84_theofmountainriseandoftribuna"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/85_thebattleofsancretor"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/86_themarkarththecrimesstormcloa"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/87_beggarprince"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/88_ofbarenziahvolumeone"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/89_ofbarenziahvolumetwo"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/8_29sunsdawn2920"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/90_ofbarenziahvolumethree"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/91_biographyofthewolfqueen"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/92_theblackarrowparti"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/93_theblackarrowpartii"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/94_theblackartsontrial"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/95_theanachievementofdaedra"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/96_boethiahsglory"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/97_thebookofdaedra"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/98_thebookofthedragonborn"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/99_bravildaughteroftheniben"
+                },
+                {
+                    "type": "minecraft:loot_table",
+                    "name": "thuumcraft:books/9_15firstseed2920"
+                }
+            ]
+        }
+    ]
+}

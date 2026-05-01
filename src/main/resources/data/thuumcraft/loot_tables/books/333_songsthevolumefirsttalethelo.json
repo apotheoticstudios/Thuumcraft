@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Songs of the Return, Volume 24\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Songs of the Return - Volume 24: The First Tale of the Krilot Lok\\\\nby Unknown\\\\n\\\\n-[When the time came for] breaking of camp, not all crews took southwards across the rolling lands. Some turned with quick eyes back to their ships, for their hearts were bounded to the waves as sure as they were bounded to each other [as allied\\\"}\",\"{\\\"text\\\": \\\"Companions]. One such crew was that of the Krilot Lok, sinewy long folk from the [eastern] edge of Atmora. Their ruddy skin matched the dawn and it was often said that morning herself learned [her glorious colors from] the first faces to meet her at the\\\"}\",\"{\\\"text\\\": \\\"break of day. The great Kyne lifted their souls and their winds, propelling them westwards with the new lands of Tamriel ever beckoning to the south. In time, these perpetual wanderers came upon sights fearsome and terrible. Entire kingdoms of men beyond\\\"}\",\"{\\\"text\\\": \\\"their recognition, skin charred like overcooked meat. Elves [even more devious than the northern betrayers] disgraced their horizons, until they learned the sheltered ways between. Great deserts the likes of which were never known in the homeland,\\\"}\",\"{\\\"text\\\": \\\"peopled by beasts that spoke like men, with the [savagery?] of elves. Many a notable and well-sung Companion met his end at the spears of the legged snakes of the southern marsh. Among the brave crew of the Krilot Lok were of Roeth and Breff the Elder,\\\"}\",\"{\\\"text\\\": \\\"the great Shield-Brothers (who often swapped spears), and [their] war-wives, Britte and Greyf (the fair child), Shield-Sisters in their own right who could bring [the face of terror?] across the ice-chilled seas. Together these four stared into the abyss\\\"}\",\"{\\\"text\\\": \\\"of trees that formed the foul-smelling homeland of the snake-men. And as they were blessed Atmorans who feared no shore of Tamriel, they ventured forth to seek out their glories in the most dangerous of these new lands. Onward they flew, ravaging the\\\"}\",\"{\\\"text\\\": \\\"swamplands, beating a trail between themselves and their ship such that they would never lose sight of the shore. In the far-off day when at last Roeth would fall, when Britte screamed her famed war-cry so that all the marshes were emptied, this trail\\\"}\",\"{\\\"text\\\": \\\"would fill once more with the treacherous snake men. So began the [burning?] march of these great captains of us all.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

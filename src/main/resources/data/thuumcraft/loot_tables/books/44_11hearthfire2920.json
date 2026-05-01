@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"11 Hearth Fire, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"11 Hearth Fire, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil Rijja had not even tried to sleep the night before, and she found the somber music played during her execution to have a soporific effect. It was as if she was willing herself to be unconscious before the ax stroke. Her eyes\\\"}\",\"{\\\"text\\\": \\\"were bound so she could not see her former lover, the Emperor, seated before her, glaring with his one good eye. She could not see the Potentate Versidue-Shaie, his coil neatly wrapped beneath him, a look of triumph in his golden face. She could feel,\\\"}\",\"{\\\"text\\\": \\\"numbly, the executioner's hand touch her back to steady her. She flinched like a dreamer trying to awake. The first blow caught the back of her head and she screamed. The next hacked through her neck, and she was dead. The Emperor turned to the Potentate\\\"}\",\"{\\\"text\\\": \\\"wearily, \\\\\\\"Now that's done. You said she had a pretty sister in Hammerfell named Corda?\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"6 Sun's Height, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"6 Sun's Height, 2920\\\\nby Carlovac Townway\\\\n\\\\nThurzo Fortress, Cyrodiil Rijja stood quietly looking at the cold stone floor while the Emperor spoke. He had never before seen her so pale and joyless. She might at least be pleased that she was being freed, being returned to her homeland. Why, if she\\\"}\",\"{\\\"text\\\": \\\"left now, she could be in Hammerfell by the Merchant's Festival. Nothing he said seemed to register any reaction from her. A month and a half's stay in Thurzo Fortress seemed to have killed her spirit. \\\\\\\"I was thinking,\\\\\\\" said the Emperor at last. \\\\\\\"Of\\\"}\",\"{\\\"text\\\": \\\"having your younger sister Corda up to the palace for a time. I think she would prefer it over the conservatorium in Hegathe, don't you?\\\\\\\" Reaction, at last. Rijja looked at the Emperor with animal hatred, flinging herself at him in a rage. Her\\\"}\",\"{\\\"text\\\": \\\"fingernails had grown long since her imprisonment and she raked them across his face, into his eyes. He howled with pain, and his guards pulled her off, pummeling her with blows from the back of their swords, until she was knocked unconscious. A healer\\\"}\",\"{\\\"text\\\": \\\"was called at once, but the Emperor Reman III had lost his right eye.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

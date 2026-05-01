@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"18 First Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"18 First Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nAld Erfoud, Morrowind How far is the Imperial Army?\\\\\\\" asked Vivec. \\\\\\\"Two days' march,\\\\\\\" replied his lieutenant. \\\\\\\"If we march all night tonight, we can get higher ground at the Pryai tomorrow morning. Our intelligence tells us the Emperor will be commanding\\\"}\",\"{\\\"text\\\": \\\"the rear, Storig of Farrun has the vanguard, Naghea of Riverhold at left flank, and Ulaqth of Lilmoth at right flank.\\\\\\\" \\\\\\\"Ulaqth,\\\\\\\" whispered Vivec, an idea forming. \\\\\\\"Is this intelligence reliable? Who brought it to us?\\\\\\\" \\\\\\\"A Breton spy in the Imperial Army,\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"said the lieutenant and gestured towards a young, sandy-haired man who stepped forward and bowed to Vivec. \\\\\\\"What is your name and why is a Breton working for us against the Cyrodiils?\\\\\\\" asked Vivec, smiling. \\\\\\\"My name is Cassyr Whitley of Dwynnen,\\\\\\\" said\\\"}\",\"{\\\"text\\\": \\\"the man. \\\\\\\"And I am working for you because not everyone can say he spied for a god. And I understood it would be, well, profitable.\\\\\\\" Vivec laughed, \\\\\\\"It will be, if your information is accurate.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

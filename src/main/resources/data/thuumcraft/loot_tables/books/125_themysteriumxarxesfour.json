@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Xarxes Commentaries, Book Four\",author:\"Mankar Camoran\",pages:[\"{\\\"text\\\": \\\"Commentaries on the Mysterium Xarxes, Book Four\\\\nBy Mankar Camoran\\\\n\\\\nGHARTOK May the holder of the fourth key know the heart thereby: the Mundex Terrene was once ruled over solely by the tyrant dreugh-kings, each to their own dominion, and borderwars fought between their slave oceans. They were akin to the time-totems of\\\"}\",\"{\\\"text\\\": \\\"old, yet evil, and full of mockery and profane powers. No one that lived did so outside of the sufferance of the dreughs. I give my soul to the Magna Ge, sayeth the joyous in Paradise, for they created Mehrunes the Razor in secret, in the very bowels of\\\"}\",\"{\\\"text\\\": \\\"Lyg, the domain of the Upstart who vanishes. Though they came from diverse waters, each Get shared sole purpose: to artifice a prince of good, spinning his likeness in random swath, and imbuing him with Oblivion's most precious and scarce asset: hope.\\\"}\",\"{\\\"text\\\": \\\"Deathlessly I intone from Paradise: Mehrunes the Thieftaker, Mehrunes Godsbody, Mehrunes the Red Arms That Went Up! Nu-Mantia! Liberty! Deny not that these days shall come again, my novitiates! For as Mehrunes threw down Lyg and cracked his face,\\\"}\",\"{\\\"text\\\": \\\"declaring each of the nineteen and nine and nine oceans Free, so shall he crack the serpent crown of the Cyrodiils and make federation! All will change in these days as it was changed in those, for with by the magic word Nu-Mantia a great rebellion rose\\\"}\",\"{\\\"text\\\": \\\"up and pulled down the towers of CHIM-EL GHARJYG, and the templars of the Upstart were slaughtered, and blood fell like dew from the upper wards down to the lowest pits, where the slaves with maniacal faces took chains and teeth to their jailers and all\\\"}\",\"{\\\"text\\\": \\\"hope was brush-fire. Your Dawn listens, my Lord! Let all the Aurbis know itself to be Free! Mehrunes is come! There is no dominion save free will! Suns were riven as your red legions moved from Lyg to the hinterlands of chill, a legion for each Get, and\\\"}\",\"{\\\"text\\\": \\\"Kuri was thrown down and Djaf was thrown down and Horma-Gile was crushed with coldsalt and forevermore called Hor and so shall it be again under the time of Gates. Under the mires, Malbioge was thrown down, that old City of Chains, slaked in\\\"}\",\"{\\\"text\\\": \\\"newbone-warmth and set Free. Galg and Mor-Galg were thrown down together in a single night of day and shall it be again under the time of Gates. Nothing but woe for NRN which has become The Pit and seven curses on its Dreugh, the Vermae NI-MOHK! But for\\\"}\",\"{\\\"text\\\": \\\"it the Crusades would be as my lord's Creation, Get by the Ge and do as thou wilt, of no fetters but your own conscience! Know that your Hell is Broken, people of the Aurbis, and praise the Nu-Mantia which is Liberty!\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

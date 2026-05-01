@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Third Door, I.\",author:\"Annanar Orme\",pages:[\"{\\\"text\\\": \\\"The Third Door - I.\\\\nby Annanar Orme\\\\n\\\\nI sing of Ellabeth, the Queen of the Axe, Who could fell a full elm with two hatchet hacks. She could rip apart Valenwood just for her fun. She studied under Alfhedil in Tel Aruhn. He taught her the jabs, the strokes, and the stance To make an ax-swing\\\"}\",\"{\\\"text\\\": \\\"into an elegant dance. He taught her the barbed axes of the Orcs bold, The six-foot-long axes favored in Winterhold, The hollow-bladed axes of the Elves of the West, Which whistle when they swing through flesh. With a single-headed axe, she could behead\\\"}\",\"{\\\"text\\\": \\\"two men. With a double-headed axe, she could fell more than ten. Yet where she lives in legend has most to do With the man who hacked her own heart in two.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

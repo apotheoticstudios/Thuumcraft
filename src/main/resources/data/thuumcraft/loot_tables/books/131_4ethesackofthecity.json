@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Sack of the Imperial City\",author:\"Legate Justianus Quintius\",pages:[\"{\\\"text\\\": \\\"4E 174: The Sack of the Imperial City\\\\nby Legate Justianus Quintius\\\\n\\\\nIn 4E 174, the Thalmor leadership committed all available forces to the campaign in Cyrodiil, gambling on a decisive victory to end the war once and for all. During the spring, Aldmeri reinforcements gathered in southern Cyrodiil, and on 12th of Second\\\"}\",\"{\\\"text\\\": \\\"Seed, they launched a massive assault on the Imperial City itself. One army drove north to completely surround the city, while Lord Naarifin's main force attacked the walls from the south, east, and west. The Emperor's decision to fight his way out of\\\"}\",\"{\\\"text\\\": \\\"the city rather than make a last stand was a bold one. No general dared advise him to abandon the capital, but Titus II was proven right in the end. While the Eighth Legion fought a desperate (and doomed) rearguard action on the walls of the city, Titus\\\"}\",\"{\\\"text\\\": \\\"II broke out of the city to the north with his main army, smashing through the surrounding the Aldmeri forces and linking up with reinforcements marching south from Skyrim under General Jonna. Meanwhile, however, the capital fell to the invaders and the\\\"}\",\"{\\\"text\\\": \\\"infamous Sack of the Imperial City began. The Imperial Palace was burned, the White-Gold Tower itself looted, and all manner of atrocities carried out by the vengeful elves on the innocent populace. In Hammerfell, General Decianus was preparing to drive\\\"}\",\"{\\\"text\\\": \\\"the Aldmeri back from Skaven when he was ordered to march for Cyrodiil. Unwilling to abandon Hammerfell completely, he allowed a great number of \\\\\\\"invalids\\\\\\\" to be discharged from the Legions before they marched east. These veterans formed the core of the\\\"}\",\"{\\\"text\\\": \\\"army that eventually drove Lady Arannelya's forces back across the Alik'r late in 174, taking heavy losses on their retreat from harassing attacks by the Alik'r warriors.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

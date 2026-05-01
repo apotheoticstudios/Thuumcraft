@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"3 Rain's Hand, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"3 Rain's Hand, 2920\\\\nBy Carlovac Townway\\\\n\\\\nColdharbour, Oblivion Sotha Sil proceeded as quickly as he could through the blackened halls of the palace, half-submerged in brackish water. All around him, nasty gelatinous creatures scurried into the reeds, bursts of white fire lit up the upper arches\\\"}\",\"{\\\"text\\\": \\\"of the hall before disappearing, and smells assaulted him, rancid death one moment, sweet flowered perfume the next. Several times he had visited the Daedra princes in their Oblivion, but every time, something different awaited him. He knew his purpose,\\\"}\",\"{\\\"text\\\": \\\"and refused to be distracted. Eight of the more prominent Daedra princes were awaiting him in the half-melted, domed room. Azura, Prince of Dusk and Dawn; Boethiah, Prince of Plots; Herma-Mora, Daedra of Knowledge; Hircine, the Hunter; Malacath, God of\\\"}\",\"{\\\"text\\\": \\\"Curses; Mehrunes Dagon, Prince of Disaster; Molag Bal, Prince of Rage; Sheogorath, the Mad One. Above them, the sky cast tormented shadows upon the meeting.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Third Door, IV.\",author:\"Annanar Orme\",pages:[\"{\\\"text\\\": \\\"The Third Door - IV.\\\\nby Annanar Orme\\\\n\\\\nEllabeth had lied; there was no demon of lore. The top third of Nienolas was behind the third door.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

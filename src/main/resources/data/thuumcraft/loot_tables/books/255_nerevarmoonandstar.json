@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Nerevar Moon and Star\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Nerevar Moon and Star\\\\nby Unknown\\\\n\\\\n(This is a selection from a series of monographs by various Imperial scholars on Ashlander legends.) In ancient days, the Deep Elves and a great host of outlanders from the West came to steal the land of the Dunmer. In that time, Nerevar was the great\\\"}\",\"{\\\"text\\\": \\\"khan and warleader of the House People, but he honored the Ancient Spirits and the Tribal law, and became as one of us. So, when Nerevar pledged upon his great Ring of the Ancestors, One-Clan-Under-Moon-and-Star, to honor the ways of the Spirits and\\\"}\",\"{\\\"text\\\": \\\"rights of the Land, all the Tribes joined the House People to fight a great battle at Red Mountain. Though many Dunmer, Tribesman and Houseman, died at Red Mountain, the Dwemer were defeated and their evil magicks destroyed, and the outlanders driven\\\"}\",\"{\\\"text\\\": \\\"from the land. But after this great victory, the power-hungry khans of the Great Houses slew Nerevar in secret, and, setting themselves up as gods, neglected Nerevar's promises to the Tribes. But it is said that Nerevar will come again with his ring, and\\\"}\",\"{\\\"text\\\": \\\"cast down the false gods, and by the power of his ring will make good his promises to the Tribes, to honor the Spirits and drive the outsiders from the land. N'Gasta! Kvata! Kvakis! an obscure text in the language of the Sload, purportedly written by the\\\"}\",\"{\\\"text\\\": \\\"Second Era Western necromancer, N'Gasta. N'Gasta! Kvata! Kvakis! ahkstas so novajxletero (oix jhemile) so Ranetauw. Ricevas gxin pagintaj membrauw kaj aliaj individuauw, kiujn iamaniere tusxas so raneta aktivado. En gxi aperas informauw unuavice pri so\\\"}\",\"{\\\"text\\\": \\\"lokauw so cxiumonataj kunvenauw, sed nature ankoix pri aliaj aktuasoj aktivecauw so societo. Ne malofte enahkstas krome plej diversaspekta materialo eduka oix distra. So interreta Kvako (retletera kaj verjheauw) ahkstas unufsonke alternativaj kanasouw\\\"}\",\"{\\\"text\\\": \\\"por distribui so enhavon so papera Kva! Kvak!. Sed alifsonke so enhavauw so diversaj verjheauw antoixvible ne povas kaj ecx ne vus cxiam ahksti centprocente so sama. En malvaste cirkusonta paperfolio ekzemple ebsos publikigi ilustrajxauwn, kiuj pro\\\"}\",\"{\\\"text\\\": \\\"kopirajtaj kiasouw ne ahkstas uzebsoj en so interreto. Alifsonke so masoltaj kostauw reta distribuo forigas so spacajn limigauwn kaj permahksas pli ampleksan enhavon, por ne paroli pri gxishora aktualeco. Tiuj cirkonstancauw rahkspeguligxos en so aspekto\\\"}\",\"{\\\"text\\\": \\\"so Kvakoa, kiu ja cetere servos ankoix kiel gxeneraso retejo so ranetauw.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

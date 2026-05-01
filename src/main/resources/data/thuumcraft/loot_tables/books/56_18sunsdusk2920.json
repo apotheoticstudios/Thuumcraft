@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"18 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"18 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nBalmora, Morrowind Sotha Sil, face solemn and unreadable, greeted Vivec at the grand plaza in front of his palace. Vivec had ridden day and night after hearing about the battle in his tent in Bodrum, crossing mile after mile, cutting through the\\\"}\",\"{\\\"text\\\": \\\"dangerous ground at Dagoth-Ur at blinding speed. To the south, during all the course of the voyage, he could see the whirling red clouds and knew that the battle was continuing, day after day. In Gnisis, he met a messenger from Sotha Sil, asking him to\\\"}\",\"{\\\"text\\\": \\\"meet at Balmora. \\\\\\\"Where is Almalexia?\\\\\\\" \\\\\\\"Inside,\\\\\\\" said Sotha Sil wearily. There was a long, ugly gash running across his jaw. \\\\\\\"She's gravely injured, but Mehrunes Dagon will not return from Oblivion for many a moon.\\\\\\\" Almalexia lay on a bed of silk, tended\\\"}\",\"{\\\"text\\\": \\\"to by Vivec's own healers. Her face, even her lips, was gray as stone, and blood stained through the gauze of her bandages. Vivec took her cold hand. Almalexia's mouth moved wordlessly. She was dreaming. She was battling Mehrunes Dagon again amid a\\\"}\",\"{\\\"text\\\": \\\"firestorm. All around her, the blackened husk of a castle crumbled, splashing sparks into the night sky. The Daedra's claws dug into her belly, spreading poison through her veins while Almalexia throttled him. As she sank to the ground beside her\\\"}\",\"{\\\"text\\\": \\\"defeated foe, she saw that the castle consumed by fire was not Castle Mournhold. It was the Imperial Palace.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

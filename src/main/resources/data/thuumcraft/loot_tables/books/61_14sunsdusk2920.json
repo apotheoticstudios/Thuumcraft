@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"14 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"14 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nTel Aruhn, Morrowind Corda, dusty from the road, flew into the Night Mother's arms. For a moment, they stayed locked together, the Night Mother stroking her daughter's hair, kissing her forehead. Finally, she reached into her sleeve and handed Corda a\\\"}\",\"{\\\"text\\\": \\\"letter. \\\\\\\"What is it?\\\\\\\" asked Corda. \\\\\\\"A letter from the Potentate, expressing his delight at your expertise,\\\\\\\" replied the Night Mother. \\\\\\\"He's promised to send us payment, but I've already sent him back a reply. The late Empress paid us enough for her\\\"}\",\"{\\\"text\\\": \\\"husband's death. Mephala would not have us be greedy beyond our needs. You should not be paid twice for the same murder, so it is written.\\\\\\\" \\\\\\\"He killed Rijja, my sister,\\\\\\\" said Corda quietly. \\\\\\\"And so it should be that you struck the blow.\\\\\\\" \\\\\\\"Where will I go\\\"}\",\"{\\\"text\\\": \\\"now?\\\\\\\" \\\\\\\"Whenever any of our holy workers becomes too famous to continue the crusade, we send them to an island called Vounoura. It's not more than a month's voyage by boat, and I've arranged for a delightful estate for your sanctuary,\\\\\\\" the Night Mother\\\"}\",\"{\\\"text\\\": \\\"kissed the girl's tears. \\\\\\\"You meet many friends there, and I know you will find peace and happiness at last, my child.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

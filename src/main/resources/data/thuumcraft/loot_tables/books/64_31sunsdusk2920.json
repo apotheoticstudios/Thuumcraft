@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"31 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"31 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nEbonheart, Morrowind In the smoky catacombs beneath the city where Sotha Sil forged the future with his arcane clockwork apparatus, something unforeseen happened. An oily bubble seeped from a long trusted gear and popped. Immediately, the wizard's\\\"}\",\"{\\\"text\\\": \\\"attention was drawn to it and to the chain that tiny action triggered. A pipe shifted half an inch to the left. A tread skipped. A coil rewound itself and began spinning in a counter direction. A piston that had been thrusting left-right, left-right, for\\\"}\",\"{\\\"text\\\": \\\"millennia suddenly began shifting right-left. Nothing broke, but everything changed. \\\\\\\"It cannot be fixed now,\\\\\\\" said the sorcerer quietly. He looked up through a crick in the ceiling into the night sky. It was midnight. The second era, the age of chaos,\\\"}\",\"{\\\"text\\\": \\\"had begun.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

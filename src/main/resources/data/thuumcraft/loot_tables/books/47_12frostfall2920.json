@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"12 Frostfall, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"12 Frostfall, 2920\\\\nby Carlovac Townway\\\\n\\\\nDwynnen, High Rock For a Middas evening, the Least Loved Porcupine tavern was wildly crowded. A roaring fire in the pit in the center of the room cast an almost sinister glow on all the regulars, and made the abundance of bodies look like a punishment\\\"}\",\"{\\\"text\\\": \\\"tapestry inspired by the Arcturian Heresies. Cassyr took his usual place with his cousin and ordered a flagon of ale. \\\\\\\"Have you been to see the Baron?\\\\\\\" asked Palyth. \\\\\\\"Yes, he may have work for me in the palace of Urvaius,\\\\\\\" said Cassyr proudly. \\\\\\\"But more\\\"}\",\"{\\\"text\\\": \\\"than that I can't say. You understand, secrets of state and all that. Why are there so many damned people here tonight?\\\\\\\" \\\\\\\"A shipload of Dark Elves just came in to harbor. They've come from the war. I was just waiting until you got here to introduce you\\\"}\",\"{\\\"text\\\": \\\"as another veteran.\\\\\\\" Cassyr blushed, but regained his composure enough to ask: \\\\\\\"What are they doing here? Has there been a truce?\\\\\\\" \\\\\\\"I don't know the full story,\\\\\\\" said Palyth. \\\\\\\"But apparently, the Emperor and Vivec are in negotiations again. These fellas\\\"}\",\"{\\\"text\\\": \\\"here have investments they were keen to check on, and they figured things on the Bay were quiet enough. But the only way we can get the full story is to talk to the chaps.\\\\\\\" With that, Palyth gripped his cousin's arm and pulled him to the other side of\\\"}\",\"{\\\"text\\\": \\\"the bar so suddenly, Cassyr would have had to struggle violently to resist. The Dunmer travelers were spread out across four of the tables, laughing with the locals. They were largely amiable young men, well-dressed, befitting merchants, animated in\\\"}\",\"{\\\"text\\\": \\\"gesture made more extravagant by liquor. \\\\\\\"Excuse me,\\\\\\\" said Palyth, intruding on the conversation. \\\\\\\"My shy cousin Cassyr was in the war as well, fighting for the living god, Vivec.\\\\\\\" \\\\\\\"The only Cassyr I ever heard of,\\\\\\\" said one of the Dunmer drunkenly with\\\"}\",\"{\\\"text\\\": \\\"a wide, friendly smile, shaking Cassyr's free hand. \\\\\\\"Was a Cassyr Whitley, who Vivec said was the worst spy in history. We lost Ald Marak due to his bungling intelligence work. For your sake, friend, I hope the two of you were never confused.\\\\\\\" Cassyr\\\"}\",\"{\\\"text\\\": \\\"smiled and listened as the lout told the story of his failure with bountiful exaggerations which caused the table to roar with laughter. Several eyes looked his way, but none of the locals sought to explain that the fool of the tale was standing at\\\"}\",\"{\\\"text\\\": \\\"attention. The eyes that stung the most were his cousin's, the young man who had believed that he had returned to Dwynnen a great hero. At some point, certainly, the Baron would hear about it, his idiocy increasing manifold with each retelling. With\\\"}\",\"{\\\"text\\\": \\\"every fiber in his soul, Cassyr cursed the living god Vivec.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

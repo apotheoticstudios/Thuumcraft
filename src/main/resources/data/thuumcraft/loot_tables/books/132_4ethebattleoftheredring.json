@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Battle of the Red Ring\",author:\"Legate Justianus Quintius\",pages:[\"{\\\"text\\\": \\\"4E 175: The Battle of the Red Ring\\\\nby Legate Justianus Quintius\\\\n\\\\nDuring the winter of 4E 174-175, the Thalmor seem to have believed that the war in Cyrodiil was all but over. They made several attempts to negotiate with Titus II. The Emperor encouraged them in their belief that he was preparing to surrender;\\\"}\",\"{\\\"text\\\": \\\"meanwhile, he gathered his forces to retake the Imperial City. In what is now known as the Battle of the Red Ring, a battle that will serve as a model for Imperial strategists for generations to come, Titus II divided his forces into three. One army,\\\"}\",\"{\\\"text\\\": \\\"with the legions from Hammerfell under General Decianus, was hidden in the Colovian Highlands near Chorrol. The Aldmeri were unaware that he was no longer in Hammerfell, possibly because the Imperial veterans Decianus had left behind led Lady Arannelya\\\"}\",\"{\\\"text\\\": \\\"to believe that she still faced an Imperial army. The second army, largely of Nord legions under General Jonna, took up position near Cheydinhal. The main army was commanded by the Emperor himself, and would undertake the main assault of the Imperial\\\"}\",\"{\\\"text\\\": \\\"City from the north. On the 30th of Rain's Hand, the bloody Battle of the Red Ring began as General Decianus swept down on the city from the west, while General Jonna's legionnaires drove south along the Red Ring Road. In a two-day assault, Jonna's army\\\"}\",\"{\\\"text\\\": \\\"crossed the Niben and advanced west, attempting to link up with Decianus's legions and thus surround the Imperial City. Lord Naarifin was taken by surprise by Decianus's assault, but Jonna's troops faced bitter resistance as the Aldmeri counterattacked\\\"}\",\"{\\\"text\\\": \\\"from Bravil and Skingrad. The heroic Nord legionnaires held firm, however, beating off the piecemeal Aldmeri attacks. By the fifth day of the battle, the Aldmeri army in the Imperial City was surrounded. Titus II led the assault from the north,\\\"}\",\"{\\\"text\\\": \\\"personally capturing Lord Naarifin. It is rumored the Emperor wielded the famed sword Goldbrand, although this has never been officially confirmed by the Imperial government. An attempt by the Aldmeri to break out of the city to the south was blocked by\\\"}\",\"{\\\"text\\\": \\\"the unbreakable shieldwall of General Jonna's battered legions. In the end, the main Aldmeri army in Cyrodiil was completely destroyed. The Emperor's decision to withdraw from the Imperial City in 4E 174 was bloodily vindicated. Lord Naarifin was kept\\\"}\",\"{\\\"text\\\": \\\"alive for thirty-three days, hanging from the White-Gold tower. It is not recorded where his body was buried, if it was buried at all. Once source claims he was carried off by a winged daedra on the thirty-fourth day.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

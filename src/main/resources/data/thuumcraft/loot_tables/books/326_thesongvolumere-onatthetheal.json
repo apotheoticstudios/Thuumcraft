@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Song of Pelinal, Volume 8\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Song of Pelinal, Volume 8: On His Revelation at the Death of the Al-Esh\\\\nby Unknown\\\\n\\\\n-[Editor's Note: Volumes 1-6 are taken from the so-called Reman Manuscript located in the Imperial Library. It is a transcription of older fragments collected by an unknown scholar of the early Second Era. Beyond this, little is known of the original\\\"}\",\"{\\\"text\\\": \\\"sources of these fragments, some of which appear to be from the same period (perhaps even from the same manuscript). But, as no scholarly consensus yet exists on dating these six fragments, no opinions will be offered here.] And left you to gather sinew\\\"}\",\"{\\\"text\\\": \\\"with my other half, who will bring light thereby to that mortal idea that brings [the Gods] great joy, that is, freedom, which even the Heavens do not truly know, [which is] why our Father, the... [Text lost]... in those first [days/spirits/swirls]\\\"}\",\"{\\\"text\\\": \\\"before Convention... that which we echoed in our earthly madness. [Let us] now take you Up. We will [show] our true faces... [which eat] one another in amnesia each Age.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

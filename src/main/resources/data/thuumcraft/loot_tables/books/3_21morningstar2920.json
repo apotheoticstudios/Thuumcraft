@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"21 Morning Star, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"21 Morning Star, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind \\\\\\\"Why don't you wear that green gown I gave you?\\\\\\\" asked the Duke of Mournhold, watching the young maiden put on her clothes. \\\\\\\"It doesn't fit,\\\\\\\" smiled Turala. \\\\\\\"And you know I like red.\\\\\\\" \\\\\\\"It doesn't fit because you're getting fat,\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"laughed the Duke, pulling her down on the bed, kissing her breasts and the pouch of her stomach. She laughed at the tickles, but pulled herself up, wrapping her red robe around her. \\\\\\\"I'm round like a woman should be,\\\\\\\" said Turala. \\\\\\\"Will I see you\\\"}\",\"{\\\"text\\\": \\\"tomorrow?\\\\\\\" \\\\\\\"No,\\\\\\\" said the Duke. \\\\\\\"I must entertain Vivec tomorrow, and the next day the Duke of Ebonheart is coming. Do you know, I never really appreciated Almalexia and her political skills until she left?\\\\\\\" \\\\\\\"It is the same with me,\\\\\\\" smiled Turala. \\\\\\\"You\\\"}\",\"{\\\"text\\\": \\\"will only appreciate me when I'm gone.\\\\\\\" \\\\\\\"That's not true at all,\\\\\\\" snorted the Duke. \\\\\\\"I appreciate you now.\\\\\\\" Turala allowed the Duke one last kiss before she was out the door. She kept thinking about what he said. Would he appreciate her more or less when\\\"}\",\"{\\\"text\\\": \\\"he knew that she was getting fat because she was carrying his child? Would he appreciate her enough to marry her? The Year Continues in Sun's Dawn\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

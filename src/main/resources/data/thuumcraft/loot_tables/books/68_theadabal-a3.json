@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Adabal-a (3)\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Adabal-a (3)\\\\nby Unknown\\\\n\\\\nMORIHAUS EXPLAINS ALESSIA'S NAMES Then Morihaus said to them: \\\\\\\"In your tales you have many names for her: Al-Esh, given to her in awe, that when translated sounds like a redundancy, 'the high high', from which come the more familiar corruptions: Aleshut,\\\"}\",\"{\\\"text\\\": \\\"Esha, Alessia. You knew her as Paravant, given to her when crowned, 'first of its kind', by which the gods meant a mortal worthy of the majesty that is killing-questing-healing, which is also Paraval, Pevesh, Perrethu, Perrif, and, in my case, for it is\\\"}\",\"{\\\"text\\\": \\\"what I called her when we were lovers: Paravania.\\\\\\\" \\\\\\\"Though she is gone to me, she remains bathed in stars, first Empress, Lady of Heaven, Queen-ut-Cyrod.\\\\\\\" And they considered themselves full-answered, and departed.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

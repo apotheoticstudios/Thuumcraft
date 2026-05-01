@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Song of Pelinal, Volume 4\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Song of Pelinal, Volume 4: On His Deeds\\\\nby Unknown\\\\n\\\\n-[Editor's Note: Volumes 1-6 are taken from the so-called Reman Manuscript located in the Imperial Library. It is a transcription of older fragments collected by an unknown scholar of the early Second Era. Beyond this, little is known of the original\\\"}\",\"{\\\"text\\\": \\\"sources of these fragments, some of which appear to be from the same period (perhaps even from the same manuscript). But, as no scholarly consensus yet exists on dating these six fragments, no opinions will be offered here.] Pelinal drove the sorcerer\\\"}\",\"{\\\"text\\\": \\\"armies past the Niben, claiming all the eastern lands for the rebellion of the Paravania, and Kyne had to send her rain to wash the blood from the villages and forts that no longer flew Ayleid banners, for the armies of Men needed to make camps of them\\\"}\",\"{\\\"text\\\": \\\"as they went forward. ...[and] he broke the doors open for the prisoners of the Vahtache with the Slave-Queen flying on Morihaus above them, and Men called her Al-Esh for the first time. He entered the Gate at ... to win back the hands of the\\\"}\",\"{\\\"text\\\": \\\"Thousand-Strong of Sedor (a tribe now unknown but famous in those days), which the Ayleids had stolen in the night, two thousand hands that he brought back in a wagon made of demon-bone, whose wheels trailed the sound of women when ill at heart... [Text\\\"}\",\"{\\\"text\\\": \\\"lost]... [And after] the first Pogrom, which consolidated the northern holdings for the men-of-'kreath, he stood with white hair gone brown with elfblood at the Bridge of Heldon, where Perrif's falconers had sent for the Nords, and they, looking at him,\\\"}\",\"{\\\"text\\\": \\\"said that Shor had returned, but he spat at their feet for profaning that name. He led them anyway into the heart of the hinterland west, to drive the Ayleids inward, towards the Tower of White-Gold, a slow retreating circle that could not understand the\\\"}\",\"{\\\"text\\\": \\\"power of Man's sudden liberty, and what fury-idea that brought. His mace crushed the Thundernachs that Umaril sent as harriers on the rebellion's long march back south and east, and carried Morihaus-Breath-of-Kyne to Zuathas the Clever-Cutting Man (a\\\"}\",\"{\\\"text\\\": \\\"nede with a keptu name) for healing when the bull had fallen to a volley of bird beaks. And, of course, at the Council of Skiffs, where all of the Paravania's armies and all of the Nords shook with fear at the storming of White-Gold, so much so that the\\\"}\",\"{\\\"text\\\": \\\"Al-Esh herself counseled delay, Pelinal grew furious, and made names of Umaril, and made names of what cowards he thought he saw around him, and then made for the Tower by himself, for Pelinal often acted without thought.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

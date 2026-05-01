@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"30 Second Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"30 Second Seed, 2920\\\\nBy Carlovac Townway\\\\n\\\\nThurzo Fortress, Cyrodiil Rijja screamed and screamed and screamed. Within her cell, her only audience was the giant gray stones, crusted with moss but still sturdy. The guards outside were deaf to her as they were deaf to all prisoners. The Emperor,\\\"}\",\"{\\\"text\\\": \\\"miles away in the Imperial City, had likewise been deaf to her cries of innocence. She screamed knowing well that no one would likely hear her ever again.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

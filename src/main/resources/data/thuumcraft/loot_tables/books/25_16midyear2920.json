@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"16 Mid Year, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"16 Mid Year, 2920\\\\nby Carlovac Townway\\\\n\\\\nLake Coronati, Morrowind Vivec stared across the blue expanse of the lake, seeing his reflection and the reflection of his army in the cool blue waters. What he did not see was the Imperial Army's reflection. They must have reached the straits by now,\\\"}\",\"{\\\"text\\\": \\\"barring any mishaps in the forest. Tall feather-thin lake trees blocked much of his view of the straits, but an army, particularly one clan in slow-moving heavy armor could not move invisibly, silently. \\\\\\\"Let me see the map again,\\\\\\\" he called to his\\\"}\",\"{\\\"text\\\": \\\"captain. \\\\\\\"Is there no other way they could approach?\\\\\\\" \\\\\\\"We have sentries posted in the swamps to the north in case they're fool enough to go there and be bogged under,\\\\\\\" said the captain. \\\\\\\"We would at least hear about it. But there is no other way across\\\"}\",\"{\\\"text\\\": \\\"the lake except through the straits.\\\\\\\" Vivec looked down again at his reflection, which seemed to be distorting his image, mocking him. Then he looked back on the map. \\\\\\\"Spy,\\\\\\\" said Vivec, calling Cassyr over. \\\\\\\"When you said the army had a horde of\\\"}\",\"{\\\"text\\\": \\\"battlemages, what made you so certain they were battlemages?\\\\\\\" \\\\\\\"They were wearing gray robes with mystical insignia on them,\\\\\\\" explained Cassyr. \\\\\\\"I figured they were mages, and why else would such a vast number travel with the army? They couldn't have all\\\"}\",\"{\\\"text\\\": \\\"been healers.\\\\\\\" \\\\\\\"You fool!\\\\\\\" roared Vivec. \\\\\\\"They're mystics schooled in the art of Alteration. They've cast a spell of water breathing on the entire army.\\\\\\\" Vivec ran to a new vantage point where he could see the north. Across the lake, though it was but a\\\"}\",\"{\\\"text\\\": \\\"small shadow on the horizon, they could see gouts of flame from the assault on Ald Marak. Vivec bellowed with fury and his captain got to work at once redirecting the army to circle the lake and defend the castle. \\\\\\\"Return to Dwynnen,\\\\\\\" said Vivec flatly\\\"}\",\"{\\\"text\\\": \\\"to Cassyr before he rode off to join the battle. \\\\\\\"Your services are no longer needed nor wanted.\\\\\\\" It was already too late when the Morrowind army neared Ald Marak. It had been taken by the Imperial Army.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

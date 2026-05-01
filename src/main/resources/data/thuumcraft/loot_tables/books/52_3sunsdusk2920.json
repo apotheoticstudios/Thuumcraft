@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"3 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"3 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind The Duke stared out the window. It was early morning, and for the fourth straight day, a red mist hung over the city, flashing lightning. A freakish wind blew through the streets, ripping his flags from the castle battlements,\\\"}\",\"{\\\"text\\\": \\\"forcing all his people to close their shudders tightly. Something terrible was coming to his land. He was not a greatly learned man, but he knew the signs. So too did his subjects. \\\\\\\"When will my messengers reach the Three?\\\\\\\" he growled, turning to his\\\"}\",\"{\\\"text\\\": \\\"castellan. \\\\\\\"Vivec is far to the north, negotiating the treaty with the Emperor,\\\\\\\" the man said, his face and voice trembling with fear. \\\\\\\"Almalexia and Sotha Sil are in Necrom. Perhaps they can be reached in a few days time.\\\\\\\" The Duke nodded. He knew his\\\"}\",\"{\\\"text\\\": \\\"messengers were fast, but so too was the hand of Oblivion.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

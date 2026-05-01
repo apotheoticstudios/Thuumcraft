@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"1 Last Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"1 Last Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind They were gathered in the Duke's courtyard at twilight, enjoying the smell and warmth of a fire of dry branches and bittergreen leaves. Tiny embers flew into the sky, hanging for a few moments before vanishing. \\\\\\\"I was rash,\\\\\\\" agreed\\\"}\",\"{\\\"text\\\": \\\"the Duke, soberly. \\\\\\\"But Lorkhan had his laugh, and all is well. The Morag Tong will not assassinate the Emperor now that my payment to them is at the bottom of the Inner Sea. I thought you had made some sort of a truce with the Daedra princes.\\\\\\\" \\\\\\\"What\\\"}\",\"{\\\"text\\\": \\\"your sailors called a daedra may not have been one,\\\\\\\" said Sotha Sil. \\\\\\\"Perhaps it was a rogue battlemage or even a lightning bolt that destroyed your ship.\\\\\\\" \\\\\\\"The Prince and the Emperor are en route to take possession of Ald Lambasi as our truce agreed. It\\\"}\",\"{\\\"text\\\": \\\"is certainly typical of the Cyrodiil to assume that their concessions are negotiable, while ours are not,\\\\\\\" Vivec pulled out a map. \\\\\\\"We can meet them here, in this village to the north-west of Ald Lambasi, Fervinthil.\\\\\\\" \\\\\\\"But will we meet them to talk,\\\\\\\" ask\\\"}\",\"{\\\"text\\\": \\\"Almalexia. \\\\\\\"Or to make war?\\\\\\\" No one had an answer to that.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

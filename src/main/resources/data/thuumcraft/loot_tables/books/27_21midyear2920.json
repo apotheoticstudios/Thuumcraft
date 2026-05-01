@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"21 Mid Year, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"21 Mid Year, 2920\\\\nby Carlovac Townway\\\\n\\\\nAld Marak, Morrowind Savirien-Chorak slithered to the wall and watched through the arrow slit the Morrowind army retreating back to the forestland between the swamps and the castle grounds. It seemed like the idea opportunity to strike. Perhaps the\\\"}\",\"{\\\"text\\\": \\\"forests could be burned and the army within them. Perhaps with Vivec in their enemies' hands, the army would allow them possession of Ald Iuval as well. He suggested these ideas to the Prince. \\\\\\\"What you seem to be forgetting,\\\\\\\" laughed Prince Juilek. \\\\\\\"Is\\\"}\",\"{\\\"text\\\": \\\"that I gave my word that no harm to the army or to their commanders during the truce negotiations. Do you not have honor during warfare on Akavir?\\\\\\\" \\\\\\\"My Prince, I was born here in Tamriel, I have never been to my people's home,\\\\\\\" replied the snake man.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"But even so, your ways are strange to me. You expected no quarter and I gave you none when we fought in the Imperial Arena five months ago.\\\\\\\" \\\\\\\"That was a game,\\\\\\\" replied the Prince, before nodding to his steward to let the Dunmer battle chief in. Juilek\\\"}\",\"{\\\"text\\\": \\\"had never seen Vivec before, but he had heard he was a living god. What came before him was but a man. A powerfully built man, handsome, with an intelligent face, but a man nonetheless. The Prince was pleased: a man he could speak with, but not a god.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Greetings, my worthy adversary,\\\\\\\" said Vivec. \\\\\\\"We seem to be at an impasse.\\\\\\\" \\\\\\\"Not necessarily,\\\\\\\" said the Prince. \\\\\\\"You don't want to give us Morrowind, and I can't fault you for that. But I must have your coastline to protect the Empire from overseas\\\"}\",\"{\\\"text\\\": \\\"aggressions, and certain key strategic border castles, such as this one, as well as Ald Umbeil, Tel Aruhn, Ald Lambasi, and Tel Mothrivra.\\\\\\\" \\\\\\\"And in return?\\\\\\\" asked Vivec. \\\\\\\"In return?\\\\\\\" laughed Savirien-Chorak. \\\\\\\"You forget we are the victors here, not you.\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"In return,\\\\\\\" said Prince Juilek carefully. \\\\\\\"There will be no Imperial attacks on Morrowind, unless in return to an attack by you. You will be protected from invaders by the Imperial navy. And your land may expand by taking certain estates in Black Marsh,\\\"}\",\"{\\\"text\\\": \\\"whichever you choose, provided they are not needed by the Empire.\\\\\\\" \\\\\\\"A reasonable offer,\\\\\\\" said Vivec after a pause. \\\\\\\"You must forgive me, I am unused to Cyrodiils who offer something in return for what they take. May I have a few days to decide?\\\\\\\" \\\\\\\"We will\\\"}\",\"{\\\"text\\\": \\\"meet again in a week's time,\\\\\\\" said the Prince, smiling. \\\\\\\"In the meantime, if your army provokes no attacks on mine, we are at peace.\\\\\\\" Vivec left the Prince's chamber, feeling that Almalexia was right. The war was at an end. This Prince would make an\\\"}\",\"{\\\"text\\\": \\\"excellent Emperor. The Year is Continued in Sun's Height.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

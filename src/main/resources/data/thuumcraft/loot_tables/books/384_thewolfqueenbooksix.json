@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Wolf Queen, Book Six\",author:\"Waughin Jarth\",pages:[\"{\\\"text\\\": \\\"The Wolf Queen, Book Six\\\\nby Waughin Jarth\\\\n\\\\nFrom the pen of Inzolicus, Second Century Sage: 3E 120: The fifteen-year-old Empress Kintyra Septim II, daughter of Antiochus, was coroneted on the 3rd day of First Seed. Her uncles Magnus, King of Lilmoth, and Cephorus, King of Gilane, were in\\\"}\",\"{\\\"text\\\": \\\"attendance, but her aunt, Potema, the Wolf Queen of Solitude, had been banished from the court. Once back in her kingdom, Queen Potema began assembling the rebellion, which was to be known as the War of the Red Diamond. All the allies she had made over\\\"}\",\"{\\\"text\\\": \\\"the years of disgruntled kings and nobles joined forces with her against the new Empress. The first early strikes against the Empire were entirely successful. Throughout Skyrim and northern High Rock, the Imperial army found themselves under attack.\\\"}\",\"{\\\"text\\\": \\\"Potema and her forces washed over Tamriel like a plague, inciting riots and insurrections everywhere they touched. In the autumn of the year, the loyal Duke of Glenpoint on the coast of High Rock sent an urgent request for reinforcements from the\\\"}\",\"{\\\"text\\\": \\\"Imperial Army, and Kintyra, to inspire the resistance to the Wolf Queen, led the army herself.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

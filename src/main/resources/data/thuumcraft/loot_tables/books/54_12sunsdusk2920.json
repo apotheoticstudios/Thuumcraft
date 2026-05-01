@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"12 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"12 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind A gout of ever-erupting flame was all that remained of the central courtyard of Castle Mournhold, blasting skyward into the boiling clouds. A thick, tarry smoke rolled through the streets, igniting everything that was wood or paper\\\"}\",\"{\\\"text\\\": \\\"on fire. Winged bat-like creatures harried the citizens from their hiding places out into the open, where they were met by the real army. The only thing that kept all of Mournhold from burning to the ground was the wet, sputtering blood of its people.\\\"}\",\"{\\\"text\\\": \\\"Mehrunes Dagon smiled as he surveyed the castle crumbling. \\\\\\\"To think I nearly didn't come,\\\\\\\" he said aloud, his voice booming over the chaos. \\\\\\\"Imagine missing all this fun.\\\\\\\" His attention was arrested by a needle-thin shaft of light piercing through his\\\"}\",\"{\\\"text\\\": \\\"black and red shadowed sky. He followed it to its source, two figures, a man and a woman standing on the hill above town. The man in the white robe he recognized immediately as Sotha Sil, the sorcerer who had talked all the Princes of Oblivion into that\\\"}\",\"{\\\"text\\\": \\\"meaningless truce. \\\\\\\"If you've come for the Duke of Mournhold, he isn't here,\\\\\\\" laughed Mehrunes Dagon. \\\\\\\"But you might find pieces of him the next time it rains.\\\\\\\" \\\\\\\"Daedra, we cannot kill you,\\\\\\\" said Almalexia, her face hard and resolute. \\\\\\\"But that you will\\\"}\",\"{\\\"text\\\": \\\"soon regret.\\\\\\\" With that, two living gods and a prince of Oblivion engaged in battle on the ruins of Mournhold.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

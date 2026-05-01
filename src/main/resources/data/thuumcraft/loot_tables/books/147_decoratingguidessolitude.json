@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Decorating Guides, Solitude\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Decorating Guides - Solitude\\\\nby Unknown\\\\n\\\\nWelcome to your new home! This decorating guide provides a list of packages that you can purchase from the Steward of the hold. Each package contains furnishings and decor for a specific part of your house, and these will be delivered and placed for you\\\"}\",\"{\\\"text\\\": \\\"upon purchase. All you need to do is provide the gold, and the Steward will take care of the rest. The next time that you visit your home after making your purchases, you will see your new decorations and furnishings in place. Living Room This package\\\"}\",\"{\\\"text\\\": \\\"adds a large table, chairs and a wide range of decor to the living area located centrally on the second floor of the house. Sleeping Quarters When you purchase this package, the master bedroom on the second floor of the house will be decorated with\\\"}\",\"{\\\"text\\\": \\\"several furnishings and a larger, more luxurious bed. Also, a small dining area will be added just outside the bedroom door that includes a table, chairs and other decorations. Alchemy Laboratory Fills out one of the ground floor rooms with implements\\\"}\",\"{\\\"text\\\": \\\"and tools for an alchemy laboratory, including an alchemist's crafting table and related decor. Enchanting Laboratory Will stock one of the home's small ground-floor rooms with all of the furnshings for an enchanting laboratory, including an enchanter's\\\"}\",\"{\\\"text\\\": \\\"crafting table. Also includes several practice dummies on which you can test out your new enchantments. Patio Places a small table, two chairs and other furnishings on the stone patio outside the back of the house.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

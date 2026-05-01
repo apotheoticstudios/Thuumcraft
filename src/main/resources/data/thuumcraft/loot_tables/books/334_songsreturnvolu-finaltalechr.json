@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Songs of the Return, Volume 56\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Songs of the Return - Volume 56: The Final Tale of the Chrion\\\\nby Unknown\\\\n\\\\nThe Songs of the Return are eternal and numerous, for those first Five Hundred, those Companions of Ysgramor who cleared the way for mankind's rightful habitation, burned with a fire not seen since those days long passed. Each ship carried a crew that\\\"}\",\"{\\\"text\\\": \\\"performed legendary feats that could feed the pride of any nation for a thousand years. And during this time of the broadening, scores of Companions wandered the land, bringing the light of the proper gods to the heathen land of elves and beasts. They\\\"}\",\"{\\\"text\\\": \\\"were but mortal, though, and in time, all would taste the glories of Sovngarde. It was in one of the uncounted years after the retaking of Saarthal that the crew of the Chrion was declaring their fortunes in the eastern lands near the Red Mountain. They\\\"}\",\"{\\\"text\\\": \\\"were encamped, surrounded by bodies of murderous elves who had attempted to make them believe they held peace in their hearts. The shrewd Rhorlak was the Chrion's captain, though, and would show no quarter to the liars of the southlands, as had been\\\"}\",\"{\\\"text\\\": \\\"commanded by his lord Ysgramor, harbinger of us all. It was in this state of carousing that they were approached by a young and breathless messenger of their sister crew from the Kaal Kaaz. The boy (Asgeir, as his name is now sung) had ran unimaginable\\\"}\",\"{\\\"text\\\": \\\"distance at breakneck speed from the blood-stained fields of the Clouded Sun, to deliver the news to all who would hear. When he reached their camp, he bellowed a great sob before relieving his heart with the news that the mighty Ysgramor had breathed\\\"}\",\"{\\\"text\\\": \\\"his last. Asgeir continued his swift run, to inform the other crews as quickly as they could be found (for there were many now crawling the land, rendering our legacy from their deeds), and the camp of the Chrion descended into a mourning of the most\\\"}\",\"{\\\"text\\\": \\\"forlorn sort. Among these fires sat the bravest men and fiercest women who have ever graced the dirt of this land, and they were brought low by such a notion. While we in the day-shine know only Ysgramor's glory as it gleams through history, these\\\"}\",\"{\\\"text\\\": \\\"Companions knew his might with their own eyes, and such a loss hangs so heavily on the heart that mere words cannot express the altering of their world. For indeed the stories tell that Rhorlak, the most battle-hardened and unflinching of all captains,\\\"}\",\"{\\\"text\\\": \\\"did collapse with grief, and never lifted again his mighty axe. And all around Tamriel, as the news spread as a dark cloud washes from horizon to horizon, did brilliant lights go out in silent honor of their fallen general and war-leader. So ended the\\\"}\",\"{\\\"text\\\": \\\"period of the Return, and the original glories of the Five Hundred Companions of Ysgramor, harbinger of us all.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

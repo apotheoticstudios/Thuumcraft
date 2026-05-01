@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"19 First Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"19 First Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nBodrums, Morrowind The quiet hamlet of Bodrum looked down on the meandering river, the Pryai. It was an idyllic site, lightly wooded where the water took the bend around a steep bluff to the east with a gorgeous wildflower meadow to the west. The strange\\\"}\",\"{\\\"text\\\": \\\"flora of Morrowind met the strange flora of Cyrodiil on the border and commingled gloriously. \\\\\\\"There will be time to sleep when you've finished!\\\\\\\" The soldiers had been hearing that all morning. It was not enough that they had been marching all night, now\\\"}\",\"{\\\"text\\\": \\\"they were chopping down trees on the bluff and damming the river so its waters spilled over. Most of them had reached the point where they were too tired to complain about being tired. \\\\\\\"Let me be certain I understand, my lord,\\\\\\\" said Vivec's lieutenant.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"We take the bluff so we can fire arrows and spells down on them from above. That's why we need all the trees cleared out. Damming the river floods the plain below so they'll be trudging through mud, which should hamper their movement.\\\\\\\" \\\\\\\"That's exactly\\\"}\",\"{\\\"text\\\": \\\"half of it,\\\\\\\" said Vivec approvingly. He grabbed a nearby soldier who was hauling off the trees. \\\\\\\"Wait, I need you to break off the straightest, strongest branches of the trees and whittle them into spears. If you recruit a hundred or so others, it won't\\\"}\",\"{\\\"text\\\": \\\"take you more than a few hours to make all we need.\\\\\\\" The soldier wearily did as he was bade. The men and women got to work, fashioning spears from the trees. \\\\\\\"If you don't mind me asking,\\\\\\\" said the lieutenant. \\\\\\\"The soldiers don't need any more weapons.\\\"}\",\"{\\\"text\\\": \\\"They're too tired to hold the ones they've got.\\\\\\\" \\\\\\\"These spears aren't for holding,\\\\\\\" said Vivec and whispered, \\\\\\\"If we tired them out today, they'll get a good night's sleep tonight,\\\\\\\" before he got to work supervising their work. It was essential that they\\\"}\",\"{\\\"text\\\": \\\"be sharp, of course, but equally important that they be well balanced and tapered proportionally. The perfect point for stability was a pyramid, not the conical point of some lances and spears. He had the men hurl the spears they had completed to test\\\"}\",\"{\\\"text\\\": \\\"their strength, sharpness, and balance, forcing them to begin on a new one if they broke. Gradually, out of sheer exhaustion from doing it wrong, the men learned how to create the perfect wooden spears. Once they were through, he showed them how they\\\"}\",\"{\\\"text\\\": \\\"were to be arranged and where. That night, there was no drunken pre-battle carousing, and no nervous neophytes stayed up worrying about the battle to come. As soon as the sun sank beneath the wooded hills, the camp was at rest, but for the sentries.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

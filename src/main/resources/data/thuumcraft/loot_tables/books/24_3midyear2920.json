@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"3 Mid Year, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"3 Mid Year, 2920\\\\nby Carlovac Townway\\\\n\\\\nBethal Gray, Cyrodiil \\\\\\\"Will you be returning back this way after your victory?\\\\\\\" asked Lord Bethal. Prince Juilek barely paid the man any attention. He was focused on the army packing its camp. It was a cool morning in the forest, but there were no\\\"}\",\"{\\\"text\\\": \\\"clouds. All the makings of a hot afternoon march, particularly in such heavy armor. \\\\\\\"If we return shortly, it will be because of defeat,\\\\\\\" said the Prince. He could see down in the meadow, the Potentate Versidue-Shaie paying his lordship's steward for the\\\"}\",\"{\\\"text\\\": \\\"use of the village's food, wine, and whores. An army was an expensive thing, for certes. \\\\\\\"My Prince,\\\\\\\" said Lord Bethal with concern. \\\\\\\"Is your army beginning a march due east? That will just lead you to the shores of Lake Coronati. You'll want to go\\\"}\",\"{\\\"text\\\": \\\"south-east to get to the straits.\\\\\\\" \\\\\\\"You just make certain your merchants get their share of our gold,\\\\\\\" said the Prince with a grin. \\\\\\\"Let me worry about my army's direction.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

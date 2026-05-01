@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Decorating Guides, Riften\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Decorating Guides - Riften\\\\nby Unknown\\\\n\\\\nWelcome to your new home! This decorating guide provides a list of packages that you can purchase from the Steward of the hold. Each package contains furnishings and decor for a specific part of your house, and these will be delivered and placed for you\\\"}\",\"{\\\"text\\\": \\\"upon purchase. All you need to do is provide the gold, and the Steward will take care of the rest. The next time that you visit your home after making your purchases, you will see your new decorations and furnishings in place. Kitchen This package will\\\"}\",\"{\\\"text\\\": \\\"provide furnishings and decor for your kitchen, which is the room immediately beyond your home's front door. This includes the lighting of the fire. Bedroom Adds bedside tables, a dresser and a small table with two chairs to the master bedroom. This also\\\"}\",\"{\\\"text\\\": \\\"includes an upgrade to the bed itself. Alchemy Laboratory This package will place an alchemy crafting table in your basement, along with some shelves and other decor. Enchanting Laboratory This package will place an item enchanting table in your\\\"}\",\"{\\\"text\\\": \\\"basement, along with some shelves and other decor. Also includes a few practice dummies to test your new enchantments on. Garden When you purchase this package, the small patch of land adjacent to your house will be planted with a wide range of herbs,\\\"}\",\"{\\\"text\\\": \\\"vegetables and other plants native to Skyrim.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

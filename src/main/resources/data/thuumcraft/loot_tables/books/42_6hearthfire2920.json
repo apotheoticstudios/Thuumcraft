@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"6 Hearth Fire, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"6 Hearth Fire, 2920\\\\nby Carlovac Townway\\\\n\\\\nGideon, Cyrodiil The strange blue glow of the will o' the wisps, a combination, so she'd be told, of swamp gas and spiritual energy, had always frightened Tavia as she looked out her window. Now it seemed strangely comforting. Beyond the bog lay the city\\\"}\",\"{\\\"text\\\": \\\"of Gideon. It was funny, she thought, that she had never stepped foot in its streets, though she had watched it ever day for seventeen years. \\\\\\\"Can you think of anything I've forgotten?\\\\\\\" she asked, turning to look back on the loyal Kothringi Zuuk. \\\\\\\"I know\\\"}\",\"{\\\"text\\\": \\\"exactly what to do,\\\\\\\" he said simply. He seemed to smile, but the Empress realized that it was only her own face reflected in his silvery skin. She was smiling, and she didn't even realize it. \\\\\\\"Make certain you aren't followed,\\\\\\\" she warned. \\\\\\\"I don't want\\\"}\",\"{\\\"text\\\": \\\"my husband to know where my gold's been hiding all these years. And do take your share of it. You've been a good friend.\\\\\\\" The Empress Tavia stepped forward and dropped from sight into the mists. Zuuk replaced the bars on the tower window, and threw a\\\"}\",\"{\\\"text\\\": \\\"blanket over some pillows on her bed. With any luck, they would not discover her body on the lawn until morning, at which time he hoped to be halfway to Morrowind.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

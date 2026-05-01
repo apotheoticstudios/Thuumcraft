@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"19 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"19 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind Almalexia surveyed the rebuilding of the town. The spirit of the citizens was truly inspirational, she thought, as she walked among the skeletons of new buildings standing in the blackened, shattered remains of the old. Even the\\\"}\",\"{\\\"text\\\": \\\"plantlife showed a remarkable resilience. There was life yet in the blasted remains of the comberry and roobrush shrubs that once lined the main avenue. She could feel the pulse. Come springtide, green would bolt through the black. The Duke's heir, a lad\\\"}\",\"{\\\"text\\\": \\\"of considerable intelligence and sturdy Dunmer courage, was coming down from the north to take his father's place. The land would do more than survive: it would strengthen and expand. She felt the future much more strongly than she saw the present. Of\\\"}\",\"{\\\"text\\\": \\\"all the things she was most certain of, she knew that Mournhold was forever home to at least one goddess.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

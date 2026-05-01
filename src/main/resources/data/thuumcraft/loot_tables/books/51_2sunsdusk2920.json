@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"2 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"2 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nTel Aruhn, Morrowind \\\\\\\"A man to see you, Night Mother,\\\\\\\" said the guard. \\\\\\\"A Kothringi tribesman who presents his credentials as Lord Zuuk of Black Marsh, part of the Imperial Garrison of Gideon.\\\\\\\" \\\\\\\"What makes you think I'd have even the slightest possible\\\"}\",\"{\\\"text\\\": \\\"interest in seeing him?\\\\\\\" asked the Night Mother with venomous sweetness. \\\\\\\"He brings a letter from the late Empress of the Cyrodilic Empire.\\\\\\\" \\\\\\\"We are having a busy day,\\\\\\\" she smiled, clapping her hands together with delight. \\\\\\\"Show him in.\\\\\\\" Zuuk entered the\\\"}\",\"{\\\"text\\\": \\\"chamber. His metallic skin, though exposed only at his face and hands, caught the light of the fireplace and the lightning of the stormy night from the window. The Night Mother noted also that she could see herself as he saw her: serene, beautiful,\\\"}\",\"{\\\"text\\\": \\\"fear-inspiring. He handed her his letter from the Empress without a word. Sipping her wine, she read it. \\\\\\\"The Duke of Morrowind also offered me an appreciable sum to have the Emperor murdered earlier this year,\\\\\\\" she said, folding the letter. \\\\\\\"His payment\\\"}\",\"{\\\"text\\\": \\\"sunk, and never was delivered. It was a considerable annoyance, particularly as I had already gone to the trouble of putting one of my agents in the palace. Why should I assume that your more-than-generous payment, from a dead woman, will arrive?\\\\\\\" \\\\\\\"I\\\"}\",\"{\\\"text\\\": \\\"brought it with me,\\\\\\\" said Zuuk simply. \\\\\\\"It is in the carriage outside.\\\\\\\" \\\\\\\"Then bring it in and our business is complete,\\\\\\\" smiled the Night Mother. \\\\\\\"The Emperor will be dead by year's end. You may leave the gold with Apaladith. Unless you'd care for some\\\"}\",\"{\\\"text\\\": \\\"wine?\\\\\\\" Zuuk declined the offer and withdrew. The moment he left the room, Miramor slipped noiselessly back from behind the dark tapestry. The Night Mother offered him a glass of wine, and he accepted it. \\\\\\\"I know that fellow, Zuuk,\\\\\\\" said Miramor\\\"}\",\"{\\\"text\\\": \\\"carefully. \\\\\\\"I didn't know he worked for the old Empress though.\\\\\\\" \\\\\\\"Let's talk about you some more, if you don't mind,\\\\\\\" she said, knowing he would, in fact, not mind. \\\\\\\"Let me show you my worth,\\\\\\\" said Miramor. \\\\\\\"Let me be the one to do the Emperor in. I've\\\"}\",\"{\\\"text\\\": \\\"already killed his son, and you saw there how well I can hide myself away. Tell me you saw one ripple in the tapestry.\\\\\\\" The Night Mother smiled. Things were falling into place rather nicely. \\\\\\\"If you know how to use a dagger, you will find him at Bodrum,\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"she said, and described to him what he must do.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

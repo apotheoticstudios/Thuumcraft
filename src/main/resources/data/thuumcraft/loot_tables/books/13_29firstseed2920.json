@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"29 First Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"29 First Seed, 2920\\\\nby Carlovac Townway\\\\n\\\\nHegathe, Hammerfell You have a letter from the Imperial City,\\\\\\\" said the chief priestess, handing the parchment to Corda. All the young priestesses smiled and made faces of astonishment, but the truth was that Corda's sister Rijja wrote very often, at\\\"}\",\"{\\\"text\\\": \\\"least once a month. Corda took the letter to the garden to read it, her favorite place, an oasis in the monochromatic sand-colored world of the conservatorium The letter itself was nothing unusual: filled with court gossip, the latest fashions which were\\\"}\",\"{\\\"text\\\": \\\"tending to winedark velvets, and reports of the Emperor's ever-growing paranoia. \\\\\\\"You are so lucky to be away from all of this,\\\\\\\" wrote Rijja. \\\\\\\"The Emperor is convinced that his latest battlefield fiasco is all a result of spies in the palace. He has even\\\"}\",\"{\\\"text\\\": \\\"taken to questioning me. Ruptga keep it so you never have a life as interesting as mine.\\\\\\\" Corda listened to the sounds of the desert and prayed to Ruptga the exact opposite wish. The Year is Continued in Rain's Hand.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Yellow Book of Riddles\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Yellow Book of Riddles\\\\nby Unknown\\\\n\\\\nFor earnest pleasure, and the strengthening of the mind, the author here collects all that he has learned of the art of riddling, by dint of diligent study, and through years of discourse with others of similar inclination. The posing and puzzling of\\\"}\",\"{\\\"text\\\": \\\"riddles is a convention of polite aristocratic Western society. Nobles and social aspirants collect books of riddles and study them, hoping thereby to increase the chances of their appearing sly and witty in conversation. A metal neither black nor red As\\\"}\",\"{\\\"text\\\": \\\"heavy as man's golden greed What you do to stay ahead With friend or arrow or steed daeL :rewsnA ehT A man says, \\\\\\\"If you lie to me I will slay you with my sword. If you tell me the truth, I will slay you with a spell.\\\\\\\" What must you say to stay alive?\\\"}\",\"{\\\"text\\\": \\\".drows a htiw em yals lliw uoY :rewsnA ehT A Bosmer, was slain. The Altmer claims the Dunmer is guilty. The Dunmer says the Khajiit did it. The Orc swears he didn't kill the Bosmer. The Khajiit says the Dunmer is lying. If only one of these speaks the\\\"}\",\"{\\\"text\\\": \\\"truth, who killed the Bosmer? crO ehT :rewsnA ehT\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

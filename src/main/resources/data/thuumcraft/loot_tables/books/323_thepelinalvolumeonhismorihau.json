@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Song of Pelinal, Volume 5\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Song of Pelinal, Volume 5: On His Love of Morihaus\\\\nby Unknown\\\\n\\\\n-[Editor's Note: Volumes 1-6 are taken from the so-called Reman Manuscript located in the Imperial Library. It is a transcription of older fragments collected by an unknown scholar of the early Second Era. Beyond this, little is known of the original\\\"}\",\"{\\\"text\\\": \\\"sources of these fragments, some of which appear to be from the same period (perhaps even from the same manuscript). But, as no scholarly consensus yet exists on dating these six fragments, no opinions will be offered here.] It is a solid truth that\\\"}\",\"{\\\"text\\\": \\\"Morihaus was the son of Kyne, but whether or not Pelinal was indeed the Shezarrine is best left unsaid (for once Plontinu, who favored the short sword, said it, and that night he was smothered by moths). It is famous, though, that the two talked of each\\\"}\",\"{\\\"text\\\": \\\"other as family, with Morihaus as the lesser, and that Pelinal loved him and called him nephew, but these could be merely the fancies of immortals. Never did Pelinal counsel Morihaus in time of war, for the man-bull fought magnificently, and led men\\\"}\",\"{\\\"text\\\": \\\"well, and never resorted to Madness, but the Whitestrake did warn against the growing love with Perrif. \\\\\\\"We are ada, Mor, and change things through love. We must take care lest we beget more monsters on this earth. If you do not desist, she will take to\\\"}\",\"{\\\"text\\\": \\\"you, and you will transform all Cyrod if you do this.\\\\\\\" And to this the bull became shy, for he was a bull, and he felt his form too ugly for the Parvania at all times, especially when she disrobed for him. He snorted, though, and shook his nose-hoop into\\\"}\",\"{\\\"text\\\": \\\"the light of the Secunda moon and said, \\\\\\\"She is like this shine on my nose-hoop here: an accident sometimes, but whenever I move my head at night, she is there. And so you know what you ask is impossible.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

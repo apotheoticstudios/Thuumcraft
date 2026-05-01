@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"13 Second Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"13 Second Seed, 2920\\\\nBy Carlovac Townway\\\\n\\\\nMir Corrup, Cyrodiil Rijja sank luxuriantly into the burbling hot spring, feeling her skin tingle like it was being rubbed by millions of little stones. The rock shelf over her head sheltered her from the misting rain, but let all the sunshine in,\\\"}\",\"{\\\"text\\\": \\\"streaming in layers through the branches of the trees. It was an idyllic moment in an idyllic life, and when she was finished she knew that her beauty would be entirely restored. The only thing she needed was a drink of water. The bath itself, while\\\"}\",\"{\\\"text\\\": \\\"wonderfully fragrant, tasted always of chalk. \\\\\\\"Water!\\\\\\\" she cried to her servants. \\\\\\\"Water, please!\\\\\\\" A gaunt woman with rags tied over her eyes ran to her side and dropped a goatskin of water. Rijja was about to laugh at the woman's prudery -- she herself\\\"}\",\"{\\\"text\\\": \\\"was not ashamed of her naked body -- but then she noticed through a crease in the rags that the old woman had no eyes at all. She was like one of those Orma tribesmen Rijja had heard about, but never met. Born without eyes, they were masters of their\\\"}\",\"{\\\"text\\\": \\\"other senses. The Lord of Mir Corrup hired very exotic servants, she thought to herself. In a moment, the woman was gone and forgotten. Rijja found it very hard to concentrate on anything but the sun and the water. She opened the cork, but the liquid\\\"}\",\"{\\\"text\\\": \\\"within had a strange, metallic smell to it. Suddenly, she was aware that she was not alone. \\\\\\\"Lady Rijja,\\\\\\\" said the captain of the Imperial Guard. \\\\\\\"You are, I see, acquainted with Catchica?\\\\\\\" \\\\\\\"I've never heard of her,\\\\\\\" stammered Rijja before becoming\\\"}\",\"{\\\"text\\\": \\\"indignant. \\\\\\\"What are you doing here? This body is not for your leering eyes.\\\\\\\" \\\\\\\"Never heard of her, when we saw her with you not a minute ago,\\\\\\\" said the captain, picking up the goatskin and smelling it. \\\\\\\"Brought you neivous ichor, did she? To poison the\\\"}\",\"{\\\"text\\\": \\\"Emperor with?\\\\\\\" \\\\\\\"Captain,\\\\\\\" said one of the guards, running up to him quickly. \\\\\\\"We cannot find the Argonian. It is as if she disappeared into the woods.\\\\\\\" \\\\\\\"Yes, they're good at that,\\\\\\\" said the captain. \\\\\\\"No matter though. We've got her contact at court. That\\\"}\",\"{\\\"text\\\": \\\"should please his Imperial Majesty. Seize her.\\\\\\\" As the guards pulled the writhing naked woman from the pool, she screamed, \\\\\\\"I'm innocent! I don't know what this is all about, but I've done nothing! The Emperor will have your heads for this!\\\\\\\" \\\\\\\"Yes, I\\\"}\",\"{\\\"text\\\": \\\"imagine he will,\\\\\\\" smiled the captain. \\\\\\\"If he trusts you.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

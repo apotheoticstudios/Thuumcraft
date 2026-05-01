@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"21 Frostfall, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"21 Frostfall, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil Corda, in a robe of blinding whiteness, a uniform of the priestesses of the Hegathe Morwha conservatorium, arrived in the City just as the first winter storm was passing. The clouds broke with sunlight, and the beauteous\\\"}\",\"{\\\"text\\\": \\\"teenaged Redguard girl appeared in the wide avenue with escort, riding toward the Palace. While her sister was tall, thin, angular, and haughty, Corda was a small, round-faced lass with wide brown eyes. The locals were quick to draw comparisons. \\\\\\\"Not a\\\"}\",\"{\\\"text\\\": \\\"month after Lady Rijja's execution,\\\\\\\" muttered a housemaid, peering out the window, and winking to her neighbor. \\\\\\\"And not a month out of the nunnery neither,\\\\\\\" the other woman agreed, reveling in the scandal. \\\\\\\"This one's in for a ride. Her sister weren't\\\"}\",\"{\\\"text\\\": \\\"no innocent, and look where she ended up.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

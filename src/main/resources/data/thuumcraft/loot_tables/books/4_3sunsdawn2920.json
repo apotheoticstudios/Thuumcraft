@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"3 Sun's Dawn, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"3 Sun's Dawn, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Isle of Artaeum, Summurset Sotha Sil watched the initiates float one by one up to the oassom tree, taking a fruit or a flower from its high branches before dropping back to the ground with varying degrees of grace. He took a moment while nodding his\\\"}\",\"{\\\"text\\\": \\\"head in approval to admire the day. The whitewashed statue of Syrabane, which the great mage was said to have posed for in ancient days, stood at the precipice of the cliff overlooking the bay. Pale purple proscato flowers waves to and fro in the gentle\\\"}\",\"{\\\"text\\\": \\\"breeze. Beyond, ocean, and the misty border between Artaeum and the main island of Summurset. \\\\\\\"By and large, acceptable,\\\\\\\" he proclaimed as the last student dropped her fruit in his hand. With a wave of his hand, the fruit and flowers were back in the\\\"}\",\"{\\\"text\\\": \\\"tree. With another wave, the students had formed into position in a semicircle around the sorcerer. He pulled a small fibrous ball, about a foot in diameter from his white robes. \\\\\\\"What is this?\\\\\\\" The students understood this test. It asked them to cast a\\\"}\",\"{\\\"text\\\": \\\"spell of identification on the mysterious object. Each initiate closed his or her eyes and imagined the ball in the realm of the universal Truth. Its energy had a unique resonance as all physical and spiritual matter does, a negative aspect, a duplicate\\\"}\",\"{\\\"text\\\": \\\"version, relative paths, true meaning, a song in the cosmos, a texture in the fabric of space, a facet of being that has always existed and always will exist. \\\\\\\"A ball,\\\\\\\" said a young Nord named Welleg, which brought giggles from some of the younger\\\"}\",\"{\\\"text\\\": \\\"initiates, but a frown from most, including Sotha Sil. \\\\\\\"If you must be stupid, at least be amusing,\\\\\\\" growled the sorcerer, and then looked at a young, dark-haired Altmer lass who looked confused. \\\\\\\"Lilatha, do you know?\\\\\\\" \\\\\\\"It's grom,\\\\\\\" said Lilatha,\\\"}\",\"{\\\"text\\\": \\\"uncertainly. \\\\\\\"What the dreugh meff after they've k-k-kr-krevinasim.\\\\\\\" \\\\\\\"Karvinasim, but very good, nonetheless,\\\\\\\" said Sotha Sil. \\\\\\\"Now, tell me, what does that mean?\\\\\\\" \\\\\\\"I don't know,\\\\\\\" admitted Lilatha. The rest of the students also shook their heads. \\\\\\\"There\\\"}\",\"{\\\"text\\\": \\\"are layers to understanding all things,\\\\\\\" said Sotha Sil. \\\\\\\"The common man looks at an object and fits it into a place in his way of thinking. Those skilled in the Old Ways, in the way of the Psijic, in Mysticism, can see an object and identify it by its\\\"}\",\"{\\\"text\\\": \\\"proper role. But one more layer is needed to be peeled back to achieve understanding. You must identify the object by its role and its truth and interpret that meaning. In this case, this ball is indeed grom, which is a substance created by the dreugh,\\\"}\",\"{\\\"text\\\": \\\"an underwater race in the north and western parts of the continent. For one year of their life, they undergo karvinasim when they walk upon the land. Following that, they return to the water and meff, or devour the skin and organs they needed for\\\"}\",\"{\\\"text\\\": \\\"land-dwelling. Then they vomit it up into little balls like this. Grom. Dreugh vomit.\\\\\\\" The students looked at the ball a little queasily. Sotha Sil always loved this lesson.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

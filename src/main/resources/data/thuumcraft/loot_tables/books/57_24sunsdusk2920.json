@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"24 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"24 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil A winter gale blew over the city, splashing the windows and glass domes of the Imperial Palace. Quivering light rays illuminated the figures within in surreal patterns. The Emperor barked orders to his staff in preparations\\\"}\",\"{\\\"text\\\": \\\"for the banquet and ball. This was what he enjoyed best, more than battle. King Dro'Zel was supervising the entertainment, having strong opinions on the matter. The Emperor himself was arranging the details of the dinner. Roast nebfish, vegetable marrow,\\\"}\",\"{\\\"text\\\": \\\"cream soups, buttered helerac, codscrumb, tongue in aspic. Potentate Versidue-Shaie had made a few suggestions of his own, but the tastes of the Akaviri were very peculiar. The Lady Corda accompanied the Emperor to his chambers as night fell. The Year is\\\"}\",\"{\\\"text\\\": \\\"Concluded in Evening Star.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"29 Sun's Dawn, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"29 Sun's Dawn, 2920\\\\nby Carlovac Townway\\\\n\\\\nGilverdale, Valenwood Almalexia stopped her steed in the vast moor of mud to let him drink from the river. He refused to, even seemed repelled by the water. It struck her as odd: they had been making excellent time from Mournhold, and surely he must be\\\"}\",\"{\\\"text\\\": \\\"thirsty. She dismounted and joined her retinue. \\\\\\\"Where are we now?\\\\\\\" she asked. One of her ladies pulled out a map. \\\\\\\"I thought we were approaching a town called Gilverdale.\\\\\\\" Almalexia closed her eyes and opened them again quickly. The vision was too much\\\"}\",\"{\\\"text\\\": \\\"to bear. As her followers watched, she picked up a piece of brick and a fragment of bone, and clutched them to her heart. \\\\\\\"We must continue on to Artaeum,\\\\\\\" she said quietly. The Year continues in First Seed.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"18 Hearth Fire, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"18 Hearth Fire, 2920\\\\nby Carlovac Townway\\\\n\\\\nDwynnen, High Rock The horse the witches had sold him was not as good as his old one, Cassyr considered. Spirit worship and sacrifice and sisterhood might be all well and good for conjuring spirits, but it tends to spoil beasts of burden. Still, there\\\"}\",\"{\\\"text\\\": \\\"was little to complain about. With the Dunmer woman and her child gone, he had made excellent time. Ahead were the walls surrounding the city of his homeland. Almost at once, he was set upon by his old friends and family. \\\\\\\"How went the war?\\\\\\\" cried his\\\"}\",\"{\\\"text\\\": \\\"cousin, running to the road. \\\\\\\"Is it true that Vivec signed a peace with the Prince, but the Emperor refuses to honor it?\\\\\\\" \\\\\\\"That's not how it was, was it?\\\\\\\" asked a friend, joining them. \\\\\\\"I heard that the Dunmer had the Prince murdered and then made up a\\\"}\",\"{\\\"text\\\": \\\"story about a treaty, but there's no evidence for it.\\\\\\\" \\\\\\\"Isn't there anything interesting happening here?\\\\\\\" Cassyr laughed. \\\\\\\"I really don't have the least interest in discussing the war or Vivec.\\\\\\\" \\\\\\\"You missed the procession of the Lady Corda,\\\\\\\" said his\\\"}\",\"{\\\"text\\\": \\\"friend. \\\\\\\"She came across the bay with full entourage and then east to the Imperial City.\\\\\\\" \\\\\\\"But that's nothing. What was Vivec like?\\\\\\\" asked his cousin eagerly. \\\\\\\"He supposed to be a living god.\\\\\\\" \\\\\\\"If Sheogorath steps down and they need another God of\\\"}\",\"{\\\"text\\\": \\\"Madness, he'll do,\\\\\\\" said Cassyr haughtily. \\\\\\\"And the women?\\\\\\\" asked the lad, who had only seen Dunmer ladies on very rare occasions. Cassyr merely smiled. Turala Skeffington flashed into his mind for an instant before fading away. She would be happy with\\\"}\",\"{\\\"text\\\": \\\"the coven, and her child would be well cared for. But they were part of the past now, a place and a war he wanted to forget forever. Dismounting his horse, he walked it into the city, chatting of trivial gossip of life on the Iliac Bay.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

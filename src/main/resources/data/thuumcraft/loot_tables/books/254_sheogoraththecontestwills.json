@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Myths of Sheogorath, Wills\",author:\"Mymophonus\",pages:[\"{\\\"text\\\": \\\"Myths of Sheogorath - The Contest of Wills\\\\nby Mymophonus\\\\n\\\\nA mighty wizard named Ravate once walked the Winds of Time to find Lord Sheogorath. His intent was to win a favor from this most capricious of the Daedric Princes. Upon finding Sheogorath, Ravate spoke humbly to him, \\\\\\\"Lord Sheogorath, I beg a favor of\\\"}\",\"{\\\"text\\\": \\\"you. I would gladly drive a thousand men mad in your name if you would but grant me the greater magical powers.\\\\\\\" Fortunately for Ravate, Sheogorath was in a playful mood. He proposed a game, \\\\\\\"I will grant your wish, if you are still sane in three days.\\\"}\",\"{\\\"text\\\": \\\"During that time, I will do my utmost to drive you mad. It shall be great fun.\\\\\\\" Ravate was not so certain that he liked this new deal. He had been really looking forward to driving a thousand men mad. \\\\\\\"Lord Sheogorath, I regret having disturbed you with\\\"}\",\"{\\\"text\\\": \\\"my shallow, selfish request. I withdraw my unfortunate plea and will humbly leave this place.\\\\\\\" Sheogorath just laughed, \\\\\\\"Too late, mighty Ravate. The game is afoot, and you must play.\\\\\\\" Ravate fled, only to find that all exits from the Daedric realm were\\\"}\",\"{\\\"text\\\": \\\"now sealed. He wandered aimlessly, constantly looking over his shoulder, jumping at every noise. Each moment brought new terror as he waited for Sheogorath to begin. After three days, Ravate was convinced that every plant and animal was a tool of\\\"}\",\"{\\\"text\\\": \\\"Sheogorath. He hadn't eaten or drunk for fear that Sheogorath had poisoned the food or drink. He hadn't slept for fear of Sheogorath invading his dreams. (Which was foolish, as dreams are the domain of Vaermina, may She grant us Restful Sleep.) It was\\\"}\",\"{\\\"text\\\": \\\"then that Sheogorath appeared to him. Ravate cried out, \\\\\\\"You have set the whole world to watching me! Every creature and plant are doing your bidding to drive me mad.\\\\\\\" Sheogorath replied, \\\\\\\"Actually, I have done nothing. You have driven yourself mad with\\\"}\",\"{\\\"text\\\": \\\"your fears. Your delusions prove that you are truly deranged, and therefore I win. While you wanted to make a thousand men mad, I only wanted to break one man's mind, yours.\\\\\\\" From that day forward Ravate served Sheogorath's every whim. Whenever daring\\\"}\",\"{\\\"text\\\": \\\"travelers try to approach Sheogorath, Ravate warns them, \\\\\\\"Sheogorath is already inside each of us. You have already lost.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

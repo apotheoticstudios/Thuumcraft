@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"5 Rain's Hand, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"5 Rain's Hand, 2920\\\\nBy Carlovac Townway\\\\n\\\\nThe Isle of Artaeum, Summurset Sotha Sil's voice cried out, echoing from the cave, \\\\\\\"Move the rock!\\\\\\\" Immediately, the initiates obeyed, rolling aside the great boulder that blocked the entrance to the Dreaming Cavern. Sotha Sil emerged, his face smeared\\\"}\",\"{\\\"text\\\": \\\"with ash, weary. He felt he had been away for months, years, but only a few days had transpired. Lilatha took his arm to help him walk, but he refused her help with a kind smile and a shake of his head. \\\\\\\"Were you ... successful?\\\\\\\" she asked. \\\\\\\"The Daedra\\\"}\",\"{\\\"text\\\": \\\"princes I spoke with have agreed to our terms,\\\\\\\" he said flatly. \\\\\\\"Disasters such as befell Gilverdale should be averted. Only through certain intermediaries such as witches or sorcerers will they answer the call of man and mer.\\\\\\\" \\\\\\\"And what did you promise\\\"}\",\"{\\\"text\\\": \\\"them in return?\\\\\\\" asked the Nord boy Welleg. \\\\\\\"The deals we make with Daedra,\\\\\\\" said Sotha Sil, continuing on to Iachesis's palace to meet with the Master of the Psijic Order. \\\\\\\"Should not be discussed with the innocent.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

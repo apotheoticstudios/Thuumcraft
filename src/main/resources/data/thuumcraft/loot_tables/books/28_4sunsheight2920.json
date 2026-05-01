@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"4 Sun's Height, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"4 Sun's Height, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil The Emperor Reman III and his Potentate Versidue-Shaie took a stroll around the Imperial Gardens. Studded with statuary and fountains, the north gardens fit the Emperor's mood, as well as being the coolest acreage in the City\\\"}\",\"{\\\"text\\\": \\\"during the heat of summertide. Austere, tiered flowerbeds of blue-gray and green towered all around them as they walked. \\\\\\\"Vivec has agreed to the Prince's terms for peace,\\\\\\\" said Reman. \\\\\\\"My son will be returning in two weeks' time.\\\\\\\" \\\\\\\"This is excellent\\\"}\",\"{\\\"text\\\": \\\"news,\\\\\\\" said the Potentate carefully. \\\\\\\"I hope the Dunmer will honor the terms. We might have asked for more. The fortress at Black Gate, for example. But I suppose the Prince knows what is reasonable. He would not cripple the Empire just for peace.\\\\\\\" \\\\\\\"I\\\"}\",\"{\\\"text\\\": \\\"have been thinking lately of Rijja and what caused her to plot against my life,\\\\\\\" said the Emperor, pausing to admire a statue of the Slave Queen Alessia before continuing. \\\\\\\"The only thing I can think of to account for it is that she admired my son too\\\"}\",\"{\\\"text\\\": \\\"much. She may have loved me for my power and my personality, but he, after all, is young and handsome and will one day inherit my throne. She must have thought that if I were dead, she could have an Emperor who had both youth and power.\\\\\\\" \\\\\\\"The Prince ...\\\"}\",\"{\\\"text\\\": \\\"was in on this plot?\\\\\\\" asked Versidue-Shaie. It was a difficult game to play, anticipating where the Emperor's paranoia would strike next. \\\\\\\"Oh, I don't think so,\\\\\\\" said Reman, smiling. \\\\\\\"No, my son loves me well.\\\\\\\" \\\\\\\"Are you aware that Corda, Raja's sister in\\\"}\",\"{\\\"text\\\": \\\"an initiate of the Morwha conservatorium in Hegathe?\\\\\\\" asked the Potentate. \\\\\\\"Morwha?\\\\\\\" asked the Emperor. \\\\\\\"I've forgotten: which god is that?\\\\\\\" \\\\\\\"Lusty fertility goddess of the Yokudans,\\\\\\\" replied the Potentate. \\\\\\\"But not too lusty, like Dibella. Demure, but\\\"}\",\"{\\\"text\\\": \\\"certainly sexual.\\\\\\\" \\\\\\\"I am through with lusty women. The Empress, Rijja, all too lusty, a lust for love leads to a lust for power,\\\\\\\" the Emperor shrugged his shoulders. \\\\\\\"But a priestess-in-training with a certain healthy appetite sounds ideal. Now what were\\\"}\",\"{\\\"text\\\": \\\"you saying about the Black Gate?\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

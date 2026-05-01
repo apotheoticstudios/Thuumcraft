@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"31 Second Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"31 Second Seed, 2920\\\\nBy Carlovac Townway\\\\n\\\\nKavas Rim Pass, Cyrodiil It had been days, weeks since Turala had seen another human face, Cyrodiil or Dunmer. As she trod the road, she thought to herself how strange it was that such an uninhabited place as Cyrodiil had become the Imperial Province,\\\"}\",\"{\\\"text\\\": \\\"seat of an Empire. Even the Bosmer in Valenwood must have more populated forests than this Heartland wood. She thought back. Was it a month ago, two, when she crossed the border from Morrowind into Cyrodiil? It had been much colder then, but other than\\\"}\",\"{\\\"text\\\": \\\"that, she had no sense of time. The guards had been brusque, but as she was carrying no weaponry, they elected to let her through. Since then, she had seen a few caravans, even shared a meal with some adventurers camping for the night, but met no one who\\\"}\",\"{\\\"text\\\": \\\"would give her a ride to a town. Turala stripped off her shawl and dragged it behind her. For a moment, she thought she heard someone behind her and spun around. No one was there. Just a bird perched on a branch making a sound like laughter. She walked\\\"}\",\"{\\\"text\\\": \\\"on, and then stopped. Something was happening. The child had been kicking in her belly for some time now, but this was a different kind of spasm. With a groan, she lurched over to the side of the path, collapsing into the grass. Her child was coming. She\\\"}\",\"{\\\"text\\\": \\\"lay on her back and pushed, but she could barely see with her tears of pain and frustration. How had it come to this? Giving birth in the wilderness, all by herself, to a child whose father was the Duke of Mournhold? Her scream of rage and agony shook\\\"}\",\"{\\\"text\\\": \\\"the birds from the trees. The bird that had been laughing at her earlier flew down to the road. She blinked, and the bird was gone and in its place, a naked Elf man stood, not as dark as a Dunmer, but not as pale as the Altmer. She knew at once it was an\\\"}\",\"{\\\"text\\\": \\\"Ayleid, a Wild Elf. Turala screamed, but the man held her down. After a few minutes of struggle, she felt a release, and then fainted away. When she awoke, it was to the sound of a baby crying. The child had been cleaned and was lying by her side. Turala\\\"}\",\"{\\\"text\\\": \\\"picked up her baby girl, and for the first time that year, felt tears of happiness stream down her face. She whispered to the trees, \\\\\\\"Thank you\\\\\\\" and began walking with babe in her arms down the road to the west. The Year Is Continued in Mid Year.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

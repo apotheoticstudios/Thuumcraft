@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"17 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"17 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nTel Aruhn, Morrowind \\\\\\\"Night Mother,\\\\\\\" said the guard. \\\\\\\"Correspondence from your agent in the Imperial Palace.\\\\\\\" The Night Mother read the note carefully. The test had been a success: Miramor had been successfully detected and slain. The Emperor was in very\\\"}\",\"{\\\"text\\\": \\\"unsafe hands. The Night Mother responded immediately.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

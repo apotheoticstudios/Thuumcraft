@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"19 Sun's Dawn, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"19 Sun's Dawn, 2920\\\\nby Carlovac Townway\\\\n\\\\nGilverdale, Valenwood \\\\\\\"Listen to me again,\\\\\\\" said the old carpenter. \\\\\\\"If cell three holds worthless brass, then cell two holds the gold key. If cell one holds the gold key, then cell three hold worthless brass. If cell two holds worthless brass, then cell\\\"}\",\"{\\\"text\\\": \\\"one holds the gold key.\\\\\\\" \\\\\\\"I understand,\\\\\\\" said the lady. \\\\\\\"You told me. And so cell one holds the gold key, right?\\\\\\\" \\\\\\\"No,\\\\\\\" said the carpenter. \\\\\\\"Let me start from the top.\\\\\\\" \\\\\\\"Mama?\\\\\\\" said the little boy, pulling on his mother's sleeve. \\\\\\\"Just one moment, dear,\\\"}\",\"{\\\"text\\\": \\\"mother's talking,\\\\\\\" she said, concentrating on the riddle. \\\\\\\"You said 'cell three holds the golden key if cell two holds worthless brass,' right?\\\\\\\" \\\\\\\"No,\\\\\\\" said the carpenter patiently. \\\\\\\"Cell three holds worthless brass, if cell two --\\\\\\\" \\\\\\\"Mama!\\\\\\\" cried the boy.\\\"}\",\"{\\\"text\\\": \\\"His mother finally looked. A bright red mist was pouring over the town in a wave, engulfing building after building in its wake. Striding before was a red-skinned giant. The Daedra Molag Bal. He was smiling.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

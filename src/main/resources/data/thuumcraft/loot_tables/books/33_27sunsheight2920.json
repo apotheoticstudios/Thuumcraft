@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"27 Sun's Height, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"27 Sun's Height, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Inner Sea, Morrowind Sotha Sil had been watching the waters for two days now, waiting for a particular vessel, and now he saw it. A heavy ship with the flag of Mournhold. The sorcerer took the air and intercepted it before it reached harbor. A caul\\\"}\",\"{\\\"text\\\": \\\"of flame erupted over his figure, disguising his voice and form into that of a Daedra. \\\\\\\"Abandon your ship!\\\\\\\" he bellowed. \\\\\\\"If you would not sink with it!\\\\\\\" In truth, Sotha Sil could have exploded the vessel with but a single ball of fire, but he chose to\\\"}\",\"{\\\"text\\\": \\\"take his time, to give the crew a chance to dive off into the warm water. When he was certain there was no one living aboard, he focused his energy into a destructive wave that shook the air and water as it discharged. The ship and the Duke's payment to\\\"}\",\"{\\\"text\\\": \\\"the Morag Tong sunk to the bottom of the Inner Sea. \\\\\\\"Night Mother,\\\\\\\" thought Sotha Sil, as he floated towards shore to alert the harbormaster that some sailors were in need of rescue. \\\\\\\"Everyone bows to supply and demand.\\\\\\\" The Year is Continued in Last\\\"}\",\"{\\\"text\\\": \\\"Seed.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

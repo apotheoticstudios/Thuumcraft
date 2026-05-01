@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"2 Hearth Fire, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"2 Hearth Fire, 2920\\\\nby Carlovac Townway\\\\n\\\\nGideon, Black Marsh The Empress Tavia lay across her bed, a hot late summer wind she could not feel banging the shutters of her cell to and fro against the iron bars. Her throat felt like it was on fire but still she sobbed, uncontrollably, wringing her\\\"}\",\"{\\\"text\\\": \\\"last tapestry in her hands. Her wailing echoed throughout the hollow halls of Castle Giovese, stopping maids in their washing and guards in their conversation. One of her women came up the narrow stairs to see her mistress, but her chief guard Zuuk stood\\\"}\",\"{\\\"text\\\": \\\"at the doorway and shook his head. \\\\\\\"She's just heard that her son is dead,\\\\\\\" he said quietly.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

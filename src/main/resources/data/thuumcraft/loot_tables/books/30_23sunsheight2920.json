@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"23 Sun's Height, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"23 Sun's Height, 2920\\\\nby Carlovac Townway\\\\n\\\\nBalmora, Morrowind Vivec pulled himself from the water, feeling the heat of the day washed from his skin, taking a towel from one of his servants. Sotha Sil watched his old friend from the balcony. \\\\\\\"It looks like you've picked up a few more scars since I\\\"}\",\"{\\\"text\\\": \\\"last saw you,\\\\\\\" said the sorcerer. \\\\\\\"Azura grant it that I have no more for a while,\\\\\\\" laughed Vivec. \\\\\\\"When did you arrive?\\\\\\\" \\\\\\\"A little over an hour ago,\\\\\\\" said Sotha Sil, walking down the stairs to the water's edge. \\\\\\\"I thought I was coming to end a war, but\\\"}\",\"{\\\"text\\\": \\\"it seems you've done it without me.\\\\\\\" \\\\\\\"Yes, eighty years is long enough for ceaseless battle,\\\\\\\" replied Vivec, embracing Sotha Sil. \\\\\\\"We made concessions, but so did they. When the old Emperor is dead, we may be entering a golden age. Prince Juilek is very\\\"}\",\"{\\\"text\\\": \\\"wise for his age. Where is Almalexia?\\\\\\\" \\\\\\\"Collecting the Duke of Mournhold. They should be here tomorrow afternoon.\\\\\\\" The men were distracted at a sight from around the corner of the palace - a rider was approaching through the town, heading for the front\\\"}\",\"{\\\"text\\\": \\\"steps. It was evident that the woman had been riding hard for some time. They met her in the study, where she burst in, breathing hard. \\\\\\\"We have been betrayed,\\\\\\\" she gasped. \\\\\\\"The Imperial Army has seized the Black Gate.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

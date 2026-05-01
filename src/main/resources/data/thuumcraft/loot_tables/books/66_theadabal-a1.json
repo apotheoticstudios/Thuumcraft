@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Adabal-a (1)\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Adabal-a (1)\\\\nby Unknown\\\\n\\\\nEditor's Note: The Adabal-a is traditionally believed to be the memoirs of Morihaus, consort to Alessia the Slave Queen. While this cannot be historically verified, the Adabal-a is certainly among the oldest written accounts to come down to us from the\\\"}\",\"{\\\"text\\\": \\\"early First Era. PELINAL'S DEATH And in the blood-floored throne room of White-Gold, the severed head of Pelinal spoke to the winged-bull, Morihaus, demigod lover of Al-Esh, saying, \\\\\\\"Our enemies have undone me, and spread my body into hiding. In mockery\\\"}\",\"{\\\"text\\\": \\\"of divine purpose, the Ayleids cut me into eighths, for they are obsessed with this number.\\\\\\\" And Morihaus, confused, snorted through his ring, saying, \\\\\\\"Your crusades went beyond her counsel, Whitestrake, but I am a bull, and therefore reckless in my wit.\\\"}\",\"{\\\"text\\\": \\\"I think I would go and gore our prisoners if you had left any alive. You are blood-made-glorious, uncle, and will come again, as fox animal or light. Cyrod is still ours.\\\\\\\" Then Pelinal spoke again for the last time: \\\\\\\"Beware, Morihaus, beware! With the\\\"}\",\"{\\\"text\\\": \\\"foresight of death I know now that my foe yet lives, bitter knowledge to take to my grave. Better that I had died believing myself the victor. Although cast beyond the doors of night, he will return. Be vigilant! I can no longer shield the host of Men\\\"}\",\"{\\\"text\\\": \\\"from Umaril's retribution.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"24 Sun's Height, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"24 Sun's Height, 2920\\\\nby Carlovac Townway\\\\n\\\\nBalmora, Morrowind It was the first time in seventeen years that the three members of the Morrowind Tribunal had met in the same place, since Sotha Sil had left for Artaeum. All three wished that the circumstances of their reunion were different. \\\\\\\"From\\\"}\",\"{\\\"text\\\": \\\"what we've learned, while the Prince was returning to Cyrodiil to the south, a second Imperial Army came down from the north,\\\\\\\" said Vivec to his stony-faced compatriots. \\\\\\\"It is reasonable to assume Juilek didn't know about the attack.\\\\\\\" \\\\\\\"But neither would\\\"}\",\"{\\\"text\\\": \\\"it be unreasonable to suppose that he planned on being a distraction while the Emperor launched the attack on Black Gate,\\\\\\\" said Sotha Sil. \\\\\\\"This must be considered a break of the truce.\\\\\\\" \\\\\\\"Where is the Duke of Mournhold?\\\\\\\" asked Vivec. \\\\\\\"I would hear his\\\"}\",\"{\\\"text\\\": \\\"thoughts on the matter.\\\\\\\" \\\\\\\"He is meeting with the Night Mother in Tel Aruhn,\\\\\\\" said Almalexia, quietly. \\\\\\\"I told him to wait until he had spoken with you, but he said that the matter had waited long enough.\\\\\\\" \\\\\\\"He would involve the Morag Tong? In outside\\\"}\",\"{\\\"text\\\": \\\"affairs?\\\\\\\" Vivec shook his head, and looked to Sotha Sil: \\\\\\\"Please, do what you can. Assassination will only move us backwards. This matter must be settled with diplomacy or battle.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

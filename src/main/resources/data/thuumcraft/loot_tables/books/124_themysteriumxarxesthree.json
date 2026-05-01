@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Xarxes Commentaries, Book Three\",author:\"Mankar Camoran\",pages:[\"{\\\"text\\\": \\\"Commentaries on the Mysterium Xarxes, Book Three\\\\nBy Mankar Camoran\\\\n\\\\nCHIM The Tower touches all the mantles of Heaven, brother-noviates, and by its apex one can be as he will. More: be as he was and yet changed for all else on that path for those that walk after. This is the third key of Nu-mantia and the secret of how\\\"}\",\"{\\\"text\\\": \\\"mortals become makers, and makers back to mortals. The Bones of the Wheel need their flesh, and that is mankind's heirloom. Oath-breakers beware, for their traitors run through the nymic-paths, runner dogs of prolix gods. The Dragon's Blood have hidden\\\"}\",\"{\\\"text\\\": \\\"ascension in six-thousands years of aetherial labyrinth, which is Arena, which they yet deny is Oathbound. By the Book, take this key and pierce the divine shell that encloses the mantle-takers! The skin of gold! SCARAB AE AURBEX! Woe to the\\\"}\",\"{\\\"text\\\": \\\"Oath-breakers! Of the skin of gold, the Xarxes Mysteriuum says \\\\\\\"Be fooled not by the forlorn that ride astray the roadway, for they lost faith and this losing was caused by the Aedra who would know no other planets.\\\\\\\" Whereby the words of Lord Dagon\\\"}\",\"{\\\"text\\\": \\\"instructs us to destroy these faithless. \\\\\\\"Eat or bleed dry the gone-forlorn and gain that small will that led them to walk the path of Godhead at the first. Spit out or burn to the side that which made them delay. Know them as the Mnemoli.\\\\\\\" Every new\\\"}\",\"{\\\"text\\\": \\\"limb is paid for by the under-known. See, brother, and give not more to the hydra. Reader, you will sense a shadow-choir soon. The room you are in right now will grow eyes and voices. The candle or spell-light you read this by will become gateways for\\\"}\",\"{\\\"text\\\": \\\"the traitors I have mentioned. Scorn them and fear not. Call them names, call out their base natures. I, the Mankar of stars, am with you, and I come to take you to my Paradise where the Tower-traitors shall hang on glass wracks until they smile with the\\\"}\",\"{\\\"text\\\": \\\"new revolution. That is your ward against the Mnemoli. They run blue, through noise, and shine only when the earth trembles with the eruption of the newly-mantled. Tell them \\\\\\\"Go! GHARTOK AL MNEM! God is come! NUMI MORA! NUM DALAE MNEM!\\\\\\\" Once you walk in\\\"}\",\"{\\\"text\\\": \\\"the Mythic it surrenders its power to you. Myth is nothing more than first wants. Unutterable truth. Ponder this while searching for the fourth key. Understood laws of the arcanature will fall away like heat. \\\\\\\"First Tower Dictate: render the mutant bound\\\"}\",\"{\\\"text\\\": \\\"where he may do no more harm. As God of the Mundus, alike shall be his progeny, split from their divine sparks. We are Eight time eight Exarchs. Let the home of Padomay see us as sole exit.\\\\\\\" CHIM. Those who know it can reshape the land. Witness the home\\\"}\",\"{\\\"text\\\": \\\"of the Red King Once Jungled. He that enters Paradise enters his own Mother. AE ALMA RUMA! The Aurbis endeth in all ways. Endeth we seek through our Dawn, all endeth. Falter now and become one with the wayside orphans that feed me. Follow and I shall\\\"}\",\"{\\\"text\\\": \\\"adore you from inside. My first daughter ran from the Dagonite road. Her name was Ruma and I ate her with no bread, and made another, which learned, and I loved that one and blackbirds formed her twin behind all time. Starlight is your mantle, brother.\\\"}\",\"{\\\"text\\\": \\\"Wear it to see by and add its light to Paradise.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

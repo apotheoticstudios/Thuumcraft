@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"19 Mid Year, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"19 Mid Year, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil The Potentate arrived in the Imperial City amid great fanfare, the streets lined with men and women cheering him as the symbol of the taking of Ald Marak. Truth be told, a greater number would have turned out had the Prince\\\"}\",\"{\\\"text\\\": \\\"returned, and the Versidue-Shaie knew it. Still, it pleased him to no end. Never before had citizens of Tamriel cheered the arrival of an Akaviri into their land. The Emperor Reman III greeted him with a warm embrace, and then tore into the letter he had\\\"}\",\"{\\\"text\\\": \\\"brought from the Prince. \\\\\\\"I don't understand,\\\\\\\" he said at last, still joyous but equally confused. \\\\\\\"You went under the lake?\\\\\\\" \\\\\\\"Ald Marak is a very well-fortified fortress,\\\\\\\" explained the Potentate. \\\\\\\"As, I might add, the army of Morrowind has\\\"}\",\"{\\\"text\\\": \\\"rediscovered, now that they are on the outside. To take it, we had to attack by surprise and with our soldiery in the sturdiest of armor. By casting the spell that allowed us to breathe underwater, we were able to travel faster than Vivec would have\\\"}\",\"{\\\"text\\\": \\\"guessed, the weight of the armor made less by the aquatic surroundings, and attack from the waterbound west side of the fortress where their defenses were at their weakest.\\\\\\\" \\\\\\\"Brilliant!\\\\\\\" the Emperor crowed. \\\\\\\"You are a wonderous tactician, Versidue-Shaie!\\\"}\",\"{\\\"text\\\": \\\"If your fathers had been as good at this as you are, Tamriel would be Akaviri domain!\\\\\\\" The Potentate had not planned to take credit for Prince Juilek's design, but on the Emperor's reference to his people's fiasco of an invasion two hundred and sixteen\\\"}\",\"{\\\"text\\\": \\\"years ago, he made up his mind. He smiled modestly and soaked up the praise.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Third Door, II.\",author:\"Annanar Orme\",pages:[\"{\\\"text\\\": \\\"The Third Door - II.\\\\nby Annanar Orme\\\\n\\\\nNienolas Ulwarth the Mighty, who hailed from Blackrose, The only man who could best Ellabeth with ax blows, In a minute, she chopped fifty trees; he, fifty-three. She felt at once that he was the only man for she. When she professed her love, Nienolas\\\"}\",\"{\\\"text\\\": \\\"just laughed. He said he loved more his ax handle and shaft. And if they weren't enough to slake all his desire There was another woman named Lorinthyrae. Fury gripped the Queen of the Axe, the maid Ellabeth, And her thoughts turned to pondering musings\\\"}\",\"{\\\"text\\\": \\\"of death. Mephala and Sheogorath gave her a revengeful scheme And for weeks, she worked on it in a state like a dream. In the still of the night, she kidnapped her rival And then told her choices between doom and survival.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

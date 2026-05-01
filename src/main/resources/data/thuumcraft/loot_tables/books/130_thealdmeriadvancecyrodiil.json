@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Aldmeri Advance Into Cyrodiil\",author:\"Legate Justianus Quintius\",pages:[\"{\\\"text\\\": \\\"4E 172-173: The Aldmeri Advance Into Cyrodiil\\\\nby Legate Justianus Quintius\\\\n\\\\nIt appears now that the initial Aldmeri objective was in fact the conquest of Hammerfell, and that the invasion of Cyrodiil was intended only to pin down the Imperial legions while Hammerfell was overrun. However, the surprising initial success of Lord\\\"}\",\"{\\\"text\\\": \\\"Naarifin's attack led the Thalmor to believe that the Empire was weaker than they had thought. The capture of the Imperial City itself and the complete overthrow of the Empire thus became their primary objective of the next two years. As we know, the\\\"}\",\"{\\\"text\\\": \\\"Thalmor nearly achieved their objective. It was only because of our Emperor's determined leadership during the Empire's darkest hour that this disaster was averted. During 4E 172, the Aldmeri advanced deeper into Cyrodiil. Bravil and Anvil both fell to\\\"}\",\"{\\\"text\\\": \\\"the invaders. By the end of the year, Lord Naarifin had advanced to the very walls of the Imperial City. There were fierce naval clashes in Lake Rumare and along the Niben as the Imperial forces attempted to hold the eastern bank. In Hammerfell, the\\\"}\",\"{\\\"text\\\": \\\"Thalmor were content to consolidate their gains as they took control of the whole southern coastline, which was in fact their stated objective in the ultimatum delivered to the Emperor. Of the southern cities, only Hegathe still held out. The survivors\\\"}\",\"{\\\"text\\\": \\\"of the March of Thirst regrouped in northern Hammerfell, joined by reinforcements from High Rock. The year 4E 173 saw stiffening Imperial resistance in Cyrodiil, but the seemingly inexorable Aldmeri advance continued. Fresh legions from Skyrim bolstered\\\"}\",\"{\\\"text\\\": \\\"the Emperor's main army in the Imperial City, but the Aldmeri forced the crossing of the Niben and began advancing in force up the eastern bank. By the end of the year, the Imperial City was surrounded on three sides - only the northern supply route to\\\"}\",\"{\\\"text\\\": \\\"Bruma remained open. In Hammerfell, Imperial fortunes took a turn for the better. In early 4E 173, a Forebear army from Sentinel broke the siege of Hegathe (a Crown city), leading to the reconciliation of the two factions. Despite this, Lady Arannelya's\\\"}\",\"{\\\"text\\\": \\\"main army succeeded in crossing the Alik'r Desert. The Imperial Legions under General Decianus met them outside Skaven in a bloody and indecisive clash. Decianus withdrew and left Arannelya in possession of Skaven, but the Aldmeri were too weakened to\\\"}\",\"{\\\"text\\\": \\\"continue their advance.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

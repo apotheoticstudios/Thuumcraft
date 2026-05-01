@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Lusty Argonian, Volume 2\",author:\"Crassius Curio\",pages:[\"{\\\"text\\\": \\\"The Lusty Argonian Maid - Volume 2\\\\nBy: Crassius Curio\\\\n\\\\nACT VII, SCENE II, CONTINUED Lifts-Her-Tail My goodness, that's quite a loaf! But how ever shall it fit my oven? Crantius Colto This loaf isn't ready for baking, my sweet. It has yet to rise. Lifts-Her-Tail If only we could hurry that along. How would I\\\"}\",\"{\\\"text\\\": \\\"accomplish such a task? Crantius Colto Oh, my foolish little Argonian maid, you must use your hands. Lifts-Her-Tail You wish me to kneed the loaf? Here? Crantius Colto Of course. Lifts-Her-Tail But what if the mistress catches me? Your loaf was meant to\\\"}\",\"{\\\"text\\\": \\\"satisfy her appetite. Crantius Colto Don't fret, my delicate flower. I'll satisfy the mistress's cravings later. Lifts-Her-Tail Very well, but I'm afraid my oven isn't hot enough. It could take hours! Crantius Colto Plenty of time, my sweet. Plenty of\\\"}\",\"{\\\"text\\\": \\\"time. END OF ACT VII, SCENE II\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

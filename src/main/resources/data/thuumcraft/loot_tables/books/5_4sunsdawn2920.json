@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"4 Sun's Dawn, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"4 Sun's Dawn, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil \\\\\\\"Spies,\\\\\\\" muttered the Emperor, sitting in his bath, staring at a lump on his foot. \\\\\\\"All around me, traitors and spies.\\\\\\\" His mistress Rijja washed his back, her legs wrapped around his waist. She knew after all these many years\\\"}\",\"{\\\"text\\\": \\\"when to be sensual and when to be sexual. When he was in a mood like this, it was best to be calmly, soothingly, seductively sensual. And not to say a word unless he asked her a direct question. Which he did: \\\\\\\"What do you think when a fellow steps on his\\\"}\",\"{\\\"text\\\": \\\"Imperial Majesty's foot and says 'I'm sorry, Your Imperial Majesty'? Don't you think 'Pardon me, Your Imperial Majesty' is more appropriate? 'I'm sorry,' well that almost sounds like the bastard Argonian was sorry I am his Imperial Majesty. That he hopes\\\"}\",\"{\\\"text\\\": \\\"we lose the war with Morrowind, that's what it sounds like.\\\\\\\" \\\\\\\"What would make you feel better?\\\\\\\" asked Rijja. \\\\\\\"Would you like him flogged? He is only, as you say, the Battlechief of Soulrest. It would teach him to mind where he's stepping.\\\\\\\" \\\\\\\"My father\\\"}\",\"{\\\"text\\\": \\\"would have flogged him. My grandfather would have had him killed,\\\\\\\" the Emperor grumbled. \\\\\\\"But I don't mind if they all step on my feet, provided they respect me. And don't plot against me.\\\\\\\" \\\\\\\"You must trust someone.\\\\\\\" \\\\\\\"Only you,\\\\\\\" smiled the Emperor,\\\"}\",\"{\\\"text\\\": \\\"turning slightly to give Rijja a kiss. \\\\\\\"And my son Juilek, I suppose, though I wish he were a little more cautious.\\\\\\\" \\\\\\\"And your council, and the Potentate?\\\\\\\" asked Rijja. \\\\\\\"A pack of spies and a snake,\\\\\\\" laughed the Emperor, kissing his mistress again. As\\\"}\",\"{\\\"text\\\": \\\"they began to make love, he whispered, \\\\\\\"As long as you're true, I can handle the world.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Pig Children\",author:\"Tyston Bane\",pages:[\"{\\\"text\\\": \\\"The Pig Children\\\\nby Tyston Bane\\\\n\\\\nNo one -- not the oldest Dark Elf of Mount Dagoth-Ur or the Ancient Sage of Solitude himself -- can recall a time when the Orc did not ravage our fair Tamriel. Whatever foul and pestilent Daedra of Oblivion conjured them up could scarcely have created a\\\"}\",\"{\\\"text\\\": \\\"more constant threat to the well-being of the civilized races of Tamriel than the obnoxious Orc. Orcs are thankfully easy to recognize from other humanoids by their size -- commonly forty pertans in height and fifteen thousand angaids in weight -- their\\\"}\",\"{\\\"text\\\": \\\"brutal pig-like features, and their stench. They are consistently belligerent, morally grotesque, intellectually moronic, and unclean. By all rights, the civilized races of Tamriel should have been able to purge the land of their blight eras ago, but\\\"}\",\"{\\\"text\\\": \\\"their ferocity, animal cunning, and curious tribal loyalty have made them inevitable as leeches in a stagnant pool. Tales of Orcish barbarity precede written record. When Jastyaga wrote of the Order of Diagna's joining the armies of Daggerfall and\\\"}\",\"{\\\"text\\\": \\\"Sentinel \\\\\\\"to hold at bay the wicked Orcs in their foul Orsinium fastness... and burn aught in cleansing flame\\\\\\\" in 1E950, she assumed that any reader would be aware of the savagery of the Orcs. When the siege was completed thirty years later, after the\\\"}\",\"{\\\"text\\\": \\\"death of many heroes including Gaiden Shinji, and the destruction of Orsinium scattered the Orcish survivors throughout the Wrothgarian Mountains, she further wrote, \\\\\\\"The free peoples rejoiced for that their ancient fell enemy was dispersed into diverse\\\"}\",\"{\\\"text\\\": \\\"parts.\\\\\\\" Obviously, the Orcs had been terrorizing the region of the Iliac Bay at least since the early years of the First Era.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

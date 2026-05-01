@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Adabal-a (2)\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"The Adabal-a (2)\\\\nby Unknown\\\\n\\\\nALESSIA'S YOUTH DURING THE SLAVE-YEARS Perrif's original tribe is unknown, but she grew up in Sard, anon Sardarvar Leed, where the Ayleids herded in men from across all the Niben: kothri, nede, al-gemha, men-of-'kreath (though these were later known to\\\"}\",\"{\\\"text\\\": \\\"be imported from the North), keptu, men-of-ge (who were eventually destroyed when the Flower King Nilichi made great sacrifice to an insect god named [lost]), al-hared, men-of-ket, others; but this was Cyrod, the heart of the imperatum saliache, where\\\"}\",\"{\\\"text\\\": \\\"men knew no freedom, even to keep family, or choice of name except in secret, and so to their alien masters all of these designations were irrelevant. Men were given over to the lifting of stones, and the draining of the fields, and the upkeep of temple\\\"}\",\"{\\\"text\\\": \\\"and road; or to become art-tortures for strange pleasures, as in the wailing wheels of Vindasel and the gut-gardens of Sercen; and flesh-sculpture, which was everywhere among the slaves of the Ayleids in those days; or, worse, the realms of the Fire King\\\"}\",\"{\\\"text\\\": \\\"Hadhuul, where the begetting of drugs drawn from the admixture of daedrons into living hosts let one inhale new visions of torment, and children were set aflame for nighttime tiger sport.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

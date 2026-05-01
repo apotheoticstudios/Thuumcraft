@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"Decorating Guides, Whiterun\",author:\"Unknown\",pages:[\"{\\\"text\\\": \\\"Decorating Guides - Whiterun\\\\nby Unknown\\\\n\\\\nWelcome to your new home! This decorating guide provides a list of packages that you can purchase from the Steward of the hold. Each package contains furnishings and decor for a specific part of your house, and these will be delivered and placed for you\\\"}\",\"{\\\"text\\\": \\\"upon purchase. All you need to do is provide the gold, and the Steward will take care of the rest. The next time that you visit your home after making your purchases, you will see your new decorations and furnishings in place. Kitchen Includes a fire\\\"}\",\"{\\\"text\\\": \\\"pit, a small table and two chairs, as well as a shelf to store cooking supplies. Living Room Provides Wall-mounted shelves, a few side tables and two chairs placed near the fire pit, all near the center of the ground floor. Dining Room Adds a long wooden\\\"}\",\"{\\\"text\\\": \\\"table and bench, as well as several shelves loaded with cutlery, dishes and cookware. Alchemy Laboratory This package adds an alchemy crafting station, a reading table and chair, and a large wardrobe to the rear area of the ground floor. This also\\\"}\",\"{\\\"text\\\": \\\"includes the addition of a wall to divide the laboratory from the dining room. Loft This package includes a few chairs and tables to fill out the upper-level loft. Bedroom Adds two bedside tables, a dresser and a small table with two chairs to the master\\\"}\",\"{\\\"text\\\": \\\"bedroom. This also includes the addition of a wall to give the bedroom added privacy.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

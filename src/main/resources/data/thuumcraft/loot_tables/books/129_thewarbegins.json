@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The War Begins\",author:\"Legate Justianus Quintius\",pages:[\"{\\\"text\\\": \\\"The War Begins\\\\nby Legate Justianus Quintius\\\\n\\\\nOn the 30th of Frostfall, 4E 171, the Aldmeri Dominion sent an ambassador to the Imperial City with a gift in a covered cart and an ultimatum for the new Emperor. The long list of demands included staggering tributes, disbandment of the Blades, outlawing\\\"}\",\"{\\\"text\\\": \\\"the worship of Talos, and ceding large sections of Hammerfell to the Dominion. Despite the warnings of his generals of the Empire's military weakness, Emperor Titus Mede II rejected the ultimatum. The Thalmor ambassador upended the cart, spilling over a\\\"}\",\"{\\\"text\\\": \\\"hundred heads on the floor: every Blades agent in Summerset and Valenwood. And so began the Great War which would consume the Empire and the Aldmeri Dominion for the next five years. Within days, Aldmeri armies invaded Hammerfell and Cyrodiil\\\"}\",\"{\\\"text\\\": \\\"simultaneously. A strong force commanded by the Thalmor general Lord Naarifin attacked Cyrodiil from the south, marching out of hidden camps in northern Elsweyr and flanking the Imperial defenses along the Valenwood border. Leyawiin soon fell to the\\\"}\",\"{\\\"text\\\": \\\"invaders, while Bravil was cut off and besieged. At the same time, an Aldmeri army under Lady Arannelya crossed into western Cyrodiil from Valenwood, bypassing Anvil and Kvatch and crossing into Hammerfell. Smaller Aldmeri forces landed along the\\\"}\",\"{\\\"text\\\": \\\"southern coastline of Hammerfell. The disunited Redguard forces offered only scattered resistance to the invaders, and much of the southern coastline was quickly overrun. The greatly outnumbered Imperial legions retreated across the Alik'r Desert in the\\\"}\",\"{\\\"text\\\": \\\"now-famous March of Thirst.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

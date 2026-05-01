@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"22 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"22 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil The Cyrodiil line is dead,\\\\\\\" announced the Potentate to the crowd gathered beneath the Speaker's Balcony of the Imperial Palace. \\\\\\\"But the Empire lives. The distant relatives of our beloved Emperor have been judged unworthy of\\\"}\",\"{\\\"text\\\": \\\"the throne by the trusted nobility who advised his Imperial Majesty throughout his long and illustrious reign. It has been decided that as an impartial and faithful friend of Reman III, I will have the responsibility of continuing on in his name.\\\\\\\" The\\\"}\",\"{\\\"text\\\": \\\"Akaviri paused, allowing his words to echo and translate into the ears of the populace. They merely stared up at him in silence. The rain had washed through the streets of the city, but the sun, for a brief time, appeared to be offering a respite from\\\"}\",\"{\\\"text\\\": \\\"the winter storms. \\\\\\\"I want to make it clear that I am not taking the title Emperor,\\\\\\\" he continued. \\\\\\\"I have been and will continue to be Potentate Versidue-Shaie, an alien welcomed kindly to your shores. It will be my duty to protect my adopted homeland,\\\"}\",\"{\\\"text\\\": \\\"and I pledge to work tirelessly at this task until someone more worthy takes the burden from me. As my first act, I declare that in commemoration of this historical moment, beginning on the first of Morning Star, we will enter year one of the Second Era\\\"}\",\"{\\\"text\\\": \\\"as time will be reckoned. Thus, we mourn the loss of our Imperial family, and look forward to the future.\\\\\\\" Only one man clapped at these words. King Dro'Zel of Senchal truly believed that this would be the finest thing to happen to Tamriel in history. Of\\\"}\",\"{\\\"text\\\": \\\"course, he was quite mad.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

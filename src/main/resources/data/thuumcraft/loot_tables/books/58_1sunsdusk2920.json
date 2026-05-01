@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"1 Sun's Dusk, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"1 Sun's Dusk, 2920\\\\nby Carlovac Townway\\\\n\\\\nBalmora, Morrowind The winter morning sun glinted through the cobweb of frost on the window, and Almalexia opened her eyes. An ancient healer mopped a wet cloth across her head, smiling with relief. Asleep in the chair next to her bed was Vivec. The\\\"}\",\"{\\\"text\\\": \\\"healer rushed to a side cabinet and returned with a flagon of water. \\\\\\\"How are you feeling, goddess?\\\\\\\" asked the healer. \\\\\\\"Like I've been asleep for a very long time,\\\\\\\" said Almalexia. \\\\\\\"So you have. Fifteen days,\\\\\\\" said the healer, and touched Vivec's arm.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Master, wake up. She speaks.\\\\\\\" Vivec rose with a start, and seeing Almalexia alive and awake, his face broke into a wide grin. He kissed her forehead, and took her hand. At last, there was warmth again in her flesh. Almalexia's peaceful repose suddenly\\\"}\",\"{\\\"text\\\": \\\"snapped: \\\\\\\"Sotha Sil --\\\\\\\" \\\\\\\"He's alive and well,\\\\\\\" replied Vivec. \\\\\\\"Working on one of his machines again somewhere. He would have stayed here too, but he realized he could do you more good working that peculiar sorcery of his.\\\\\\\" The castellan appeared in the\\\"}\",\"{\\\"text\\\": \\\"doorway. \\\\\\\"Sorry to interrupt you, master, but I wanted to tell you that your fastest messenger left late last night for the Imperial City.\\\\\\\" \\\\\\\"Messenger?\\\\\\\" asked Almalexia. \\\\\\\"Vivec, what has happened?\\\\\\\" \\\\\\\"I was to go and sign a truce with the Emperor on the\\\"}\",\"{\\\"text\\\": \\\"sixth, so I sent him word that it had to be postponed.\\\\\\\" \\\\\\\"You can't do me any good here,\\\\\\\" said Almalexia, pulling herself up with effort. \\\\\\\"But if you don't sign that truce, you'll put Morrowind back to war, maybe for another eighty years. If you leave\\\"}\",\"{\\\"text\\\": \\\"today with an escort and hurry, perhaps you can get to the Imperial City only a day or two late.\\\\\\\" \\\\\\\"Are you certain you don't need me here?\\\\\\\" asked Vivec. \\\\\\\"I know that Morrowind needs you more.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"10 Second Seed, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"10 Second Seed, 2920\\\\nBy Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil \\\\\\\"Your Imperial Majesty,\\\\\\\" said the Potentate Versidue-Shaie, opening the door to his chamber with a smile. \\\\\\\"I have not seen you lately. I thought perhaps you were ... indisposed with the lovely Rijja.\\\\\\\" \\\\\\\"She's taking the baths\\\"}\",\"{\\\"text\\\": \\\"at Mir Corrup,\\\\\\\" the Emperor Reman III said miserably. \\\\\\\"Please, come in.\\\\\\\" \\\\\\\"I've reached the stage where I can only trust three people: you, my son the Prince, and Rijja,\\\\\\\" said the Emperor petulantly. \\\\\\\"My entire council is nothing but a pack of spies.\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"What seems to be the matter, your imperial majesty?\\\\\\\" asked the Potentate Versidue-Shaie sympathetically, drawing closed the thick curtain in his chamber. Instantly all sound outside the room was extinguished, echoing footsteps in the marble halls and\\\"}\",\"{\\\"text\\\": \\\"birds in the springtide gardens. \\\\\\\"I've discovered that a notorious poisoner, an Orma tribeswoman from Black Marsh called Catchica, was with the army at Caer Suvio while we were encamped there when my son was poisoned, before the battle at Bodrum. I'm\\\"}\",\"{\\\"text\\\": \\\"sure she would have preferred to kill me, but the opportunity didn't present itself,\\\\\\\" The Emperor fumed. \\\\\\\"The Council suggests that we need evidence of her involvement before we prosecute.\\\\\\\" \\\\\\\"Of course they would,\\\\\\\" said the Potentate thoughtfully.\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Particularly if one or more of them was in on the plot. I have a thought, your imperial majesty.\\\\\\\" \\\\\\\"Yes?\\\\\\\" said Reman impatiently. \\\\\\\"Out with it!\\\\\\\" \\\\\\\"Tell the Council you're dropping the matter, and I will send out the Guard to track this Catchica down and\\\"}\",\"{\\\"text\\\": \\\"follow her. We will see who her friends are, and perhaps get an idea of the scope of this plot on your imperial majesty's life.\\\\\\\" \\\\\\\"Yes,\\\\\\\" said Reman with a satisfied frown. \\\\\\\"That's a capital plan. We will track this scheme to whomever it leads to.\\\\\\\"\\\"}\",\"{\\\"text\\\": \\\"\\\\\\\"Decidedly, your imperial majesty,\\\\\\\" smiled the Potentate, parting the curtain so the Emperor could leave. In the hallway outside was Versidue-Shaie's son, Savirien-Chorak. The boy bowed to the Emperor before entering the Potentate's chamber. \\\\\\\"Are you in\\\"}\",\"{\\\"text\\\": \\\"trouble, father?\\\\\\\" whispered the Akaviri lad. \\\\\\\"I heard the Emperor found out about whatshername, the poisoner.\\\\\\\" \\\\\\\"The great art of speechcraft, my boy,\\\\\\\" said Versidue-Shaie to his son. \\\\\\\"Is to tell them what they want to hear in a way that gets them to do\\\"}\",\"{\\\"text\\\": \\\"what you want them to do. I need you to get a letter to Catchica, and make certain that she understands that if she does not follow the instructions perfectly, she is risking her own life more than ours.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

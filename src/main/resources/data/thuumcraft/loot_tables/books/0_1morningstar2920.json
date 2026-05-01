@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"1 Morning Star, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"1 Morning Star, 2920\\\\nby Carlovac Townway\\\\n\\\\nMournhold, Morrowind Almalexia lay in her bed of fur, dreaming. Not until the sun burned through her window, infusing the light wood and flesh colors of her chamber in a milky glow did she open her eyes. It was quiet and serene, a stunning reverse of the\\\"}\",\"{\\\"text\\\": \\\"flavor of her dreams, so full of blood and celebration. For a few moments, she simply stared at the ceiling, trying to sort through her visions. In the courtyard of her palace was a boiling pool which steamed in the coolness of the winter morning. At the\\\"}\",\"{\\\"text\\\": \\\"wave of her hand, it cleared and she saw the face and form of her lover Vivec in his study to the north. She did not want to speak right away: he looked so handsome in his dark red robes, writing his poetry as he did every morning. \\\\\\\"Vivec,\\\\\\\" she said, and\\\"}\",\"{\\\"text\\\": \\\"he raised his head in a smile, looking at her face across thousands of miles. \\\\\\\"I have seen a vision of the end of the war.\\\\\\\" \\\\\\\"After eighty years, I don't think anyone can imagine an end,\\\\\\\" said Vivec with a smile, but he grew serious, trusting Almalexia's\\\"}\",\"{\\\"text\\\": \\\"prophecies. \\\\\\\"Who will win? Morrowind or the Cyrodilic Empire?\\\\\\\" \\\\\\\"Without Sotha Sil in Morrowind, we will lose,\\\\\\\" she replied. \\\\\\\"My intelligence tells me the Empire will strike us to the north in early springtide, by First Seed at the latest. Could you go to\\\"}\",\"{\\\"text\\\": \\\"Artaeum and convince him to return?\\\\\\\" \\\\\\\"I'll leave today,\\\\\\\" she said, simply.\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"25 Sun's Height, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"25 Sun's Height, 2920\\\\nby Carlovac Townway\\\\n\\\\nTel Aruhn, Morrowind The Night Mother met Sotha Sil in her salon, lit only by the moon. She was cruelly beautiful dressed in a simple silk black robe, lounging across her divan. With a gesture, she dismissed her red-cloaked guards and offered the\\\"}\",\"{\\\"text\\\": \\\"sorcerer some wine. \\\\\\\"You've only just missed your friend, the Duke,\\\\\\\" she whispered. \\\\\\\"He was very unhappy, but I think we will solve his problem for him.\\\\\\\" \\\\\\\"Did he hire the Morag Tong to assassinate the Emperor?\\\\\\\" asked Sotha Sil. \\\\\\\"You are straight-forward,\\\"}\",\"{\\\"text\\\": \\\"aren't you? That's good. I love plain-speaking men: it saves so much time. Of course, I cannot discuss with you what the Duke and I talked about,\\\\\\\" she smiled. \\\\\\\"It would be bad for business.\\\\\\\" \\\\\\\"What if I were to offer you an equal amount of gold for you\\\"}\",\"{\\\"text\\\": \\\"not to assassinate the Emperor?\\\\\\\" \\\\\\\"The Morag Tong murders for the glory of Mephala and for profit,\\\\\\\" she said, speaking into her glass of wine. \\\\\\\"We do not merely kill. That would be sacrilege. Once the Duke's gold has arrived in three days time, we will do\\\"}\",\"{\\\"text\\\": \\\"our end of the business. And I'm afraid we would not dream of entertaining a counter offer. Though we are a business as well as a religious order, we do not bow to supply and demand, Sotha Sil.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

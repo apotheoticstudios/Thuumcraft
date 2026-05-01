@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"5 Hearth Fire, 2920\",author:\"Carlovac Townway\",pages:[\"{\\\"text\\\": \\\"5 Hearth Fire, 2920\\\\nby Carlovac Townway\\\\n\\\\nThe Imperial City, Cyrodiil \\\\\\\"Your Imperial Majesty,\\\\\\\" said the Potentate Versidue-Shaie through the door. \\\\\\\"You can open the door. I assure you, you're perfectly safe. No one wants to kill you.\\\\\\\" \\\\\\\"Mara's blood!\\\\\\\" came the Emperor Reman III's voice, muffled,\\\"}\",\"{\\\"text\\\": \\\"hysterical, tinged with madness. \\\\\\\"Someone assassinated the Prince, and he was holding my shield! They could have thought he was me!\\\\\\\" \\\\\\\"You're certainly correct, your Imperial Majesty,\\\\\\\" replied the Potentate, expunging any mocking qualities from his voice\\\"}\",\"{\\\"text\\\": \\\"while his black-slitted eyes rolled contemptuously. \\\\\\\"And we must find and punish the evildoer responsible for your son's death. But we cannot do it without you. You must be brave for your Empire.\\\\\\\" There was no reply. \\\\\\\"At the very least, come out and sign\\\"}\",\"{\\\"text\\\": \\\"the order for Lady Rijja's execution,\\\\\\\" called the Potentate. \\\\\\\"Let us dispose of the one traitor and assassin we know of.\\\\\\\" A brief pause, and then the sound of furniture scraping across the floor. Reman opened the door just a crack, but the Potentate\\\"}\",\"{\\\"text\\\": \\\"could see his angry, fearful face, and the terrible mound of ripped tissue that used to be his right eye. Despite the best healers in the Empire, it was still a ghastly souvenir of the Lady Rijja's work in Thurzo Fortress. \\\\\\\"Hand me the order,\\\\\\\" the\\\"}\",\"{\\\"text\\\": \\\"Emperor snarled. \\\\\\\"I'll sign it with pleasure.\\\\\\\"\\\"}\"]}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

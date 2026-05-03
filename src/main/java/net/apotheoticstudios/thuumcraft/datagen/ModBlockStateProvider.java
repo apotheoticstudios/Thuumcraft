@@ -22,6 +22,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN);
         blockWithItem(ModBlocks.CORUNDUM_ORE_VEIN);
         blockWithItem(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN);
+        blockWithItem(ModBlocks.MOONSTONE_ORE_VEIN);
+        blockWithItem(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN);
+        blockWithItem(ModBlocks.SILVER_ORE_VEIN);
+        blockWithItem(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN);
+        blockWithItem(ModBlocks.ORICHALCUM_ORE_VEIN);
+        blockWithItem(ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN);
+        blockWithItem(ModBlocks.EBONY_ORE_VEIN);
+        blockWithItem(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

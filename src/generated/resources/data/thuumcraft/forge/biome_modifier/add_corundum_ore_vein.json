@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#thuumcraft:corundum_ore_biomes",
   "features": "thuumcraft:corundum_ore_vein_placed",
   "step": "underground_ores"
 }

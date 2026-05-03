@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#thuumcraft:silver_ore_biomes",
+  "features": "thuumcraft:silver_ore_vein_placed",
+  "step": "underground_ores"
+}

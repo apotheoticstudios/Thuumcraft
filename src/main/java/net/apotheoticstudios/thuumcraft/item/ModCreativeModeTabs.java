@@ -44,9 +44,17 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.STEEL_INGOT.get());
                         pOutput.accept(ModItems.STEEL_SWORD.get());
 
+                        pOutput.accept(ModBlocks.MOONSTONE_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get());
                         pOutput.accept(ModItems.MOONSTONE_ORE.get());
+                        pOutput.accept(ModBlocks.SILVER_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get());
                         pOutput.accept(ModItems.SILVER_ORE.get());
+                        pOutput.accept(ModBlocks.ORICHALCUM_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get());
                         pOutput.accept(ModItems.ORICHALCUM_ORE.get());
+                        pOutput.accept(ModBlocks.EBONY_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get());
                         pOutput.accept(ModItems.EBONY_ORE.get());
                         pOutput.accept(ModItems.REFINED_MOONSTONE.get());
                         pOutput.accept(ModItems.SILVER_INGOT.get());

@@ -17,7 +17,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("septim_from_villager", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("entities/villager")).build() }, ModItems.SEPTIM.get()));
+                new LootTableIdCondition.Builder(new ResourceLocation("entities/villager")).build() }, ModItems.SEPTIM.get(), 3, 40));
 
         add("septim_from_jungle_temple", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build() }, ModItems.SEPTIM.get(), 2, 20));

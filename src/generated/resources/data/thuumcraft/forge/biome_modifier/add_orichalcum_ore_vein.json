@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#thuumcraft:orichalcum_ore_biomes",
+  "features": "thuumcraft:orichalcum_ore_vein_placed",
+  "step": "underground_ores"
+}

@@ -30,6 +30,26 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.CORUNDUM_ORE_VEIN.get(), ModItems.CORUNDUM_ORE.get()));
         this.add(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get(), ModItems.CORUNDUM_ORE.get()));
+
+        this.add(ModBlocks.MOONSTONE_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.MOONSTONE_ORE_VEIN.get(), ModItems.MOONSTONE_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(), ModItems.MOONSTONE_ORE.get()));
+
+        this.add(ModBlocks.SILVER_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.SILVER_ORE_VEIN.get(), ModItems.SILVER_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get(), ModItems.SILVER_ORE.get()));
+
+        this.add(ModBlocks.ORICHALCUM_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.ORICHALCUM_ORE_VEIN.get(), ModItems.ORICHALCUM_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get(), ModItems.ORICHALCUM_ORE.get()));
+
+        this.add(ModBlocks.EBONY_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.EBONY_ORE_VEIN.get(), ModItems.EBONY_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get(), ModItems.EBONY_ORE.get()));
     }
 
 

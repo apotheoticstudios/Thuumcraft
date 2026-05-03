@@ -4,6 +4,14 @@
     "thuumcraft:malachite_ore_vein",
     "thuumcraft:deepslate_malachite_ore_vein",
     "thuumcraft:corundum_ore_vein",
-    "thuumcraft:deepslate_corundum_ore_vein"
+    "thuumcraft:deepslate_corundum_ore_vein",
+    "thuumcraft:moonstone_ore_vein",
+    "thuumcraft:deepslate_moonstone_ore_vein",
+    "thuumcraft:silver_ore_vein",
+    "thuumcraft:deepslate_silver_ore_vein",
+    "thuumcraft:orichalcum_ore_vein",
+    "thuumcraft:deepslate_orichalcum_ore_vein",
+    "thuumcraft:ebony_ore_vein",
+    "thuumcraft:deepslate_ebony_ore_vein"
   ]
 }

@@ -20,6 +20,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.REFINED_MALACHITE_BLOCK.get());
+        this.dropSelf(ModBlocks.PINE_SAPLING.get());
 
         this.add(ModBlocks.MALACHITE_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.MALACHITE_ORE_VEIN.get(), ModItems.MALACHITE_ORE.get()));
@@ -50,6 +51,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.EBONY_ORE_VEIN.get(), ModItems.EBONY_ORE.get()));
         this.add(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get(), ModItems.EBONY_ORE.get()));
+
     }
 
 

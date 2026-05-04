@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-04T16:27:10.0793165	Registries
+// 1.20.1	2026-05-04T19:47:48.715902	Registries
 bbce5561796dfd720e06b3a088ac1b756f3c113b data/thuumcraft/forge/biome_modifier/add_corundum_ore_vein.json
 df2098da5009658778d6c235b5200a203d6fef9f data/thuumcraft/forge/biome_modifier/add_ebony_ore_vein.json
 abab20c9aae0739d200f7678d94c45f3be499d1a data/thuumcraft/forge/biome_modifier/add_malachite_ore_vein.json
@@ -10,6 +10,7 @@ cda569b21c225aaa5b466cbf6d2fecabe22e489b data/thuumcraft/worldgen/configured_fea
 8194a2b617fb2bd0fae71ee1ba642c5e61d1cc22 data/thuumcraft/worldgen/configured_feature/malachite_ore.json
 6b165b9fd359e329956e0f0cb2159953839a401a data/thuumcraft/worldgen/configured_feature/moonstone_ore.json
 4dbe1aa0ff6f6b186836a43f7508ebce0a3efa5a data/thuumcraft/worldgen/configured_feature/orichalcum_ore.json
+4c61332c147e3d0877eafa9e5229d0e22a90f26f data/thuumcraft/worldgen/configured_feature/pine.json
 88ad3d371e5913b51f18e87832919f22932df714 data/thuumcraft/worldgen/configured_feature/silver_ore.json
 8c6ef481f3653730d0f0508c0c3dd5a6bbb25619 data/thuumcraft/worldgen/placed_feature/corundum_ore_vein_placed.json
 e5add0f2259684ce66ed3ebac8e2e8be22478671 data/thuumcraft/worldgen/placed_feature/ebony_ore_vein_placed.json

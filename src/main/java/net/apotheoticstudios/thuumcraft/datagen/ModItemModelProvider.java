@@ -1,10 +1,12 @@
 package net.apotheoticstudios.thuumcraft.datagen;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
+import net.apotheoticstudios.thuumcraft.block.ModBlocks;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -30,20 +32,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.REFINED_MOONSTONE);
         simpleItem(ModItems.SILVER_INGOT);
         simpleItem(ModItems.EBONY_INGOT);
-
         simpleItem(ModItems.LEATHER_STRIPS);
         simpleItem(ModItems.HANDLE);
         simpleItem(ModItems.SEPTIM);
-
         simpleItem(ModItems.JUNIPER_BERRIES);
 
         handheldItem(ModItems.GLASS_SWORD);
         handheldItem(ModItems.GLASS_WAR_AXE);
-
         handheldItem(ModItems.DWARVEN_SWORD);
         handheldItem(ModItems.DWARVEN_WAR_AXE);
-
         handheldItem(ModItems.STEEL_SWORD);
+
+        saplingItem(ModBlocks.PINE_SAPLING);
 
         withExistingParent(ModItems.DRAUGR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.GIANT_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
@@ -54,6 +54,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(Thuumcraft.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(Thuumcraft.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {

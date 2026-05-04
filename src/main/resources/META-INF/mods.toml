@@ -9,26 +9,26 @@ license="Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International L
 
 [[mods]] #mandatory
 
-modId="${mod_id}" #mandatory
+modId="thuumcraft" #mandatory
 
 version="${mod_version}" #mandatory
 
-displayName="${mod_name}" #mandatory
+displayName="Thu'umcraft" #mandatory
 
 #logoFile="examplemod.png" #optional
 
-authors="${mod_authors}" #optional
+authors="Apotheotic Studios" #optional
 
 description='''${mod_description}'''
 
-[[dependencies.${mod_id}]] #optional
+[[dependencies.thuumcraft]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
     versionRange="${forge_version_range}" #mandatory
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.${mod_id}]]
+[[dependencies.thuumcraft]]
     modId="minecraft"
     mandatory=true
     versionRange="${minecraft_version_range}"

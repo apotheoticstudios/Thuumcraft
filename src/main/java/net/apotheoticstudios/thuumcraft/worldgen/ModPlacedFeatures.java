@@ -31,11 +31,11 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(128))));
 
         register(context, CORUNDUM_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_CORUNDUM_ORE_KEY),
-                ModOrePlacement.commonOrePlacement(10,
+                ModOrePlacement.commonOrePlacement(9,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-32), VerticalAnchor.absolute(96))));
 
         register(context, MOONSTONE_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_MOONSTONE_ORE_KEY),
-                ModOrePlacement.commonOrePlacement(5,
+                ModOrePlacement.commonOrePlacement(4,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-48), VerticalAnchor.absolute(64))));
 
         register(context, SILVER_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_SILVER_ORE_KEY),
@@ -43,12 +43,12 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(48))));
 
         register(context, ORICHALCUM_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_ORICHALCUM_ORE_KEY),
-                ModOrePlacement.commonOrePlacement(7,
+                ModOrePlacement.commonOrePlacement(6,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-32), VerticalAnchor.absolute(112))));
 
         register(context, EBONY_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_EBONY_ORE_KEY),
-                ModOrePlacement.rareOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(36))));
+                ModOrePlacement.rareOrePlacement(5,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(26))));
 
     }
 

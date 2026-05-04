@@ -30,6 +30,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CORUNDUM_INGOT = ITEMS.register("corundum_ingot",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ORICHALCUM_INGOT = ITEMS.register("orichalcum_ingot",
+            () -> new Item(new Item.Properties()));
 
 
     public static final RegistryObject<Item> MALACHITE_ORE = ITEMS.register("malachite_ore",

@@ -46,32 +46,32 @@ public class ModConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> overworldMalachiteOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.MALACHITE_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_MALACHITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMalachiteOreVeins, 3));
+        register(context, OVERWORLD_MALACHITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMalachiteOreVeins, 5));
 
         List<OreConfiguration.TargetBlockState> overworldCorundumOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.CORUNDUM_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_CORUNDUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCorundumOreVeins, 7));
+        register(context, OVERWORLD_CORUNDUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCorundumOreVeins, 9));
 
         List<OreConfiguration.TargetBlockState> overworldMoonstoneOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.MOONSTONE_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_MOONSTONE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMoonstoneOreVeins, 5));
+        register(context, OVERWORLD_MOONSTONE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMoonstoneOreVeins, 7));
 
         List<OreConfiguration.TargetBlockState> overworldSilverOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.SILVER_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_SILVER_ORE_KEY, Feature.ORE, new OreConfiguration(overworldSilverOreVeins, 4));
+        register(context, OVERWORLD_SILVER_ORE_KEY, Feature.ORE, new OreConfiguration(overworldSilverOreVeins, 6));
 
         List<OreConfiguration.TargetBlockState> overworldOrichalcumOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.ORICHALCUM_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_ORICHALCUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldOrichalcumOreVeins, 6));
+        register(context, OVERWORLD_ORICHALCUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldOrichalcumOreVeins, 8));
 
         List<OreConfiguration.TargetBlockState> overworldEbonyOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.EBONY_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_EBONY_ORE_KEY, Feature.ORE, new OreConfiguration(overworldEbonyOreVeins, 4));
+        register(context, OVERWORLD_EBONY_ORE_KEY, Feature.ORE, new OreConfiguration(overworldEbonyOreVeins, 6));
 
 
 

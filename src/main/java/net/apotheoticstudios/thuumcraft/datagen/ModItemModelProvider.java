@@ -36,6 +36,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.HANDLE);
         simpleItem(ModItems.SEPTIM);
         simpleItem(ModItems.JUNIPER_BERRIES);
+        simpleItem(ModItems.ORICHALCUM_INGOT);
 
         handheldItem(ModItems.GLASS_SWORD);
         handheldItem(ModItems.GLASS_WAR_AXE);

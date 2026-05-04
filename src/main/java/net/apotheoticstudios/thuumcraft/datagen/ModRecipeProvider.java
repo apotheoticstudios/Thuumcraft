@@ -31,6 +31,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.CORUNDUM_ORE_VEIN.get(),
             ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
 
+    private static final List<ItemLike> MOONSTONE_SMELTABLES = List.of(ModItems.MOONSTONE_ORE.get(),
+            ModBlocks.MOONSTONE_ORE_VEIN.get(),
+            ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get());
+
+    private static final List<ItemLike> SILVER_SMELTABLES = List.of(ModItems.SILVER_ORE.get(),
+            ModBlocks.SILVER_ORE_VEIN.get(),
+            ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get());
+
+    private static final List<ItemLike> ORICHALCUM_SMELTABLES = List.of(ModItems.ORICHALCUM_ORE.get(),
+            ModBlocks.ORICHALCUM_ORE_VEIN.get(),
+            ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get());
+
 
     public ModRecipeProvider(PackOutput pOutput) {
         super(pOutput);
@@ -55,6 +67,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModBlocks.REFINED_MALACHITE_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.REFINED_MALACHITE_BLOCK.get()), has(ModBlocks.REFINED_MALACHITE_BLOCK.get()))
                 .save(pWriter);
+
+        //MOONSTONE
+        oreSmelting(pWriter, MOONSTONE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MOONSTONE.get(), 0.7f, 400, "refined_moonstone");
+        oreBlasting(pWriter, MOONSTONE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MOONSTONE.get(), 0.7f, 200, "refined_moonstone");
+
+        //ORICHALCUM
+        oreSmelting(pWriter, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT.get(), 0.7f, 400, "orichalcum_ingot");
+        oreBlasting(pWriter, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT.get(), 0.7f, 200, "orichalcum_ingot");
+
+        //SILVER
+        oreSmelting(pWriter, SILVER_SMELTABLES, RecipeCategory.MISC, ModItems.SILVER_INGOT.get(), 0.6f, 300, "silver_ingot");
+        oreBlasting(pWriter, SILVER_SMELTABLES, RecipeCategory.MISC, ModItems.SILVER_INGOT.get(), 0.6f, 150, "silver_ingot");
 
         //CORUNDUM
         oreSmelting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_INGOT.get(), 0.6f, 300, "corundum_ingot");

@@ -53,6 +53,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.ORICHALCUM_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get());
                         pOutput.accept(ModItems.ORICHALCUM_ORE.get());
+                        pOutput.accept(ModItems.ORICHALCUM_INGOT.get());
                         pOutput.accept(ModBlocks.EBONY_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get());
                         pOutput.accept(ModItems.EBONY_ORE.get());
@@ -63,8 +64,6 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
                         pOutput.accept(ModItems.SEPTIM.get());
-
-                        pOutput.accept(ModBlocks.PINE_SAPLING.get());
 
                         pOutput.accept(ModItems.DRAUGR_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GIANT_SPAWN_EGG.get());

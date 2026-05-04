@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "orichalcum_ingot",
+  "ingredient": {
+    "item": "thuumcraft:deepslate_orichalcum_ore_vein"
+  },
+  "result": "thuumcraft:orichalcum_ingot"
+}

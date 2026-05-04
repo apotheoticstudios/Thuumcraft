@@ -30,7 +30,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.STEEL_INGOT.get(),
                         ModItems.SILVER_INGOT.get(),
                         ModItems.REFINED_MALACHITE.get(),
-                        ModItems.REFINED_MOONSTONE.get()
+                        ModItems.REFINED_MOONSTONE.get(),
+                        ModItems.ORICHALCUM_INGOT.get()
 
                 );
 

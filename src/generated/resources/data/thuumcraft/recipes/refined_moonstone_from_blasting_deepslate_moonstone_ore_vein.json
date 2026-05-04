@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "refined_moonstone",
+  "ingredient": {
+    "item": "thuumcraft:deepslate_moonstone_ore_vein"
+  },
+  "result": "thuumcraft:refined_moonstone"
+}

@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-04T19:18:56.265329	Item Models: thuumcraft
+// 1.20.1	2026-05-05T01:15:22.878613	Item Models: thuumcraft
 96348a8cb7afd84dad51dff7eba092188caf4c4c assets/thuumcraft/models/item/corundum_ingot.json
 0ce5581e7d4237bca43622c4b01653406c96af04 assets/thuumcraft/models/item/corundum_ore.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/thuumcraft/models/item/draugr_spawn_egg.json
@@ -15,6 +15,7 @@ bb2a2d2f778b8f8cd404e81c814e293db62e07eb assets/thuumcraft/models/item/glass_swo
 bfc87fccee4bf108ab91e32377f0d250cd7463c5 assets/thuumcraft/models/item/leather_strips.json
 0356ff310afc7bb93525ab815a06265ea576bac1 assets/thuumcraft/models/item/malachite_ore.json
 b1e26ed29807d88c0e15d5053f834b023eca2d9c assets/thuumcraft/models/item/moonstone_ore.json
+ed179bc0457a2bfe34b2fb14f2665071178b4bef assets/thuumcraft/models/item/orichalcum_ingot.json
 70c5eebf5185c4a45023ef7dd981e620a14e92f9 assets/thuumcraft/models/item/orichalcum_ore.json
 ef2fb92a1c03c3ae33ab155361a33ac468873387 assets/thuumcraft/models/item/pine_sapling.json
 10253da483905c28f258d0a530534fa3f6164918 assets/thuumcraft/models/item/refined_malachite.json

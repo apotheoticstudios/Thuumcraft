@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.6,
+  "group": "silver_ingot",
+  "ingredient": {
+    "item": "thuumcraft:silver_ore"
+  },
+  "result": "thuumcraft:silver_ingot"
+}

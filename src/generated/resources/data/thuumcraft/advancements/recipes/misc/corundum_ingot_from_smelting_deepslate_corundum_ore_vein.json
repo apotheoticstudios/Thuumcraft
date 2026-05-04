@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_corundum_ore_vein": {
+    "has_deepslate_corundum_ore_vein": {
       "conditions": {
         "items": [
           {
             "items": [
-              "thuumcraft:corundum_ore_vein"
+              "thuumcraft:deepslate_corundum_ore_vein"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thuumcraft:corundum_ore_from_blasting_corundum_ore_vein"
+        "recipe": "thuumcraft:corundum_ingot_from_smelting_deepslate_corundum_ore_vein"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_corundum_ore_vein",
+      "has_deepslate_corundum_ore_vein",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thuumcraft:corundum_ore_from_blasting_corundum_ore_vein"
+      "thuumcraft:corundum_ingot_from_smelting_deepslate_corundum_ore_vein"
     ]
   },
   "sends_telemetry_event": false

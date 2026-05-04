@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 150,
   "experience": 0.6,
-  "group": "corundum_ore",
+  "group": "corundum_ingot",
   "ingredient": {
-    "item": "thuumcraft:corundum_ore_vein"
+    "item": "thuumcraft:corundum_ore"
   },
-  "result": "thuumcraft:corundum_ore"
+  "result": "thuumcraft:corundum_ingot"
 }

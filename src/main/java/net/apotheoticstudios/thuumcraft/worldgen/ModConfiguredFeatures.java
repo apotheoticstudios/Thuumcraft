@@ -57,7 +57,7 @@ public class ModConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> overworldEbonyOreVeins = List.of(OreConfiguration.target(stoneReplaceables,
                         ModBlocks.EBONY_ORE_VEIN.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get().defaultBlockState()));
-        register(context, OVERWORLD_EBONY_ORE_KEY, Feature.ORE, new OreConfiguration(overworldEbonyOreVeins, 3));
+        register(context, OVERWORLD_EBONY_ORE_KEY, Feature.ORE, new OreConfiguration(overworldEbonyOreVeins, 4));
 
 
     }

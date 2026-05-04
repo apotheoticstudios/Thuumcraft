@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thuumcraft:corundum_ore_from_smelting_corundum_ore_vein"
+        "recipe": "thuumcraft:corundum_ingot_from_smelting_corundum_ore_vein"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "thuumcraft:corundum_ore_from_smelting_corundum_ore_vein"
+      "thuumcraft:corundum_ingot_from_smelting_corundum_ore_vein"
     ]
   },
   "sends_telemetry_event": false

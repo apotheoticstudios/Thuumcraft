@@ -34,11 +34,6 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
                 );
 
-        this.tag(Tags.Items.RAW_MATERIALS_GOLD)
-                .add(ModItems.SEPTIM.get()
-
-                );
-
         this.tag(Tags.Items.ORES)
                 .add(ModItems.ORICHALCUM_ORE.get(),
                         ModItems.MALACHITE_ORE.get(),

@@ -48,7 +48,7 @@ public class ModPlacedFeatures {
 
         register(context, EBONY_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_EBONY_ORE_KEY),
                 ModOrePlacement.rareOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(16))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(36))));
 
     }
 

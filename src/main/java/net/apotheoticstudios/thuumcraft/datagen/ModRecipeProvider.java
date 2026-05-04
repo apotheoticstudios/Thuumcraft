@@ -24,10 +24,12 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     private static final List<ItemLike> MALACHITE_SMELTABLES = List.of(ModItems.MALACHITE_ORE.get(),
-            ModBlocks.MALACHITE_ORE_VEIN.get(), ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get());
+            ModBlocks.MALACHITE_ORE_VEIN.get(),
+            ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get());
 
     private static final List<ItemLike> CORUNDUM_SMELTABLES = List.of(ModItems.CORUNDUM_ORE.get(),
-            ModBlocks.CORUNDUM_ORE_VEIN.get(), ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
+            ModBlocks.CORUNDUM_ORE_VEIN.get(),
+            ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
 
 
     public ModRecipeProvider(PackOutput pOutput) {
@@ -37,7 +39,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
 
-        //REFINED_MALACHITE and REFINED_MALACHITE_BLOCK
+        //REFINED_MALACHITE
         oreSmelting(pWriter, MALACHITE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MALACHITE.get(), 0.7f, 400, "refined_malachite");
         oreBlasting(pWriter, MALACHITE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MALACHITE.get(), 0.7f, 200, "refined_malachite");
 
@@ -54,6 +56,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModBlocks.REFINED_MALACHITE_BLOCK.get()), has(ModBlocks.REFINED_MALACHITE_BLOCK.get()))
                 .save(pWriter);
 
+        //CORUNDUM
+        oreSmelting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_INGOT.get(), 0.6f, 300, "corundum_ingot");
+        oreBlasting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_INGOT.get(), 0.6f, 150, "corundum_ingot");
+
+        //STEEL
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL_INGOT.get())
+                .requires(ModItems.CORUNDUM_INGOT.get())
+                .requires(Items.IRON_INGOT)
+                .unlockedBy(getHasName(ModItems.CORUNDUM_INGOT.get()), has(ModItems.CORUNDUM_INGOT.get()))
+                .save(pWriter);
+
         //HANDLE
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HANDLE.get())
                 .pattern("   ")
@@ -63,17 +76,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('I', Tags.Items.INGOTS)
                 .unlockedBy(getHasName(ModItems.LEATHER_STRIPS.get()), has(ModItems.LEATHER_STRIPS.get()))
                 .save(pWriter);
-
-        //INGOTS
-        oreSmelting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_ORE.get(), 0.6f, 300, "corundum_ore");
-        oreBlasting(pWriter, CORUNDUM_SMELTABLES, RecipeCategory.MISC, ModItems.CORUNDUM_ORE.get(), 0.6f, 150, "corundum_ore");
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL_INGOT.get())
-                .requires(ModItems.CORUNDUM_INGOT.get())
-                .requires(Items.IRON_INGOT)
-                .unlockedBy(getHasName(ModItems.CORUNDUM_INGOT.get()), has(ModItems.CORUNDUM_INGOT.get()))
-                .save(pWriter);
-
 
         //SWORDS
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD.get())

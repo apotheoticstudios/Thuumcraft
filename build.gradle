@@ -74,6 +74,8 @@ minecraft {
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 "${mod_id}" {
@@ -126,6 +128,12 @@ repositories {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
     }
+    maven {
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -135,6 +143,21 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Fantasy's Furniture 1.20.1-9.0.0
+    implementation fg.deobf("curse.maven:fantasys-furniture-579564:4702176")
+
+    // Macaw's Roofs 1.20.1-2.3.2
+    implementation fg.deobf("curse.maven:macaws-roofs-352039:6494466")
+
+    // Macaw's Paths and Pavings
+    implementation fg.deobf("curse.maven:macaws-paths-and-pavings-629153:7029554")
+
+    // Macaw's Doors 1.20.1-1.1.2
+    implementation fg.deobf("curse.maven:macaws-doors-378646:6146379")
+
+    // FramedBlocks 1.20.1-9.4.3
+    implementation fg.deobf("curse.maven:framedblocks-441647:7386520")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

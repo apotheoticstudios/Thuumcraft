@@ -42,8 +42,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.EBONY_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get()
 
-
-
                         );
 
 

@@ -3,7 +3,7 @@
   "biomes": "#thuumcraft:giant_spawn_biomes",
   "spawners": {
     "type": "thuumcraft:giant",
-    "weight": 5,
+    "weight": 6,
     "minCount": 1,
     "maxCount": 2
   }

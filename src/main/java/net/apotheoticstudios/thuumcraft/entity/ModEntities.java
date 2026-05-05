@@ -5,8 +5,12 @@ import net.apotheoticstudios.thuumcraft.entity.custom.DraugrEntity;
 import net.apotheoticstudios.thuumcraft.entity.custom.GiantEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -23,6 +27,7 @@ public class ModEntities {
     public static final RegistryObject<EntityType<GiantEntity>> GIANT =
             ENTITY_TYPES.register("giant", () -> EntityType.Builder.of(GiantEntity::new, MobCategory.MONSTER)
                     .sized(3f, 7f).build("giant"));
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

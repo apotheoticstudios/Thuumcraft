@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "thuumcraft:dwarven_metal_ingot"
+    },
+    "B": {
+      "item": "thuumcraft:handle"
+    }
+  },
+  "pattern": [
+    "A",
+    "A",
+    "B"
+  ],
+  "result": {
+    "item": "thuumcraft:dwarven_sword"
+  },
+  "show_notification": true
+}

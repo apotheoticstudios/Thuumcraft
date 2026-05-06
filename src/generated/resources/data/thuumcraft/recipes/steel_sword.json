@@ -10,9 +10,9 @@
     }
   },
   "pattern": [
-    " S ",
-    " S ",
-    " H "
+    "S",
+    "S",
+    "H"
   ],
   "result": {
     "item": "thuumcraft:steel_sword"

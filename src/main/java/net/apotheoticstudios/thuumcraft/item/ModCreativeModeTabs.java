@@ -21,49 +21,49 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.thuumcraft_tab"))
                     .displayItems((pParameters, pOutput) -> {
 
-                        pOutput.accept(ModItems.JUNIPER_BERRIES.get());
-
                         pOutput.accept(ModBlocks.MALACHITE_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get());
-                        pOutput.accept(ModBlocks.REFINED_MALACHITE_BLOCK.get());
-                        pOutput.accept(ModItems.MALACHITE_ORE.get());
-                        pOutput.accept(ModItems.REFINED_MALACHITE.get());
-
-                        pOutput.accept(ModItems.GLASS_SWORD.get());
-                        pOutput.accept(ModItems.GLASS_WAR_AXE.get());
-
-                        pOutput.accept(ModItems.DWARVEN_METAL_INGOT.get());
-                        pOutput.accept(ModItems.DWARVEN_SWORD.get());
-                        pOutput.accept(ModItems.DWARVEN_WAR_AXE.get());
-
                         pOutput.accept(ModBlocks.CORUNDUM_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
-                        pOutput.accept(ModItems.CORUNDUM_ORE.get());
-                        pOutput.accept(ModItems.CORUNDUM_INGOT.get());
-
-                        pOutput.accept(ModItems.STEEL_INGOT.get());
-                        pOutput.accept(ModItems.STEEL_SWORD.get());
-
                         pOutput.accept(ModBlocks.MOONSTONE_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get());
-                        pOutput.accept(ModItems.MOONSTONE_ORE.get());
                         pOutput.accept(ModBlocks.SILVER_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get());
-                        pOutput.accept(ModItems.SILVER_ORE.get());
                         pOutput.accept(ModBlocks.ORICHALCUM_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get());
-                        pOutput.accept(ModItems.ORICHALCUM_ORE.get());
-                        pOutput.accept(ModItems.ORICHALCUM_INGOT.get());
                         pOutput.accept(ModBlocks.EBONY_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get());
+
+                        pOutput.accept(ModItems.MALACHITE_ORE.get());
+                        pOutput.accept(ModItems.CORUNDUM_ORE.get());
+                        pOutput.accept(ModItems.MOONSTONE_ORE.get());
+                        pOutput.accept(ModItems.SILVER_ORE.get());
+                        pOutput.accept(ModItems.ORICHALCUM_ORE.get());
                         pOutput.accept(ModItems.EBONY_ORE.get());
+
+                        pOutput.accept(ModItems.REFINED_MALACHITE.get());
+                        pOutput.accept(ModItems.CORUNDUM_INGOT.get());
+                        pOutput.accept(ModItems.DWARVEN_METAL_INGOT.get());
+                        pOutput.accept(ModItems.STEEL_INGOT.get());
+                        pOutput.accept(ModItems.ORICHALCUM_INGOT.get());
                         pOutput.accept(ModItems.REFINED_MOONSTONE.get());
                         pOutput.accept(ModItems.SILVER_INGOT.get());
                         pOutput.accept(ModItems.EBONY_INGOT.get());
 
+                        pOutput.accept(ModItems.GLASS_SWORD.get());
+                        pOutput.accept(ModItems.DWARVEN_SWORD.get());
+                        pOutput.accept(ModItems.STEEL_SWORD.get());
+
+                        pOutput.accept(ModItems.GLASS_WAR_AXE.get());
+                        pOutput.accept(ModItems.DWARVEN_WAR_AXE.get());
+
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
                         pOutput.accept(ModItems.SEPTIM.get());
+
+                        pOutput.accept(ModItems.JUNIPER_BERRIES.get());
+
+                        pOutput.accept(ModBlocks.REFINED_MALACHITE_BLOCK.get());
 
                         pOutput.accept(ModItems.DRAUGR_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GIANT_SPAWN_EGG.get());

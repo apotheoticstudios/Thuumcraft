@@ -1,0 +1,15 @@
+
+#Thuumcraft Books Loot Chances
+[loot]
+	#Chance for the following mobs to drop a random book (default is 1.0%):
+	#zombie, skeleton, pillager, witch
+	#Range: 0.0 ~ 1.0
+	mobDropChance = 0.01
+	#Chance for the following chests to contain a random book (default is 5%):
+	#shipwreck (treasure and supply), simple dungeon, desert pyramid, jungle temple, woodland mansion ancient city, abandoned mineshaft, nether bridge, igloo chest, bastion (bridge, other, and treasure)
+	#Range: 0.0 ~ 1.0
+	chestDropChance = 0.05
+	#Chance for fishing junk loot to include a random book (default is 3%)
+	#Range: 0.0 ~ 1.0
+	fishingDropChance = 0.03
+

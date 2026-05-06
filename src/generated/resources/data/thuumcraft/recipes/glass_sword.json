@@ -13,9 +13,9 @@
     }
   },
   "pattern": [
-    " R ",
-    " M ",
-    " H "
+    "R",
+    "M",
+    "H"
   ],
   "result": {
     "item": "thuumcraft:glass_sword"

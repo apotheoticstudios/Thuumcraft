@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dwarven_metal_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thuumcraft:dwarven_metal_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thuumcraft:dwarven_war_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dwarven_metal_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thuumcraft:dwarven_war_axe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -103,26 +103,62 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //SWORDS
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD.get())
-                .pattern(" S ")
-                .pattern(" S ")
-                .pattern(" H ")
+                .pattern("S")
+                .pattern("S")
+                .pattern("H")
                 .define('S', ModItems.STEEL_INGOT.get())
                 .define('H', ModItems.HANDLE.get())
                 .unlockedBy(getHasName(ModItems.STEEL_INGOT.get()), has(ModItems.STEEL_INGOT.get()))
                 .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GLASS_SWORD.get())
-                .pattern(" R ")
-                .pattern(" M ")
-                .pattern(" H ")
+                .pattern("R")
+                .pattern("M")
+                .pattern("H")
                 .define('R', ModItems.REFINED_MALACHITE.get())
                 .define('M', ModItems.REFINED_MOONSTONE.get())
                 .define('H', ModItems.HANDLE.get())
                 .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DWARVEN_SWORD.get())
+                .pattern("A")
+                .pattern("A")
+                .pattern("B")
+                .define('A', ModItems.DWARVEN_METAL_INGOT.get())
+                .define('B', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.DWARVEN_METAL_INGOT.get()), has(ModItems.DWARVEN_METAL_INGOT.get()))
+                .save(pWriter);
+
         //WAR AXES
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DWARVEN_WAR_AXE.get())
+                .pattern("AA")
+                .pattern("AC")
+                .pattern(" B")
+                .define('A', ModItems.DWARVEN_METAL_INGOT.get())
+                .define('B', ModItems.HANDLE.get())
+                .define('C', Items.STICK)
+                .unlockedBy(getHasName(ModItems.DWARVEN_METAL_INGOT.get()), has(ModItems.DWARVEN_METAL_INGOT.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GLASS_WAR_AXE.get())
+                .pattern("AA")
+                .pattern("DC")
+                .pattern(" B")
+                .define('A', ModItems.REFINED_MALACHITE.get())
+                .define('B', ModItems.HANDLE.get())
+                .define('C', Items.STICK)
+                .define('D', ModItems.REFINED_MOONSTONE.get())
+                .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
+                .save(pWriter);
+
+        // MISC
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LEATHER_STRIPS.get(), 2)
+                .requires(Items.LEATHER)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .save(pWriter);
 
 
     }

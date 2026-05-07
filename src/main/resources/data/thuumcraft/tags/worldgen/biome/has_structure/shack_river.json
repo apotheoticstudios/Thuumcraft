@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_river",
+    "#minecraft:is_taiga",
+    "#forge:is_plains",
+    "#forge:is_coniferous",
+    "minecraft:stony_shore",
+    "minecraft:stony_peaks"
+  ]
+}

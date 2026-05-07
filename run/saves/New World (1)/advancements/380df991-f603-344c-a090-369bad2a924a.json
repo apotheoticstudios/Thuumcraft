@@ -7,11 +7,14 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:taiga": "2026-05-07 19:49:35 +1000",
+      "minecraft:birch_forest": "2026-05-07 19:56:56 +1000",
       "minecraft:river": "2026-05-05 01:26:21 +1000",
       "minecraft:dripstone_caves": "2026-05-05 01:24:04 +1000",
       "minecraft:forest": "2026-05-05 01:22:47 +1000",
       "minecraft:deep_dark": "2026-05-05 01:24:49 +1000",
-      "minecraft:meadow": "2026-05-05 01:23:14 +1000"
+      "minecraft:meadow": "2026-05-05 01:23:14 +1000",
+      "minecraft:plains": "2026-05-07 19:34:23 +1000"
     },
     "done": false
   },
@@ -825,21 +828,9 @@
     },
     "done": true
   },
-  "farmersdelight:recipes/cooking/dog_food": {
-    "criteria": {
-      "has_any_ingredient": "2026-05-06 13:59:06 +1000"
-    },
-    "done": true
-  },
   "minecraft:recipes/combat/leather_helmet": {
     "criteria": {
       "has_leather": "2026-05-06 13:56:21 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/refined_moonstone_from_blasting_moonstone_ore": {
-    "criteria": {
-      "has_moonstone_ore": "2026-05-06 14:02:54 +1000"
     },
     "done": true
   },
@@ -849,15 +840,45 @@
     },
     "done": true
   },
-  "minecraft:recipes/misc/red_cushion_from_red_dye": {
-    "criteria": {
-      "has_red_cushion": "2026-05-06 13:58:39 +1000"
-    },
-    "done": true
-  },
   "minecraft:recipes/combat/leather_chestplate": {
     "criteria": {
       "has_leather": "2026-05-06 13:56:21 +1000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/leather_horse_armor": {
+    "criteria": {
+      "has_leather": "2026-05-06 13:56:21 +1000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/item_frame": {
+    "criteria": {
+      "has_leather": "2026-05-06 13:56:21 +1000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/leather_boots": {
+    "criteria": {
+      "has_leather": "2026-05-06 13:56:21 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/leather_strips": {
+    "criteria": {
+      "has_leather": "2026-05-06 13:56:21 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/handle": {
+    "criteria": {
+      "has_leather_strips": "2026-05-06 13:56:29 +1000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/red_cushion_from_red_dye": {
+    "criteria": {
+      "has_red_cushion": "2026-05-06 13:58:39 +1000"
     },
     "done": true
   },
@@ -873,12 +894,6 @@
     },
     "done": true
   },
-  "minecraft:adventure/kill_all_mobs": {
-    "criteria": {
-      "minecraft:zombie": "2026-05-06 13:59:05 +1000"
-    },
-    "done": false
-  },
   "minecraft:recipes/misc/purple_cushion_from_purple_dye": {
     "criteria": {
       "has_purple_cushion": "2026-05-06 13:58:39 +1000"
@@ -891,63 +906,15 @@
     },
     "done": true
   },
-  "thuumcraft:recipes/misc/refined_malachite_from_blasting_malachite_ore": {
-    "criteria": {
-      "has_malachite_ore": "2026-05-06 14:02:51 +1000"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/gray_cushion_from_gray_dye": {
     "criteria": {
       "has_gray_cushion": "2026-05-06 13:58:39 +1000"
     },
     "done": true
   },
-  "minecraft:recipes/misc/leather_horse_armor": {
-    "criteria": {
-      "has_leather": "2026-05-06 13:56:21 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/orichalcum_ingot_from_blasting_orichalcum_ore": {
-    "criteria": {
-      "has_orichalcum_ore": "2026-05-06 14:02:57 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/orichalcum_ingot_from_smelting_orichalcum_ore": {
-    "criteria": {
-      "has_orichalcum_ore": "2026-05-06 14:02:57 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/silver_ingot_from_smelting_silver_ore": {
-    "criteria": {
-      "has_silver_ore": "2026-05-06 14:02:56 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/refined_moonstone_from_smelting_moonstone_ore": {
-    "criteria": {
-      "has_moonstone_ore": "2026-05-06 14:02:54 +1000"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/yellow_cushion_from_yellow_dye": {
     "criteria": {
       "has_yellow_cushion": "2026-05-06 13:58:39 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/refined_malachite_from_smelting_malachite_ore": {
-    "criteria": {
-      "has_malachite_ore": "2026-05-06 14:02:51 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/handle": {
-    "criteria": {
-      "has_leather_strips": "2026-05-06 13:56:29 +1000"
     },
     "done": true
   },
@@ -963,12 +930,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/decorations/item_frame": {
-    "criteria": {
-      "has_leather": "2026-05-06 13:56:21 +1000"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/orange_cushion_from_orange_dye": {
     "criteria": {
       "has_orange_cushion": "2026-05-06 13:58:39 +1000"
@@ -978,12 +939,6 @@
   "minecraft:recipes/misc/white_cushion_from_white_dye": {
     "criteria": {
       "has_white_cushion": "2026-05-06 13:58:39 +1000"
-    },
-    "done": true
-  },
-  "thuumcraft:recipes/misc/silver_ingot_from_blasting_silver_ore": {
-    "criteria": {
-      "has_silver_ore": "2026-05-06 14:02:56 +1000"
     },
     "done": true
   },
@@ -999,17 +954,29 @@
     },
     "done": true
   },
-  "farmersdelight:recipes/building_blocks/organic_compost_from_rotten_flesh": {
-    "criteria": {
-      "has_rotten_flesh": "2026-05-06 13:59:06 +1000"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/black_cushion_from_black_dye": {
     "criteria": {
       "has_black_cushion": "2026-05-06 13:58:39 +1000"
     },
     "done": true
+  },
+  "minecraft:recipes/misc/lime_cushion_from_lime_dye": {
+    "criteria": {
+      "has_lime_cushion": "2026-05-06 13:58:39 +1000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/light_gray_cushion_from_light_gray_dye": {
+    "criteria": {
+      "has_light_gray_cushion": "2026-05-06 13:58:39 +1000"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "criteria": {
+      "minecraft:zombie": "2026-05-06 13:59:05 +1000"
+    },
+    "done": false
   },
   "minecraft:adventure/kill_a_mob": {
     "criteria": {
@@ -1017,15 +984,27 @@
     },
     "done": true
   },
-  "minecraft:recipes/combat/leather_boots": {
+  "farmersdelight:recipes/cooking/dog_food": {
     "criteria": {
-      "has_leather": "2026-05-06 13:56:21 +1000"
+      "has_any_ingredient": "2026-05-06 13:59:06 +1000"
     },
     "done": true
   },
-  "minecraft:recipes/misc/lime_cushion_from_lime_dye": {
+  "farmersdelight:recipes/building_blocks/organic_compost_from_rotten_flesh": {
     "criteria": {
-      "has_lime_cushion": "2026-05-06 13:58:39 +1000"
+      "has_rotten_flesh": "2026-05-06 13:59:06 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/refined_malachite_from_blasting_malachite_ore": {
+    "criteria": {
+      "has_malachite_ore": "2026-05-06 14:02:51 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/refined_malachite_from_smelting_malachite_ore": {
+    "criteria": {
+      "has_malachite_ore": "2026-05-06 14:02:51 +1000"
     },
     "done": true
   },
@@ -1041,15 +1020,39 @@
     },
     "done": true
   },
-  "thuumcraft:recipes/misc/leather_strips": {
+  "thuumcraft:recipes/misc/refined_moonstone_from_blasting_moonstone_ore": {
     "criteria": {
-      "has_leather": "2026-05-06 13:56:21 +1000"
+      "has_moonstone_ore": "2026-05-06 14:02:54 +1000"
     },
     "done": true
   },
-  "minecraft:recipes/misc/light_gray_cushion_from_light_gray_dye": {
+  "thuumcraft:recipes/misc/refined_moonstone_from_smelting_moonstone_ore": {
     "criteria": {
-      "has_light_gray_cushion": "2026-05-06 13:58:39 +1000"
+      "has_moonstone_ore": "2026-05-06 14:02:54 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/silver_ingot_from_smelting_silver_ore": {
+    "criteria": {
+      "has_silver_ore": "2026-05-06 14:02:56 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/silver_ingot_from_blasting_silver_ore": {
+    "criteria": {
+      "has_silver_ore": "2026-05-06 14:02:56 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/orichalcum_ingot_from_blasting_orichalcum_ore": {
+    "criteria": {
+      "has_orichalcum_ore": "2026-05-06 14:02:57 +1000"
+    },
+    "done": true
+  },
+  "thuumcraft:recipes/misc/orichalcum_ingot_from_smelting_orichalcum_ore": {
+    "criteria": {
+      "has_orichalcum_ore": "2026-05-06 14:02:57 +1000"
     },
     "done": true
   },

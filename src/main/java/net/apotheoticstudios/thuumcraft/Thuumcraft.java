@@ -11,6 +11,7 @@ import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.apotheoticstudios.thuumcraft.loot.ModLootModifiers;
 import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
+import net.apotheoticstudios.thuumcraft.worldgen.structure.ModStructureTypes;
 import net.apotheoticstudios.thuumcraft.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -49,6 +50,8 @@ public class Thuumcraft {
         ModEntities.register(modEventBus);
 
         ModSounds.register(modEventBus);
+
+        ModStructureTypes.register(modEventBus);
 
         ModTrunkPlacerTypes.register(modEventBus);
 

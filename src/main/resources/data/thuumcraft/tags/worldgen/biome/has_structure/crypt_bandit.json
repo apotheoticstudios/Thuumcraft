@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_taiga",
+    "#minecraft:is_forest",
+    "#minecraft:is_mountain",
+    "#minecraft:is_hill",
+    "#forge:is_plains",
+    "#forge:is_coniferous",
+    "minecraft:stony_shore"
+  ]
+}

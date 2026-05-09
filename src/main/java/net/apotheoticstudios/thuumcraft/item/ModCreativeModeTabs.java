@@ -60,6 +60,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
                         pOutput.accept(ModItems.SEPTIM.get());
+                        pOutput.accept(ModItems.SKEEVER_TAIL.get());
 
                         pOutput.accept(ModItems.JUNIPER_BERRIES.get());
 
@@ -67,6 +68,7 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModItems.DRAUGR_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GIANT_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.SKEEVER_SPAWN_EGG.get());
 
 
                     })

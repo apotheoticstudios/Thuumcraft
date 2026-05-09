@@ -33,6 +33,7 @@
   "item.thuumcraft.leather_strips": "Leather Strips",
   "item.thuumcraft.handle": "Handle",
   "item.thuumcraft.septim": "Septim",
+  "item.thuumcraft.skeever_tail": "Skeever Tail",
 
   "item.thuumcraft.glass_sword": "Glass Sword",
   "item.thuumcraft.glass_war_axe": "Glass War Axe",
@@ -44,9 +45,11 @@
 
   "item.thuumcraft.draugr_spawn_egg": "Draugr Spawn Egg",
   "item.thuumcraft.giant_spawn_egg": "Giant Spawn Egg",
+  "item.thuumcraft.skeever_spawn_egg": "Skeever Spawn Egg",
 
   "entity.thuumcraft.giant": "Giant",
   "entity.thuumcraft.draugr": "Draugr",
+  "entity.thuumcraft.skeever": "Skeever",
 
   "creativetab.thuumcraft_tab": "Thu'umcraft"
 }

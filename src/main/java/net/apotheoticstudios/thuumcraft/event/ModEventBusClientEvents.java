@@ -4,6 +4,7 @@ import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.entity.client.DraugrModel;
 import net.apotheoticstudios.thuumcraft.entity.client.GiantModel;
 import net.apotheoticstudios.thuumcraft.entity.client.ModModelLayers;
+import net.apotheoticstudios.thuumcraft.entity.client.SkeeverModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,6 +17,8 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.DRAUGR_LAYER, DraugrModel::createBodyLayer);
 
         event.registerLayerDefinition(ModModelLayers.GIANT_LAYER, GiantModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.SKEEVER_LAYER, SkeeverModel::createBodyLayer);
     }
 
 }

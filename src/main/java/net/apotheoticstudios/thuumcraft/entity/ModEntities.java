@@ -3,6 +3,7 @@ package net.apotheoticstudios.thuumcraft.entity;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.entity.custom.DraugrEntity;
 import net.apotheoticstudios.thuumcraft.entity.custom.GiantEntity;
+import net.apotheoticstudios.thuumcraft.entity.custom.SkeeverEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -27,6 +28,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<GiantEntity>> GIANT =
             ENTITY_TYPES.register("giant", () -> EntityType.Builder.of(GiantEntity::new, MobCategory.MONSTER)
                     .sized(3f, 7f).build("giant"));
+
+    public static final RegistryObject<EntityType<SkeeverEntity>> SKEEVER =
+            ENTITY_TYPES.register("skeever", () -> EntityType.Builder.of(SkeeverEntity::new, MobCategory.MONSTER)
+                    .sized(2f, 1f).build("skeever"));
 
 
     public static void register(IEventBus eventBus) {

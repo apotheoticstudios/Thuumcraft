@@ -51,6 +51,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HANDLE = ITEMS.register("handle",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SKEEVER_TAIL = ITEMS.register("skeever_tail",
+            () -> new Item(new Item.Properties()));
 
 
     public static final RegistryObject<Item> JUNIPER_BERRIES = ITEMS.register("juniper_berries",
@@ -77,6 +79,8 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.DRAUGR, 0x7e9680, 0xc5d1c5, new Item.Properties()));
     public static final RegistryObject<Item> GIANT_SPAWN_EGG = ITEMS.register("giant_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.GIANT, 0x805009, 0xbf9521, new Item.Properties()));
+    public static final RegistryObject<Item> SKEEVER_SPAWN_EGG = ITEMS.register("skeever_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SKEEVER, 0x805009, 0xbf9521, new Item.Properties()));
 
 
 

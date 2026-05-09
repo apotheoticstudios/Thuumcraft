@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "thuumcraft:crypt_bandit",
-        "processors": "thuumcraft:ignore_structure_void",
+        "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

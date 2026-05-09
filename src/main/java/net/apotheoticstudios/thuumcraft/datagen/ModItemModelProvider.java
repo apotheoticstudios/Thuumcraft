@@ -35,6 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.LEATHER_STRIPS);
         simpleItem(ModItems.HANDLE);
         simpleItem(ModItems.SEPTIM);
+        simpleItem(ModItems.SKEEVER_TAIL);
         simpleItem(ModItems.JUNIPER_BERRIES);
         simpleItem(ModItems.ORICHALCUM_INGOT);
 
@@ -48,6 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(ModItems.DRAUGR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.GIANT_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.SKEEVER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
     }
 

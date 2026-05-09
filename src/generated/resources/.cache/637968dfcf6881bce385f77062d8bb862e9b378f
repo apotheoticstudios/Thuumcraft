@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-05T01:15:22.878613	Item Models: thuumcraft
+// 1.20.1	2026-05-09T21:12:34.032577	Item Models: thuumcraft
 96348a8cb7afd84dad51dff7eba092188caf4c4c assets/thuumcraft/models/item/corundum_ingot.json
 0ce5581e7d4237bca43622c4b01653406c96af04 assets/thuumcraft/models/item/corundum_ore.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/thuumcraft/models/item/draugr_spawn_egg.json
@@ -23,5 +23,7 @@ ef2fb92a1c03c3ae33ab155361a33ac468873387 assets/thuumcraft/models/item/pine_sapl
 ee6bdea4c7ba2ffbd3a1f09993acd4485409e6e6 assets/thuumcraft/models/item/septim.json
 7cd5d54761d2094705d2ed660e19757d245141f1 assets/thuumcraft/models/item/silver_ingot.json
 761a92a6c4e7868a8fe575c1933ec8329725aa40 assets/thuumcraft/models/item/silver_ore.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/thuumcraft/models/item/skeever_spawn_egg.json
+4e542e36bfcd993039baf1adad7c95dbf7997609 assets/thuumcraft/models/item/skeever_tail.json
 b5f0cb548a56de56477664e6a2b03d9e0e4c0350 assets/thuumcraft/models/item/steel_ingot.json
 a600a52dbd7b5a4fd484378606f9a71b20eda717 assets/thuumcraft/models/item/steel_sword.json

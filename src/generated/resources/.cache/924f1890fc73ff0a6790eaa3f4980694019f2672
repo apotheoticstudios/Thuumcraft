@@ -1,3 +1,4 @@
-// 1.20.1	2026-05-05T01:15:22.881357	Tags for minecraft:item mod id thuumcraft
+// 1.20.1	2026-05-09T21:12:34.034483	Tags for minecraft:item mod id thuumcraft
 e1c5e698f270f1a92f81a4071d6fca0091ec2f3a data/forge/tags/items/ingots.json
 9704617a9ad3730e7f433377dc53fa0dcc9a2642 data/forge/tags/items/ores.json
+afb903b19c96a36538430301758c11e505ea830e data/thuumcraft/tags/items/ingredient.json

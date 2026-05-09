@@ -44,5 +44,11 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.SILVER_ORE.get()
 
                 );
+
+        this.tag(ModTags.Items.INGREDIENT)
+                .add(ModItems.SKEEVER_TAIL.get(),
+                        ModItems.JUNIPER_BERRIES.get()
+
+                );
     }
 }

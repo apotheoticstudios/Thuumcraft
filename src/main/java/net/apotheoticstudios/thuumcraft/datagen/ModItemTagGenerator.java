@@ -45,10 +45,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
                 );
 
-        this.tag(ModTags.Items.INGREDIENT)
-                .add(ModItems.SKEEVER_TAIL.get(),
-                        ModItems.JUNIPER_BERRIES.get()
-
-                );
+        var ingredientTag = this.tag(ModTags.Items.INGREDIENT);
+        ModItems.INGREDIENT_ITEMS.forEach(ingredient -> ingredientTag.add(ingredient.get()));
     }
 }

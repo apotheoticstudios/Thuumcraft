@@ -1,256 +1,413 @@
-[09May2026 21:12:41.528] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
-[09May2026 21:12:41.531] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 26.3.1
-[09May2026 21:12:41.595] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[09May2026 21:12:41.744] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[09May2026 21:12:41.802] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
-[09May2026 21:12:41.810] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
-[09May2026 21:12:41.820] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
-[09May2026 21:12:41.827] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
-[09May2026 21:12:41.837] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
-[09May2026 21:12:41.850] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
-[09May2026 21:12:41.935] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/bowieconnors/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
-[09May2026 21:12:41.961] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M1 GL version 4.1 Metal - 90.5, Apple
-[09May2026 21:12:42.152] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.10/ccc533c7dd67e0983217197d7549c8b49e7ab453/javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[09May2026 21:12:42.153] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.10/e9a2879fe3612ea34b9728ec2633304a1e67d480/lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[09May2026 21:12:42.153] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.10/ec5cefbbc65c67302b8fac317010faab85fa14b9/mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[09May2026 21:12:42.154] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.10/94dae566be650566ea9115a1414ab76bfcf5a804/fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
-[09May2026 21:12:42.394] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 10 dependencies adding them to mods collection
-[09May2026 21:12:43.636] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[09May2026 21:12:43.656] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --assetIndex, 5]
-[09May2026 21:12:43.971] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:43.985] [main/INFO] [mixin/]: Remapping refMap framedblocks.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:43.986] [main/INFO] [mixin/]: Remapping refMap handcrafted-common-1.20.1-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:43.988] [main/WARN] [mixin/]: Reference map 'handcrafted-forge-1.20.1-forge-refmap.json' for handcrafted.mixins.json could not be read. If this is a development environment you can ignore this message
-[09May2026 21:12:44.040] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:44.041] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:44.053] [main/WARN] [mixin/]: Reference map 'apexcore.refmap.json' for apexcore.mixins.json could not be read. If this is a development environment you can ignore this message
-[09May2026 21:12:44.055] [main/INFO] [mixin/]: Remapping refMap supplementaries-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:44.056] [main/INFO] [mixin/]: Remapping refMap supplementaries-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:44.057] [main/INFO] [mixin/]: Remapping refMap fantasyfurniture.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[09May2026 21:12:44.665] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/compile/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.FluidRenderer)
-[09May2026 21:12:44.667] [main/WARN] [mixin/]: Error loading class: net/raphimc/immediatelyfast/feature/map_atlas_generation/MapAtlasTexture (java.lang.ClassNotFoundException: net.raphimc.immediatelyfast.feature.map_atlas_generation.MapAtlasTexture)
-[09May2026 21:12:44.743] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
-[09May2026 21:12:49.095] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 104 milliseconds
-[09May2026 21:12:50.865] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
-[09May2026 21:12:50.865] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
-[09May2026 21:12:50.875] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[09May2026 21:12:50.878] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[09May2026 21:12:50.935] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[09May2026 21:12:51.630] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
-[09May2026 21:12:51.631] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
-[09May2026 21:12:51.746] [modloading-worker-0/INFO] [xyz.apex.forge.commonality.Mods.CommonalityMod/]: Running Minecraft '1.20.1', & Forge '47.4.10' on Java '17.0.17, Eclipse Adoptium'
-[09May2026 21:12:51.753] [modloading-worker-0/WARN] [TrustManager/]: Currently running in a Development Environment, All mods will be forcefully trusted!
-[09May2026 21:12:51.754] [modloading-worker-0/INFO] [TrustedSourceList/]: Currently running in Development Environment, Disabling trusted source list!
-[09May2026 21:12:51.827] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[09May2026 21:12:51.843] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 14.46 ms
-[09May2026 21:12:56.321] [Render thread/INFO] [Moonlight/]: Initialized block sets in 6ms
-[09May2026 21:12:56.844] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [thuumcraft]
-[09May2026 21:12:58.237] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, file/Excalibur_V1.20.zip, file/Excalibur_Macaw_0.1_1.20.1.zip, file/Excalibur_Mcw-Doors_1.21.1_v1.2.zip, file/Excalibur_Mcw-Roofs_v1.1.zip, Moonlight Mods Dynamic Assets, file/FarmersDelightExcaliburSupport.zip, file/Excalibur_Chipped_0.zip, file/Excalibur_Handcrafted_0.zip, file/Excalibur_Supplementaries_1.zip
-[09May2026 21:12:58.271] [Worker-Main-1/INFO] [Moonlight/]: Starting runtime resource generation for pack type CLIENT_RESOURCES with generators from mods [moonlight, supplementaries, supplementaries, moonlight]: [net.mehvahdjukaar.supplementaries.dynamicpack.ClientDynamicResourcesGenerator@2a5491be, net.mehvahdjukaar.moonlight.core.MoonlightClient$MLDynamicClientResources@b6509db]
-[09May2026 21:12:58.271] [Worker-Main-1/INFO] [Moonlight/]: Generating runtime assets for pack Moonlight Mods Dynamic Assets (supplementaries)
-[09May2026 21:12:58.313] [Worker-Main-1/INFO] [Supplementaries/]: Generated runtime CLIENT_RESOURCES for pack Moonlight Mods Dynamic Assets (supplementaries) in: 41 ms (debug resource dump on) (multithreaded)
-[09May2026 21:12:58.313] [Worker-Main-1/INFO] [Moonlight/]: Generating runtime assets for pack Moonlight Mods Dynamic Assets (moonlight)
-[09May2026 21:12:58.313] [Worker-Main-1/INFO] [Moonlight/]: Generated runtime CLIENT_RESOURCES for pack Moonlight Mods Dynamic Assets (moonlight) in: 0 ms (debug resource dump on) (multithreaded)
-[09May2026 21:12:58.313] [Worker-Main-1/INFO] [Moonlight/]: Finished runtime resources generation for 4 packs in a total of 42 ms
-[09May2026 21:12:58.517] [Worker-Main-5/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
-[09May2026 21:12:58.625] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File supplementaries:sounds/item/awning_bounce_1.ogg does not exist, cannot add it to event supplementaries:block.awning.bounce
-[09May2026 21:12:58.625] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File supplementaries:sounds/item/awning_bounce_2.ogg does not exist, cannot add it to event supplementaries:block.awning.bounce
-[09May2026 21:12:58.625] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File supplementaries:sounds/item/awning_bounce_3.ogg does not exist, cannot add it to event supplementaries:block.awning.bounce
-[09May2026 21:12:59.086] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [moonlight] Starting version check at https://api.modrinth.com/updates/moonlight/forge_updates.json
-[09May2026 21:12:59.396] [Render thread/INFO] [Moonlight/]: Initialized color sets in 32ms
-[09May2026 21:12:59.411] [Render thread/INFO] [Supplementaries/]: Finished mod setup in: [0, 1, 0, 0, 0, 0, 9, 1] ms
-[09May2026 21:12:59.702] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [moonlight] Found status: OUTDATED Current: 1.20-2.16.26 Target: 1.20-2.16.31-forge
-[09May2026 21:12:59.703] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwroofs] Starting version check at https://raw.githubusercontent.com/sketchmacaw/macawsmods/master/roofs.json
-[09May2026 21:12:59.834] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwroofs] Found status: UP_TO_DATE Current: 2.3.2 Target: null
-[09May2026 21:12:59.834] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwdoors] Starting version check at https://raw.githubusercontent.com/sketchmacaw/macawsmods/master/doors.json
-[09May2026 21:12:59.852] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwdoors] Found status: UP_TO_DATE Current: 1.1.2 Target: null
-[09May2026 21:12:59.853] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[09May2026 21:13:00.193] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 47.4.10 Target: null
-[09May2026 21:13:00.194] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [commonality] Starting version check at https://api.modrinth.com/updates/apexcore/forge_updates.json
-[09May2026 21:13:00.518] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [commonality] Found status: OUTDATED Current: 7.0.0 Target: 10.0.0
-[09May2026 21:13:00.518] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [apexcore] Starting version check at https://api.modrinth.com/updates/apexcore/forge_updates.json
-[09May2026 21:13:00.725] [Worker-Main-2/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'farmersdelight:block/crop_cross' referenced from: farmersdelight:budding_tomatoes#age=0: java.io.FileNotFoundException: farmersdelight:models/block/crop_cross.json
-[09May2026 21:13:00.906] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [apexcore] Found status: UP_TO_DATE Current: 10.0.0 Target: null
-[09May2026 21:13:00.906] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [supplementaries] Starting version check at https://api.modrinth.com/updates/supplementaries/forge_updates.json
-[09May2026 21:13:01.194] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [supplementaries] Found status: OUTDATED Current: 1.20-3.1.43 Target: 1.20-3.1.43-forge
-[09May2026 21:13:01.194] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [fantasyfurniture] Starting version check at https://api.modrinth.com/updates/fantasy-furniture/forge_updates.json
-[09May2026 21:13:01.521] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [fantasyfurniture] Found status: UP_TO_DATE Current: 9.0.0 Target: null
-[09May2026 21:13:01.521] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwpaths] Starting version check at https://raw.githubusercontent.com/sketchmacaw/macawsmods/master/paths.json
-[09May2026 21:13:01.539] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwpaths] Found status: UP_TO_DATE Current: 1.1.1 Target: null
-[09May2026 21:13:04.075] [Worker-Main-2/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'mcwroofs:block/parent/top_pyramid_rotate' referenced from: mcwroofs:red_sandstone_top_roof#part=pyramid: java.io.FileNotFoundException: mcwroofs:models/block/parent/top_pyramid_rotate.json
-[09May2026 21:13:04.075] [Worker-Main-2/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'mcwroofs:block/parent/four_way_roof_rotate' referenced from: mcwroofs:red_sandstone_top_roof#part=pyramid: java.io.FileNotFoundException: mcwroofs:models/block/parent/four_way_roof_rotate.json
-[09May2026 21:13:04.414] [Worker-Main-2/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'supplementaries:block/hanging_flower_pot_rope' referenced from: supplementaries:block/hanging_flower_pot_rope: java.io.FileNotFoundException: supplementaries:models/block/hanging_flower_pot_rope.json
-[09May2026 21:13:06.879] [Worker-Main-2/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model supplementaries:confetti_popper#inventory:
+[10May2026 20:20:51.309] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
+[10May2026 20:20:51.311] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 26.3.1
+[10May2026 20:20:51.359] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[10May2026 20:20:51.486] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[10May2026 20:20:51.536] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
+[10May2026 20:20:51.549] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
+[10May2026 20:20:51.558] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
+[10May2026 20:20:51.567] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
+[10May2026 20:20:51.573] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
+[10May2026 20:20:51.584] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
+[10May2026 20:20:51.659] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/bowieconnors/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
+[10May2026 20:20:51.680] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M1 GL version 4.1 Metal - 90.5, Apple
+[10May2026 20:20:51.842] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.10/ccc533c7dd67e0983217197d7549c8b49e7ab453/javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[10May2026 20:20:51.842] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.10/e9a2879fe3612ea34b9728ec2633304a1e67d480/lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[10May2026 20:20:51.843] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.10/ec5cefbbc65c67302b8fac317010faab85fa14b9/mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[10May2026 20:20:51.844] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.10/94dae566be650566ea9115a1414ab76bfcf5a804/fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
+[10May2026 20:20:52.055] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 10 dependencies adding them to mods collection
+[10May2026 20:20:53.004] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[10May2026 20:20:53.017] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --assetIndex, 5]
+[10May2026 20:20:53.179] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.183] [main/INFO] [mixin/]: Remapping refMap framedblocks.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.184] [main/INFO] [mixin/]: Remapping refMap handcrafted-common-1.20.1-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.184] [main/WARN] [mixin/]: Reference map 'handcrafted-forge-1.20.1-forge-refmap.json' for handcrafted.mixins.json could not be read. If this is a development environment you can ignore this message
+[10May2026 20:20:53.221] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.222] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.230] [main/WARN] [mixin/]: Reference map 'apexcore.refmap.json' for apexcore.mixins.json could not be read. If this is a development environment you can ignore this message
+[10May2026 20:20:53.232] [main/INFO] [mixin/]: Remapping refMap supplementaries-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.233] [main/INFO] [mixin/]: Remapping refMap supplementaries-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.233] [main/INFO] [mixin/]: Remapping refMap fantasyfurniture.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[10May2026 20:20:53.714] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/compile/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.FluidRenderer)
+[10May2026 20:20:53.715] [main/WARN] [mixin/]: Error loading class: net/raphimc/immediatelyfast/feature/map_atlas_generation/MapAtlasTexture (java.lang.ClassNotFoundException: net.raphimc.immediatelyfast.feature.map_atlas_generation.MapAtlasTexture)
+[10May2026 20:20:53.768] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
+[10May2026 20:20:57.143] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 73 milliseconds
+[10May2026 20:20:58.435] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
+[10May2026 20:20:58.436] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
+[10May2026 20:20:58.443] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[10May2026 20:20:58.446] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[10May2026 20:20:58.485] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[10May2026 20:20:58.948] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
+[10May2026 20:20:58.948] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
+[10May2026 20:20:59.110] [modloading-worker-0/INFO] [xyz.apex.forge.commonality.Mods.CommonalityMod/]: Running Minecraft '1.20.1', & Forge '47.4.10' on Java '17.0.17, Eclipse Adoptium'
+[10May2026 20:20:59.113] [modloading-worker-0/WARN] [TrustManager/]: Currently running in a Development Environment, All mods will be forcefully trusted!
+[10May2026 20:20:59.114] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[10May2026 20:20:59.117] [modloading-worker-0/INFO] [TrustedSourceList/]: Currently running in Development Environment, Disabling trusted source list!
+[10May2026 20:20:59.152] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 34.30 ms
+[10May2026 20:21:02.551] [Render thread/INFO] [Moonlight/]: Initialized block sets in 7ms
+[10May2026 20:21:03.009] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [thuumcraft]
+[10May2026 20:21:03.899] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources, file/Excalibur_V1.20.zip, file/Excalibur_Macaw_0.1_1.20.1.zip, file/Excalibur_Mcw-Doors_1.21.1_v1.2.zip, file/Excalibur_Mcw-Roofs_v1.1.zip, Moonlight Mods Dynamic Assets, file/FarmersDelightExcaliburSupport.zip, file/Excalibur_Chipped_0.zip, file/Excalibur_Handcrafted_0.zip, file/Excalibur_Supplementaries_1.zip
+[10May2026 20:21:03.938] [Worker-Main-1/INFO] [Moonlight/]: Starting runtime resource generation for pack type CLIENT_RESOURCES with generators from mods [moonlight, supplementaries, moonlight, supplementaries]: [net.mehvahdjukaar.moonlight.core.MoonlightClient$MLDynamicClientResources@50ef8b2d, net.mehvahdjukaar.supplementaries.dynamicpack.ClientDynamicResourcesGenerator@54fa2fe4]
+[10May2026 20:21:03.939] [Worker-Main-1/INFO] [Moonlight/]: Generating runtime assets for pack Moonlight Mods Dynamic Assets (moonlight)
+[10May2026 20:21:03.942] [Worker-Main-1/INFO] [Moonlight/]: Generated runtime CLIENT_RESOURCES for pack Moonlight Mods Dynamic Assets (moonlight) in: 3 ms (debug resource dump on) (multithreaded)
+[10May2026 20:21:03.942] [Worker-Main-1/INFO] [Moonlight/]: Generating runtime assets for pack Moonlight Mods Dynamic Assets (supplementaries)
+[10May2026 20:21:03.990] [Worker-Main-1/INFO] [Supplementaries/]: Generated runtime CLIENT_RESOURCES for pack Moonlight Mods Dynamic Assets (supplementaries) in: 47 ms (debug resource dump on) (multithreaded)
+[10May2026 20:21:03.990] [Worker-Main-1/INFO] [Moonlight/]: Finished runtime resources generation for 4 packs in a total of 51 ms
+[10May2026 20:21:04.169] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [moonlight] Starting version check at https://api.modrinth.com/updates/moonlight/forge_updates.json
+[10May2026 20:21:04.210] [Worker-Main-5/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
+[10May2026 20:21:04.271] [Worker-Main-8/WARN] [net.minecraft.client.sounds.SoundManager/]: File supplementaries:sounds/item/awning_bounce_1.ogg does not exist, cannot add it to event supplementaries:block.awning.bounce
+[10May2026 20:21:04.271] [Worker-Main-8/WARN] [net.minecraft.client.sounds.SoundManager/]: File supplementaries:sounds/item/awning_bounce_2.ogg does not exist, cannot add it to event supplementaries:block.awning.bounce
+[10May2026 20:21:04.271] [Worker-Main-8/WARN] [net.minecraft.client.sounds.SoundManager/]: File supplementaries:sounds/item/awning_bounce_3.ogg does not exist, cannot add it to event supplementaries:block.awning.bounce
+[10May2026 20:21:04.803] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [moonlight] Found status: OUTDATED Current: 1.20-2.16.26 Target: 1.20-2.16.31-forge
+[10May2026 20:21:04.803] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwroofs] Starting version check at https://raw.githubusercontent.com/sketchmacaw/macawsmods/master/roofs.json
+[10May2026 20:21:04.858] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwroofs] Found status: UP_TO_DATE Current: 2.3.2 Target: null
+[10May2026 20:21:04.858] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwdoors] Starting version check at https://raw.githubusercontent.com/sketchmacaw/macawsmods/master/doors.json
+[10May2026 20:21:04.877] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwdoors] Found status: UP_TO_DATE Current: 1.1.2 Target: null
+[10May2026 20:21:04.877] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[10May2026 20:21:04.927] [Render thread/INFO] [Moonlight/]: Initialized color sets in 18ms
+[10May2026 20:21:04.935] [Render thread/INFO] [Supplementaries/]: Finished mod setup in: [0, 1, 0, 0, 0, 0, 4, 0] ms
+[10May2026 20:21:05.207] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 47.4.10 Target: null
+[10May2026 20:21:05.207] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [commonality] Starting version check at https://api.modrinth.com/updates/apexcore/forge_updates.json
+[10May2026 20:21:05.485] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [commonality] Found status: OUTDATED Current: 7.0.0 Target: 10.0.0
+[10May2026 20:21:05.485] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [apexcore] Starting version check at https://api.modrinth.com/updates/apexcore/forge_updates.json
+[10May2026 20:21:05.876] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [apexcore] Found status: UP_TO_DATE Current: 10.0.0 Target: null
+[10May2026 20:21:05.876] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [supplementaries] Starting version check at https://api.modrinth.com/updates/supplementaries/forge_updates.json
+[10May2026 20:21:05.950] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'farmersdelight:block/crop_cross' referenced from: farmersdelight:budding_tomatoes#age=0: java.io.FileNotFoundException: farmersdelight:models/block/crop_cross.json
+[10May2026 20:21:06.181] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [supplementaries] Found status: OUTDATED Current: 1.20-3.1.43 Target: 1.20-3.1.43-forge
+[10May2026 20:21:06.181] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [fantasyfurniture] Starting version check at https://api.modrinth.com/updates/fantasy-furniture/forge_updates.json
+[10May2026 20:21:06.443] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [fantasyfurniture] Found status: UP_TO_DATE Current: 9.0.0 Target: null
+[10May2026 20:21:06.443] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwpaths] Starting version check at https://raw.githubusercontent.com/sketchmacaw/macawsmods/master/paths.json
+[10May2026 20:21:06.459] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [mcwpaths] Found status: UP_TO_DATE Current: 1.1.1 Target: null
+[10May2026 20:21:08.036] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'mcwroofs:block/parent/top_pyramid_rotate' referenced from: mcwroofs:red_sandstone_top_roof#part=pyramid: java.io.FileNotFoundException: mcwroofs:models/block/parent/top_pyramid_rotate.json
+[10May2026 20:21:08.037] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'mcwroofs:block/parent/four_way_roof_rotate' referenced from: mcwroofs:red_sandstone_top_roof#part=pyramid: java.io.FileNotFoundException: mcwroofs:models/block/parent/four_way_roof_rotate.json
+[10May2026 20:21:08.316] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'supplementaries:block/hanging_flower_pot_rope' referenced from: supplementaries:block/hanging_flower_pot_rope: java.io.FileNotFoundException: supplementaries:models/block/hanging_flower_pot_rope.json
+[10May2026 20:21:10.288] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model supplementaries:confetti_popper#inventory:
     minecraft:textures/atlas/blocks.png:supplementaries:party_hat/party_hat
-[09May2026 21:13:12.902] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[09May2026 21:13:12.902] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[09May2026 21:13:12.957] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
-[09May2026 21:13:12.960] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[09May2026 21:13:13.180] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 4096x4096x4 minecraft:textures/atlas/blocks.png-atlas
-[09May2026 21:13:13.274] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/signs.png-atlas
-[09May2026 21:13:13.275] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[09May2026 21:13:13.277] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[09May2026 21:13:13.278] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[09May2026 21:13:13.283] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[09May2026 21:13:13.283] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[09May2026 21:13:13.284] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[09May2026 21:13:13.284] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[09May2026 21:13:13.434] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[09May2026 21:13:13.529] [Render thread/WARN] [com.mojang.blaze3d.shaders.ProgramManager/]: Error encountered when linking program containing VS supplementaries:spherify and FS supplementaries:spherify. Log output:
-[09May2026 21:13:13.530] [Render thread/WARN] [com.mojang.blaze3d.shaders.ProgramManager/]: WARNING: Could not find vertex shader attribute 'Padding' to match BindAttributeLocation request.
+[10May2026 20:21:14.622] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[10May2026 20:21:14.623] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[10May2026 20:21:14.681] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
+[10May2026 20:21:14.683] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[10May2026 20:21:14.858] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 4096x4096x4 minecraft:textures/atlas/blocks.png-atlas
+[10May2026 20:21:14.939] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/signs.png-atlas
+[10May2026 20:21:14.940] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[10May2026 20:21:14.940] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[10May2026 20:21:14.942] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[10May2026 20:21:14.949] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[10May2026 20:21:14.949] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[10May2026 20:21:14.950] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[10May2026 20:21:14.950] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[10May2026 20:21:15.069] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[10May2026 20:21:15.142] [Render thread/WARN] [com.mojang.blaze3d.shaders.ProgramManager/]: Error encountered when linking program containing VS supplementaries:spherify and FS supplementaries:spherify. Log output:
+[10May2026 20:21:15.143] [Render thread/WARN] [com.mojang.blaze3d.shaders.ProgramManager/]: WARNING: Could not find vertex shader attribute 'Padding' to match BindAttributeLocation request.
 WARNING: Output of vertex shader 'normal' not read by fragment shader
 WARNING: Output of vertex shader 'vertexColor' not read by fragment shader
 WARNING: Output of vertex shader 'overlayColor' not read by fragment shader
 ERROR: Input of fragment shader 'frag_IViewRotMat' not written by vertex shader
 
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find sampler named Sampler0 in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find sampler named Sampler1 in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find sampler named Sampler2 in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named ModelViewMat in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named ProjMat in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named IViewRotMat in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named ColorModulator in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named Light0_Direction in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named Light1_Direction in the specified shader program.
-[09May2026 21:13:13.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogStart in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogEnd in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogColor in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogShape in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named NoiseSpeed in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named NoiseScale in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named Intensity in the specified shader program.
-[09May2026 21:13:13.531] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named CameraPos in the specified shader program.
-[09May2026 21:13:13.547] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x0 minecraft:textures/atlas/particles.png-atlas
-[09May2026 21:13:13.549] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x0 minecraft:textures/atlas/paintings.png-atlas
-[09May2026 21:13:13.550] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[09May2026 21:13:13.551] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 moonlight:textures/atlas/map_markers.png-atlas
-[09May2026 21:13:14.329] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 jei:textures/atlas/gui.png-atlas
-[09May2026 21:13:15.343] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
-[09May2026 21:13:22.341] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
-[09May2026 21:13:22.373] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:skeever_tail Expected: 3608 Got: 3643
-[09May2026 21:13:24.741] [Render thread/INFO] [Moonlight/]: Starting runtime resource generation for pack type SERVER_DATA with generators from mods [moonlight, supplementaries, supplementaries, moonlight]: [net.mehvahdjukaar.moonlight.core.Moonlight$MlTestGen@5064d7a4, net.mehvahdjukaar.supplementaries.dynamicpack.ServerDynamicResourcesGenerator@4c11cbc8]
-[09May2026 21:13:24.741] [Render thread/INFO] [Moonlight/]: Generating runtime assets for pack Moonlight Generated Pack (moonlight)
-[09May2026 21:13:24.746] [Render thread/INFO] [Moonlight/]: Generated runtime SERVER_DATA for pack Moonlight Generated Pack (moonlight) in: 4 ms (debug resource dump on) (multithreaded)
-[09May2026 21:13:24.746] [Render thread/INFO] [Moonlight/]: Generating runtime assets for pack Supplementaries Generated Pack (supplementaries)
-[09May2026 21:13:24.766] [Render thread/INFO] [Supplementaries/]: Generated runtime SERVER_DATA for pack Supplementaries Generated Pack (supplementaries) in: 19 ms (debug resource dump on) (multithreaded)
-[09May2026 21:13:24.766] [Render thread/INFO] [Moonlight/]: Finished runtime resources generation for 4 packs in a total of 24 ms
-[09May2026 21:13:25.802] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Skipping loading recipe supplementaries:inspirations/blackboard_clear as it's serializer returned null
-[09May2026 21:13:25.842] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Skipping loading recipe supplementaries:inspirations/flag_dye as it's serializer returned null
-[09May2026 21:13:25.879] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Skipping loading recipe supplementaries:inspirations/flag_clear as it's serializer returned null
-[09May2026 21:13:25.907] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 10 recipes
-[09May2026 21:13:25.958] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 2353 advancements
-[09May2026 21:13:25.970] [Render thread/INFO] [xfacthd.framedblocks.api.shapes.ShapeReloader/]: Reloading 67 caches and 239 reloadable shape providers...
-[09May2026 21:13:26.018] [Render thread/INFO] [xfacthd.framedblocks.api.shapes.ShapeReloader/]: 67 caches and 239 reloadable shape providers reloaded, took 47.04 ms
-[09May2026 21:13:26.166] [Render thread/INFO] [Supplementaries/]: Loaded 27 flute songs
-[09May2026 21:13:28.668] [Render thread/INFO] [Moonlight/]: Applied 18 data villager trades
-[09May2026 21:13:28.688] [Render thread/INFO] [Supplementaries/]: Finished additional setup in 0 ms
-[09May2026 21:13:28.783] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
-[09May2026 21:13:28.784] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[09May2026 21:13:30.458] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[09May2026 21:13:33.285] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.322] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.342] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.360] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.361] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.380] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.473] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:33.966] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[09May2026 21:13:34.469] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 44%
-[09May2026 21:13:34.757] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[09May2026 21:13:34.768] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 4305 ms
-[09May2026 21:13:35.072] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[09May2026 21:13:35.078] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[09May2026 21:13:35.137] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[09May2026 21:13:35.800] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[09May2026 21:13:35.832] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:2baacb41] logged in with entity id 268 at (-17.998717719942004, 70.0, -2.721567474984359)
-[09May2026 21:13:35.960] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[09May2026 21:13:35.967] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.client.event.ClientPlayerNetworkEvent$LoggingIn
-[09May2026 21:13:35.968] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from DISABLED to ENABLED
-[09May2026 21:13:35.973] [Render thread/INFO] [Supplementaries/]: Synced Flute Songs
-[09May2026 21:13:35.973] [Render thread/INFO] [Supplementaries/]: Synced Captured Mobs settings
-[09May2026 21:13:35.973] [Render thread/INFO] [Supplementaries/]: Synced Globe data
-[09May2026 21:13:35.973] [Render thread/INFO] [Supplementaries/]: Synced Hourglass data
-[09May2026 21:13:36.405] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.client.event.RecipesUpdatedEvent
-[09May2026 21:13:36.423] [Render thread/ERROR] [Moonlight/]: Failed to restore original behavior for item: lunch_basket, net.mehvahdjukaar.moonlight.api.util.DispenserHelper$PlaceBlockDispenseBehavior@74965a62
-[09May2026 21:13:36.430] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.event.TagsUpdatedEvent
-[09May2026 21:13:36.430] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from ENABLED to JEI_STARTED
-[09May2026 21:13:36.430] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI...
-[09May2026 21:13:36.436] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes...
-[09May2026 21:13:36.440] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes took 3.756 ms
-[09May2026 21:13:36.440] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes...
-[09May2026 21:13:36.442] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes took 1.410 ms
-[09May2026 21:13:36.443] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients...
-[09May2026 21:13:36.495] [Render thread/WARN] [mezz.jei.library.plugins.vanilla.ingredients.ItemStackListFactory/]: Item Group has no display items and no search tab display items. Items from this group will be missing from the JEI ingredient list. Operator Utilities
-[09May2026 21:13:36.562] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering ingredients: jei:minecraft took 118.5 milliseconds
-[09May2026 21:13:36.562] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients took 119.3 ms
-[09May2026 21:13:36.563] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients...
-[09May2026 21:13:36.563] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients took 506.8 μs
-[09May2026 21:13:36.564] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases...
-[09May2026 21:13:36.565] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases took 1.072 ms
-[09May2026 21:13:36.575] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories...
-[09May2026 21:13:36.596] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories took 20.94 ms
-[09May2026 21:13:36.597] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions...
-[09May2026 21:13:36.600] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions took 2.707 ms
-[09May2026 21:13:36.600] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts...
-[09May2026 21:13:36.601] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts took 1.058 ms
-[09May2026 21:13:36.602] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry...
-[09May2026 21:13:36.609] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry took 7.184 ms
-[09May2026 21:13:36.610] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins...
-[09May2026 21:13:36.611] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins took 663.0 μs
-[09May2026 21:13:36.611] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes...
-[09May2026 21:13:36.900] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:minecraft took 288.4 milliseconds
-[09May2026 21:13:36.912] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: farmersdelight:jei_plugin took 11.50 milliseconds
-[09May2026 21:13:37.185] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: framedblocks:jei_plugin took 272.7 milliseconds
-[09May2026 21:13:37.302] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:internal took 107.1 milliseconds
-[09May2026 21:13:37.302] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes took 691.0 ms
-[09May2026 21:13:37.307] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers...
-[09May2026 21:13:37.310] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers took 2.147 ms
-[09May2026 21:13:37.316] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime...
-[09May2026 21:13:37.319] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers...
-[09May2026 21:13:37.323] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers took 3.942 ms
-[09May2026 21:13:37.324] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime...
-[09May2026 21:13:37.367] [Render thread/INFO] [mezz.jei.gui.startup.JeiGuiStarter/]: Starting JEI GUI
-[09May2026 21:13:37.368] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list...
-[09May2026 21:13:37.419] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list took 51.55 ms
-[09May2026 21:13:37.419] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter...
-[09May2026 21:13:37.437] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Adding 3969 ingredients
-[09May2026 21:13:37.651] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Added 3969 ingredients
-[09May2026 21:13:37.652] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter took 232.2 ms
-[09May2026 21:13:37.688] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering Runtime: jei:forge_gui took 363.8 milliseconds
-[09May2026 21:13:37.689] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime took 364.4 ms
-[09May2026 21:13:37.689] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime took 373.1 ms
-[09May2026 21:13:37.689] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime...
-[09May2026 21:13:37.690] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime took 673.6 μs
-[09May2026 21:13:37.690] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI took 1.260 s
-[09May2026 21:13:38.040] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 65 advancements
-[09May2026 21:13:44.844] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2019ms or 40 ticks behind
-[09May2026 21:13:50.048] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 1000]
-[09May2026 21:13:50.064] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set the time to 1000
-[09May2026 21:14:35.004] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[09May2026 21:14:35.021] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:overworld
-[09May2026 21:14:35.062] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:the_nether
-[09May2026 21:14:35.065] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:the_end
-[09May2026 21:14:56.506] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[09May2026 21:14:56.512] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:overworld
-[09May2026 21:14:56.522] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:the_nether
-[09May2026 21:14:56.523] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:the_end
-[09May2026 21:14:57.894] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
-[09May2026 21:14:57.896] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.client.event.ClientPlayerNetworkEvent$LoggingOut
-[09May2026 21:14:57.896] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from JEI_STARTED to DISABLED
-[09May2026 21:14:57.896] [Render thread/INFO] [mezz.jei.library.startup.JeiStarter/]: Stopping JEI
-[09May2026 21:14:57.897] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime Unavailable...
-[09May2026 21:14:57.897] [Render thread/INFO] [mezz.jei.forge.plugins.forge.ForgeGuiPlugin/]: Stopping JEI GUI
-[09May2026 21:14:57.900] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime Unavailable took 2.763 ms
-[09May2026 21:14:57.967] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
-[09May2026 21:14:57.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
-[09May2026 21:14:57.974] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
-[09May2026 21:14:58.006] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[09May2026 21:14:58.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[09May2026 21:14:58.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[09May2026 21:14:59.355] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:overworld
-[09May2026 21:15:00.442] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:the_nether
-[09May2026 21:15:00.443] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Test3]'/minecraft:the_end
-[09May2026 21:15:00.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Test3): All chunks are saved
-[09May2026 21:15:00.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[09May2026 21:15:00.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[09May2026 21:15:00.503] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find sampler named Sampler0 in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find sampler named Sampler1 in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find sampler named Sampler2 in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named ModelViewMat in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named ProjMat in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named IViewRotMat in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named ColorModulator in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named Light0_Direction in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named Light1_Direction in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogStart in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogEnd in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogColor in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named FogShape in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named NoiseSpeed in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named NoiseScale in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named Intensity in the specified shader program.
+[10May2026 20:21:15.143] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader supplementaries:spherify could not find uniform named CameraPos in the specified shader program.
+[10May2026 20:21:15.158] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x0 minecraft:textures/atlas/particles.png-atlas
+[10May2026 20:21:15.160] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x0 minecraft:textures/atlas/paintings.png-atlas
+[10May2026 20:21:15.160] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[10May2026 20:21:15.162] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 moonlight:textures/atlas/map_markers.png-atlas
+[10May2026 20:21:15.658] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 jei:textures/atlas/gui.png-atlas
+[10May2026 20:21:16.142] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
+[10May2026 20:21:42.496] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:abecean_longfin Expected: 3609 Got: 3644
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:alocasia_fruit Expected: 3610 Got: 3645
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:aloe_vera_leaves Expected: 3611 Got: 3646
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ambrosia Expected: 3612 Got: 3647
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ancestor_moth_wing Expected: 3613 Got: 3648
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:angelfish Expected: 3614 Got: 3649
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:angler_larvae Expected: 3615 Got: 3650
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ash_creep_cluster Expected: 3616 Got: 3651
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ash_hopper_jelly Expected: 3617 Got: 3652
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ashen_grass_pod Expected: 3618 Got: 3653
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:aster_bloom_core Expected: 3619 Got: 3654
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bear_claws Expected: 3620 Got: 3655
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bee Expected: 3621 Got: 3656
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:beehive_husk Expected: 3622 Got: 3657
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:berits_ashes Expected: 3623 Got: 3658
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bittergreen_petals Expected: 3624 Got: 3659
+[10May2026 20:21:42.534] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bleeding_crown Expected: 3625 Got: 3660
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:blind_watchers_eye Expected: 3626 Got: 3661
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bliss_bug_thorax Expected: 3627 Got: 3662
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:blister_pod_cap Expected: 3628 Got: 3663
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:blisterwort Expected: 3629 Got: 3664
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bloodgrass Expected: 3630 Got: 3665
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:blue_butterfly_wing Expected: 3631 Got: 3666
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:blue_dartwing Expected: 3632 Got: 3667
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:blue_mountain_flower Expected: 3633 Got: 3668
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:boar_tusk Expected: 3634 Got: 3669
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bog_beacon Expected: 3635 Got: 3670
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bone_meal Expected: 3636 Got: 3671
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:briar_heart Expected: 3637 Got: 3672
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:bunglers_bane Expected: 3638 Got: 3673
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:burnt_spriggan_wood Expected: 3639 Got: 3674
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:butterfly_wing Expected: 3640 Got: 3675
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:canis_root Expected: 3641 Got: 3676
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:charred_skeever_hide Expected: 3642 Got: 3677
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:chaurus_eggs Expected: 3643 Got: 3678
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:chaurus_hunter_antennae Expected: 3644 Got: 3679
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:chickens_egg Expected: 3645 Got: 3680
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:chokeberry Expected: 3646 Got: 3681
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:chokeweed Expected: 3647 Got: 3682
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:coda_flower Expected: 3648 Got: 3683
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:comberry Expected: 3649 Got: 3684
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:congealed_putrescence Expected: 3650 Got: 3685
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:corkbulb_root Expected: 3651 Got: 3686
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:corrupted_human_heart Expected: 3652 Got: 3687
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:creep_cluster Expected: 3653 Got: 3688
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:crimson_nirnroot Expected: 3654 Got: 3689
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:cyrodilic_spadetail Expected: 3655 Got: 3690
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:daedra_heart Expected: 3656 Got: 3691
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:daedra_silk Expected: 3657 Got: 3692
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:daedra_venin Expected: 3658 Got: 3693
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:daedroth_teeth Expected: 3659 Got: 3694
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:deathbell Expected: 3660 Got: 3695
+[10May2026 20:21:42.535] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:dragons_tongue Expected: 3661 Got: 3696
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:dreugh_wax Expected: 3662 Got: 3697
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:dwarven_oil Expected: 3663 Got: 3698
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ectoplasm Expected: 3664 Got: 3699
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:elves_ear Expected: 3665 Got: 3700
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:elytra_ichor Expected: 3666 Got: 3701
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:emperor_parasol_moss Expected: 3667 Got: 3702
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:eye_of_sabre_cat Expected: 3668 Got: 3703
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:falmer_ear Expected: 3669 Got: 3704
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:farengars_frost_salt Expected: 3670 Got: 3705
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:felsaad_tern_feathers Expected: 3671 Got: 3706
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:fine_cut_void_salts Expected: 3672 Got: 3707
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:fire_petal Expected: 3673 Got: 3708
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:fire_salts Expected: 3674 Got: 3709
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:flame_stalk Expected: 3675 Got: 3710
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:fly_amanita Expected: 3676 Got: 3711
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:frost_mirriam Expected: 3677 Got: 3712
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:frost_salts Expected: 3678 Got: 3713
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:fungus_stalk Expected: 3679 Got: 3714
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:garlic Expected: 3680 Got: 3715
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:giant_lichen Expected: 3681 Got: 3716
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:giants_toe Expected: 3682 Got: 3717
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:glassfish Expected: 3683 Got: 3718
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:gleamblossom Expected: 3684 Got: 3719
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:glow_dust Expected: 3685 Got: 3720
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:glowing_mushroom Expected: 3686 Got: 3721
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:gnarl_bark Expected: 3687 Got: 3722
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:gold_kanet Expected: 3688 Got: 3723
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:goldfish Expected: 3689 Got: 3724
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:grass_pod Expected: 3690 Got: 3725
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:green_butterfly_wing Expected: 3691 Got: 3726
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hackle_lo_leaf Expected: 3692 Got: 3727
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hagraven_claw Expected: 3693 Got: 3728
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hagraven_feathers Expected: 3694 Got: 3729
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hanging_moss Expected: 3695 Got: 3730
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:harrada Expected: 3696 Got: 3731
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hawk_beak Expected: 3697 Got: 3732
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hawk_feathers Expected: 3698 Got: 3733
+[10May2026 20:21:42.536] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hawks_egg Expected: 3699 Got: 3734
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:healing_salts Expected: 3700 Got: 3735
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:heart_of_order Expected: 3701 Got: 3736
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:histcarp Expected: 3702 Got: 3737
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:honeycomb Expected: 3703 Got: 3738
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:human_flesh Expected: 3704 Got: 3739
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:human_heart Expected: 3705 Got: 3740
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hunger_tongue Expected: 3706 Got: 3741
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hydnum_azure_giant_spore Expected: 3707 Got: 3742
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:hypha_facia Expected: 3708 Got: 3743
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ice_wraith_teeth Expected: 3709 Got: 3744
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:imp_gall Expected: 3710 Got: 3745
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:imp_stool Expected: 3711 Got: 3746
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ironwood_fruit Expected: 3712 Got: 3747
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:jarrin_root Expected: 3713 Got: 3748
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:jazbay_grapes Expected: 3714 Got: 3749
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:juvenile_mudcrab Expected: 3715 Got: 3750
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:kagouti_hide Expected: 3716 Got: 3751
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:kresh_fiber Expected: 3717 Got: 3752
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:large_antlers Expected: 3718 Got: 3753
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:lavender Expected: 3719 Got: 3754
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:lichor Expected: 3720 Got: 3755
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:luminous_russula Expected: 3721 Got: 3756
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:luna_moth_wing Expected: 3722 Got: 3757
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:lyretail_anthias Expected: 3723 Got: 3758
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:marshmerrow Expected: 3724 Got: 3759
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:minotaur_horn Expected: 3725 Got: 3760
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:moon_sugar Expected: 3726 Got: 3761
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:mora_tapinella Expected: 3727 Got: 3762
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:mort_flesh Expected: 3728 Got: 3763
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:mudcrab_chitin Expected: 3729 Got: 3764
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:namiras_rot Expected: 3730 Got: 3765
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:netch_jelly Expected: 3731 Got: 3766
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:nightshade Expected: 3732 Got: 3767
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:nirnroot Expected: 3733 Got: 3768
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:nordic_barnacle Expected: 3734 Got: 3769
+[10May2026 20:21:42.537] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:ogres_teeth Expected: 3735 Got: 3770
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:orange_dartwing Expected: 3736 Got: 3771
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:pearl Expected: 3737 Got: 3772
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:pearlfish Expected: 3738 Got: 3773
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:pine_thrush_egg Expected: 3739 Got: 3774
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:poison_bloom Expected: 3740 Got: 3775
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:powdered_mammoth_tusk Expected: 3741 Got: 3776
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:purple_butterfly_wing Expected: 3742 Got: 3777
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:purple_mountain_flower Expected: 3743 Got: 3778
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:pygmy_sunfish Expected: 3744 Got: 3779
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:red_kelp_gas_bladder Expected: 3745 Got: 3780
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:red_mountain_flower Expected: 3746 Got: 3781
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:redwort_flower Expected: 3747 Got: 3782
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:river_betty Expected: 3748 Got: 3783
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:rock_warbler_egg Expected: 3749 Got: 3784
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:roobrush Expected: 3750 Got: 3785
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:rot_scale Expected: 3751 Got: 3786
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:sabre_cat_tooth Expected: 3752 Got: 3787
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:salmon_roe Expected: 3753 Got: 3788
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:salt_pile Expected: 3754 Got: 3789
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:saltrice Expected: 3755 Got: 3790
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:scalon_fin Expected: 3756 Got: 3791
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:scaly_pholiota Expected: 3757 Got: 3792
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:scathecraw Expected: 3758 Got: 3793
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:screaming_maw Expected: 3759 Got: 3794
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:scrib_jelly Expected: 3760 Got: 3795
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:scrib_jerky Expected: 3761 Got: 3796
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:silverside_perch Expected: 3762 Got: 3797
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:simon_rodaynes_heart Expected: 3763 Got: 3798
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:slaughterfish_egg Expected: 3764 Got: 3799
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:slaughterfish_scales Expected: 3765 Got: 3800
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:sload_soap Expected: 3766 Got: 3801
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:small_antlers Expected: 3767 Got: 3802
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:small_pearl Expected: 3768 Got: 3803
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:snowberries Expected: 3769 Got: 3804
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:spadefish Expected: 3770 Got: 3805
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:spawn_ash Expected: 3771 Got: 3806
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:spiddal_stick Expected: 3772 Got: 3807
+[10May2026 20:21:42.538] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:spider_egg Expected: 3773 Got: 3808
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:spriggan_sap Expected: 3774 Got: 3809
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:steel_blue_entoloma Expected: 3775 Got: 3810
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:stoneflower_petals Expected: 3776 Got: 3811
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:swamp_fungal_pod Expected: 3777 Got: 3812
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:taproot Expected: 3778 Got: 3813
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:thistle_branch Expected: 3779 Got: 3814
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:thorn_hook Expected: 3780 Got: 3815
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:torchbug_thorax Expected: 3781 Got: 3816
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:trama_root Expected: 3782 Got: 3817
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:troll_fat Expected: 3783 Got: 3818
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:tundra_cotton Expected: 3784 Got: 3819
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:vampire_dust Expected: 3785 Got: 3820
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:void_essence Expected: 3786 Got: 3821
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:void_salts Expected: 3787 Got: 3822
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:watchers_eye Expected: 3788 Got: 3823
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:wheat Expected: 3789 Got: 3824
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:white_cap Expected: 3790 Got: 3825
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:wild_grass_pod Expected: 3791 Got: 3826
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:wisp_stalk_caps Expected: 3792 Got: 3827
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:wisp_wrappings Expected: 3793 Got: 3828
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:withering_moon Expected: 3794 Got: 3829
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:worms_head_cap Expected: 3795 Got: 3830
+[10May2026 20:21:42.539] [Render thread/WARN] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item: Object did not get ID it asked for. Name: thuumcraft:yellow_mountain_flower Expected: 3796 Got: 3831
+[10May2026 20:21:44.774] [Render thread/INFO] [Moonlight/]: Starting runtime resource generation for pack type SERVER_DATA with generators from mods [moonlight, supplementaries, moonlight, supplementaries]: [net.mehvahdjukaar.moonlight.core.Moonlight$MlTestGen@317ed63f, net.mehvahdjukaar.supplementaries.dynamicpack.ServerDynamicResourcesGenerator@3dbf18be]
+[10May2026 20:21:44.774] [Render thread/INFO] [Moonlight/]: Generating runtime assets for pack Moonlight Generated Pack (moonlight)
+[10May2026 20:21:44.778] [Render thread/INFO] [Moonlight/]: Generated runtime SERVER_DATA for pack Moonlight Generated Pack (moonlight) in: 4 ms (debug resource dump on) (multithreaded)
+[10May2026 20:21:44.778] [Render thread/INFO] [Moonlight/]: Generating runtime assets for pack Supplementaries Generated Pack (supplementaries)
+[10May2026 20:21:44.796] [Render thread/INFO] [Supplementaries/]: Generated runtime SERVER_DATA for pack Supplementaries Generated Pack (supplementaries) in: 17 ms (debug resource dump on) (multithreaded)
+[10May2026 20:21:44.796] [Render thread/INFO] [Moonlight/]: Finished runtime resources generation for 4 packs in a total of 22 ms
+[10May2026 20:21:45.651] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Skipping loading recipe supplementaries:inspirations/blackboard_clear as it's serializer returned null
+[10May2026 20:21:45.685] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Skipping loading recipe supplementaries:inspirations/flag_dye as it's serializer returned null
+[10May2026 20:21:45.710] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Skipping loading recipe supplementaries:inspirations/flag_clear as it's serializer returned null
+[10May2026 20:21:45.726] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 10 recipes
+[10May2026 20:21:45.768] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 2353 advancements
+[10May2026 20:21:45.777] [Render thread/INFO] [xfacthd.framedblocks.api.shapes.ShapeReloader/]: Reloading 67 caches and 239 reloadable shape providers...
+[10May2026 20:21:45.817] [Render thread/INFO] [xfacthd.framedblocks.api.shapes.ShapeReloader/]: 67 caches and 239 reloadable shape providers reloaded, took 39.17 ms
+[10May2026 20:21:45.936] [Render thread/INFO] [Supplementaries/]: Loaded 27 flute songs
+[10May2026 20:21:47.884] [Render thread/INFO] [Moonlight/]: Applied 18 data villager trades
+[10May2026 20:21:47.902] [Render thread/INFO] [Supplementaries/]: Finished additional setup in 0 ms
+[10May2026 20:21:48.009] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
+[10May2026 20:21:48.010] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[10May2026 20:21:48.193] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[10May2026 20:21:49.454] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[10May2026 20:21:49.455] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[10May2026 20:21:49.659] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[10May2026 20:21:49.754] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[10May2026 20:21:50.240] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 51%
+[10May2026 20:21:50.485] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[10May2026 20:21:50.506] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 2284 ms
+[10May2026 20:21:50.637] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[10May2026 20:21:50.639] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[10May2026 20:21:50.709] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[10May2026 20:21:51.154] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[10May2026 20:21:51.181] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:0a9ad89c] logged in with entity id 85 at (-26.10157175502872, -60.0, 2.160503910020484)
+[10May2026 20:21:51.247] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[10May2026 20:21:51.291] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.client.event.ClientPlayerNetworkEvent$LoggingIn
+[10May2026 20:21:51.291] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from DISABLED to ENABLED
+[10May2026 20:21:51.296] [Render thread/INFO] [Supplementaries/]: Synced Flute Songs
+[10May2026 20:21:51.296] [Render thread/INFO] [Supplementaries/]: Synced Captured Mobs settings
+[10May2026 20:21:51.296] [Render thread/INFO] [Supplementaries/]: Synced Globe data
+[10May2026 20:21:51.296] [Render thread/INFO] [Supplementaries/]: Synced Hourglass data
+[10May2026 20:21:51.502] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.client.event.RecipesUpdatedEvent
+[10May2026 20:21:51.514] [Render thread/ERROR] [Moonlight/]: Failed to restore original behavior for item: lunch_basket, net.mehvahdjukaar.moonlight.api.util.DispenserHelper$PlaceBlockDispenseBehavior@52bfcf4a
+[10May2026 20:21:51.519] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver received class net.minecraftforge.event.TagsUpdatedEvent
+[10May2026 20:21:51.519] [Render thread/INFO] [mezz.jei.forge.startup.StartEventObserver/]: JEI StartEventObserver transitioning state from ENABLED to JEI_STARTED
+[10May2026 20:21:51.519] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI...
+[10May2026 20:21:51.523] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes...
+[10May2026 20:21:51.526] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering item subtypes took 2.449 ms
+[10May2026 20:21:51.526] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes...
+[10May2026 20:21:51.527] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering fluid subtypes took 758.0 μs
+[10May2026 20:21:51.528] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients...
+[10May2026 20:21:51.554] [Render thread/WARN] [mezz.jei.library.plugins.vanilla.ingredients.ItemStackListFactory/]: Item Group has no display items and no search tab display items. Items from this group will be missing from the JEI ingredient list. Operator Utilities
+[10May2026 20:21:51.579] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering ingredients: jei:minecraft took 50.79 milliseconds
+[10May2026 20:21:51.579] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering ingredients took 51.32 ms
+[10May2026 20:21:51.579] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients...
+[10May2026 20:21:51.580] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering extra ingredients took 297.7 μs
+[10May2026 20:21:51.580] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases...
+[10May2026 20:21:51.580] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering search ingredient aliases took 428.3 μs
+[10May2026 20:21:51.587] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories...
+[10May2026 20:21:51.599] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering categories took 12.36 ms
+[10May2026 20:21:51.600] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions...
+[10May2026 20:21:51.601] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering vanilla category extensions took 1.675 ms
+[10May2026 20:21:51.602] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts...
+[10May2026 20:21:51.602] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipe catalysts took 544.0 μs
+[10May2026 20:21:51.603] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry...
+[10May2026 20:21:51.608] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building recipe registry took 4.832 ms
+[10May2026 20:21:51.608] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins...
+[10May2026 20:21:51.608] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering advanced plugins took 296.5 μs
+[10May2026 20:21:51.609] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes...
+[10May2026 20:21:51.758] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:minecraft took 149.6 milliseconds
+[10May2026 20:21:51.939] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: framedblocks:jei_plugin took 173.2 milliseconds
+[10May2026 20:21:52.000] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering recipes: jei:internal took 53.92 milliseconds
+[10May2026 20:21:52.000] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes took 391.7 ms
+[10May2026 20:21:52.004] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers...
+[10May2026 20:21:52.006] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering recipes transfer handlers took 1.749 ms
+[10May2026 20:21:52.009] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime...
+[10May2026 20:21:52.012] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers...
+[10May2026 20:21:52.015] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering gui handlers took 3.150 ms
+[10May2026 20:21:52.016] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime...
+[10May2026 20:21:52.017] [Render thread/INFO] [mezz.jei.gui.startup.JeiGuiStarter/]: Starting JEI GUI
+[10May2026 20:21:52.017] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list...
+[10May2026 20:21:52.048] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient list took 30.54 ms
+[10May2026 20:21:52.048] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter...
+[10May2026 20:21:52.063] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Adding 4157 ingredients
+[10May2026 20:21:52.254] [Render thread/INFO] [mezz.jei.gui.ingredients.IngredientFilter/]: Added 4157 ingredients
+[10May2026 20:21:52.254] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building ingredient filter took 206.1 ms
+[10May2026 20:21:52.282] [Render thread/INFO] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Registering Runtime: jei:forge_gui took 265.2 milliseconds
+[10May2026 20:21:52.282] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Registering Runtime took 265.7 ms
+[10May2026 20:21:52.282] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Building runtime took 272.8 ms
+[10May2026 20:21:52.282] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime...
+[10May2026 20:21:52.283] [Render thread/INFO] [mezz.jei.library.load.PluginCaller/]: Sending Runtime took 587.1 μs
+[10May2026 20:21:52.283] [Render thread/INFO] [mezz.jei.core.util.LoggedTimer/]: Starting JEI took 763.8 ms
+[10May2026 20:21:52.543] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 43 advancements
+[10May2026 20:21:52.784] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[10May2026 20:21:52.795] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[flat_world]'/minecraft:overworld
+[10May2026 20:21:53.664] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[flat_world]'/minecraft:the_nether
+[10May2026 20:21:53.665] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[flat_world]'/minecraft:the_end
+[10May2026 20:22:02.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[10May2026 20:22:02.037] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode

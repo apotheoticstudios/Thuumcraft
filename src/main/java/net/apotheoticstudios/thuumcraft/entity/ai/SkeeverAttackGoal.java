@@ -1,6 +1,7 @@
 package net.apotheoticstudios.thuumcraft.entity.ai;
 
 import net.apotheoticstudios.thuumcraft.entity.custom.SkeeverEntity;
+import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
@@ -75,6 +76,7 @@ public class SkeeverAttackGoal extends MeleeAttackGoal {
 
     protected void performAttack(LivingEntity pEnemy) {
         this.hasHitDuringAttack = true;
+        this.mob.playSound(ModSounds.SKEEVER_ATTACK.get(), 1.0F, 1.0F);
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
     }

@@ -60,9 +60,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
                         pOutput.accept(ModItems.SEPTIM.get());
-                        pOutput.accept(ModItems.SKEEVER_TAIL.get());
-
-                        pOutput.accept(ModItems.JUNIPER_BERRIES.get());
+                        ModItems.INGREDIENT_ITEMS.forEach(item -> pOutput.accept(item.get()));
 
                         pOutput.accept(ModBlocks.REFINED_MALACHITE_BLOCK.get());
 

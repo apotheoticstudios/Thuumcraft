@@ -16,6 +16,10 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> GIANT_IDLE = registerSoundEvents("giant_idle");
     public static final RegistryObject<SoundEvent> GIANT_DAMAGED = registerSoundEvents("giant_damaged");
     public static final RegistryObject<SoundEvent> GIANT_DEATH = registerSoundEvents("giant_death");
+    public static final RegistryObject<SoundEvent> SKEEVER_IDLE = registerSoundEvents("skeever_idle");
+    public static final RegistryObject<SoundEvent> SKEEVER_HURT = registerSoundEvents("skeever_hurt");
+    public static final RegistryObject<SoundEvent> SKEEVER_DEATH = registerSoundEvents("skeever_death");
+    public static final RegistryObject<SoundEvent> SKEEVER_ATTACK = registerSoundEvents("skeever_attack");
 
 
 

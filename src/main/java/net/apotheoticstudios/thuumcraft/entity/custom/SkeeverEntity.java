@@ -1,6 +1,7 @@
 package net.apotheoticstudios.thuumcraft.entity.custom;
 
 import net.apotheoticstudios.thuumcraft.entity.ai.SkeeverAttackGoal;
+import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -118,9 +119,8 @@ public class SkeeverEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new SkeeverAttackGoal(this, 1.0D, true));
+        this.goalSelector.addGoal(2, new SkeeverAttackGoal(this, 1.1D, true));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Animal.class, 8.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.addBehaviourGoals();
     }
@@ -141,16 +141,16 @@ public class SkeeverEntity extends Monster {
 
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
-        return SoundEvents.HUSK_AMBIENT;
+        return ModSounds.SKEEVER_IDLE.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.HUSK_HURT;
+        return ModSounds.SKEEVER_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.HUSK_DEATH;
+        return ModSounds.SKEEVER_DEATH.get();
     }
 }

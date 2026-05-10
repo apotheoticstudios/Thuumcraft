@@ -35,8 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.LEATHER_STRIPS);
         simpleItem(ModItems.HANDLE);
         simpleItem(ModItems.SEPTIM);
-        simpleItem(ModItems.SKEEVER_TAIL);
-        simpleItem(ModItems.JUNIPER_BERRIES);
+        ModItems.INGREDIENT_ITEMS.forEach(this::simpleItem);
         simpleItem(ModItems.ORICHALCUM_INGOT);
 
         handheldItem(ModItems.GLASS_SWORD);

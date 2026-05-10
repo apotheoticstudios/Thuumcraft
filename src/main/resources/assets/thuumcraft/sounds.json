@@ -10,5 +10,21 @@
   "giant_death": {
     "subtitle": "Giant Dies",
     "sounds": [ "thuumcraft:giant_death" ]
+  },
+  "skeever_idle": {
+    "subtitle": "Skeever Squeaks",
+    "sounds": [ "thuumcraft:skeever_idle" ]
+  },
+  "skeever_hurt": {
+    "subtitle": "Skeever Hurt",
+    "sounds": [ "thuumcraft:skeever_hurt" ]
+  },
+  "skeever_death": {
+    "subtitle": "Skeever Dies",
+    "sounds": [ "thuumcraft:skeever_death" ]
+  },
+  "skeever_attack": {
+    "subtitle": "Skeever Attacks",
+    "sounds": [ "thuumcraft:skeever_attack" ]
   }
 }

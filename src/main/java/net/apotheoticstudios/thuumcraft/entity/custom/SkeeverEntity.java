@@ -133,7 +133,7 @@ public class SkeeverEntity extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes().
                 add(Attributes.FOLLOW_RANGE, 30.0D).
-                add(Attributes.MAX_HEALTH, 10.0D).
+                add(Attributes.MAX_HEALTH, 14.0D).
                 add(Attributes.MOVEMENT_SPEED, (double) 0.35F).
                 add(Attributes.ATTACK_DAMAGE, 2.5D).
                 add(Attributes.ARMOR, 1.0D);

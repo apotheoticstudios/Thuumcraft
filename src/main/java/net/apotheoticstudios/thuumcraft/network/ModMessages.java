@@ -14,13 +14,19 @@ public class ModMessages {
     private static SimpleChannel channel;
 
     public static void register() {
-        channel = NetworkRegistry.newSimpleChannel(new ResourceLocation(Thuumcraft.MOD_ID, "messages"),
+        channel = NetworkRegistry.newSimpleChannel(ResourceLocation.fromNamespaceAndPath(Thuumcraft.MOD_ID, "messages"),
                 () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 
         channel.messageBuilder(ClientboundKnownIngredientEffectsPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(ClientboundKnownIngredientEffectsPacket::encode)
                 .decoder(ClientboundKnownIngredientEffectsPacket::new)
                 .consumerMainThread(ClientboundKnownIngredientEffectsPacket::handle)
+                .add();
+
+        channel.messageBuilder(ClientboundSneakAwarenessPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundSneakAwarenessPacket::encode)
+                .decoder(ClientboundSneakAwarenessPacket::new)
+                .consumerMainThread(ClientboundSneakAwarenessPacket::handle)
                 .add();
     }
 

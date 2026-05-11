@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-04T19:18:56.266306	Loot Tables
+// 1.20.1	2026-05-11T09:47:58.690891	Loot Tables
 4a78bbe69e26f40656a6c755d0e4b4d49bf692db data/thuumcraft/loot_tables/blocks/corundum_ore_vein.json
 e04d18e26020ac0394bcfbca720b377f01859b13 data/thuumcraft/loot_tables/blocks/deepslate_corundum_ore_vein.json
 a437c4f7cc73ad6def96092e10a04a5c13c0c54f data/thuumcraft/loot_tables/blocks/deepslate_ebony_ore_vein.json
@@ -13,3 +13,6 @@ fefbfc0163c9ef225eeefa2e5edd79f14dc58e46 data/thuumcraft/loot_tables/blocks/oric
 e17bd0e1d3d6485bc50915474d6b973e63124843 data/thuumcraft/loot_tables/blocks/pine_sapling.json
 371cac9d2f1a9c0a43ce2c2c98c0772608fde371 data/thuumcraft/loot_tables/blocks/refined_malachite_block.json
 6cbc9268e9d621eab7e7898c3bfa2f7877bc92c6 data/thuumcraft/loot_tables/blocks/silver_ore_vein.json
+f3b485180e51a533e4df36f3b09150f34e0e2830 data/thuumcraft/loot_tables/entities/draugr.json
+7bcfeb57bf76e29c9814b4a17a19257b0bc8028a data/thuumcraft/loot_tables/entities/giant.json
+812dde02a2c997fac93a97027abfb600ffb4a569 data/thuumcraft/loot_tables/entities/skeever.json

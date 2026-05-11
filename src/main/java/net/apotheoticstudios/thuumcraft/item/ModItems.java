@@ -18,6 +18,10 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Thuumcraft.MOD_ID);
 
+    private static RegistryObject<Item> registerIngredient(String name) {
+        return ITEMS.register(name, () -> new IngredientItem(name, new Item.Properties().food(ModFoods.INGREDIENT)));
+    }
+
     public static final RegistryObject<Item> REFINED_MALACHITE = ITEMS.register("refined_malachite",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DWARVEN_METAL_INGOT = ITEMS.register("dwarven_metal_ingot",
@@ -53,391 +57,201 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HANDLE = ITEMS.register("handle",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SKEEVER_TAIL = ITEMS.register("skeever_tail",
-            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SKEEVER_TAIL = registerIngredient("skeever_tail");
 
 
     // Skyrim ingredient items
-    public static final RegistryObject<Item> ABECEAN_LONGFIN = ITEMS.register("abecean_longfin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ALOCASIA_FRUIT = ITEMS.register("alocasia_fruit",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ALOE_VERA_LEAVES = ITEMS.register("aloe_vera_leaves",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> AMBROSIA = ITEMS.register("ambrosia",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ANCESTOR_MOTH_WING = ITEMS.register("ancestor_moth_wing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ANGELFISH = ITEMS.register("angelfish",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ANGLER_LARVAE = ITEMS.register("angler_larvae",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ASH_CREEP_CLUSTER = ITEMS.register("ash_creep_cluster",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ASH_HOPPER_JELLY = ITEMS.register("ash_hopper_jelly",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ASHEN_GRASS_POD = ITEMS.register("ashen_grass_pod",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ASTER_BLOOM_CORE = ITEMS.register("aster_bloom_core",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BEAR_CLAWS = ITEMS.register("bear_claws",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BEE = ITEMS.register("bee",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BEEHIVE_HUSK = ITEMS.register("beehive_husk",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BERITS_ASHES = ITEMS.register("berits_ashes",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BITTERGREEN_PETALS = ITEMS.register("bittergreen_petals",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLEEDING_CROWN = ITEMS.register("bleeding_crown",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLIND_WATCHERS_EYE = ITEMS.register("blind_watchers_eye",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLISS_BUG_THORAX = ITEMS.register("bliss_bug_thorax",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLISTER_POD_CAP = ITEMS.register("blister_pod_cap",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLISTERWORT = ITEMS.register("blisterwort",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLOODGRASS = ITEMS.register("bloodgrass",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLUE_BUTTERFLY_WING = ITEMS.register("blue_butterfly_wing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLUE_DARTWING = ITEMS.register("blue_dartwing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLUE_MOUNTAIN_FLOWER = ITEMS.register("blue_mountain_flower",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BOAR_TUSK = ITEMS.register("boar_tusk",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BOG_BEACON = ITEMS.register("bog_beacon",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BONE_MEAL = ITEMS.register("bone_meal",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRIAR_HEART = ITEMS.register("briar_heart",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BUNGLERS_BANE = ITEMS.register("bunglers_bane",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BURNT_SPRIGGAN_WOOD = ITEMS.register("burnt_spriggan_wood",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BUTTERFLY_WING = ITEMS.register("butterfly_wing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CANIS_ROOT = ITEMS.register("canis_root",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHARRED_SKEEVER_HIDE = ITEMS.register("charred_skeever_hide",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHAURUS_EGGS = ITEMS.register("chaurus_eggs",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHAURUS_HUNTER_ANTENNAE = ITEMS.register("chaurus_hunter_antennae",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHICKENS_EGG = ITEMS.register("chickens_egg",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHOKEBERRY = ITEMS.register("chokeberry",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHOKEWEED = ITEMS.register("chokeweed",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CODA_FLOWER = ITEMS.register("coda_flower",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> COMBERRY = ITEMS.register("comberry",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CONGEALED_PUTRESCENCE = ITEMS.register("congealed_putrescence",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CORKBULB_ROOT = ITEMS.register("corkbulb_root",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CORRUPTED_HUMAN_HEART = ITEMS.register("corrupted_human_heart",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CREEP_CLUSTER = ITEMS.register("creep_cluster",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRIMSON_NIRNROOT = ITEMS.register("crimson_nirnroot",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CYRODILIC_SPADETAIL = ITEMS.register("cyrodilic_spadetail",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DAEDRA_HEART = ITEMS.register("daedra_heart",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DAEDRA_SILK = ITEMS.register("daedra_silk",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DAEDRA_VENIN = ITEMS.register("daedra_venin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DAEDROTH_TEETH = ITEMS.register("daedroth_teeth",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DEATHBELL = ITEMS.register("deathbell",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DRAGONS_TONGUE = ITEMS.register("dragons_tongue",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DREUGH_WAX = ITEMS.register("dreugh_wax",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DWARVEN_OIL = ITEMS.register("dwarven_oil",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ECTOPLASM = ITEMS.register("ectoplasm",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ELVES_EAR = ITEMS.register("elves_ear",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ELYTRA_ICHOR = ITEMS.register("elytra_ichor",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> EMPEROR_PARASOL_MOSS = ITEMS.register("emperor_parasol_moss",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> EYE_OF_SABRE_CAT = ITEMS.register("eye_of_sabre_cat",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FALMER_EAR = ITEMS.register("falmer_ear",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FARENGARS_FROST_SALT = ITEMS.register("farengars_frost_salt",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FELSAAD_TERN_FEATHERS = ITEMS.register("felsaad_tern_feathers",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FINE_CUT_VOID_SALTS = ITEMS.register("fine_cut_void_salts",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FIRE_PETAL = ITEMS.register("fire_petal",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FIRE_SALTS = ITEMS.register("fire_salts",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FLAME_STALK = ITEMS.register("flame_stalk",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FLY_AMANITA = ITEMS.register("fly_amanita",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FROST_MIRRIAM = ITEMS.register("frost_mirriam",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FROST_SALTS = ITEMS.register("frost_salts",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FUNGUS_STALK = ITEMS.register("fungus_stalk",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GARLIC = ITEMS.register("garlic",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GIANT_LICHEN = ITEMS.register("giant_lichen",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GIANTS_TOE = ITEMS.register("giants_toe",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GLASSFISH = ITEMS.register("glassfish",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GLEAMBLOSSOM = ITEMS.register("gleamblossom",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GLOW_DUST = ITEMS.register("glow_dust",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GLOWING_MUSHROOM = ITEMS.register("glowing_mushroom",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GNARL_BARK = ITEMS.register("gnarl_bark",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GOLD_KANET = ITEMS.register("gold_kanet",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GOLDFISH = ITEMS.register("goldfish",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GRASS_POD = ITEMS.register("grass_pod",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> GREEN_BUTTERFLY_WING = ITEMS.register("green_butterfly_wing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HACKLE_LO_LEAF = ITEMS.register("hackle_lo_leaf",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HAGRAVEN_CLAW = ITEMS.register("hagraven_claw",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HAGRAVEN_FEATHERS = ITEMS.register("hagraven_feathers",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HANGING_MOSS = ITEMS.register("hanging_moss",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HARRADA = ITEMS.register("harrada",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HAWK_BEAK = ITEMS.register("hawk_beak",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HAWK_FEATHERS = ITEMS.register("hawk_feathers",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HAWKS_EGG = ITEMS.register("hawks_egg",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HEALING_SALTS = ITEMS.register("healing_salts",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HEART_OF_ORDER = ITEMS.register("heart_of_order",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HISTCARP = ITEMS.register("histcarp",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HONEYCOMB = ITEMS.register("honeycomb",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HUMAN_FLESH = ITEMS.register("human_flesh",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HUMAN_HEART = ITEMS.register("human_heart",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HUNGER_TONGUE = ITEMS.register("hunger_tongue",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HYDNUM_AZURE_GIANT_SPORE = ITEMS.register("hydnum_azure_giant_spore",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HYPHA_FACIA = ITEMS.register("hypha_facia",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ICE_WRAITH_TEETH = ITEMS.register("ice_wraith_teeth",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> IMP_GALL = ITEMS.register("imp_gall",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> IMP_STOOL = ITEMS.register("imp_stool",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> IRONWOOD_FRUIT = ITEMS.register("ironwood_fruit",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> JARRIN_ROOT = ITEMS.register("jarrin_root",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> JAZBAY_GRAPES = ITEMS.register("jazbay_grapes",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> JUVENILE_MUDCRAB = ITEMS.register("juvenile_mudcrab",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> KAGOUTI_HIDE = ITEMS.register("kagouti_hide",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> KRESH_FIBER = ITEMS.register("kresh_fiber",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LARGE_ANTLERS = ITEMS.register("large_antlers",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LAVENDER = ITEMS.register("lavender",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LICHOR = ITEMS.register("lichor",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LUMINOUS_RUSSULA = ITEMS.register("luminous_russula",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LUNA_MOTH_WING = ITEMS.register("luna_moth_wing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LYRETAIL_ANTHIAS = ITEMS.register("lyretail_anthias",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MARSHMERROW = ITEMS.register("marshmerrow",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MINOTAUR_HORN = ITEMS.register("minotaur_horn",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MOON_SUGAR = ITEMS.register("moon_sugar",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MORA_TAPINELLA = ITEMS.register("mora_tapinella",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MORT_FLESH = ITEMS.register("mort_flesh",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MUDCRAB_CHITIN = ITEMS.register("mudcrab_chitin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NAMIRAS_ROT = ITEMS.register("namiras_rot",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NETCH_JELLY = ITEMS.register("netch_jelly",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NIGHTSHADE = ITEMS.register("nightshade",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NIRNROOT = ITEMS.register("nirnroot",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NORDIC_BARNACLE = ITEMS.register("nordic_barnacle",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> OGRES_TEETH = ITEMS.register("ogres_teeth",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ORANGE_DARTWING = ITEMS.register("orange_dartwing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PEARL = ITEMS.register("pearl",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PEARLFISH = ITEMS.register("pearlfish",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PINE_THRUSH_EGG = ITEMS.register("pine_thrush_egg",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> POISON_BLOOM = ITEMS.register("poison_bloom",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> POWDERED_MAMMOTH_TUSK = ITEMS.register("powdered_mammoth_tusk",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURPLE_BUTTERFLY_WING = ITEMS.register("purple_butterfly_wing",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURPLE_MOUNTAIN_FLOWER = ITEMS.register("purple_mountain_flower",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PYGMY_SUNFISH = ITEMS.register("pygmy_sunfish",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RED_KELP_GAS_BLADDER = ITEMS.register("red_kelp_gas_bladder",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RED_MOUNTAIN_FLOWER = ITEMS.register("red_mountain_flower",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> REDWORT_FLOWER = ITEMS.register("redwort_flower",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RIVER_BETTY = ITEMS.register("river_betty",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ROCK_WARBLER_EGG = ITEMS.register("rock_warbler_egg",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ROOBRUSH = ITEMS.register("roobrush",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ROT_SCALE = ITEMS.register("rot_scale",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SABRE_CAT_TOOTH = ITEMS.register("sabre_cat_tooth",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SALMON_ROE = ITEMS.register("salmon_roe",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SALT_PILE = ITEMS.register("salt_pile",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SALTRICE = ITEMS.register("saltrice",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SCALON_FIN = ITEMS.register("scalon_fin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SCALY_PHOLIOTA = ITEMS.register("scaly_pholiota",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SCATHECRAW = ITEMS.register("scathecraw",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SCREAMING_MAW = ITEMS.register("screaming_maw",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SCRIB_JELLY = ITEMS.register("scrib_jelly",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SCRIB_JERKY = ITEMS.register("scrib_jerky",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SILVERSIDE_PERCH = ITEMS.register("silverside_perch",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SIMON_RODAYNES_HEART = ITEMS.register("simon_rodaynes_heart",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SLAUGHTERFISH_EGG = ITEMS.register("slaughterfish_egg",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SLAUGHTERFISH_SCALES = ITEMS.register("slaughterfish_scales",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SLOAD_SOAP = ITEMS.register("sload_soap",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SMALL_ANTLERS = ITEMS.register("small_antlers",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SMALL_PEARL = ITEMS.register("small_pearl",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SNOWBERRIES = ITEMS.register("snowberries",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SPADEFISH = ITEMS.register("spadefish",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SPAWN_ASH = ITEMS.register("spawn_ash",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SPIDDAL_STICK = ITEMS.register("spiddal_stick",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SPIDER_EGG = ITEMS.register("spider_egg",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SPRIGGAN_SAP = ITEMS.register("spriggan_sap",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> STEEL_BLUE_ENTOLOMA = ITEMS.register("steel_blue_entoloma",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> STONEFLOWER_PETALS = ITEMS.register("stoneflower_petals",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SWAMP_FUNGAL_POD = ITEMS.register("swamp_fungal_pod",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TAPROOT = ITEMS.register("taproot",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> THISTLE_BRANCH = ITEMS.register("thistle_branch",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> THORN_HOOK = ITEMS.register("thorn_hook",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TORCHBUG_THORAX = ITEMS.register("torchbug_thorax",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TRAMA_ROOT = ITEMS.register("trama_root",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TROLL_FAT = ITEMS.register("troll_fat",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TUNDRA_COTTON = ITEMS.register("tundra_cotton",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> VAMPIRE_DUST = ITEMS.register("vampire_dust",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> VOID_ESSENCE = ITEMS.register("void_essence",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> VOID_SALTS = ITEMS.register("void_salts",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WATCHERS_EYE = ITEMS.register("watchers_eye",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WHEAT = ITEMS.register("wheat",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WHITE_CAP = ITEMS.register("white_cap",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WILD_GRASS_POD = ITEMS.register("wild_grass_pod",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WISP_STALK_CAPS = ITEMS.register("wisp_stalk_caps",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WISP_WRAPPINGS = ITEMS.register("wisp_wrappings",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WITHERING_MOON = ITEMS.register("withering_moon",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WORMS_HEAD_CAP = ITEMS.register("worms_head_cap",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> YELLOW_MOUNTAIN_FLOWER = ITEMS.register("yellow_mountain_flower",
-            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ABECEAN_LONGFIN = registerIngredient("abecean_longfin");
+    public static final RegistryObject<Item> ALOCASIA_FRUIT = registerIngredient("alocasia_fruit");
+    public static final RegistryObject<Item> ALOE_VERA_LEAVES = registerIngredient("aloe_vera_leaves");
+    public static final RegistryObject<Item> AMBROSIA = registerIngredient("ambrosia");
+    public static final RegistryObject<Item> ANCESTOR_MOTH_WING = registerIngredient("ancestor_moth_wing");
+    public static final RegistryObject<Item> ANGELFISH = registerIngredient("angelfish");
+    public static final RegistryObject<Item> ANGLER_LARVAE = registerIngredient("angler_larvae");
+    public static final RegistryObject<Item> ASH_CREEP_CLUSTER = registerIngredient("ash_creep_cluster");
+    public static final RegistryObject<Item> ASH_HOPPER_JELLY = registerIngredient("ash_hopper_jelly");
+    public static final RegistryObject<Item> ASHEN_GRASS_POD = registerIngredient("ashen_grass_pod");
+    public static final RegistryObject<Item> ASTER_BLOOM_CORE = registerIngredient("aster_bloom_core");
+    public static final RegistryObject<Item> BEAR_CLAWS = registerIngredient("bear_claws");
+    public static final RegistryObject<Item> BEE = registerIngredient("bee");
+    public static final RegistryObject<Item> BEEHIVE_HUSK = registerIngredient("beehive_husk");
+    public static final RegistryObject<Item> BERITS_ASHES = registerIngredient("berits_ashes");
+    public static final RegistryObject<Item> BITTERGREEN_PETALS = registerIngredient("bittergreen_petals");
+    public static final RegistryObject<Item> BLEEDING_CROWN = registerIngredient("bleeding_crown");
+    public static final RegistryObject<Item> BLIND_WATCHERS_EYE = registerIngredient("blind_watchers_eye");
+    public static final RegistryObject<Item> BLISS_BUG_THORAX = registerIngredient("bliss_bug_thorax");
+    public static final RegistryObject<Item> BLISTER_POD_CAP = registerIngredient("blister_pod_cap");
+    public static final RegistryObject<Item> BLISTERWORT = registerIngredient("blisterwort");
+    public static final RegistryObject<Item> BLOODGRASS = registerIngredient("bloodgrass");
+    public static final RegistryObject<Item> BLUE_BUTTERFLY_WING = registerIngredient("blue_butterfly_wing");
+    public static final RegistryObject<Item> BLUE_DARTWING = registerIngredient("blue_dartwing");
+    public static final RegistryObject<Item> BLUE_MOUNTAIN_FLOWER = registerIngredient("blue_mountain_flower");
+    public static final RegistryObject<Item> BOAR_TUSK = registerIngredient("boar_tusk");
+    public static final RegistryObject<Item> BOG_BEACON = registerIngredient("bog_beacon");
+    public static final RegistryObject<Item> BONE_MEAL = registerIngredient("bone_meal");
+    public static final RegistryObject<Item> BRIAR_HEART = registerIngredient("briar_heart");
+    public static final RegistryObject<Item> BUNGLERS_BANE = registerIngredient("bunglers_bane");
+    public static final RegistryObject<Item> BURNT_SPRIGGAN_WOOD = registerIngredient("burnt_spriggan_wood");
+    public static final RegistryObject<Item> BUTTERFLY_WING = registerIngredient("butterfly_wing");
+    public static final RegistryObject<Item> CANIS_ROOT = registerIngredient("canis_root");
+    public static final RegistryObject<Item> CHARRED_SKEEVER_HIDE = registerIngredient("charred_skeever_hide");
+    public static final RegistryObject<Item> CHAURUS_EGGS = registerIngredient("chaurus_eggs");
+    public static final RegistryObject<Item> CHAURUS_HUNTER_ANTENNAE = registerIngredient("chaurus_hunter_antennae");
+    public static final RegistryObject<Item> CHICKENS_EGG = registerIngredient("chickens_egg");
+    public static final RegistryObject<Item> CHOKEBERRY = registerIngredient("chokeberry");
+    public static final RegistryObject<Item> CHOKEWEED = registerIngredient("chokeweed");
+    public static final RegistryObject<Item> CODA_FLOWER = registerIngredient("coda_flower");
+    public static final RegistryObject<Item> COMBERRY = registerIngredient("comberry");
+    public static final RegistryObject<Item> CONGEALED_PUTRESCENCE = registerIngredient("congealed_putrescence");
+    public static final RegistryObject<Item> CORKBULB_ROOT = registerIngredient("corkbulb_root");
+    public static final RegistryObject<Item> CORRUPTED_HUMAN_HEART = registerIngredient("corrupted_human_heart");
+    public static final RegistryObject<Item> CREEP_CLUSTER = registerIngredient("creep_cluster");
+    public static final RegistryObject<Item> CRIMSON_NIRNROOT = registerIngredient("crimson_nirnroot");
+    public static final RegistryObject<Item> CYRODILIC_SPADETAIL = registerIngredient("cyrodilic_spadetail");
+    public static final RegistryObject<Item> DAEDRA_HEART = registerIngredient("daedra_heart");
+    public static final RegistryObject<Item> DAEDRA_SILK = registerIngredient("daedra_silk");
+    public static final RegistryObject<Item> DAEDRA_VENIN = registerIngredient("daedra_venin");
+    public static final RegistryObject<Item> DAEDROTH_TEETH = registerIngredient("daedroth_teeth");
+    public static final RegistryObject<Item> DEATHBELL = registerIngredient("deathbell");
+    public static final RegistryObject<Item> DRAGONS_TONGUE = registerIngredient("dragons_tongue");
+    public static final RegistryObject<Item> DREUGH_WAX = registerIngredient("dreugh_wax");
+    public static final RegistryObject<Item> DWARVEN_OIL = registerIngredient("dwarven_oil");
+    public static final RegistryObject<Item> ECTOPLASM = registerIngredient("ectoplasm");
+    public static final RegistryObject<Item> ELVES_EAR = registerIngredient("elves_ear");
+    public static final RegistryObject<Item> ELYTRA_ICHOR = registerIngredient("elytra_ichor");
+    public static final RegistryObject<Item> EMPEROR_PARASOL_MOSS = registerIngredient("emperor_parasol_moss");
+    public static final RegistryObject<Item> EYE_OF_SABRE_CAT = registerIngredient("eye_of_sabre_cat");
+    public static final RegistryObject<Item> FALMER_EAR = registerIngredient("falmer_ear");
+    public static final RegistryObject<Item> FARENGARS_FROST_SALT = registerIngredient("farengars_frost_salt");
+    public static final RegistryObject<Item> FELSAAD_TERN_FEATHERS = registerIngredient("felsaad_tern_feathers");
+    public static final RegistryObject<Item> FINE_CUT_VOID_SALTS = registerIngredient("fine_cut_void_salts");
+    public static final RegistryObject<Item> FIRE_PETAL = registerIngredient("fire_petal");
+    public static final RegistryObject<Item> FIRE_SALTS = registerIngredient("fire_salts");
+    public static final RegistryObject<Item> FLAME_STALK = registerIngredient("flame_stalk");
+    public static final RegistryObject<Item> FLY_AMANITA = registerIngredient("fly_amanita");
+    public static final RegistryObject<Item> FROST_MIRRIAM = registerIngredient("frost_mirriam");
+    public static final RegistryObject<Item> FROST_SALTS = registerIngredient("frost_salts");
+    public static final RegistryObject<Item> FUNGUS_STALK = registerIngredient("fungus_stalk");
+    public static final RegistryObject<Item> GARLIC = registerIngredient("garlic");
+    public static final RegistryObject<Item> GIANT_LICHEN = registerIngredient("giant_lichen");
+    public static final RegistryObject<Item> GIANTS_TOE = registerIngredient("giants_toe");
+    public static final RegistryObject<Item> GLASSFISH = registerIngredient("glassfish");
+    public static final RegistryObject<Item> GLEAMBLOSSOM = registerIngredient("gleamblossom");
+    public static final RegistryObject<Item> GLOW_DUST = registerIngredient("glow_dust");
+    public static final RegistryObject<Item> GLOWING_MUSHROOM = registerIngredient("glowing_mushroom");
+    public static final RegistryObject<Item> GNARL_BARK = registerIngredient("gnarl_bark");
+    public static final RegistryObject<Item> GOLD_KANET = registerIngredient("gold_kanet");
+    public static final RegistryObject<Item> GOLDFISH = registerIngredient("goldfish");
+    public static final RegistryObject<Item> GRASS_POD = registerIngredient("grass_pod");
+    public static final RegistryObject<Item> GREEN_BUTTERFLY_WING = registerIngredient("green_butterfly_wing");
+    public static final RegistryObject<Item> HACKLE_LO_LEAF = registerIngredient("hackle_lo_leaf");
+    public static final RegistryObject<Item> HAGRAVEN_CLAW = registerIngredient("hagraven_claw");
+    public static final RegistryObject<Item> HAGRAVEN_FEATHERS = registerIngredient("hagraven_feathers");
+    public static final RegistryObject<Item> HANGING_MOSS = registerIngredient("hanging_moss");
+    public static final RegistryObject<Item> HARRADA = registerIngredient("harrada");
+    public static final RegistryObject<Item> HAWK_BEAK = registerIngredient("hawk_beak");
+    public static final RegistryObject<Item> HAWK_FEATHERS = registerIngredient("hawk_feathers");
+    public static final RegistryObject<Item> HAWKS_EGG = registerIngredient("hawks_egg");
+    public static final RegistryObject<Item> HEALING_SALTS = registerIngredient("healing_salts");
+    public static final RegistryObject<Item> HEART_OF_ORDER = registerIngredient("heart_of_order");
+    public static final RegistryObject<Item> HISTCARP = registerIngredient("histcarp");
+    public static final RegistryObject<Item> HONEYCOMB = registerIngredient("honeycomb");
+    public static final RegistryObject<Item> HUMAN_FLESH = registerIngredient("human_flesh");
+    public static final RegistryObject<Item> HUMAN_HEART = registerIngredient("human_heart");
+    public static final RegistryObject<Item> HUNGER_TONGUE = registerIngredient("hunger_tongue");
+    public static final RegistryObject<Item> HYDNUM_AZURE_GIANT_SPORE = registerIngredient("hydnum_azure_giant_spore");
+    public static final RegistryObject<Item> HYPHA_FACIA = registerIngredient("hypha_facia");
+    public static final RegistryObject<Item> ICE_WRAITH_TEETH = registerIngredient("ice_wraith_teeth");
+    public static final RegistryObject<Item> IMP_GALL = registerIngredient("imp_gall");
+    public static final RegistryObject<Item> IMP_STOOL = registerIngredient("imp_stool");
+    public static final RegistryObject<Item> IRONWOOD_FRUIT = registerIngredient("ironwood_fruit");
+    public static final RegistryObject<Item> JARRIN_ROOT = registerIngredient("jarrin_root");
+    public static final RegistryObject<Item> JAZBAY_GRAPES = registerIngredient("jazbay_grapes");
+    public static final RegistryObject<Item> JUVENILE_MUDCRAB = registerIngredient("juvenile_mudcrab");
+    public static final RegistryObject<Item> KAGOUTI_HIDE = registerIngredient("kagouti_hide");
+    public static final RegistryObject<Item> KRESH_FIBER = registerIngredient("kresh_fiber");
+    public static final RegistryObject<Item> LARGE_ANTLERS = registerIngredient("large_antlers");
+    public static final RegistryObject<Item> LAVENDER = registerIngredient("lavender");
+    public static final RegistryObject<Item> LICHOR = registerIngredient("lichor");
+    public static final RegistryObject<Item> LUMINOUS_RUSSULA = registerIngredient("luminous_russula");
+    public static final RegistryObject<Item> LUNA_MOTH_WING = registerIngredient("luna_moth_wing");
+    public static final RegistryObject<Item> LYRETAIL_ANTHIAS = registerIngredient("lyretail_anthias");
+    public static final RegistryObject<Item> MARSHMERROW = registerIngredient("marshmerrow");
+    public static final RegistryObject<Item> MINOTAUR_HORN = registerIngredient("minotaur_horn");
+    public static final RegistryObject<Item> MOON_SUGAR = registerIngredient("moon_sugar");
+    public static final RegistryObject<Item> MORA_TAPINELLA = registerIngredient("mora_tapinella");
+    public static final RegistryObject<Item> MORT_FLESH = registerIngredient("mort_flesh");
+    public static final RegistryObject<Item> MUDCRAB_CHITIN = registerIngredient("mudcrab_chitin");
+    public static final RegistryObject<Item> NAMIRAS_ROT = registerIngredient("namiras_rot");
+    public static final RegistryObject<Item> NETCH_JELLY = registerIngredient("netch_jelly");
+    public static final RegistryObject<Item> NIGHTSHADE = registerIngredient("nightshade");
+    public static final RegistryObject<Item> NIRNROOT = registerIngredient("nirnroot");
+    public static final RegistryObject<Item> NORDIC_BARNACLE = registerIngredient("nordic_barnacle");
+    public static final RegistryObject<Item> OGRES_TEETH = registerIngredient("ogres_teeth");
+    public static final RegistryObject<Item> ORANGE_DARTWING = registerIngredient("orange_dartwing");
+    public static final RegistryObject<Item> PEARL = registerIngredient("pearl");
+    public static final RegistryObject<Item> PEARLFISH = registerIngredient("pearlfish");
+    public static final RegistryObject<Item> PINE_THRUSH_EGG = registerIngredient("pine_thrush_egg");
+    public static final RegistryObject<Item> POISON_BLOOM = registerIngredient("poison_bloom");
+    public static final RegistryObject<Item> POWDERED_MAMMOTH_TUSK = registerIngredient("powdered_mammoth_tusk");
+    public static final RegistryObject<Item> PURPLE_BUTTERFLY_WING = registerIngredient("purple_butterfly_wing");
+    public static final RegistryObject<Item> PURPLE_MOUNTAIN_FLOWER = registerIngredient("purple_mountain_flower");
+    public static final RegistryObject<Item> PYGMY_SUNFISH = registerIngredient("pygmy_sunfish");
+    public static final RegistryObject<Item> RED_KELP_GAS_BLADDER = registerIngredient("red_kelp_gas_bladder");
+    public static final RegistryObject<Item> RED_MOUNTAIN_FLOWER = registerIngredient("red_mountain_flower");
+    public static final RegistryObject<Item> REDWORT_FLOWER = registerIngredient("redwort_flower");
+    public static final RegistryObject<Item> RIVER_BETTY = registerIngredient("river_betty");
+    public static final RegistryObject<Item> ROCK_WARBLER_EGG = registerIngredient("rock_warbler_egg");
+    public static final RegistryObject<Item> ROOBRUSH = registerIngredient("roobrush");
+    public static final RegistryObject<Item> ROT_SCALE = registerIngredient("rot_scale");
+    public static final RegistryObject<Item> SABRE_CAT_TOOTH = registerIngredient("sabre_cat_tooth");
+    public static final RegistryObject<Item> SALMON_ROE = registerIngredient("salmon_roe");
+    public static final RegistryObject<Item> SALT_PILE = registerIngredient("salt_pile");
+    public static final RegistryObject<Item> SALTRICE = registerIngredient("saltrice");
+    public static final RegistryObject<Item> SCALON_FIN = registerIngredient("scalon_fin");
+    public static final RegistryObject<Item> SCALY_PHOLIOTA = registerIngredient("scaly_pholiota");
+    public static final RegistryObject<Item> SCATHECRAW = registerIngredient("scathecraw");
+    public static final RegistryObject<Item> SCREAMING_MAW = registerIngredient("screaming_maw");
+    public static final RegistryObject<Item> SCRIB_JELLY = registerIngredient("scrib_jelly");
+    public static final RegistryObject<Item> SCRIB_JERKY = registerIngredient("scrib_jerky");
+    public static final RegistryObject<Item> SILVERSIDE_PERCH = registerIngredient("silverside_perch");
+    public static final RegistryObject<Item> SIMON_RODAYNES_HEART = registerIngredient("simon_rodaynes_heart");
+    public static final RegistryObject<Item> SLAUGHTERFISH_EGG = registerIngredient("slaughterfish_egg");
+    public static final RegistryObject<Item> SLAUGHTERFISH_SCALES = registerIngredient("slaughterfish_scales");
+    public static final RegistryObject<Item> SLOAD_SOAP = registerIngredient("sload_soap");
+    public static final RegistryObject<Item> SMALL_ANTLERS = registerIngredient("small_antlers");
+    public static final RegistryObject<Item> SMALL_PEARL = registerIngredient("small_pearl");
+    public static final RegistryObject<Item> SNOWBERRIES = registerIngredient("snowberries");
+    public static final RegistryObject<Item> SPADEFISH = registerIngredient("spadefish");
+    public static final RegistryObject<Item> SPAWN_ASH = registerIngredient("spawn_ash");
+    public static final RegistryObject<Item> SPIDDAL_STICK = registerIngredient("spiddal_stick");
+    public static final RegistryObject<Item> SPIDER_EGG = registerIngredient("spider_egg");
+    public static final RegistryObject<Item> SPRIGGAN_SAP = registerIngredient("spriggan_sap");
+    public static final RegistryObject<Item> STEEL_BLUE_ENTOLOMA = registerIngredient("steel_blue_entoloma");
+    public static final RegistryObject<Item> STONEFLOWER_PETALS = registerIngredient("stoneflower_petals");
+    public static final RegistryObject<Item> SWAMP_FUNGAL_POD = registerIngredient("swamp_fungal_pod");
+    public static final RegistryObject<Item> TAPROOT = registerIngredient("taproot");
+    public static final RegistryObject<Item> THISTLE_BRANCH = registerIngredient("thistle_branch");
+    public static final RegistryObject<Item> THORN_HOOK = registerIngredient("thorn_hook");
+    public static final RegistryObject<Item> TORCHBUG_THORAX = registerIngredient("torchbug_thorax");
+    public static final RegistryObject<Item> TRAMA_ROOT = registerIngredient("trama_root");
+    public static final RegistryObject<Item> TROLL_FAT = registerIngredient("troll_fat");
+    public static final RegistryObject<Item> TUNDRA_COTTON = registerIngredient("tundra_cotton");
+    public static final RegistryObject<Item> VAMPIRE_DUST = registerIngredient("vampire_dust");
+    public static final RegistryObject<Item> VOID_ESSENCE = registerIngredient("void_essence");
+    public static final RegistryObject<Item> VOID_SALTS = registerIngredient("void_salts");
+    public static final RegistryObject<Item> WATCHERS_EYE = registerIngredient("watchers_eye");
+    public static final RegistryObject<Item> WHEAT = registerIngredient("wheat");
+    public static final RegistryObject<Item> WHITE_CAP = registerIngredient("white_cap");
+    public static final RegistryObject<Item> WILD_GRASS_POD = registerIngredient("wild_grass_pod");
+    public static final RegistryObject<Item> WISP_STALK_CAPS = registerIngredient("wisp_stalk_caps");
+    public static final RegistryObject<Item> WISP_WRAPPINGS = registerIngredient("wisp_wrappings");
+    public static final RegistryObject<Item> WITHERING_MOON = registerIngredient("withering_moon");
+    public static final RegistryObject<Item> WORMS_HEAD_CAP = registerIngredient("worms_head_cap");
+    public static final RegistryObject<Item> YELLOW_MOUNTAIN_FLOWER = registerIngredient("yellow_mountain_flower");
 
 
-    public static final RegistryObject<Item> JUNIPER_BERRIES = ITEMS.register("juniper_berries",
-            () -> new Item(new Item.Properties().food(ModFoods.JUNIPER_BERRIES)));
+    public static final RegistryObject<Item> JUNIPER_BERRIES = registerIngredient("juniper_berries");
 
 
     public static final List<RegistryObject<Item>> INGREDIENT_ITEMS = List.of(

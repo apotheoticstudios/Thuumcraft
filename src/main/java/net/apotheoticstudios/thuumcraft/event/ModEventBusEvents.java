@@ -1,13 +1,16 @@
 package net.apotheoticstudios.thuumcraft.event;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
+import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.entity.ModEntities;
 import net.apotheoticstudios.thuumcraft.entity.custom.DraugrEntity;
 import net.apotheoticstudios.thuumcraft.entity.custom.GiantEntity;
 import net.apotheoticstudios.thuumcraft.entity.custom.SkeeverEntity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +25,11 @@ public class ModEventBusEvents {
         event.put(ModEntities.DRAUGR.get(), DraugrEntity.createAttributes().build());
         event.put(ModEntities.GIANT.get(), GiantEntity.createAttributes().build());
         event.put(ModEntities.SKEEVER.get(), SkeeverEntity.createAttributes().build());
+    }
+
+    @SubscribeEvent
+    public static void addPlayerAttributes(EntityAttributeModificationEvent event) {
+        ModAttributes.customAttributes().forEach(attribute -> event.add(EntityType.PLAYER, attribute.get()));
     }
 
     @SubscribeEvent

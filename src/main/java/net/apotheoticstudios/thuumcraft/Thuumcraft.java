@@ -1,7 +1,9 @@
 package net.apotheoticstudios.thuumcraft;
 
 import com.mojang.logging.LogUtils;
+import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.block.ModBlocks;
+import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.entity.ModEntities;
 import net.apotheoticstudios.thuumcraft.entity.client.DraugrRenderer;
 import net.apotheoticstudios.thuumcraft.entity.client.GiantRenderer;
@@ -10,6 +12,7 @@ import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.apotheoticstudios.thuumcraft.loot.ModLootModifiers;
+import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
 import net.apotheoticstudios.thuumcraft.worldgen.structure.ModStructureTypes;
@@ -43,6 +46,10 @@ public class Thuumcraft {
 
         ModCreativeModeTabs.register(modEventBus);
 
+        ModAttributes.register(modEventBus);
+
+        ModEffects.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -63,7 +70,7 @@ public class Thuumcraft {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)  {
-
+        ModMessages.register();
     }
 
     // Add the example block item to the building blocks tab

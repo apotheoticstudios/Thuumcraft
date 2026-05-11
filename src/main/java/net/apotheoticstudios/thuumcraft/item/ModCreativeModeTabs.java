@@ -7,7 +7,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -60,7 +59,6 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());
                         pOutput.accept(ModItems.SEPTIM.get());
-                        ModItems.INGREDIENT_ITEMS.forEach(item -> pOutput.accept(item.get()));
 
                         pOutput.accept(ModBlocks.REFINED_MALACHITE_BLOCK.get());
 
@@ -70,6 +68,13 @@ public class ModCreativeModeTabs {
 
 
                     })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> THUUMCRAFT_INGREDIENTS_TAB = CREATIVE_MODE_TABS.register("thuumcraft_ingredients_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.NAMIRAS_ROT.get()))
+                    .title(Component.translatable("creativetab.thuumcraft_ingredients_tab"))
+                    .displayItems((pParameters, pOutput) ->
+                            ModItems.INGREDIENT_ITEMS.forEach(item -> pOutput.accept(item.get())))
                     .build());
 
 

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "#thuumcraft:has_structure/crypt_bandit",
+  "biomes": "#thuumcraft:has_structure/crypt_entry",
   "step": "surface_structures",
   "spawn_overrides": {},
-  "start_pool": "thuumcraft:crypt_bandit/start_pool",
+  "start_pool": "thuumcraft:crypt_entry/start_pool",
   "size": 1,
   "start_height": {
     "absolute": -10

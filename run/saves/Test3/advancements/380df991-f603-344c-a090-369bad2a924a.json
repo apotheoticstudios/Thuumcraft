@@ -8,6 +8,7 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:sunflower_plains": "2026-05-09 20:37:01 +1000",
+      "minecraft:beach": "2026-05-12 16:34:49 +1000",
       "minecraft:sparse_jungle": "2026-05-09 19:54:14 +1000",
       "minecraft:river": "2026-05-09 20:37:00 +1000",
       "minecraft:dripstone_caves": "2026-05-12 11:56:52 +1000",

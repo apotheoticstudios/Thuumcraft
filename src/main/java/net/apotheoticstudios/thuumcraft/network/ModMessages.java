@@ -28,6 +28,12 @@ public class ModMessages {
                 .decoder(ClientboundSneakAwarenessPacket::new)
                 .consumerMainThread(ClientboundSneakAwarenessPacket::handle)
                 .add();
+
+        channel.messageBuilder(ClientboundStaminaPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundStaminaPacket::encode)
+                .decoder(ClientboundStaminaPacket::new)
+                .consumerMainThread(ClientboundStaminaPacket::handle)
+                .add();
     }
 
     public static void sendToPlayer(Object message, ServerPlayer player) {

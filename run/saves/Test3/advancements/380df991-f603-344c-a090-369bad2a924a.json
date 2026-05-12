@@ -7,6 +7,7 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:snowy_slopes": "2026-05-12 18:16:08 +1000",
       "minecraft:sunflower_plains": "2026-05-09 20:37:01 +1000",
       "minecraft:beach": "2026-05-12 16:34:49 +1000",
       "minecraft:sparse_jungle": "2026-05-09 19:54:14 +1000",
@@ -599,6 +600,48 @@
   "thuumcraft:recipes/misc/refined_malachite": {
     "criteria": {
       "has_refined_malachite_block": "2026-05-12 14:12:57 +1000"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/blue_dye_from_cornflower": {
+    "criteria": {
+      "has_cornflower": "2026-05-12 18:36:09 +1000"
+    },
+    "done": true
+  },
+  "handcrafted:recipes/misc/kitchen_hood": {
+    "criteria": {
+      "has_kitchen_hood": "2026-05-12 18:40:41 +1000"
+    },
+    "done": true
+  },
+  "supplementaries:recipes/cage": {
+    "criteria": {
+      "has_iron_bars": "2026-05-12 18:40:41 +1000"
+    },
+    "done": true
+  },
+  "handcrafted:recipes/misc/kitchen_hood_pipe": {
+    "criteria": {
+      "has_kitchen_hood_pipe": "2026-05-12 18:40:41 +1000"
+    },
+    "done": true
+  },
+  "irons_spellbooks:grant_patchouli": {
+    "criteria": {
+      "tick": "2026-05-12 20:01:22 +1000"
+    },
+    "done": true
+  },
+  "irons_spellbooks:irons_spellbooks/staff_root": {
+    "criteria": {
+      "requirement": "2026-05-12 20:07:28 +1000"
+    },
+    "done": true
+  },
+  "irons_spellbooks:irons_spellbooks/staff_ice": {
+    "criteria": {
+      "requirement": "2026-05-12 20:07:28 +1000"
     },
     "done": true
   },

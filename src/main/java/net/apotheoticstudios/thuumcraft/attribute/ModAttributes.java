@@ -17,6 +17,8 @@ public class ModAttributes {
     private static final double DEFAULT_ATTRIBUTE_MAX = 1024.0D;
     private static final double SKYRIM_SKILL_ATTRIBUTE_MAX = 100.0D;
     private static final double BASE_SNEAK_ATTACK_CRIT_DAMAGE = 2.0D;
+    private static final double BASE_STAMINA = 100.0D;
+    private static final double BASE_STAMINA_REGENERATION = 10.0D;
 
     public static final DeferredRegister<Attribute> ATTRIBUTES =
             DeferredRegister.create(ForgeRegistries.ATTRIBUTES, Thuumcraft.MOD_ID);
@@ -28,7 +30,6 @@ public class ModAttributes {
     public static final RegistryObject<Attribute> ARCHERY = registerSkillAttribute("archery");
     public static final RegistryObject<Attribute> BARTER = registerSkillAttribute("barter");
     public static final RegistryObject<Attribute> BLOCK = registerSkillAttribute("block");
-    public static final RegistryObject<Attribute> CARRY_WEIGHT = registerAttribute("carry_weight");
     public static final RegistryObject<Attribute> CONJURATION = registerSkillAttribute("conjuration");
     public static final RegistryObject<Attribute> DESTRUCTION = registerSkillAttribute("destruction");
     public static final RegistryObject<Attribute> ENCHANTING = registerSkillAttribute("enchanting");
@@ -43,8 +44,8 @@ public class ModAttributes {
     public static final RegistryObject<Attribute> RESTORATION = registerSkillAttribute("restoration");
     public static final RegistryObject<Attribute> SMITHING = registerSkillAttribute("smithing");
     public static final RegistryObject<Attribute> SNEAK = registerSkillAttribute("sneak");
-    public static final RegistryObject<Attribute> STAMINA = registerAttribute("stamina");
-    public static final RegistryObject<Attribute> STAMINA_REGENERATION = registerAttribute("stamina_regeneration");
+    public static final RegistryObject<Attribute> STAMINA = registerPositiveAttribute("stamina", BASE_STAMINA);
+    public static final RegistryObject<Attribute> STAMINA_REGENERATION = registerPositiveAttribute("stamina_regeneration", BASE_STAMINA_REGENERATION);
     public static final RegistryObject<Attribute> TWO_HANDED = registerSkillAttribute("two_handed");
 
     private static RegistryObject<Attribute> registerAttribute(String name) {

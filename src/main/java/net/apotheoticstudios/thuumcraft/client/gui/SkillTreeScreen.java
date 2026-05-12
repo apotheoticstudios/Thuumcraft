@@ -46,122 +46,122 @@ public class SkillTreeScreen extends Screen {
 
     private static final List<SkillTreeDefinition> TREES = List.of(
             tree(ModAttributes.ARCHERY, 400, 487, perks(
-                    perk("Overdraw", "Ranks: 5\nSkill: 0/20/40/60/80 Archery", 0.730D, 0.749D),
-                    perk("Critical Shot", "Ranks: 3\nSkill: 30/60/90 Archery\nRequires: Overdraw", 0.668D, 0.497D),
-                    perk("Eagle Eye", "Skill: 30 Archery\nRequires: Overdraw", 0.400D, 0.550D),
-                    perk("Steady Hand", "Ranks: 2\nSkill: 40/60 Archery\nRequires: Eagle Eye", 0.510D, 0.499D),
-                    perk("Power Shot", "Skill: 50 Archery\nRequires: Eagle Eye", 0.323D, 0.396D),
-                    perk("Hunter's Discipline", "Skill: 50 Archery\nRequires: Critical Shot", 0.560D, 0.308D),
-                    perk("Ranger", "Skill: 60 Archery\nRequires: Hunter's Discipline", 0.528D, 0.234D),
-                    perk("Quick Shot", "Skill: 70 Archery\nRequires: Power Shot", 0.330D, 0.199D),
-                    perk("Bullseye", "Skill: 100 Archery\nRequires: Ranger or Quick Shot", 0.443D, 0.142D)),
+                    perk("Overdraw", "Ranks: 5\nRequires: 0/20/40/60/80 Archery", 0.730D, 0.749D),
+                    perk("Critical Shot", "Ranks: 3\nRequires: 30/60/90 Archery", 0.668D, 0.497D),
+                    perk("Eagle Eye", "Requires: 30 Archery", 0.400D, 0.550D),
+                    perk("Steady Hand", "Ranks: 2\nRequires: 40/60 Archery", 0.510D, 0.499D),
+                    perk("Power Shot", "Requires: 50 Archery", 0.323D, 0.396D),
+                    perk("Hunter's Discipline", "Requires: 50 Archery", 0.560D, 0.308D),
+                    perk("Ranger", "Requires: 60 Archery", 0.528D, 0.234D),
+                    perk("Quick Shot", "Requires: 70 Archery", 0.330D, 0.199D),
+                    perk("Bullseye", "Requires: 100 Archery", 0.443D, 0.142D)),
                     links("Overdraw", "Critical Shot", "Critical Shot", "Hunter's Discipline",
                             "Hunter's Discipline", "Ranger", "Overdraw", "Eagle Eye", "Eagle Eye", "Power Shot",
                             "Power Shot", "Quick Shot", "Eagle Eye", "Steady Hand", "Ranger", "Bullseye",
                             "Quick Shot", "Bullseye")),
             tree(ModAttributes.BLOCK, 300, 275, perks(
-                    perk("Shield Wall", "Ranks: 5\nSkill: 0/20/40/60/80 Block", 0.527D, 0.862D),
-                    perk("Deflect Arrows", "Skill: 30 Block\nRequires: Shield Wall", 0.093D, 0.629D),
-                    perk("Block Runner", "Skill: 70 Block\nRequires: Elemental Protection", 0.340D, 0.175D),
-                    perk("Elemental Protection", "Skill: 50 Block\nRequires: Deflect Arrows", 0.217D, 0.262D),
-                    perk("Quick Reflexes", "Skill: 30 Block\nRequires: Shield Wall", 0.427D, 0.545D),
-                    perk("Power Bash", "Skill: 30 Block\nRequires: Shield Wall", 0.887D, 0.615D),
-                    perk("Deadly Bash", "Skill: 50 Block\nRequires: Power Bash", 0.867D, 0.356D),
-                    perk("Disarming Bash", "Skill: 70 Block\nRequires: Deadly Bash", 0.787D, 0.164D),
-                    perk("Shield Charge", "Skill: 100 Block\nRequires: Disarming Bash or Block Runner", 0.527D, 0.102D)),
+                    perk("Shield Wall", "Ranks: 5\nRequires: 0/20/40/60/80 Block", 0.527D, 0.862D),
+                    perk("Deflect Arrows", "Requires: 30 Block", 0.093D, 0.629D),
+                    perk("Block Runner", "Requires: 70 Block", 0.340D, 0.175D),
+                    perk("Elemental Protection", "Requires: 50 Block", 0.217D, 0.262D),
+                    perk("Quick Reflexes", "Requires: 30 Block", 0.427D, 0.545D),
+                    perk("Power Bash", "Requires: 30 Block", 0.887D, 0.615D),
+                    perk("Deadly Bash", "Requires: 50 Block", 0.867D, 0.356D),
+                    perk("Disarming Bash", "Requires: 70 Block", 0.787D, 0.164D),
+                    perk("Shield Charge", "Requires: 100 Block", 0.527D, 0.102D)),
                     links("Shield Wall", "Deflect Arrows", "Deflect Arrows", "Elemental Protection",
                             "Elemental Protection", "Block Runner", "Shield Wall", "Power Bash", "Power Bash",
                             "Deadly Bash", "Deadly Bash", "Disarming Bash", "Disarming Bash", "Shield Charge",
                             "Block Runner", "Shield Charge", "Shield Wall", "Quick Reflexes")),
             tree(ModAttributes.HEAVY_ARMOR, 300, 292, perks(
-                    perk("Juggernaut", "Ranks: 5\nSkill: 0/20/40/60/80 Heavy Armor", 0.503D, 0.901D),
-                    perk("Fists of Steel", "Skill: 30 Heavy Armor\nRequires: Juggernaut", 0.277D, 0.685D),
-                    perk("Cushioned", "Skill: 50 Heavy Armor\nRequires: Fists of Steel", 0.157D, 0.479D),
-                    perk("Conditioning", "Skill: 70 Heavy Armor\nRequires: Cushioned", 0.167D, 0.247D),
-                    perk("Well Fitted", "Skill: 30 Heavy Armor\nRequires: Juggernaut", 0.727D, 0.668D),
-                    perk("Tower of Strength", "Skill: 50 Heavy Armor\nRequires: Well Fitted", 0.790D, 0.438D),
-                    perk("Matching Set", "Skill: 70 Heavy Armor\nRequires: Tower of Strength", 0.850D, 0.301D),
-                    perk("Reflect Blows", "Skill: 100 Heavy Armor\nRequires: Matching Set", 0.800D, 0.072D)),
+                    perk("Juggernaut", "Ranks: 5\nRequires: 0/20/40/60/80 Heavy Armor", 0.503D, 0.901D),
+                    perk("Fists of Steel", "Requires: 30 Heavy Armor", 0.277D, 0.685D),
+                    perk("Cushioned", "Requires: 50 Heavy Armor", 0.157D, 0.479D),
+                    perk("Conditioning", "Requires: 70 Heavy Armor", 0.167D, 0.247D),
+                    perk("Well Fitted", "Requires: 30 Heavy Armor", 0.727D, 0.668D),
+                    perk("Tower of Strength", "Requires: 50 Heavy Armor", 0.790D, 0.438D),
+                    perk("Matching Set", "Requires: 70 Heavy Armor", 0.850D, 0.301D),
+                    perk("Reflect Blows", "Requires: 100 Heavy Armor", 0.800D, 0.072D)),
                     links("Juggernaut", "Fists of Steel", "Fists of Steel", "Cushioned", "Cushioned",
                             "Conditioning", "Juggernaut", "Well Fitted", "Well Fitted", "Tower of Strength",
                             "Tower of Strength", "Matching Set", "Matching Set", "Reflect Blows")),
             tree(ModAttributes.ONE_HANDED, 300, 282, perks(
-                    perk("Armsman", "Ranks: 5\nSkill: 0/20/40/60/80 One-handed", 0.437D, 0.929D),
-                    perk("Bladesman", "Ranks: 3\nSkill: 30/60/90 One-handed\nRequires: Armsman", 0.623D, 0.596D),
-                    perk("Bone Breaker", "Ranks: 3\nSkill: 30/60/90 One-handed\nRequires: Armsman", 0.533D, 0.592D),
-                    perk("Dual Flurry", "Ranks: 2\nSkill: 30/50 One-handed\nRequires: Armsman", 0.783D, 0.784D),
-                    perk("Dual Savagery", "Skill: 70 One-handed\nRequires: Dual Flurry", 0.687D, 0.301D),
-                    perk("Fighting Stance", "Skill: 20 One-handed\nRequires: Armsman", 0.443D, 0.709D),
-                    perk("Critical Charge", "Skill: 50 One-handed\nRequires: Fighting Stance", 0.503D, 0.443D),
-                    perk("Savage Strike", "Skill: 50 One-handed\nRequires: Fighting Stance", 0.370D, 0.433D),
-                    perk("Paralyzing Strike", "Skill: 100 One-handed\nRequires: Critical Charge or Savage Strike", 0.443D, 0.064D),
-                    perk("Hack and Slash", "Ranks: 3\nSkill: 30/60/90 One-handed\nRequires: Armsman", 0.260D, 0.574D)),
+                    perk("Armsman", "Ranks: 5\nRequires: 0/20/40/60/80 One-handed", 0.437D, 0.929D),
+                    perk("Bladesman", "Ranks: 3\nRequires: 30/60/90 One-handed", 0.623D, 0.596D),
+                    perk("Bone Breaker", "Ranks: 3\nRequires: 30/60/90 One-handed", 0.533D, 0.592D),
+                    perk("Dual Flurry", "Ranks: 2\nRequires: 30/50 One-handed", 0.783D, 0.784D),
+                    perk("Dual Savagery", "Requires: 70 One-handed", 0.687D, 0.301D),
+                    perk("Fighting Stance", "Requires: 20 One-handed", 0.443D, 0.709D),
+                    perk("Critical Charge", "Requires: 50 One-handed", 0.503D, 0.443D),
+                    perk("Savage Strike", "Requires: 50 One-handed", 0.370D, 0.433D),
+                    perk("Paralyzing Strike", "Requires: 100 One-handed", 0.443D, 0.064D),
+                    perk("Hack and Slash", "Ranks: 3\nRequires: 30/60/90 One-handed", 0.260D, 0.574D)),
                     links("Armsman", "Bladesman", "Armsman", "Bone Breaker", "Armsman", "Dual Flurry",
                             "Dual Flurry", "Dual Savagery", "Armsman", "Fighting Stance", "Fighting Stance",
                             "Critical Charge", "Fighting Stance", "Savage Strike", "Critical Charge",
                             "Paralyzing Strike", "Savage Strike", "Paralyzing Strike", "Armsman", "Hack and Slash")),
             tree(ModAttributes.SMITHING, 400, 210, perks(
-                    perk("Steel Smithing", "Skill: 0 Smithing", 0.365D, 0.819D),
-                    perk("Arcane Blacksmith", "Skill: 60 Smithing\nRequires: Steel Smithing", 0.388D, 0.371D),
-                    perk("Elven Smithing", "Skill: 30 Smithing\nRequires: Steel Smithing", 0.080D, 0.362D),
-                    perk("Advanced Armors", "Skill: 50 Smithing\nRequires: Elven Smithing", 0.108D, 0.257D),
-                    perk("Glass Smithing", "Skill: 70 Smithing\nRequires: Advanced Armors", 0.310D, 0.114D),
-                    perk("Dragon Armor", "Skill: 100 Smithing\nRequires: Daedric Smithing or Glass Smithing", 0.505D, 0.114D),
-                    perk("Dwarven Smithing", "Skill: 30 Smithing\nRequires: Steel Smithing", 0.580D, 0.486D),
-                    perk("Orcish Smithing", "Skill: 50 Smithing\nRequires: Dwarven Smithing", 0.795D, 0.310D),
-                    perk("Ebony Smithing", "Skill: 80 Smithing\nRequires: Orcish Smithing", 0.963D, 0.314D),
-                    perk("Daedric Smithing", "Skill: 90 Smithing\nRequires: Ebony Smithing", 0.675D, 0.162D)),
+                    perk("Steel Smithing", "Requires: 0 Smithing", 0.365D, 0.819D),
+                    perk("Arcane Blacksmith", "Requires: 60 Smithing", 0.388D, 0.371D),
+                    perk("Elven Smithing", "Requires: 30 Smithing", 0.080D, 0.362D),
+                    perk("Advanced Armors", "Requires: 50 Smithing", 0.108D, 0.257D),
+                    perk("Glass Smithing", "Requires: 70 Smithing", 0.310D, 0.114D),
+                    perk("Dragon Armor", "Requires: 100 Smithing", 0.505D, 0.114D),
+                    perk("Dwarven Smithing", "Requires: 30 Smithing", 0.580D, 0.486D),
+                    perk("Orcish Smithing", "Requires: 50 Smithing", 0.795D, 0.310D),
+                    perk("Ebony Smithing", "Requires: 80 Smithing", 0.963D, 0.314D),
+                    perk("Daedric Smithing", "Requires: 90 Smithing", 0.675D, 0.162D)),
                     links("Steel Smithing", "Arcane Blacksmith", "Steel Smithing", "Dwarven Smithing",
                             "Dwarven Smithing", "Orcish Smithing", "Orcish Smithing", "Ebony Smithing",
                             "Ebony Smithing", "Daedric Smithing", "Steel Smithing", "Elven Smithing",
                             "Elven Smithing", "Advanced Armors", "Advanced Armors", "Glass Smithing",
                             "Daedric Smithing", "Dragon Armor", "Glass Smithing", "Dragon Armor")),
             tree(ModAttributes.TWO_HANDED, 300, 404, perks(
-                    perk("Barbarian", "Ranks: 5\nSkill: 0/20/40/60/80 Two-handed", 0.443D, 0.844D),
-                    perk("Limbsplitter", "Ranks: 3\nSkill: 30/60/90 Two-handed\nRequires: Barbarian", 0.257D, 0.574D),
-                    perk("Champion's Stance", "Skill: 20 Two-handed\nRequires: Barbarian", 0.450D, 0.661D),
-                    perk("Devastating Blow", "Skill: 50 Two-handed\nRequires: Champion's Stance", 0.510D, 0.453D),
-                    perk("Great Critical Charge", "Skill: 50 Two-handed\nRequires: Champion's Stance", 0.377D, 0.458D),
-                    perk("Sweep", "Skill: 70 Two-handed\nRequires: Great Critical Charge or Devastating Blow", 0.460D, 0.260D),
-                    perk("Warmaster", "Skill: 100 Two-handed\nRequires: Sweep", 0.463D, 0.116D),
-                    perk("Deep Wounds", "Ranks: 3\nSkill: 30/60/90 Two-handed\nRequires: Barbarian", 0.637D, 0.559D),
-                    perk("Skullcrusher", "Ranks: 3\nSkill: 30/60/90 Two-handed\nRequires: Barbarian", 0.770D, 0.550D)),
+                    perk("Barbarian", "Ranks: 5\nRequires: 0/20/40/60/80 Two-handed", 0.443D, 0.844D),
+                    perk("Limbsplitter", "Ranks: 3\nRequires: 30/60/90 Two-handed", 0.257D, 0.574D),
+                    perk("Champion's Stance", "Requires: 20 Two-handed", 0.450D, 0.661D),
+                    perk("Devastating Blow", "Requires: 50 Two-handed", 0.510D, 0.453D),
+                    perk("Great Critical Charge", "Requires: 50 Two-handed", 0.377D, 0.458D),
+                    perk("Sweep", "Requires: 70 Two-handed", 0.460D, 0.260D),
+                    perk("Warmaster", "Requires: 100 Two-handed", 0.463D, 0.116D),
+                    perk("Deep Wounds", "Ranks: 3\nRequires: 30/60/90 Two-handed", 0.637D, 0.559D),
+                    perk("Skullcrusher", "Ranks: 3\nRequires: 30/60/90 Two-handed", 0.770D, 0.550D)),
                     links("Barbarian", "Champion's Stance", "Champion's Stance", "Devastating Blow",
                             "Champion's Stance", "Great Critical Charge", "Great Critical Charge", "Sweep",
                             "Devastating Blow", "Sweep", "Sweep", "Warmaster", "Barbarian", "Deep Wounds",
                             "Barbarian", "Limbsplitter", "Barbarian", "Skullcrusher")),
             tree(ModAttributes.ALTERATION, 300, 276, perks(
-                    perk("Novice Alteration", "Skill: 0 Alteration", 0.450D, 0.855D),
-                    perk("Alteration Dual Casting", "Skill: 20 Alteration\nRequires: Novice Alteration", 0.337D, 0.641D),
-                    perk("Apprentice Alteration", "Skill: 25 Alteration\nRequires: Novice Alteration", 0.487D, 0.587D),
-                    perk("Magic Resistance", "Ranks: 3\nSkill: 30/50/70 Alteration\nRequires: Apprentice Alteration", 0.640D, 0.399D),
-                    perk("Adept Alteration", "Skill: 50 Alteration\nRequires: Apprentice Alteration", 0.493D, 0.351D),
-                    perk("Expert Alteration", "Skill: 75 Alteration\nRequires: Adept Alteration", 0.570D, 0.257D),
-                    perk("Atronach", "Skill: 100 Alteration\nRequires: Expert Alteration", 0.313D, 0.094D),
-                    perk("Master Alteration", "Skill: 100 Alteration\nRequires: Expert Alteration", 0.717D, 0.138D),
-                    perk("Stability", "Skill: 70 Alteration\nRequires: Adept Alteration", 0.393D, 0.239D),
-                    perk("Mage Armor", "Ranks: 3\nSkill: 30/50/70 Alteration\nRequires: Apprentice Alteration", 0.357D, 0.380D)),
+                    perk("Novice Alteration", "Requires: 0 Alteration", 0.450D, 0.855D),
+                    perk("Alteration Dual Casting", "Requires: 20 Alteration", 0.337D, 0.641D),
+                    perk("Apprentice Alteration", "Requires: 25 Alteration", 0.487D, 0.587D),
+                    perk("Magic Resistance", "Ranks: 3\nRequires: 30/50/70 Alteration", 0.640D, 0.399D),
+                    perk("Adept Alteration", "Requires: 50 Alteration", 0.493D, 0.351D),
+                    perk("Expert Alteration", "Requires: 75 Alteration", 0.570D, 0.257D),
+                    perk("Atronach", "Requires: 100 Alteration", 0.313D, 0.094D),
+                    perk("Master Alteration", "Requires: 100 Alteration", 0.717D, 0.138D),
+                    perk("Stability", "Requires: 70 Alteration", 0.393D, 0.239D),
+                    perk("Mage Armor", "Ranks: 3\nRequires: 30/50/70 Alteration", 0.357D, 0.380D)),
                     links("Novice Alteration", "Alteration Dual Casting", "Novice Alteration", "Apprentice Alteration",
                             "Apprentice Alteration", "Magic Resistance", "Apprentice Alteration", "Adept Alteration",
                             "Adept Alteration", "Expert Alteration", "Expert Alteration", "Atronach",
                             "Expert Alteration", "Master Alteration", "Adept Alteration", "Stability",
                             "Apprentice Alteration", "Mage Armor")),
             tree(ModAttributes.CONJURATION, 400, 334, perks(
-                    perk("Novice Conjuration", "Skill: 0 Conjuration", 0.540D, 0.886D),
-                    perk("Apprentice Conjuration", "Skill: 25 Conjuration\nRequires: Novice Conjuration", 0.715D, 0.560D),
-                    perk("Adept Conjuration", "Skill: 50 Conjuration\nRequires: Apprentice Conjuration", 0.740D, 0.380D),
-                    perk("Expert Conjuration", "Skill: 75 Conjuration\nRequires: Adept Conjuration", 0.713D, 0.240D),
-                    perk("Master Conjuration", "Skill: 100 Conjuration\nRequires: Expert Conjuration", 0.608D, 0.096D),
-                    perk("Conjuration Dual Casting", "Skill: 20 Conjuration\nRequires: Novice Conjuration", 0.418D, 0.647D),
-                    perk("Mystic Binding", "Skill: 20 Conjuration\nRequires: Novice Conjuration", 0.575D, 0.638D),
-                    perk("Soul Stealer", "Skill: 30 Conjuration\nRequires: Mystic Binding", 0.593D, 0.329D),
-                    perk("Oblivion Binding", "Skill: 50 Conjuration\nRequires: Soul Stealer", 0.585D, 0.243D),
-                    perk("Necromancy", "Skill: 40 Conjuration\nRequires: Novice Conjuration", 0.360D, 0.305D),
-                    perk("Dark Souls", "Skill: 70 Conjuration\nRequires: Necromancy", 0.360D, 0.186D),
-                    perk("Summoner", "Ranks: 2\nSkill: 30/70 Conjuration\nRequires: Novice Conjuration", 0.255D, 0.587D),
-                    perk("Atromancy", "Skill: 40 Conjuration\nRequires: Summoner", 0.230D, 0.314D),
-                    perk("Elemental Potency", "Skill: 80 Conjuration\nRequires: Atromancy", 0.240D, 0.198D),
-                    perk("Twin Souls", "Skill: 100 Conjuration\nRequires: Dark Souls or Elemental Potency", 0.375D, 0.120D)),
+                    perk("Novice Conjuration", "Requires: 0 Conjuration", 0.540D, 0.886D),
+                    perk("Apprentice Conjuration", "Requires: 25 Conjuration", 0.715D, 0.560D),
+                    perk("Adept Conjuration", "Requires: 50 Conjuration", 0.740D, 0.380D),
+                    perk("Expert Conjuration", "Requires: 75 Conjuration", 0.713D, 0.240D),
+                    perk("Master Conjuration", "Requires: 100 Conjuration", 0.608D, 0.096D),
+                    perk("Conjuration Dual Casting", "Requires: 20 Conjuration", 0.418D, 0.647D),
+                    perk("Mystic Binding", "Requires: 20 Conjuration", 0.575D, 0.638D),
+                    perk("Soul Stealer", "Requires: 30 Conjuration", 0.593D, 0.329D),
+                    perk("Oblivion Binding", "Requires: 50 Conjuration", 0.585D, 0.243D),
+                    perk("Necromancy", "Requires: 40 Conjuration", 0.360D, 0.305D),
+                    perk("Dark Souls", "Requires: 70 Conjuration", 0.360D, 0.186D),
+                    perk("Summoner", "Ranks: 2\nRequires: 30/70 Conjuration", 0.255D, 0.587D),
+                    perk("Atromancy", "Requires: 40 Conjuration", 0.230D, 0.314D),
+                    perk("Elemental Potency", "Requires: 80 Conjuration", 0.240D, 0.198D),
+                    perk("Twin Souls", "Requires: 100 Conjuration", 0.375D, 0.120D)),
                     links("Novice Conjuration", "Apprentice Conjuration", "Apprentice Conjuration", "Adept Conjuration",
                             "Adept Conjuration", "Expert Conjuration", "Expert Conjuration", "Master Conjuration",
                             "Novice Conjuration", "Conjuration Dual Casting", "Novice Conjuration", "Mystic Binding",
@@ -170,20 +170,20 @@ public class SkillTreeScreen extends Screen {
                             "Summoner", "Summoner", "Atromancy", "Atromancy", "Elemental Potency",
                             "Dark Souls", "Twin Souls", "Elemental Potency", "Twin Souls")),
             tree(ModAttributes.DESTRUCTION, 400, 333, perks(
-                    perk("Novice Destruction", "Skill: 0 Destruction", 0.440D, 0.880D),
-                    perk("Apprentice Destruction", "Skill: 25 Destruction\nRequires: Novice Destruction", 0.593D, 0.643D),
-                    perk("Adept Destruction", "Skill: 50 Destruction\nRequires: Apprentice Destruction", 0.573D, 0.408D),
-                    perk("Expert Destruction", "Skill: 75 Destruction\nRequires: Adept Destruction", 0.623D, 0.270D),
-                    perk("Master Destruction", "Skill: 100 Destruction\nRequires: Expert Destruction", 0.618D, 0.090D),
-                    perk("Rune Master", "Skill: 40 Destruction\nRequires: Apprentice Destruction", 0.683D, 0.508D),
-                    perk("Augmented Flames", "Ranks: 2\nSkill: 30/60 Destruction\nRequires: Novice Destruction", 0.275D, 0.595D),
-                    perk("Intense Flames", "Skill: 50 Destruction\nRequires: Augmented Flames", 0.253D, 0.432D),
-                    perk("Augmented Frost", "Ranks: 2\nSkill: 30/60 Destruction\nRequires: Novice Destruction", 0.390D, 0.526D),
-                    perk("Deep Freeze", "Skill: 60 Destruction\nRequires: Augmented Frost", 0.370D, 0.330D),
-                    perk("Augmented Shock", "Ranks: 2\nSkill: 30/60 Destruction\nRequires: Novice Destruction", 0.480D, 0.520D),
-                    perk("Disintegrate", "Skill: 70 Destruction\nRequires: Augmented Shock", 0.475D, 0.279D),
-                    perk("Destruction Dual Casting", "Skill: 20 Destruction\nRequires: Novice Destruction", 0.678D, 0.787D),
-                    perk("Impact", "Skill: 40 Destruction\nRequires: Destruction Dual Casting", 0.733D, 0.637D)),
+                    perk("Novice Destruction", "Requires: 0 Destruction", 0.440D, 0.880D),
+                    perk("Apprentice Destruction", "Requires: 25 Destruction", 0.593D, 0.643D),
+                    perk("Adept Destruction", "Requires: 50 Destruction", 0.573D, 0.408D),
+                    perk("Expert Destruction", "Requires: 75 Destruction", 0.623D, 0.270D),
+                    perk("Master Destruction", "Requires: 100 Destruction", 0.618D, 0.090D),
+                    perk("Rune Master", "Requires: 40 Destruction", 0.683D, 0.508D),
+                    perk("Augmented Flames", "Ranks: 2\nRequires: 30/60 Destruction", 0.275D, 0.595D),
+                    perk("Intense Flames", "Requires: 50 Destruction", 0.253D, 0.432D),
+                    perk("Augmented Frost", "Ranks: 2\nRequires: 30/60 Destruction", 0.390D, 0.526D),
+                    perk("Deep Freeze", "Requires: 60 Destruction", 0.370D, 0.330D),
+                    perk("Augmented Shock", "Ranks: 2\nRequires: 30/60 Destruction", 0.480D, 0.520D),
+                    perk("Disintegrate", "Requires: 70 Destruction", 0.475D, 0.279D),
+                    perk("Destruction Dual Casting", "Requires: 20 Destruction", 0.678D, 0.787D),
+                    perk("Impact", "Requires: 40 Destruction", 0.733D, 0.637D)),
                     links("Novice Destruction", "Apprentice Destruction", "Apprentice Destruction", "Adept Destruction",
                             "Adept Destruction", "Expert Destruction", "Expert Destruction", "Master Destruction",
                             "Apprentice Destruction", "Rune Master", "Novice Destruction", "Augmented Flames",
@@ -192,34 +192,34 @@ public class SkillTreeScreen extends Screen {
                             "Augmented Shock", "Disintegrate", "Novice Destruction", "Destruction Dual Casting",
                             "Destruction Dual Casting", "Impact")),
             tree(ModAttributes.ENCHANTING, 400, 421, perks(
-                    perk("Enchanter", "Ranks: 5\nSkill: 0/20/40/60/80 Enchanting", 0.393D, 0.855D),
-                    perk("Fire Enchanter", "Skill: 30 Enchanting\nRequires: Enchanter", 0.275D, 0.570D),
-                    perk("Frost Enchanter", "Skill: 40 Enchanting\nRequires: Fire Enchanter", 0.295D, 0.401D),
-                    perk("Storm Enchanter", "Skill: 50 Enchanting\nRequires: Frost Enchanter", 0.390D, 0.264D),
-                    perk("Extra Effect", "Skill: 100 Enchanting\nRequires: Corpus Enchanter or Storm Enchanter", 0.558D, 0.138D),
-                    perk("Insightful Enchanter", "Skill: 50 Enchanting\nRequires: Enchanter", 0.495D, 0.561D),
-                    perk("Corpus Enchanter", "Skill: 70 Enchanting\nRequires: Insightful Enchanter", 0.595D, 0.385D),
-                    perk("Soul Squeezer", "Skill: 20 Enchanting\nRequires: Enchanter", 0.750D, 0.551D),
-                    perk("Soul Siphon", "Skill: 40 Enchanting\nRequires: Soul Squeezer", 0.690D, 0.238D)),
+                    perk("Enchanter", "Ranks: 5\nRequires: 0/20/40/60/80 Enchanting", 0.393D, 0.855D),
+                    perk("Fire Enchanter", "Requires: 30 Enchanting", 0.275D, 0.570D),
+                    perk("Frost Enchanter", "Requires: 40 Enchanting", 0.295D, 0.401D),
+                    perk("Storm Enchanter", "Requires: 50 Enchanting", 0.390D, 0.264D),
+                    perk("Extra Effect", "Requires: 100 Enchanting", 0.558D, 0.138D),
+                    perk("Insightful Enchanter", "Requires: 50 Enchanting", 0.495D, 0.561D),
+                    perk("Corpus Enchanter", "Requires: 70 Enchanting", 0.595D, 0.385D),
+                    perk("Soul Squeezer", "Requires: 20 Enchanting", 0.750D, 0.551D),
+                    perk("Soul Siphon", "Requires: 40 Enchanting", 0.690D, 0.238D)),
                     links("Enchanter", "Fire Enchanter", "Fire Enchanter", "Frost Enchanter",
                             "Frost Enchanter", "Storm Enchanter", "Enchanter", "Insightful Enchanter",
                             "Insightful Enchanter", "Corpus Enchanter", "Corpus Enchanter", "Extra Effect",
                             "Storm Enchanter", "Extra Effect", "Enchanter", "Soul Squeezer",
                             "Soul Squeezer", "Soul Siphon")),
             tree(ModAttributes.ILLUSION, 400, 316, perks(
-                    perk("Novice Illusion", "Skill: 0 Illusion", 0.540D, 0.858D),
-                    perk("Animage", "Skill: 20 Illusion\nRequires: Novice Illusion", 0.780D, 0.687D),
-                    perk("Kindred Mage", "Skill: 40 Illusion\nRequires: Animage", 0.643D, 0.475D),
-                    perk("Quiet Casting", "Skill: 50 Illusion\nRequires: Kindred Mage", 0.633D, 0.304D),
-                    perk("Apprentice Illusion", "Skill: 25 Illusion\nRequires: Novice Illusion", 0.315D, 0.595D),
-                    perk("Adept Illusion", "Skill: 50 Illusion\nRequires: Apprentice Illusion", 0.330D, 0.389D),
-                    perk("Expert Illusion", "Skill: 75 Illusion\nRequires: Adept Illusion", 0.320D, 0.282D),
-                    perk("Master Illusion", "Skill: 100 Illusion\nRequires: Expert Illusion", 0.430D, 0.149D),
-                    perk("Hypnotic Gaze", "Skill: 30 Illusion\nRequires: Novice Illusion", 0.515D, 0.532D),
-                    perk("Aspect of Terror", "Skill: 50 Illusion\nRequires: Hypnotic Gaze", 0.445D, 0.339D),
-                    perk("Rage", "Skill: 70 Illusion\nRequires: Aspect of Terror", 0.508D, 0.297D),
-                    perk("Master of the Mind", "Skill: 90 Illusion\nRequires: Quiet Casting or Rage", 0.575D, 0.165D),
-                    perk("Illusion Dual Casting", "Skill: 20 Illusion\nRequires: Novice Illusion", 0.198D, 0.835D)),
+                    perk("Novice Illusion", "Requires: 0 Illusion", 0.540D, 0.858D),
+                    perk("Animage", "Requires: 20 Illusion", 0.780D, 0.687D),
+                    perk("Kindred Mage", "Requires: 40 Illusion", 0.643D, 0.475D),
+                    perk("Quiet Casting", "Requires: 50 Illusion", 0.633D, 0.304D),
+                    perk("Apprentice Illusion", "Requires: 25 Illusion", 0.315D, 0.595D),
+                    perk("Adept Illusion", "Requires: 50 Illusion", 0.330D, 0.389D),
+                    perk("Expert Illusion", "Requires: 75 Illusion", 0.320D, 0.282D),
+                    perk("Master Illusion", "Requires: 100 Illusion", 0.430D, 0.149D),
+                    perk("Hypnotic Gaze", "Requires: 30 Illusion", 0.515D, 0.532D),
+                    perk("Aspect of Terror", "Requires: 50 Illusion", 0.445D, 0.339D),
+                    perk("Rage", "Requires: 70 Illusion", 0.508D, 0.297D),
+                    perk("Master of the Mind", "Requires: 90 Illusion", 0.575D, 0.165D),
+                    perk("Illusion Dual Casting", "Requires: 20 Illusion", 0.198D, 0.835D)),
                     links("Novice Illusion", "Animage", "Animage", "Kindred Mage", "Kindred Mage", "Quiet Casting",
                             "Novice Illusion", "Apprentice Illusion", "Apprentice Illusion", "Adept Illusion",
                             "Adept Illusion", "Expert Illusion", "Expert Illusion", "Master Illusion",
@@ -227,98 +227,98 @@ public class SkillTreeScreen extends Screen {
                             "Aspect of Terror", "Rage", "Quiet Casting", "Master of the Mind", "Rage",
                             "Master of the Mind", "Novice Illusion", "Illusion Dual Casting")),
             tree(ModAttributes.RESTORATION, 400, 305, perks(
-                    perk("Novice Restoration", "Skill: 0 Restoration", 0.548D, 0.862D),
-                    perk("Apprentice Restoration", "Skill: 25 Restoration\nRequires: Novice Restoration", 0.583D, 0.633D),
-                    perk("Adept Restoration", "Skill: 50 Restoration\nRequires: Apprentice Restoration", 0.530D, 0.393D),
-                    perk("Expert Restoration", "Skill: 75 Restoration\nRequires: Adept Restoration", 0.545D, 0.187D),
-                    perk("Master Restoration", "Skill: 100 Restoration\nRequires: Expert Restoration", 0.460D, 0.111D),
-                    perk("Recovery", "Ranks: 2\nSkill: 30/60 Restoration\nRequires: Novice Restoration", 0.805D, 0.580D),
-                    perk("Avoid Death", "Skill: 90 Restoration\nRequires: Recovery", 0.875D, 0.426D),
-                    perk("Regeneration", "Skill: 20 Restoration\nRequires: Novice Restoration", 0.373D, 0.613D),
-                    perk("Necromage", "Skill: 70 Restoration\nRequires: Regeneration", 0.195D, 0.315D),
-                    perk("Respite", "Skill: 40 Restoration\nRequires: Novice Restoration", 0.138D, 0.541D),
-                    perk("Restoration Dual Casting", "Skill: 20 Restoration\nRequires: Novice Restoration", 0.735D, 0.702D),
-                    perk("Ward Absorb", "Skill: 60 Restoration\nRequires: Novice Restoration", 0.400D, 0.334D)),
+                    perk("Novice Restoration", "Requires: 0 Restoration", 0.548D, 0.862D),
+                    perk("Apprentice Restoration", "Requires: 25 Restoration", 0.583D, 0.633D),
+                    perk("Adept Restoration", "Requires: 50 Restoration", 0.530D, 0.393D),
+                    perk("Expert Restoration", "Requires: 75 Restoration", 0.545D, 0.187D),
+                    perk("Master Restoration", "Requires: 100 Restoration", 0.460D, 0.111D),
+                    perk("Recovery", "Ranks: 2\nRequires: 30/60 Restoration", 0.805D, 0.580D),
+                    perk("Avoid Death", "Requires: 90 Restoration", 0.875D, 0.426D),
+                    perk("Regeneration", "Requires: 20 Restoration", 0.373D, 0.613D),
+                    perk("Necromage", "Requires: 70 Restoration", 0.195D, 0.315D),
+                    perk("Respite", "Requires: 40 Restoration", 0.138D, 0.541D),
+                    perk("Restoration Dual Casting", "Requires: 20 Restoration", 0.735D, 0.702D),
+                    perk("Ward Absorb", "Requires: 60 Restoration", 0.400D, 0.334D)),
                     links("Novice Restoration", "Apprentice Restoration", "Apprentice Restoration", "Adept Restoration",
                             "Adept Restoration", "Expert Restoration", "Expert Restoration", "Master Restoration",
                             "Novice Restoration", "Recovery", "Recovery", "Avoid Death", "Novice Restoration",
                             "Regeneration", "Regeneration", "Necromage", "Novice Restoration", "Respite",
                             "Novice Restoration", "Restoration Dual Casting", "Novice Restoration", "Ward Absorb")),
             tree(ModAttributes.ALCHEMY, 300, 301, perks(
-                    perk("Alchemist", "Ranks: 5\nSkill: 0/20/40/60/80 Alchemy", 0.243D, 0.910D),
-                    perk("Physician", "Skill: 20 Alchemy\nRequires: Alchemist", 0.697D, 0.841D),
-                    perk("Benefactor", "Skill: 30 Alchemy\nRequires: Physician", 0.610D, 0.648D),
-                    perk("Experimenter", "Ranks: 3\nSkill: 50/70/90 Alchemy\nRequires: Benefactor", 0.573D, 0.495D),
-                    perk("Purity", "Skill: 100 Alchemy\nRequires: Snakeblood", 0.507D, 0.083D),
-                    perk("Poisoner", "Skill: 30 Alchemy\nRequires: Physician", 0.337D, 0.635D),
-                    perk("Concentrated Poison", "Skill: 60 Alchemy\nRequires: Poisoner", 0.357D, 0.482D),
-                    perk("Green Thumb", "Skill: 70 Alchemy\nRequires: Concentrated Poison", 0.393D, 0.282D),
-                    perk("Snakeblood", "Skill: 80 Alchemy\nRequires: Experimenter or Concentrated Poison", 0.550D, 0.239D)),
+                    perk("Alchemist", "Ranks: 5\nRequires: 0/20/40/60/80 Alchemy", 0.243D, 0.910D),
+                    perk("Physician", "Requires: 20 Alchemy", 0.697D, 0.841D),
+                    perk("Benefactor", "Requires: 30 Alchemy", 0.610D, 0.648D),
+                    perk("Experimenter", "Ranks: 3\nRequires: 50/70/90 Alchemy", 0.573D, 0.495D),
+                    perk("Purity", "Requires: 100 Alchemy", 0.507D, 0.083D),
+                    perk("Poisoner", "Requires: 30 Alchemy", 0.337D, 0.635D),
+                    perk("Concentrated Poison", "Requires: 60 Alchemy", 0.357D, 0.482D),
+                    perk("Green Thumb", "Requires: 70 Alchemy", 0.393D, 0.282D),
+                    perk("Snakeblood", "Requires: 80 Alchemy", 0.550D, 0.239D)),
                     links("Alchemist", "Physician", "Physician", "Benefactor", "Benefactor", "Experimenter",
                             "Physician", "Poisoner", "Poisoner", "Concentrated Poison", "Concentrated Poison",
                             "Green Thumb", "Experimenter", "Snakeblood", "Concentrated Poison", "Snakeblood",
                             "Snakeblood", "Purity")),
             tree(ModAttributes.LIGHT_ARMOR, 300, 325, perks(
-                    perk("Agile Defender", "Ranks: 5\nSkill: 0/20/40/60/80 Light Armor", 0.613D, 0.908D),
-                    perk("Custom Fit", "Skill: 30 Light Armor\nRequires: Agile Defender", 0.523D, 0.609D),
-                    perk("Matching Set", "Skill: 70 Light Armor\nRequires: Custom Fit", 0.647D, 0.157D),
-                    perk("Unhindered", "Skill: 50 Light Armor\nRequires: Custom Fit", 0.333D, 0.378D),
-                    perk("Wind Walker", "Skill: 60 Light Armor\nRequires: Unhindered", 0.367D, 0.225D),
-                    perk("Deft Movement", "Skill: 100 Light Armor\nRequires: Wind Walker or Matching Set", 0.513D, 0.080D)),
+                    perk("Agile Defender", "Ranks: 5\nRequires: 0/20/40/60/80 Light Armor", 0.613D, 0.908D),
+                    perk("Custom Fit", "Requires: 30 Light Armor", 0.523D, 0.609D),
+                    perk("Matching Set", "Requires: 70 Light Armor", 0.647D, 0.157D),
+                    perk("Unhindered", "Requires: 50 Light Armor", 0.333D, 0.378D),
+                    perk("Wind Walker", "Requires: 60 Light Armor", 0.367D, 0.225D),
+                    perk("Deft Movement", "Requires: 100 Light Armor", 0.513D, 0.080D)),
                     links("Agile Defender", "Custom Fit", "Custom Fit", "Matching Set", "Custom Fit", "Unhindered",
                             "Unhindered", "Wind Walker", "Wind Walker", "Deft Movement", "Matching Set",
                             "Deft Movement")),
             tree(ModAttributes.LOCKPICKING, 300, 275, perks(
-                    perk("Novice Locks", "Skill: 0 Lockpicking", 0.433D, 0.920D),
-                    perk("Apprentice Locks", "Skill: 25 Lockpicking\nRequires: Novice Locks", 0.577D, 0.673D),
-                    perk("Adept Locks", "Skill: 50 Lockpicking\nRequires: Apprentice Locks", 0.680D, 0.433D),
-                    perk("Expert Locks", "Skill: 75 Lockpicking\nRequires: Adept Locks", 0.707D, 0.295D),
-                    perk("Locksmith", "Skill: 80 Lockpicking\nRequires: Expert Locks", 0.547D, 0.196D),
-                    perk("Unbreakable", "Skill: 100 Lockpicking\nRequires: Locksmith", 0.447D, 0.116D),
-                    perk("Master Locks", "Skill: 100 Lockpicking\nRequires: Expert Locks", 0.740D, 0.080D),
-                    perk("Golden Touch", "Skill: 60 Lockpicking\nRequires: Adept Locks", 0.503D, 0.367D),
-                    perk("Treasure Hunter", "Skill: 70 Lockpicking\nRequires: Golden Touch", 0.380D, 0.262D),
-                    perk("Quick Hands", "Skill: 40 Lockpicking\nRequires: Apprentice Locks", 0.410D, 0.527D),
-                    perk("Wax Key", "Skill: 50 Lockpicking\nRequires: Quick Hands", 0.243D, 0.425D)),
+                    perk("Novice Locks", "Requires: 0 Lockpicking", 0.433D, 0.920D),
+                    perk("Apprentice Locks", "Requires: 25 Lockpicking", 0.577D, 0.673D),
+                    perk("Adept Locks", "Requires: 50 Lockpicking", 0.680D, 0.433D),
+                    perk("Expert Locks", "Requires: 75 Lockpicking", 0.707D, 0.295D),
+                    perk("Locksmith", "Requires: 80 Lockpicking", 0.547D, 0.196D),
+                    perk("Unbreakable", "Requires: 100 Lockpicking", 0.447D, 0.116D),
+                    perk("Master Locks", "Requires: 100 Lockpicking", 0.740D, 0.080D),
+                    perk("Golden Touch", "Requires: 60 Lockpicking", 0.503D, 0.367D),
+                    perk("Treasure Hunter", "Requires: 70 Lockpicking", 0.380D, 0.262D),
+                    perk("Quick Hands", "Requires: 40 Lockpicking", 0.410D, 0.527D),
+                    perk("Wax Key", "Requires: 50 Lockpicking", 0.243D, 0.425D)),
                     links("Novice Locks", "Apprentice Locks", "Apprentice Locks", "Quick Hands", "Quick Hands",
                             "Wax Key", "Apprentice Locks", "Adept Locks", "Adept Locks", "Expert Locks",
                             "Adept Locks", "Golden Touch", "Golden Touch", "Treasure Hunter", "Expert Locks",
                             "Locksmith", "Locksmith", "Unbreakable", "Expert Locks", "Master Locks")),
             tree(ModAttributes.PICKPOCKET, 300, 286, perks(
-                    perk("Light Fingers", "Ranks: 5\nSkill: 0/20/40/60/80 Pickpocket", 0.327D, 0.906D),
-                    perk("Night Thief", "Skill: 30 Pickpocket\nRequires: Light Fingers", 0.443D, 0.661D),
-                    perk("Cutpurse", "Skill: 40 Pickpocket\nRequires: Night Thief", 0.540D, 0.378D),
-                    perk("Keymaster", "Skill: 60 Pickpocket\nRequires: Cutpurse", 0.423D, 0.280D),
-                    perk("Misdirection", "Skill: 70 Pickpocket\nRequires: Cutpurse", 0.587D, 0.126D),
-                    perk("Perfect Touch", "Skill: 100 Pickpocket\nRequires: Misdirection", 0.677D, 0.087D),
-                    perk("Extra Pockets", "Skill: 50 Pickpocket\nRequires: Night Thief", 0.683D, 0.374D),
-                    perk("Poisoned", "Skill: 40 Pickpocket\nRequires: Night Thief", 0.387D, 0.388D)),
+                    perk("Light Fingers", "Ranks: 5\nRequires: 0/20/40/60/80 Pickpocket", 0.327D, 0.906D),
+                    perk("Night Thief", "Requires: 30 Pickpocket", 0.443D, 0.661D),
+                    perk("Cutpurse", "Requires: 40 Pickpocket", 0.540D, 0.378D),
+                    perk("Keymaster", "Requires: 60 Pickpocket", 0.423D, 0.280D),
+                    perk("Misdirection", "Requires: 70 Pickpocket", 0.587D, 0.126D),
+                    perk("Perfect Touch", "Requires: 100 Pickpocket", 0.677D, 0.087D),
+                    perk("Extra Pockets", "Requires: 50 Pickpocket", 0.683D, 0.374D),
+                    perk("Poisoned", "Requires: 40 Pickpocket", 0.387D, 0.388D)),
                     links("Light Fingers", "Night Thief", "Night Thief", "Cutpurse", "Cutpurse", "Keymaster",
                             "Cutpurse", "Misdirection", "Misdirection", "Perfect Touch", "Night Thief",
                             "Extra Pockets", "Night Thief", "Poisoned")),
             tree(ModAttributes.SNEAK, 300, 254, perks(
-                    perk("Stealth", "Ranks: 5\nSkill: 0/20/40/60/80 Sneak", 0.463D, 0.921D),
-                    perk("Backstab", "Skill: 30 Sneak\nRequires: Stealth", 0.657D, 0.657D),
-                    perk("Deadly Aim", "Skill: 40 Sneak\nRequires: Backstab", 0.683D, 0.386D),
-                    perk("Assassin's Blade", "Skill: 50 Sneak\nRequires: Deadly Aim", 0.593D, 0.327D),
-                    perk("Muffled Movement", "Skill: 30 Sneak\nRequires: Stealth", 0.223D, 0.638D),
-                    perk("Light Foot", "Skill: 40 Sneak\nRequires: Muffled Movement", 0.327D, 0.358D),
-                    perk("Silent Roll", "Skill: 50 Sneak\nRequires: Light Foot", 0.437D, 0.260D),
-                    perk("Silence", "Skill: 70 Sneak\nRequires: Silent Roll", 0.570D, 0.138D),
-                    perk("Shadow Warrior", "Skill: 100 Sneak\nRequires: Silence", 0.773D, 0.083D)),
+                    perk("Stealth", "Ranks: 5\nRequires: 0/20/40/60/80 Sneak", 0.463D, 0.921D),
+                    perk("Backstab", "Requires: 30 Sneak", 0.657D, 0.657D),
+                    perk("Deadly Aim", "Requires: 40 Sneak", 0.683D, 0.386D),
+                    perk("Assassin's Blade", "Requires: 50 Sneak", 0.593D, 0.327D),
+                    perk("Muffled Movement", "Requires: 30 Sneak", 0.223D, 0.638D),
+                    perk("Light Foot", "Requires: 40 Sneak", 0.327D, 0.358D),
+                    perk("Silent Roll", "Requires: 50 Sneak", 0.437D, 0.260D),
+                    perk("Silence", "Requires: 70 Sneak", 0.570D, 0.138D),
+                    perk("Shadow Warrior", "Requires: 100 Sneak", 0.773D, 0.083D)),
                     links("Stealth", "Backstab", "Backstab", "Deadly Aim", "Deadly Aim", "Assassin's Blade",
                             "Stealth", "Muffled Movement", "Muffled Movement", "Light Foot", "Light Foot",
                             "Silent Roll", "Silent Roll", "Silence", "Silence", "Shadow Warrior")),
             tree(ModAttributes.BARTER, 300, 286, perks(
-                    perk("Haggling", "Ranks: 5\nSkill: 0/20/40/60/80 Speech", 0.317D, 0.927D),
-                    perk("Allure", "Skill: 30 Speech\nRequires: Haggling", 0.380D, 0.668D),
-                    perk("Merchant", "Skill: 50 Speech\nRequires: Allure", 0.330D, 0.406D),
-                    perk("Investor", "Skill: 70 Speech\nRequires: Merchant", 0.287D, 0.262D),
-                    perk("Fence", "Skill: 90 Speech\nRequires: Investor", 0.250D, 0.143D),
-                    perk("Master Trader", "Skill: 100 Speech\nRequires: Fence", 0.570D, 0.073D),
-                    perk("Bribery", "Skill: 30 Speech\nRequires: Haggling", 0.593D, 0.654D),
-                    perk("Persuasion", "Skill: 50 Speech\nRequires: Bribery", 0.713D, 0.385D),
-                    perk("Intimidation", "Skill: 70 Speech\nRequires: Persuasion", 0.763D, 0.224D)),
+                    perk("Haggling", "Ranks: 5\nRequires: 0/20/40/60/80 Speech", 0.317D, 0.927D),
+                    perk("Allure", "Requires: 30 Speech", 0.380D, 0.668D),
+                    perk("Merchant", "Requires: 50 Speech", 0.330D, 0.406D),
+                    perk("Investor", "Requires: 70 Speech", 0.287D, 0.262D),
+                    perk("Fence", "Requires: 90 Speech", 0.250D, 0.143D),
+                    perk("Master Trader", "Requires: 100 Speech", 0.570D, 0.073D),
+                    perk("Bribery", "Requires: 30 Speech", 0.593D, 0.654D),
+                    perk("Persuasion", "Requires: 50 Speech", 0.713D, 0.385D),
+                    perk("Intimidation", "Requires: 70 Speech", 0.763D, 0.224D)),
                     links("Haggling", "Allure", "Allure", "Merchant", "Merchant", "Investor", "Investor",
                             "Fence", "Fence", "Master Trader", "Haggling", "Bribery", "Bribery", "Persuasion",
                             "Persuasion", "Intimidation"))
@@ -589,9 +589,11 @@ public class SkillTreeScreen extends Screen {
         int maximumRank = node.maximumRank();
         ArrayList<Component> lines = new ArrayList<>();
         lines.add(Component.literal(node.name()));
-        lines.add(Component.literal("Rank: " + currentRank + "/" + maximumRank));
+        if (maximumRank > 1) {
+            lines.add(Component.literal("Rank: " + currentRank + "/" + maximumRank));
+        }
         for (String detail : node.tooltip().split("\n")) {
-            if (!detail.isBlank()) {
+            if (!detail.isBlank() && !detail.startsWith("Ranks: ")) {
                 lines.add(Component.literal(detail));
             }
         }
@@ -655,9 +657,9 @@ public class SkillTreeScreen extends Screen {
         int skillValue = skillValue(TREES.get(treeIndex));
         if (skillValue < requiredSkill) {
             String prefix = rank > 0 ? "Rank " + rank + " unlocked. " : "";
-            return prefix + "Requires " + requiredSkill + " skill";
+            return prefix + "Locked";
         }
-        if (!prerequisitesMet(treeIndex, node)) {
+        if (!prerequisitesMet(treeIndex, nodeIndex, node)) {
             String prefix = rank > 0 ? "Rank " + rank + " unlocked. " : "";
             return prefix + "Requires prerequisite perk";
         }
@@ -678,23 +680,35 @@ public class SkillTreeScreen extends Screen {
         int currentRank = PERK_RANKS.get(treeIndex)[nodeIndex];
         return currentRank < node.maximumRank()
                 && skillValue(tree) >= node.requiredSkillForRank(currentRank)
-                && prerequisitesMet(treeIndex, node);
+                && prerequisitesMet(treeIndex, nodeIndex, node);
     }
 
-    private boolean prerequisitesMet(int treeIndex, Node node) {
-        if (node.prerequisites().isEmpty()) {
-            return true;
-        }
-
+    private boolean prerequisitesMet(int treeIndex, int nodeIndex, Node node) {
         int[] ranks = PERK_RANKS.get(treeIndex);
         SkillTreeDefinition tree = TREES.get(treeIndex);
         for (String prerequisite : node.prerequisites()) {
-            int prerequisiteIndex = nodeIndex(tree.nodes(), prerequisite);
-            if (ranks[prerequisiteIndex] > 0) {
+            int prerequisiteIndex = findNodeIndex(tree.nodes(), prerequisite);
+            if (prerequisiteIndex >= 0 && ranks[prerequisiteIndex] > 0) {
                 return true;
             }
         }
-        return false;
+        if (!node.prerequisites().isEmpty()) {
+            return false;
+        }
+
+        boolean hasIncomingEdge = false;
+        for (Edge edge : tree.edges()) {
+            if (edge.to() == nodeIndex) {
+                hasIncomingEdge = true;
+                if (ranks[edge.from()] > 0) {
+                    return true;
+                }
+            }
+        }
+        if (hasIncomingEdge) {
+            return false;
+        }
+        return true;
     }
 
     private void drawNode(GuiGraphics guiGraphics, int x, int y, int color, int glowColor, int coreColor) {
@@ -894,9 +908,9 @@ public class SkillTreeScreen extends Screen {
     }
 
     private Component skillTitle(SkillTreeDefinition tree) {
-        return Component.literal(String.valueOf(skillValue(tree))).withStyle(ChatFormatting.BOLD)
+        return tree.displayName().copy()
                 .append(" ")
-                .append(tree.displayName());
+                .append(Component.literal(String.valueOf(skillValue(tree))).withStyle(ChatFormatting.BOLD));
     }
 
     private static List<int[]> createPerkRanks() {
@@ -941,16 +955,24 @@ public class SkillTreeScreen extends Screen {
     }
 
     private static int nodeIndex(List<Node> nodes, String name) {
+        int index = findNodeIndex(nodes, name);
+        if (index >= 0) {
+            return index;
+        }
+        throw new IllegalArgumentException("Unknown perk node: " + name);
+    }
+
+    private static int findNodeIndex(List<Node> nodes, String name) {
         for (int i = 0; i < nodes.size(); i++) {
             if (nodes.get(i).name().equals(name)) {
                 return i;
             }
         }
-        throw new IllegalArgumentException("Unknown perk node: " + name);
+        return -1;
     }
 
     private static int[] skillRequirements(String tooltip) {
-        String skillLine = tooltipLine(tooltip, "Skill: ");
+        String skillLine = tooltipLine(tooltip, "Requires: ");
         if (skillLine.isEmpty()) {
             return new int[]{0};
         }
@@ -975,7 +997,7 @@ public class SkillTreeScreen extends Screen {
 
     private static List<String> prerequisites(String tooltip) {
         String prerequisiteLine = tooltipLine(tooltip, "Requires: ");
-        if (prerequisiteLine.isEmpty()) {
+        if (prerequisiteLine.isEmpty() || isSkillRequirementLine(prerequisiteLine)) {
             return List.of();
         }
 
@@ -987,6 +1009,15 @@ public class SkillTreeScreen extends Screen {
             }
         }
         return List.copyOf(prerequisites);
+    }
+
+    private static boolean isSkillRequirementLine(String line) {
+        for (int i = 0; i < line.length(); i++) {
+            if (Character.isDigit(line.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static String tooltipLine(String tooltip, String prefix) {

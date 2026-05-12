@@ -18,3 +18,8 @@
 	#Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.
 	enableStealthSystem = true
 
+#Skyrim-style HUD and stamina settings
+[hudAndStamina]
+	#Set to false to completely disable Thuumcraft's Skyrim-style HUD, stamina replacement, hunger override and Iron's Spellbooks mana bar replacement.
+	enableSkyrimHudAndStamina = true
+

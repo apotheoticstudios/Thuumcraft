@@ -1,0 +1,223 @@
+---- Minecraft Crash Report ----
+// I'm sorry, Dave.
+
+Time: 2026-05-12 20:10:23
+Description: Rendering screen
+
+java.lang.IllegalArgumentException: Unknown perk node: 0/20/40/60/80 Sneak
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.nodeIndex(SkillTreeScreen.java:951) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.prerequisitesMet(SkillTreeScreen.java:694) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.canUpgradeNode(SkillTreeScreen.java:683) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.nodeColor(SkillTreeScreen.java:630) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.renderTree(SkillTreeScreen.java:534) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.renderTreeCarousel(SkillTreeScreen.java:499) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.render(SkillTreeScreen.java:347) ~[main/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.Screen.renderWithTooltip(Screen.java:109) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:computing_frames,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:configured.common.mixins.json:client.ScreenMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.ForgeHooksClient.drawScreenInternal(ForgeHooksClient.java:428) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:421) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:986) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1172) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:723) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Suspected Mod: 
+	Thu'umcraft (thuumcraft), Version: 1.0-1.20.1
+		at TRANSFORMER/thuumcraft@1.0-1.20.1/net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.nodeIndex(SkillTreeScreen.java:951)
+Stacktrace:
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.nodeIndex(SkillTreeScreen.java:951) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.prerequisitesMet(SkillTreeScreen.java:694) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.canUpgradeNode(SkillTreeScreen.java:683) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.nodeColor(SkillTreeScreen.java:630) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.renderTree(SkillTreeScreen.java:534) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.renderTreeCarousel(SkillTreeScreen.java:499) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen.render(SkillTreeScreen.java:347) ~[%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.Screen.renderWithTooltip(Screen.java:109) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:computing_frames,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:configured.common.mixins.json:client.ScreenMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.ForgeHooksClient.drawScreenInternal(ForgeHooksClient.java:428) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23183%23190!/:?] {re:classloading}
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:421) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23183%23190!/:?] {re:classloading}
+-- Screen render details --
+Details:
+	Screen name: net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen
+	Mouse location: Scaled: (288, 180). Absolute: (720.000000, 450.000000)
+	Screen size: Scaled: (576, 360). Absolute: (2880, 1800). Scale factor of 5.000000
+Stacktrace:
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:986) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1172) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:723) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Dev'/154, l='ClientLevel', x=-142.74, y=72.66, z=1744.62]]
+	Chunk stats: 1521, 1021
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,73,0), Section: (at 0,9,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 425586 game time, 26061 day time
+	Server brand: forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:470) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:supplementaries-common.mixins.json:ClientLevelMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2381) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:740) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.4.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla, mod_resources, file/Excalibur_V1.20.zip, file/Excalibur_Macaw_0.1_1.20.1.zip, file/Excalibur_Mcw-Doors_1.21.1_v1.2.zip, file/Excalibur_Mcw-Roofs_v1.1.zip, Moonlight Mods Dynamic Assets, file/FarmersDelightExcaliburSupport.zip, file/Excalibur_Chipped_0.zip, file/Excalibur_Handcrafted_0.zip, file/Excalibur_Supplementaries_1.zip
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Mac OS X (aarch64) version 26.3.1
+	Java Version: 17.0.17, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 1591858208 bytes (1518 MiB) / 4294967296 bytes (4096 MiB) up to 4294967296 bytes (4096 MiB)
+	CPUs: 8
+	Processor Vendor: Apple Inc.
+	Processor Name: Apple M1
+	Identifier: Apple Inc. Family 0x1b588bb3 Model 0 Stepping 0
+	Microarchitecture: ARM64 SoC: Firestorm + Icestorm
+	Frequency (GHz): 3.20
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 8
+	Graphics card #0 name: Apple M1
+	Graphics card #0 vendor: Apple (0x106b)
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Memory slot #0 capacity (MB): 0.00
+	Memory slot #0 clockSpeed (GHz): 0.00
+	Memory slot #0 type: unknown
+	Virtual memory max (MB): 17408.00
+	Virtual memory used (MB): 11424.95
+	Swap memory total (MB): 1024.00
+	Swap memory used (MB): 81.25
+	JVM Flags: 0 total; 
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: Apple M1 GL version 4.1 Metal - 90.5, Apple
+	Window size: 2880x1800
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: <disabled>
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Type: Integrated Server (map_client.txt)
+	GPU Warnings: version: Metal
+	Graphics mode: fancy
+	Resource Packs: vanilla, mod_resources, file/Excalibur_V1.20.zip, file/Excalibur_Macaw_0.1_1.20.1.zip, file/Excalibur_Mcw-Doors_1.21.1_v1.2.zip (incompatible), file/Excalibur_Mcw-Roofs_v1.1.zip (incompatible), Moonlight Mods Dynamic Assets, file/FarmersDelightExcaliburSupport.zip (incompatible), file/Excalibur_Chipped_0.zip, file/Excalibur_Handcrafted_0.zip, file/Excalibur_Supplementaries_1.zip
+	Current Language: en_us
+	CPU: 8x Apple M1
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/154, l='ServerLevel[Test3]', x=-142.74, y=72.66, z=1744.62]]
+	Data Packs: vanilla, mod:farmersdelight, mod:framedblocks, mod:handcrafted (incompatible), mod:mixinextras (incompatible), mod:moonlight (incompatible), mod:resourcefullib (incompatible), mod:mixinsquared (incompatible), mod:mcwroofs, mod:mcwdoors, mod:jei, mod:forge, mod:commonality, mod:apexcore, mod:supplementaries, mod:fantasyfurniture, mod:mcwpaths, mod:thuumcraft, Moonlight Generated Pack, Supplementaries Generated Pack, mod:jade (incompatible), mod:configured (incompatible), mod:placebo (incompatible), mod:attributeslib (incompatible), mod:geckolib, mod:playeranimator (incompatible), mod:caelus (incompatible), mod:curios (incompatible), mod:irons_spellbooks
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.10.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.10.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.10.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.10.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.4.10.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		farmers-delight-398521-8007609_mapped_parchment_20|Farmer's Delight              |farmersdelight                |1.20.1-1.3.1        |DONE      |Manifest: NOSIGNATURE
+		forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		handcrafted-538214-5118729_mapped_parchment_2023.0|Handcrafted                   |handcrafted                   |3.0.6               |DONE      |Manifest: NOSIGNATURE
+		selene-499980-7540753_mapped_parchment_2023.09.03-|Moonlight Library             |moonlight                     |1.20-2.16.26        |DONE      |Manifest: NOSIGNATURE
+		mixinsquared-forge-0.1.1.jar                      |MixinSquared                  |mixinsquared                  |0.1.1               |DONE      |Manifest: NOSIGNATURE
+		jade-324717-6855440_mapped_parchment_2023.09.03-1.|Jade                          |jade                          |11.13.2+forge       |DONE      |Manifest: NOSIGNATURE
+		geckolib-forge-1.20.1-4.7.1.1_mapped_parchment_202|GeckoLib 4                    |geckolib                      |4.7.1.1             |DONE      |Manifest: NOSIGNATURE
+		player-animation-lib-forge-1.0.2-rc1+1.20_mapped_p|Player Animator               |playeranimator                |1.0.2-rc1+1.20      |DONE      |Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.20.0.129_mapped_parchment_2023|Just Enough Items             |jei                           |15.20.0.129         |DONE      |Manifest: NOSIGNATURE
+		caelus-forge-3.1.0+1.20_mapped_parchment_2023.09.0|Caelus API                    |caelus                        |3.1.0+1.20          |DONE      |Manifest: NOSIGNATURE
+		curios-forge-5.4.7+1.20.1_mapped_parchment_2023.09|Curios API                    |curios                        |5.4.7+1.20.1        |DONE      |Manifest: NOSIGNATURE
+		placebo-283644-6274231_mapped_parchment_2023.09.03|Placebo                       |placebo                       |8.6.3               |DONE      |Manifest: NOSIGNATURE
+		apothic-attributes-898963-5634071_mapped_parchment|Apothic Attributes            |attributeslib                 |1.3.7               |DONE      |Manifest: NOSIGNATURE
+		configured-457570-5180900_mapped_parchment_2023.09|Configured                    |configured                    |2.2.3               |DONE      |Manifest: NOSIGNATURE
+		irons_spellbooks-1.20.1-3.4.0.11_mapped_parchment_|Iron's Spells 'n Spellbooks   |irons_spellbooks              |1.20.1-3.4.0.11     |DONE      |Manifest: NOSIGNATURE
+		framedblocks-441647-7386520_mapped_parchment_2023.|FramedBlocks                  |framedblocks                  |9.4.3               |DONE      |Manifest: NOSIGNATURE
+		mixinextras-forge-0.3.6.jar                       |MixinExtras                   |mixinextras                   |0.3.6               |DONE      |Manifest: NOSIGNATURE
+		resourceful-lib-570073-5659871_mapped_parchment_20|Resourceful Lib               |resourcefullib                |2.1.29              |DONE      |Manifest: NOSIGNATURE
+		macaws-roofs-352039-6494466_mapped_parchment_2023.|Macaw's Roofs                 |mcwroofs                      |2.3.2               |DONE      |Manifest: NOSIGNATURE
+		macaws-doors-378646-6146379_mapped_parchment_2023.|Macaw's Doors                 |mcwdoors                      |1.1.2               |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |47.4.10             |DONE      |Manifest: NOSIGNATURE
+		commonality-1.20.1-7.0.0.jar                      |Commonality                   |commonality                   |7.0.0               |DONE      |Manifest: NOSIGNATURE
+		apexcore-1.20.1-10.0.0.jar                        |ApexCore                      |apexcore                      |10.0.0              |DONE      |Manifest: NOSIGNATURE
+		fantasys-furniture-579564-4702176_mapped_parchment|Fantasy's Furniture           |fantasyfurniture              |9.0.0               |DONE      |Manifest: NOSIGNATURE
+		supplementaries-412082-7884611_mapped_parchment_20|Supplementaries               |supplementaries               |1.20-3.1.43         |DONE      |Manifest: NOSIGNATURE
+		macaws-paths-and-pavings-629153-7029554_mapped_par|Macaw's Paths and Pavings     |mcwpaths                      |1.1.1               |DONE      |Manifest: NOSIGNATURE
+		main                                              |Thu'umcraft                   |thuumcraft                    |1.0-1.20.1          |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 72951fd5-aff4-4d8b-b49b-b9461d93ea4d
+	FML: 47.4
+	Forge: net.minecraftforge:47.4.10

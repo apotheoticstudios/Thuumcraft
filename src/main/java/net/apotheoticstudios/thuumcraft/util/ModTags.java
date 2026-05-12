@@ -32,6 +32,11 @@ public class ModTags {
     public static class Items {
 
         public static final TagKey<Item> INGREDIENT = tag("ingredient");
+        public static final TagKey<Item> LIGHT_ARMOR = tag("light_armor");
+        public static final TagKey<Item> HEAVY_ARMOR = tag("heavy_armor");
+        public static final TagKey<Item> RANGED_WEAPONS = tag("ranged_weapons");
+        public static final TagKey<Item> ONE_HANDED_WEAPONS = tag("one_handed_weapons");
+        public static final TagKey<Item> TWO_HANDED_WEAPONS = tag("two_handed_weapons");
 
 
 

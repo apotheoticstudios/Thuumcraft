@@ -16,6 +16,7 @@ public class ModAttributes {
     private static final double DEFAULT_ATTRIBUTE_MIN = -1024.0D;
     private static final double DEFAULT_ATTRIBUTE_MAX = 1024.0D;
     private static final double SKYRIM_SKILL_ATTRIBUTE_MAX = 100.0D;
+    private static final double BASE_SNEAK_ATTACK_CRIT_DAMAGE = 2.0D;
 
     public static final DeferredRegister<Attribute> ATTRIBUTES =
             DeferredRegister.create(ForgeRegistries.ATTRIBUTES, Thuumcraft.MOD_ID);
@@ -30,8 +31,10 @@ public class ModAttributes {
     public static final RegistryObject<Attribute> HEAVY_ARMOR = registerSkillAttribute("heavy_armor");
     public static final RegistryObject<Attribute> LIGHT_ARMOR = registerSkillAttribute("light_armor");
     public static final RegistryObject<Attribute> LOCKPICKING = registerSkillAttribute("lockpicking");
+    public static final RegistryObject<Attribute> MELEE_SNEAK_ATTACK_CRIT_DAMAGE = registerPositiveAttribute("melee_sneak_attack_crit_damage", BASE_SNEAK_ATTACK_CRIT_DAMAGE);
     public static final RegistryObject<Attribute> ONE_HANDED = registerSkillAttribute("one_handed");
     public static final RegistryObject<Attribute> PICKPOCKET = registerSkillAttribute("pickpocket");
+    public static final RegistryObject<Attribute> RANGED_SNEAK_ATTACK_CRIT_DAMAGE = registerPositiveAttribute("ranged_sneak_attack_crit_damage", BASE_SNEAK_ATTACK_CRIT_DAMAGE);
     public static final RegistryObject<Attribute> SMITHING = registerSkillAttribute("smithing");
     public static final RegistryObject<Attribute> SNEAK = registerSkillAttribute("sneak");
     public static final RegistryObject<Attribute> STAMINA = registerAttribute("stamina");
@@ -46,10 +49,18 @@ public class ModAttributes {
         return registerAttribute(name, SKYRIM_SKILL_ATTRIBUTE_MAX);
     }
 
+    private static RegistryObject<Attribute> registerPositiveAttribute(String name, double defaultValue) {
+        return registerAttribute(name, defaultValue, 0.0D, DEFAULT_ATTRIBUTE_MAX);
+    }
+
     private static RegistryObject<Attribute> registerAttribute(String name, double maxValue) {
+        return registerAttribute(name, 0.0D, DEFAULT_ATTRIBUTE_MIN, maxValue);
+    }
+
+    private static RegistryObject<Attribute> registerAttribute(String name, double defaultValue, double minValue, double maxValue) {
         RegistryObject<Attribute> attribute = ATTRIBUTES.register(name,
                 () -> new RangedAttribute("attribute.name." + Thuumcraft.MOD_ID + "." + name,
-                        0.0D, DEFAULT_ATTRIBUTE_MIN, maxValue).setSyncable(true));
+                        defaultValue, minValue, maxValue).setSyncable(true));
         CUSTOM_ATTRIBUTES.add(attribute);
         return attribute;
     }

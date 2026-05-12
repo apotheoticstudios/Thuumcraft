@@ -6,10 +6,13 @@ import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.network.ClientboundSneakAwarenessPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,6 +27,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.PlayLevelSoundEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,6 +54,9 @@ public final class SneakAwarenessEvents {
     private static final double GUARANTEED_SNEAK_DETECTION_RANGE = 1.75D;
     private static final double MIN_SNEAK_TARGET_DETECTION_RANGE = 2.5D;
     private static final double SOUND_DISRUPTION_NOISE_THRESHOLD = 0.5D;
+    private static final double MIN_SNEAK_ATTACK_CRIT_DAMAGE = 1.0D;
+    private static final int SNEAK_ATTACK_CRIT_PARTICLES = 24;
+    private static final int SNEAK_ATTACK_ENCHANTED_HIT_PARTICLES = 12;
     private static final float TARGET_ACQUISITION_PROGRESS = 0.85F;
     private static final Map<UUID, PlayerAwarenessData> PLAYER_AWARENESS = new HashMap<>();
     private static final Map<UUID, Integer> DISABLED_SYNC_TICKS = new HashMap<>();
@@ -129,6 +136,30 @@ public final class SneakAwarenessEvents {
 
         if (isUndetectable(player) || shouldSuppressStealthTarget(observer, player)) {
             event.setNewTarget(null);
+        }
+    }
+
+    @SubscribeEvent
+    public static void applySneakAttackDamage(LivingHurtEvent event) {
+        if (!isStealthSystemEnabled() || event.getEntity().level().isClientSide()) {
+            return;
+        }
+        if (!(event.getEntity() instanceof Mob observer)) {
+            return;
+        }
+
+        SneakAttackType sneakAttackType = getSneakAttackType(event.getSource());
+        if (sneakAttackType == SneakAttackType.NONE || !(event.getSource().getEntity() instanceof ServerPlayer player)) {
+            return;
+        }
+        if (!canSneakAttack(player, observer)) {
+            return;
+        }
+
+        double critDamage = getSneakAttackCritDamage(player, sneakAttackType);
+        event.setAmount((float) (event.getAmount() * critDamage));
+        if (critDamage > MIN_SNEAK_ATTACK_CRIT_DAMAGE) {
+            spawnSneakAttackCritParticles(observer, sneakAttackType);
         }
     }
 
@@ -232,6 +263,70 @@ public final class SneakAwarenessEvents {
         }
 
         return !canDetectSneakingTarget(observer, player);
+    }
+
+    private static boolean canSneakAttack(ServerPlayer player, Mob observer) {
+        if (player.isSpectator() || player.isCreative() || !player.isAlive() || !isTryingToSneak(player)) {
+            return false;
+        }
+        if (!observer.isAlive() || observer.isSpectator() || observer.getId() == player.getId()) {
+            return false;
+        }
+        if (observer.getTarget() == player || observer.getLastHurtByMob() == player) {
+            return false;
+        }
+
+        PlayerAwarenessData data = PLAYER_AWARENESS.get(player.getUUID());
+        if (data != null && data.progressFor(observer.getId()) >= TARGET_ACQUISITION_PROGRESS) {
+            return false;
+        }
+
+        return isUndetectable(player) || !canDetectSneakingTarget(observer, player);
+    }
+
+    private static SneakAttackType getSneakAttackType(DamageSource source) {
+        Entity directEntity = source.getDirectEntity();
+        Entity causingEntity = source.getEntity();
+        if (!(causingEntity instanceof ServerPlayer)) {
+            return SneakAttackType.NONE;
+        }
+        if (source.is(DamageTypeTags.IS_PROJECTILE) && directEntity != causingEntity) {
+            return SneakAttackType.RANGED;
+        }
+        if (directEntity == causingEntity) {
+            return SneakAttackType.MELEE;
+        }
+        return SneakAttackType.NONE;
+    }
+
+    private static double getSneakAttackCritDamage(ServerPlayer player, SneakAttackType sneakAttackType) {
+        double critDamage = switch (sneakAttackType) {
+            case MELEE -> player.getAttributeValue(ModAttributes.MELEE_SNEAK_ATTACK_CRIT_DAMAGE.get());
+            case RANGED -> player.getAttributeValue(ModAttributes.RANGED_SNEAK_ATTACK_CRIT_DAMAGE.get());
+            case NONE -> MIN_SNEAK_ATTACK_CRIT_DAMAGE;
+        };
+        return Math.max(MIN_SNEAK_ATTACK_CRIT_DAMAGE, critDamage);
+    }
+
+    private static void spawnSneakAttackCritParticles(Mob observer, SneakAttackType sneakAttackType) {
+        if (!(observer.level() instanceof ServerLevel level)) {
+            return;
+        }
+
+        double x = observer.getX();
+        double y = observer.getY() + observer.getBbHeight() * 0.55D;
+        double z = observer.getZ();
+        double horizontalSpread = Math.max(0.25D, observer.getBbWidth() * 0.45D);
+        double verticalSpread = Math.max(0.35D, observer.getBbHeight() * 0.25D);
+
+        level.sendParticles(ParticleTypes.CRIT, x, y, z, SNEAK_ATTACK_CRIT_PARTICLES,
+                horizontalSpread, verticalSpread, horizontalSpread, 0.25D);
+        level.sendParticles(ParticleTypes.ENCHANTED_HIT, x, y, z, SNEAK_ATTACK_ENCHANTED_HIT_PARTICLES,
+                horizontalSpread, verticalSpread, horizontalSpread, 0.18D);
+        if (sneakAttackType == SneakAttackType.MELEE) {
+            level.sendParticles(ParticleTypes.SWEEP_ATTACK, x, y, z, 1,
+                    horizontalSpread * 0.25D, verticalSpread * 0.1D, horizontalSpread * 0.25D, 0.0D);
+        }
     }
 
     private static double getDetectionSignal(ServerPlayer player, Mob observer, double distanceSqr, double playerNoise,
@@ -446,6 +541,11 @@ public final class SneakAwarenessEvents {
             return awareness;
         }
 
+        private float progressFor(int id) {
+            ObserverAwareness awareness = observers.get(id);
+            return awareness == null ? 0.0F : awareness.progress;
+        }
+
         private void recordNoise(float noise) {
             recentNoise = Math.max(recentNoise, noise);
         }
@@ -514,5 +614,11 @@ public final class SneakAwarenessEvents {
         private float progress;
         private int lastCheckedTick;
         private int lastSensedTick;
+    }
+
+    private enum SneakAttackType {
+        NONE,
+        MELEE,
+        RANGED
     }
 }

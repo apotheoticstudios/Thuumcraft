@@ -12,6 +12,7 @@ _**Credits**_
 **Textures**:
 
 - Apotheotic Studios
+- Drecxi
 
 **Models**:
 

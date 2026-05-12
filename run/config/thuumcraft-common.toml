@@ -15,6 +15,6 @@
 
 #Skyrim-style stealth awareness and sneak crosshair settings
 [stealth]
-	#Set to false to completely disable Thuumcraft's stealth awareness system and stealth crosshair indicator.
+	#Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.
 	enableStealthSystem = true
 

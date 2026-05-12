@@ -1,5 +1,6 @@
 package net.apotheoticstudios.thuumcraft.event;
 
+import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
@@ -9,6 +10,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -64,6 +67,8 @@ public class ModEffectEvents {
             event.setAmount(applyResistance(entity, ModEffects.SHOCK_RESISTANCE.get(), event.getAmount()));
             event.setAmount(applyWeakness(entity, ModEffects.SHOCK_WEAKNESS.get(), event.getAmount()));
         }
+
+        removeInvisibilityAfterAttackingMob(event);
     }
 
     @SubscribeEvent
@@ -94,5 +99,14 @@ public class ModEffectEvents {
     private static boolean isParalyzed(Entity entity) {
         return entity instanceof LivingEntity livingEntity
                 && livingEntity.hasEffect(ModEffects.PARALYSIS.get());
+    }
+
+    private static void removeInvisibilityAfterAttackingMob(LivingHurtEvent event) {
+        if (Config.ENABLE_STEALTH_SYSTEM.get()
+                && event.getEntity() instanceof Mob
+                && event.getSource().getEntity() instanceof Player player
+                && player.hasEffect(MobEffects.INVISIBILITY)) {
+            player.removeEffect(MobEffects.INVISIBILITY);
+        }
     }
 }

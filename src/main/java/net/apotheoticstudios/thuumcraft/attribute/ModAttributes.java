@@ -23,18 +23,24 @@ public class ModAttributes {
 
     private static final List<RegistryObject<Attribute>> CUSTOM_ATTRIBUTES = new ArrayList<>();
 
+    public static final RegistryObject<Attribute> ALCHEMY = registerSkillAttribute("alchemy");
+    public static final RegistryObject<Attribute> ALTERATION = registerSkillAttribute("alteration");
     public static final RegistryObject<Attribute> ARCHERY = registerSkillAttribute("archery");
     public static final RegistryObject<Attribute> BARTER = registerSkillAttribute("barter");
     public static final RegistryObject<Attribute> BLOCK = registerSkillAttribute("block");
     public static final RegistryObject<Attribute> CARRY_WEIGHT = registerAttribute("carry_weight");
+    public static final RegistryObject<Attribute> CONJURATION = registerSkillAttribute("conjuration");
+    public static final RegistryObject<Attribute> DESTRUCTION = registerSkillAttribute("destruction");
     public static final RegistryObject<Attribute> ENCHANTING = registerSkillAttribute("enchanting");
     public static final RegistryObject<Attribute> HEAVY_ARMOR = registerSkillAttribute("heavy_armor");
+    public static final RegistryObject<Attribute> ILLUSION = registerSkillAttribute("illusion");
     public static final RegistryObject<Attribute> LIGHT_ARMOR = registerSkillAttribute("light_armor");
     public static final RegistryObject<Attribute> LOCKPICKING = registerSkillAttribute("lockpicking");
     public static final RegistryObject<Attribute> MELEE_SNEAK_ATTACK_CRIT_DAMAGE = registerPositiveAttribute("melee_sneak_attack_crit_damage", BASE_SNEAK_ATTACK_CRIT_DAMAGE);
     public static final RegistryObject<Attribute> ONE_HANDED = registerSkillAttribute("one_handed");
     public static final RegistryObject<Attribute> PICKPOCKET = registerSkillAttribute("pickpocket");
     public static final RegistryObject<Attribute> RANGED_SNEAK_ATTACK_CRIT_DAMAGE = registerPositiveAttribute("ranged_sneak_attack_crit_damage", BASE_SNEAK_ATTACK_CRIT_DAMAGE);
+    public static final RegistryObject<Attribute> RESTORATION = registerSkillAttribute("restoration");
     public static final RegistryObject<Attribute> SMITHING = registerSkillAttribute("smithing");
     public static final RegistryObject<Attribute> SNEAK = registerSkillAttribute("sneak");
     public static final RegistryObject<Attribute> STAMINA = registerAttribute("stamina");

@@ -7,6 +7,8 @@ import net.apotheoticstudios.thuumcraft.network.ClientboundSneakAwarenessPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -160,6 +162,7 @@ public final class SneakAwarenessEvents {
         event.setAmount((float) (event.getAmount() * critDamage));
         if (critDamage > MIN_SNEAK_ATTACK_CRIT_DAMAGE) {
             spawnSneakAttackCritParticles(observer, sneakAttackType);
+            sendSneakAttackCritMessage(player, critDamage);
         }
     }
 
@@ -329,6 +332,19 @@ public final class SneakAwarenessEvents {
         }
     }
 
+    private static void sendSneakAttackCritMessage(ServerPlayer player, double critDamage) {
+        player.sendSystemMessage(Component.literal("Critical Strike ")
+                .append(Component.literal(formatCritDamage(critDamage) + "x").withStyle(Style.EMPTY.withBold(true)))
+                .append(Component.literal(" Damage")));
+    }
+
+    private static String formatCritDamage(double critDamage) {
+        if (critDamage == Math.rint(critDamage)) {
+            return Integer.toString((int) critDamage);
+        }
+        return String.format(java.util.Locale.ROOT, "%.2f", critDamage).replaceAll("0+$", "").replaceAll("\\.$", "");
+    }
+
     private static double getDetectionSignal(ServerPlayer player, Mob observer, double distanceSqr, double playerNoise,
                                              double normalizedSneak, int playerLight) {
         if (isUndetectable(player)) {
@@ -446,7 +462,7 @@ public final class SneakAwarenessEvents {
 
         double targetRange = getSneakTargetDetectionRange(scanRange, normalizedSneak);
         double lightMultiplier = 0.65D + playerLight / 15.0D * 0.7D;
-        double facingMultiplier = 0.45D + facingScore * 0.75D;
+        double facingMultiplier = 0.18D + facingScore * 1.02D;
         double noiseMultiplier = 1.0D + playerNoise * 0.65D;
         targetRange *= lightMultiplier * facingMultiplier * noiseMultiplier;
         if (observer.hasEffect(MobEffects.BLINDNESS)) {

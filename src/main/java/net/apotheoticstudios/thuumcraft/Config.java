@@ -17,7 +17,7 @@ public class Config {
         FISHING_DROP_CHANCE = builder.comment("Chance for fishing junk loot to include a random book (default is 3%)").defineInRange("fishingDropChance", 0.03, (double)0.0F, (double)1.0F);
         builder.pop();
         builder.comment("Skyrim-style stealth awareness and sneak crosshair settings").push("stealth");
-        ENABLE_STEALTH_SYSTEM = builder.comment("Set to false to completely disable Thuumcraft's stealth awareness system and stealth crosshair indicator.")
+        ENABLE_STEALTH_SYSTEM = builder.comment("Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.")
                 .define("enableStealthSystem", true);
         builder.pop();
         COMMON_CONFIG = builder.build();

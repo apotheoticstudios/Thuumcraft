@@ -13,3 +13,8 @@
 	#Range: 0.0 ~ 1.0
 	fishingDropChance = 0.03
 
+#Skyrim-style stealth awareness and sneak crosshair settings
+[stealth]
+	#Set to false to completely disable Thuumcraft's stealth awareness system and stealth crosshair indicator.
+	enableStealthSystem = true
+

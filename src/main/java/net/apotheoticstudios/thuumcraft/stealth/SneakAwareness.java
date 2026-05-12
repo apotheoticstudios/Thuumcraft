@@ -1,6 +1,7 @@
 package net.apotheoticstudios.thuumcraft.stealth;
 
 public enum SneakAwareness {
+    DISABLED,
     HIDDEN,
     SUSPICIOUS,
     SEARCHING,

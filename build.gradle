@@ -188,6 +188,9 @@ dependencies {
 
     // Run environment only
     runtimeOnly fg.deobf("curse.maven:jade-324717:6855440")
+    runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
+    runtimeOnly fg.deobf("curse.maven:placebo-283644:6274231")
+    runtimeOnly fg.deobf("curse.maven:apothic-attributes-898963:5634071")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

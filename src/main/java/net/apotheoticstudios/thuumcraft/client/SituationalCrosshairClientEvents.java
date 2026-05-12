@@ -1,6 +1,8 @@
 package net.apotheoticstudios.thuumcraft.client;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
+import net.apotheoticstudios.thuumcraft.Config;
+import net.apotheoticstudios.thuumcraft.stealth.SneakAwareness;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
@@ -109,8 +111,12 @@ public final class SituationalCrosshairClientEvents {
             return CrosshairProfile.HIDDEN;
         }
 
-        if (player.isCrouching() || player.isShiftKeyDown()) {
-            return switch (ClientSneakAwarenessState.awareness()) {
+        SneakAwareness sneakAwareness = ClientSneakAwarenessState.awareness();
+        if ((player.isCrouching() || player.isShiftKeyDown())
+                && Config.ENABLE_STEALTH_SYSTEM.get()
+                && sneakAwareness != SneakAwareness.DISABLED) {
+            return switch (sneakAwareness) {
+                case DISABLED -> CrosshairProfile.of(CrosshairSprite.NORMAL);
                 case DETECTED -> CrosshairProfile.of(CrosshairSprite.SNEAK_DETECTED);
                 case SEARCHING -> CrosshairProfile.of(CrosshairSprite.SNEAK_SEARCHING);
                 case SUSPICIOUS -> CrosshairProfile.of(CrosshairSprite.SNEAK_SUSPICIOUS);

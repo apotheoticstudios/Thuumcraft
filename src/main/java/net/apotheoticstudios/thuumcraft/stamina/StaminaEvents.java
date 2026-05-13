@@ -27,6 +27,7 @@ import java.util.UUID;
 public final class StaminaEvents {
     private static final String STAMINA_TAG = Thuumcraft.MOD_ID + ".stamina";
     private static final String STAMINA_INITIALIZED_TAG = Thuumcraft.MOD_ID + ".stamina_initialized";
+    private static final double BASE_MAX_STAMINA = 100.0D;
     private static final int SYNC_INTERVAL_TICKS = 5;
     private static final float SYNC_EPSILON = 0.01F;
 
@@ -37,23 +38,16 @@ public final class StaminaEvents {
 
     @SubscribeEvent
     public static void tickPlayerStamina(TickEvent.PlayerTickEvent event) {
-        if (!Config.ENABLE_SKYRIM_HUD_AND_STAMINA.get() || !(event.player instanceof ServerPlayer player)) {
+        if (!Config.ENABLE_SKYRIM_HUD_AND_STAMINA.get()
+                || event.phase != TickEvent.Phase.END
+                || !(event.player instanceof ServerPlayer player)) {
+            return;
+        }
+        if (!Config.ENABLE_STAMINA_SYSTEM.get() && !Config.ENABLE_SKYRIM_HEALTH_REGENERATION.get()) {
             return;
         }
 
         PlayerStaminaRuntime runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new PlayerStaminaRuntime());
-
-        if (event.phase == TickEvent.Phase.START) {
-            if (Config.ENABLE_STAMINA_SYSTEM.get() && Config.ENABLE_STAMINA_SPRINT_LIMIT.get()) {
-                double maxStamina = getMaxStamina(player);
-                enforceSprintLimit(player, runtime, getCurrentStamina(player, maxStamina), maxStamina);
-            }
-            return;
-        }
-
-        if (event.phase != TickEvent.Phase.END) {
-            return;
-        }
 
         if (Config.ENABLE_STAMINA_SYSTEM.get() && Config.ENABLE_STAMINA_HUNGER_OVERRIDE.get()) {
             overrideVanillaHunger(player);
@@ -63,7 +57,7 @@ public final class StaminaEvents {
             if (Config.ENABLE_STAMINA_SYSTEM.get()) {
                 double maxStamina = getMaxStamina(player);
                 setCurrentStamina(player, maxStamina);
-                syncIfNeeded(player, runtime, (float) maxStamina);
+                syncIfNeeded(player, runtime, (float) maxStamina, (float) maxStamina);
             }
             resetStaminaRuntime(runtime);
             runtime.healthRegenTicks = 0;
@@ -87,6 +81,43 @@ public final class StaminaEvents {
 
     public static float getCurrentStamina(ServerPlayer player) {
         return (float) getCurrentStamina(player, getMaxStamina(player));
+    }
+
+    public static void addCurrentStamina(ServerPlayer player, double amount) {
+        double maxStamina = getMaxStamina(player);
+        double stamina = Mth.clamp(getCurrentStamina(player, maxStamina) + amount, 0.0D, maxStamina);
+        setCurrentStamina(player, stamina);
+        PlayerStaminaRuntime runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new PlayerStaminaRuntime());
+        if (amount > 0.0D && runtime.sprintLocked && stamina >= getSprintResumeStamina(maxStamina)) {
+            runtime.sprintLocked = false;
+        }
+        syncNow(player, runtime, (float) stamina, (float) maxStamina);
+    }
+
+    public static void clampCurrentStamina(ServerPlayer player) {
+        double maxStamina = getMaxStamina(player);
+        double stamina = Mth.clamp(getCurrentStamina(player, maxStamina), 0.0D, maxStamina);
+        setCurrentStamina(player, stamina);
+        PlayerStaminaRuntime runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new PlayerStaminaRuntime());
+        syncNow(player, runtime, (float) stamina, (float) maxStamina);
+    }
+
+    @SubscribeEvent
+    public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (Config.ENABLE_SKYRIM_HUD_AND_STAMINA.get()
+                && Config.ENABLE_STAMINA_SYSTEM.get()
+                && event.getEntity() instanceof ServerPlayer player) {
+            refillAndSyncStamina(player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void playerRespawned(PlayerEvent.PlayerRespawnEvent event) {
+        if (Config.ENABLE_SKYRIM_HUD_AND_STAMINA.get()
+                && Config.ENABLE_STAMINA_SYSTEM.get()
+                && event.getEntity() instanceof ServerPlayer player) {
+            refillAndSyncStamina(player);
+        }
     }
 
     @SubscribeEvent
@@ -128,22 +159,37 @@ public final class StaminaEvents {
         double maxStamina = getMaxStamina(player);
         double stamina = getCurrentStamina(player, maxStamina);
         if (Config.ENABLE_STAMINA_SPRINT_LIMIT.get()) {
-            enforceSprintLimit(player, runtime, stamina, maxStamina);
-            if (!runtime.sprintLocked && player.isSprinting() && isMovingHorizontally(player)) {
+            boolean wasSprinting = player.isSprinting();
+            boolean canContinueSprinting = runtime.wasSprintingLastTick && stamina > 0.0D;
+            if (runtime.sprintLocked && stamina >= getSprintResumeStamina(maxStamina)) {
+                runtime.sprintLocked = false;
+            }
+
+            if (wasSprinting
+                    && (runtime.sprintLocked
+                    || stamina <= 0.0D
+                    || (!canContinueSprinting && stamina < getSprintStartStamina(maxStamina)))) {
+                player.setSprinting(false);
+            }
+
+            if (!runtime.sprintLocked && wasSprinting && player.isSprinting()) {
                 stamina = Math.max(0.0D, stamina - getSprintDrainPerTick(player));
                 runtime.regenDelayTicks = Config.STAMINA_REGEN_DELAY_TICKS.get();
                 if (stamina <= 0.0D) {
                     runtime.sprintLocked = true;
                     player.setSprinting(false);
                 }
+            } else if (wasSprinting) {
+                runtime.regenDelayTicks = Config.STAMINA_REGEN_DELAY_TICKS.get();
             } else if (runtime.regenDelayTicks > 0) {
                 runtime.regenDelayTicks = Math.max(0, runtime.regenDelayTicks - 1);
             } else if (stamina < maxStamina) {
                 stamina = Math.min(maxStamina, stamina + getStaminaRegenerationPerTick(player));
             }
-            enforceSprintLimit(player, runtime, stamina, maxStamina);
+            runtime.wasSprintingLastTick = player.isSprinting();
         } else {
             runtime.sprintLocked = false;
+            runtime.wasSprintingLastTick = false;
             if (runtime.regenDelayTicks > 0) {
                 runtime.regenDelayTicks = Math.max(0, runtime.regenDelayTicks - 1);
             } else if (stamina < maxStamina) {
@@ -153,28 +199,7 @@ public final class StaminaEvents {
 
         stamina = Mth.clamp(stamina, 0.0D, maxStamina);
         setCurrentStamina(player, stamina);
-        syncIfNeeded(player, runtime, (float) stamina);
-    }
-
-    private static void enforceSprintLimit(ServerPlayer player, PlayerStaminaRuntime runtime, double stamina,
-                                           double maxStamina) {
-        if (player.isSpectator() || player.isCreative()) {
-            runtime.sprintLocked = false;
-            return;
-        }
-
-        if (runtime.sprintLocked && stamina >= getSprintResumeStamina(maxStamina)) {
-            runtime.sprintLocked = false;
-        }
-
-        if (runtime.sprintLocked || stamina < getSprintStartStamina(maxStamina)) {
-            if (player.isSprinting()) {
-                player.setSprinting(false);
-            }
-            if (stamina <= 0.0D) {
-                runtime.sprintLocked = true;
-            }
-        }
+        syncIfNeeded(player, runtime, (float) stamina, (float) maxStamina);
     }
 
     private static void tickHealthRegeneration(ServerPlayer player, PlayerStaminaRuntime runtime) {
@@ -206,6 +231,15 @@ public final class StaminaEvents {
     private static void resetStaminaRuntime(PlayerStaminaRuntime runtime) {
         runtime.regenDelayTicks = 0;
         runtime.sprintLocked = false;
+        runtime.wasSprintingLastTick = false;
+    }
+
+    private static void refillAndSyncStamina(ServerPlayer player) {
+        double maxStamina = getMaxStamina(player);
+        setCurrentStamina(player, maxStamina);
+        PlayerStaminaRuntime runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new PlayerStaminaRuntime());
+        resetStaminaRuntime(runtime);
+        syncNow(player, runtime, (float) maxStamina, (float) maxStamina);
     }
 
     private static double getCurrentStamina(ServerPlayer player, double maxStamina) {
@@ -219,12 +253,17 @@ public final class StaminaEvents {
     }
 
     private static void setCurrentStamina(ServerPlayer player, double stamina) {
-        player.getPersistentData().putDouble(STAMINA_TAG, stamina);
+        CompoundTag data = player.getPersistentData();
+        data.putBoolean(STAMINA_INITIALIZED_TAG, true);
+        data.putDouble(STAMINA_TAG, stamina);
     }
 
     private static double getMaxStamina(ServerPlayer player) {
         AttributeInstance stamina = player.getAttribute(ModAttributes.STAMINA.get());
-        return Math.max(1.0D, stamina == null ? 100.0D : stamina.getValue());
+        if (stamina == null || stamina.getValue() <= 0.0D) {
+            return BASE_MAX_STAMINA;
+        }
+        return stamina.getValue();
     }
 
     private static double getStaminaRegenerationPerTick(ServerPlayer player) {
@@ -248,19 +287,22 @@ public final class StaminaEvents {
                 maxStamina * Config.STAMINA_SPRINT_RESUME_RATIO.get());
     }
 
-    private static boolean isMovingHorizontally(ServerPlayer player) {
-        return player.getDeltaMovement().horizontalDistanceSqr() > 1.0E-4D;
-    }
-
-    private static void syncIfNeeded(ServerPlayer player, PlayerStaminaRuntime runtime, float stamina) {
+    private static void syncIfNeeded(ServerPlayer player, PlayerStaminaRuntime runtime, float stamina, float maxStamina) {
         runtime.syncTicks++;
-        if (runtime.syncTicks < SYNC_INTERVAL_TICKS && Math.abs(runtime.lastSyncedStamina - stamina) < SYNC_EPSILON) {
+        if (runtime.syncTicks < SYNC_INTERVAL_TICKS
+                && Math.abs(runtime.lastSyncedStamina - stamina) < SYNC_EPSILON
+                && Math.abs(runtime.lastSyncedMaxStamina - maxStamina) < SYNC_EPSILON) {
             return;
         }
 
+        syncNow(player, runtime, stamina, maxStamina);
+    }
+
+    private static void syncNow(ServerPlayer player, PlayerStaminaRuntime runtime, float stamina, float maxStamina) {
         runtime.syncTicks = 0;
         runtime.lastSyncedStamina = stamina;
-        ModMessages.sendToPlayer(new ClientboundStaminaPacket(stamina), player);
+        runtime.lastSyncedMaxStamina = maxStamina;
+        ModMessages.sendToPlayer(new ClientboundStaminaPacket(stamina, maxStamina), player);
     }
 
     private static final class PlayerStaminaRuntime {
@@ -268,7 +310,9 @@ public final class StaminaEvents {
         private int healthRegenTicks;
         private int combatTicks;
         private boolean sprintLocked;
+        private boolean wasSprintingLastTick;
         private int syncTicks = SYNC_INTERVAL_TICKS;
         private float lastSyncedStamina = -1.0F;
+        private float lastSyncedMaxStamina = -1.0F;
     }
 }

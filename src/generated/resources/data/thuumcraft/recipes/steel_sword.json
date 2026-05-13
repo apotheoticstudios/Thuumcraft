@@ -5,13 +5,13 @@
     "H": {
       "item": "thuumcraft:handle"
     },
-    "S": {
+    "M": {
       "item": "thuumcraft:steel_ingot"
     }
   },
   "pattern": [
-    "S",
-    "S",
+    "M",
+    "M",
     "H"
   ],
   "result": {

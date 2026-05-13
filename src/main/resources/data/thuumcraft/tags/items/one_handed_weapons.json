@@ -7,10 +7,19 @@
     "minecraft:golden_sword",
     "minecraft:diamond_sword",
     "minecraft:netherite_sword",
+    "thuumcraft:silver_sword",
+    "thuumcraft:silver_war_axe",
     "thuumcraft:steel_sword",
-    "thuumcraft:glass_sword",
+    "thuumcraft:steel_war_axe",
     "thuumcraft:dwarven_sword",
+    "thuumcraft:dwarven_war_axe",
+    "thuumcraft:orcish_sword",
+    "thuumcraft:orcish_war_axe",
+    "thuumcraft:elven_sword",
+    "thuumcraft:elven_war_axe",
+    "thuumcraft:glass_sword",
     "thuumcraft:glass_war_axe",
-    "thuumcraft:dwarven_war_axe"
+    "thuumcraft:ebony_sword",
+    "thuumcraft:ebony_war_axe"
   ]
 }

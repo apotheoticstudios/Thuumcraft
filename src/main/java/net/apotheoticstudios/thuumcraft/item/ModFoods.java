@@ -1,11 +1,17 @@
 package net.apotheoticstudios.thuumcraft.item;
 
+import io.redspace.ironsspellbooks.api.magic.MagicData;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
+import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
+import net.apotheoticstudios.thuumcraft.stamina.StaminaEvents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -26,8 +32,20 @@ import static java.util.Map.entry;
 
 public class ModFoods {
     private static final int INGREDIENT_EFFECT_DURATION_TICKS = 30;
+    private static final int FORTIFY_RESOURCE_DURATION_TICKS = 60 * 20;
+    private static final int REGENERATE_RESOURCE_DURATION_TICKS = 300 * 20;
+    private static final int DAMAGE_REGENERATION_DURATION_TICKS = 5 * 20;
+    private static final int LINGERING_DAMAGE_DURATION_TICKS = 10 * 20;
+    private static final int RAVAGE_RESOURCE_DURATION_TICKS = 10 * 20;
+    private static final double RESTORE_RESOURCE_AMOUNT = 5.0D;
+    private static final double DAMAGE_RESOURCE_AMOUNT = 3.0D;
+    private static final double DAMAGE_STAMINA_AMOUNT = 15.0D;
+    private static final double FORTIFY_RESOURCE_AMOUNT = 4.0D;
+    private static final double RAVAGE_RESOURCE_AMOUNT = -2.0D;
+    private static final double REGENERATE_RESOURCE_MULTIPLIER = 0.05D;
+    private static final double DAMAGE_REGENERATION_MULTIPLIER = -1.0D;
+    private static final double LINGERING_DAMAGE_PER_SECOND = -1.0D;
     private static final double SKILL_ATTRIBUTE_BONUS = 5.0D;
-    private static final double SKILL_ATTRIBUTE_PENALTY = -5.0D;
 
     public static final FoodProperties INGREDIENT = new FoodProperties.Builder().nutrition(1).fast().alwaysEat()
             .saturationMod(0.1f).build();
@@ -227,6 +245,7 @@ public class ModFoods {
     );
 
     private static final Map<UUID, List<TemporaryAttributeModifier>> ACTIVE_ATTRIBUTE_MODIFIERS = new HashMap<>();
+    private static final Map<UUID, List<ActiveResourceEffect>> ACTIVE_RESOURCE_EFFECTS = new HashMap<>();
 
     public static void applyIngredientEffects(String ingredientId, LivingEntity entity) {
         AlchemyEffect effect = PRIMARY_EFFECTS.get(ingredientId);
@@ -235,6 +254,9 @@ public class ModFoods {
         }
 
         applyEffect(effect, entity);
+        if (entity instanceof ServerPlayer player) {
+            SkillProgression.award(player, SkillProgression.Skill.ALCHEMY, getAlchemyIngredientExperience(effect));
+        }
     }
 
     public static Component getIngredientEffectName(String ingredientId) {
@@ -243,9 +265,12 @@ public class ModFoods {
     }
 
     public static void tickIngredientAttributeModifiers(LivingEntity entity) {
-        if (entity.level().isClientSide) {
+        if (entity.level().isClientSide
+                || (ACTIVE_ATTRIBUTE_MODIFIERS.isEmpty() && ACTIVE_RESOURCE_EFFECTS.isEmpty())) {
             return;
         }
+
+        tickIngredientResourceEffects(entity);
 
         List<TemporaryAttributeModifier> modifiers = ACTIVE_ATTRIBUTE_MODIFIERS.get(entity.getUUID());
         if (modifiers == null) {
@@ -261,12 +286,43 @@ public class ModFoods {
                 if (attributeInstance != null) {
                     attributeInstance.removeModifier(modifier.modifierId());
                 }
+                clampResourceAfterAttributeChange(entity, modifier.attribute());
                 iterator.remove();
             }
         }
 
         if (modifiers.isEmpty()) {
             ACTIVE_ATTRIBUTE_MODIFIERS.remove(entity.getUUID());
+        }
+    }
+
+    private static void tickIngredientResourceEffects(LivingEntity entity) {
+        if (!(entity instanceof ServerPlayer player)) {
+            return;
+        }
+
+        List<ActiveResourceEffect> effects = ACTIVE_RESOURCE_EFFECTS.get(player.getUUID());
+        if (effects == null) {
+            return;
+        }
+
+        long gameTime = player.level().getGameTime();
+        Iterator<ActiveResourceEffect> iterator = effects.iterator();
+        while (iterator.hasNext()) {
+            ActiveResourceEffect effect = iterator.next();
+            if (gameTime > effect.expiresAt) {
+                iterator.remove();
+                continue;
+            }
+
+            if (gameTime >= effect.nextApplicationTick) {
+                applyResourceChange(player, effect.resource, effect.amountPerSecond);
+                effect.nextApplicationTick += 20L;
+            }
+        }
+
+        if (effects.isEmpty()) {
+            ACTIVE_RESOURCE_EFFECTS.remove(player.getUUID());
         }
     }
 
@@ -279,17 +335,45 @@ public class ModFoods {
             case DAMAGE_HEALTH -> entity.hurt(entity.damageSources().magic(), 2.0F);
             case RAVAGE_HEALTH -> entity.hurt(entity.damageSources().magic(), 4.0F);
             case LINGERING_DAMAGE_HEALTH -> addEffect(entity, MobEffects.POISON);
-            case RESTORE_MAGICKA -> addEffect(entity, ModEffects.RESTORE_MAGICKA.get());
+            case RESTORE_MAGICKA -> applyResourceChange(entity, ResourceType.MAGICKA, RESTORE_RESOURCE_AMOUNT);
             case REGENERATE_HEALTH -> addEffect(entity, MobEffects.REGENERATION);
-            case REGENERATE_MAGICKA -> addEffect(entity, ModEffects.REGENERATE_MAGICKA.get());
-            case RESTORE_STAMINA, REGENERATE_STAMINA, FORTIFY_STAMINA ->
-                    addAttributeModifier(entity, ModAttributes.STAMINA, "stamina", SKILL_ATTRIBUTE_BONUS);
-            case DAMAGE_STAMINA, RAVAGE_STAMINA, LINGERING_DAMAGE_STAMINA ->
-                    addAttributeModifier(entity, ModAttributes.STAMINA, "damage_stamina", SKILL_ATTRIBUTE_PENALTY);
+            case REGENERATE_MAGICKA ->
+                    addAttributeModifier(entity, AttributeRegistry.MANA_REGEN, "regenerate_magicka",
+                            REGENERATE_RESOURCE_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            REGENERATE_RESOURCE_DURATION_TICKS);
+            case FORTIFY_MAGICKA -> {
+                addAttributeModifier(entity, AttributeRegistry.MAX_MANA, "fortify_magicka", FORTIFY_RESOURCE_AMOUNT,
+                        AttributeModifier.Operation.ADDITION, FORTIFY_RESOURCE_DURATION_TICKS);
+                applyResourceChange(entity, ResourceType.MAGICKA, FORTIFY_RESOURCE_AMOUNT);
+            }
+            case RESTORE_STAMINA -> applyResourceChange(entity, ResourceType.STAMINA, RESTORE_RESOURCE_AMOUNT);
+            case REGENERATE_STAMINA ->
+                    addAttributeModifier(entity, ModAttributes.STAMINA_REGENERATION, "regenerate_stamina",
+                            REGENERATE_RESOURCE_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            REGENERATE_RESOURCE_DURATION_TICKS);
+            case FORTIFY_STAMINA -> {
+                addAttributeModifier(entity, ModAttributes.STAMINA, "fortify_stamina", FORTIFY_RESOURCE_AMOUNT,
+                        AttributeModifier.Operation.ADDITION, FORTIFY_RESOURCE_DURATION_TICKS);
+                applyResourceChange(entity, ResourceType.STAMINA, FORTIFY_RESOURCE_AMOUNT);
+            }
+            case DAMAGE_STAMINA -> applyResourceChange(entity, ResourceType.STAMINA, -DAMAGE_STAMINA_AMOUNT);
+            case RAVAGE_STAMINA -> {
+                addAttributeModifier(entity, ModAttributes.STAMINA, "ravage_stamina", RAVAGE_RESOURCE_AMOUNT,
+                        AttributeModifier.Operation.ADDITION, RAVAGE_RESOURCE_DURATION_TICKS);
+                clampResourceAfterAttributeChange(entity, ModAttributes.STAMINA.get());
+            }
+            case LINGERING_DAMAGE_STAMINA ->
+                    addResourceEffect(entity, ResourceType.STAMINA, "lingering_damage_stamina",
+                            LINGERING_DAMAGE_PER_SECOND, LINGERING_DAMAGE_DURATION_TICKS);
             case DAMAGE_STAMINA_REGENERATION ->
-                    addAttributeModifier(entity, ModAttributes.STAMINA_REGENERATION, "damage_stamina_regeneration", SKILL_ATTRIBUTE_PENALTY);
-            case DAMAGE_MAGICKA -> addEffect(entity, ModEffects.DAMAGE_MAGICKA.get());
-            case DAMAGE_MAGICKA_REGENERATION -> addEffect(entity, ModEffects.DAMAGE_MAGICKA_REGENERATION.get());
+                    addAttributeModifier(entity, ModAttributes.STAMINA_REGENERATION, "damage_stamina_regeneration",
+                            DAMAGE_REGENERATION_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            DAMAGE_REGENERATION_DURATION_TICKS);
+            case DAMAGE_MAGICKA -> applyResourceChange(entity, ResourceType.MAGICKA, -DAMAGE_RESOURCE_AMOUNT);
+            case DAMAGE_MAGICKA_REGENERATION ->
+                    addAttributeModifier(entity, AttributeRegistry.MANA_REGEN, "damage_magicka_regeneration",
+                            DAMAGE_REGENERATION_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            DAMAGE_REGENERATION_DURATION_TICKS);
             case RESIST_FIRE -> addEffect(entity, MobEffects.FIRE_RESISTANCE);
             case RESIST_FROST -> addEffect(entity, ModEffects.FROST_RESISTANCE.get());
             case RESIST_MAGIC -> addEffect(entity, ModEffects.MAGIC_RESISTANCE.get());
@@ -317,11 +401,29 @@ public class ModFoods {
         }
     }
 
+    private static double getAlchemyIngredientExperience(AlchemyEffect effect) {
+        return switch (effect) {
+            case PARALYSIS, INVISIBILITY, RAVAGE_HEALTH, RAVAGE_STAMINA, LINGERING_DAMAGE_HEALTH,
+                    LINGERING_DAMAGE_STAMINA -> 5.0D;
+            case DAMAGE_HEALTH, DAMAGE_MAGICKA, DAMAGE_STAMINA, DAMAGE_MAGICKA_REGENERATION,
+                    DAMAGE_STAMINA_REGENERATION -> 4.0D;
+            case FORTIFY_ARCHERY, FORTIFY_LOCKPICKING, FORTIFY_MAGICKA, FORTIFY_STAMINA,
+                    REGENERATE_HEALTH, REGENERATE_MAGICKA, REGENERATE_STAMINA -> 3.5D;
+            default -> 3.0D;
+        };
+    }
+
     private static void addEffect(LivingEntity entity, MobEffect effect) {
         entity.addEffect(new MobEffectInstance(effect, INGREDIENT_EFFECT_DURATION_TICKS));
     }
 
     private static void addAttributeModifier(LivingEntity entity, RegistryObject<Attribute> attribute, String effectName, double amount) {
+        addAttributeModifier(entity, attribute, effectName, amount, AttributeModifier.Operation.ADDITION,
+                INGREDIENT_EFFECT_DURATION_TICKS);
+    }
+
+    private static void addAttributeModifier(LivingEntity entity, RegistryObject<Attribute> attribute, String effectName,
+                                             double amount, AttributeModifier.Operation operation, int durationTicks) {
         AttributeInstance attributeInstance = entity.getAttribute(attribute.get());
         if (attributeInstance == null) {
             return;
@@ -330,13 +432,58 @@ public class ModFoods {
         UUID modifierId = UUID.nameUUIDFromBytes(("thuumcraft:ingredient:" + effectName).getBytes(StandardCharsets.UTF_8));
         attributeInstance.removeModifier(modifierId);
         attributeInstance.addTransientModifier(new AttributeModifier(modifierId, "Ingredient " + effectName,
-                amount, AttributeModifier.Operation.ADDITION));
+                amount, operation));
 
         List<TemporaryAttributeModifier> modifiers = ACTIVE_ATTRIBUTE_MODIFIERS.computeIfAbsent(entity.getUUID(),
                 uuid -> new ArrayList<>());
         modifiers.removeIf(modifier -> modifier.modifierId().equals(modifierId));
         modifiers.add(new TemporaryAttributeModifier(attribute.get(), modifierId,
-                entity.level().getGameTime() + INGREDIENT_EFFECT_DURATION_TICKS));
+                entity.level().getGameTime() + durationTicks));
+        clampResourceAfterAttributeChange(entity, attribute.get());
+    }
+
+    private static void applyResourceChange(LivingEntity entity, ResourceType resource, double amount) {
+        if (!(entity instanceof ServerPlayer player)) {
+            return;
+        }
+
+        switch (resource) {
+            case STAMINA -> StaminaEvents.addCurrentStamina(player, amount);
+            case MAGICKA -> addMagicka(player, amount);
+        }
+    }
+
+    private static void addMagicka(ServerPlayer player, double amount) {
+        MagicData magicData = MagicData.getPlayerMagicData(player);
+        float maxMana = Math.max(1.0F, (float) player.getAttributeValue(AttributeRegistry.MAX_MANA.get()));
+        magicData.setMana(Mth.clamp((float) (magicData.getMana() + amount), 0.0F, maxMana));
+    }
+
+    private static void addResourceEffect(LivingEntity entity, ResourceType resource, String effectName,
+                                          double amountPerSecond, int durationTicks) {
+        if (!(entity instanceof ServerPlayer player)) {
+            return;
+        }
+
+        UUID effectId = UUID.nameUUIDFromBytes(("thuumcraft:ingredient:" + effectName).getBytes(StandardCharsets.UTF_8));
+        long gameTime = player.level().getGameTime();
+        List<ActiveResourceEffect> effects = ACTIVE_RESOURCE_EFFECTS.computeIfAbsent(player.getUUID(),
+                uuid -> new ArrayList<>());
+        effects.removeIf(effect -> effect.effectId.equals(effectId));
+        effects.add(new ActiveResourceEffect(resource, effectId, amountPerSecond, gameTime + 20L,
+                gameTime + durationTicks));
+    }
+
+    private static void clampResourceAfterAttributeChange(LivingEntity entity, Attribute attribute) {
+        if (!(entity instanceof ServerPlayer player)) {
+            return;
+        }
+
+        if (attribute == ModAttributes.STAMINA.get()) {
+            StaminaEvents.clampCurrentStamina(player);
+        } else if (attribute == AttributeRegistry.MAX_MANA.get()) {
+            addMagicka(player, 0.0D);
+        }
     }
 
     private static void cureDiseaseLikeEffects(LivingEntity entity) {
@@ -350,6 +497,28 @@ public class ModFoods {
     private record TemporaryAttributeModifier(Attribute attribute, UUID modifierId, long expiresAt) {
     }
 
+    private enum ResourceType {
+        STAMINA,
+        MAGICKA
+    }
+
+    private static final class ActiveResourceEffect {
+        private final ResourceType resource;
+        private final UUID effectId;
+        private final double amountPerSecond;
+        private long nextApplicationTick;
+        private final long expiresAt;
+
+        private ActiveResourceEffect(ResourceType resource, UUID effectId, double amountPerSecond,
+                                     long nextApplicationTick, long expiresAt) {
+            this.resource = resource;
+            this.effectId = effectId;
+            this.amountPerSecond = amountPerSecond;
+            this.nextApplicationTick = nextApplicationTick;
+            this.expiresAt = expiresAt;
+        }
+    }
+
     private enum AlchemyEffect {
         CURE_DISEASE,
         DAMAGE_HEALTH,
@@ -359,6 +528,7 @@ public class ModFoods {
         DAMAGE_STAMINA_REGENERATION,
         FORTIFY_ARCHERY,
         FORTIFY_LOCKPICKING,
+        FORTIFY_MAGICKA,
         FORTIFY_STAMINA,
         INVISIBILITY,
         LIGHT,

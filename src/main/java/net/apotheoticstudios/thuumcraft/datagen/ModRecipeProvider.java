@@ -102,56 +102,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
         //SWORDS
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD.get())
-                .pattern("S")
-                .pattern("S")
-                .pattern("H")
-                .define('S', ModItems.STEEL_INGOT.get())
-                .define('H', ModItems.HANDLE.get())
-                .unlockedBy(getHasName(ModItems.STEEL_INGOT.get()), has(ModItems.STEEL_INGOT.get()))
-                .save(pWriter);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GLASS_SWORD.get())
-                .pattern("R")
-                .pattern("M")
-                .pattern("H")
-                .define('R', ModItems.REFINED_MALACHITE.get())
-                .define('M', ModItems.REFINED_MOONSTONE.get())
-                .define('H', ModItems.HANDLE.get())
-                .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
-                .save(pWriter);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DWARVEN_SWORD.get())
-                .pattern("A")
-                .pattern("A")
-                .pattern("B")
-                .define('A', ModItems.DWARVEN_METAL_INGOT.get())
-                .define('B', ModItems.HANDLE.get())
-                .unlockedBy(getHasName(ModItems.DWARVEN_METAL_INGOT.get()), has(ModItems.DWARVEN_METAL_INGOT.get()))
-                .save(pWriter);
+        swordRecipe(pWriter, ModItems.SILVER_SWORD.get(), ModItems.SILVER_INGOT.get());
+        swordRecipe(pWriter, ModItems.STEEL_SWORD.get(), ModItems.STEEL_INGOT.get());
+        swordRecipe(pWriter, ModItems.DWARVEN_SWORD.get(), ModItems.DWARVEN_METAL_INGOT.get());
+        swordRecipe(pWriter, ModItems.ORCISH_SWORD.get(), ModItems.ORICHALCUM_INGOT.get());
+        swordRecipe(pWriter, ModItems.ELVEN_SWORD.get(), ModItems.REFINED_MOONSTONE.get());
+        glassSwordRecipe(pWriter, ModItems.GLASS_SWORD.get());
+        swordRecipe(pWriter, ModItems.EBONY_SWORD.get(), ModItems.EBONY_INGOT.get());
 
         //WAR AXES
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DWARVEN_WAR_AXE.get())
-                .pattern("AA")
-                .pattern("AC")
-                .pattern(" B")
-                .define('A', ModItems.DWARVEN_METAL_INGOT.get())
-                .define('B', ModItems.HANDLE.get())
-                .define('C', Items.STICK)
-                .unlockedBy(getHasName(ModItems.DWARVEN_METAL_INGOT.get()), has(ModItems.DWARVEN_METAL_INGOT.get()))
-                .save(pWriter);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GLASS_WAR_AXE.get())
-                .pattern("AA")
-                .pattern("DC")
-                .pattern(" B")
-                .define('A', ModItems.REFINED_MALACHITE.get())
-                .define('B', ModItems.HANDLE.get())
-                .define('C', Items.STICK)
-                .define('D', ModItems.REFINED_MOONSTONE.get())
-                .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
-                .save(pWriter);
+        warAxeRecipe(pWriter, ModItems.SILVER_WAR_AXE.get(), ModItems.SILVER_INGOT.get());
+        warAxeRecipe(pWriter, ModItems.STEEL_WAR_AXE.get(), ModItems.STEEL_INGOT.get());
+        warAxeRecipe(pWriter, ModItems.DWARVEN_WAR_AXE.get(), ModItems.DWARVEN_METAL_INGOT.get());
+        warAxeRecipe(pWriter, ModItems.ORCISH_WAR_AXE.get(), ModItems.ORICHALCUM_INGOT.get());
+        warAxeRecipe(pWriter, ModItems.ELVEN_WAR_AXE.get(), ModItems.REFINED_MOONSTONE.get());
+        glassWarAxeRecipe(pWriter, ModItems.GLASS_WAR_AXE.get());
+        warAxeRecipe(pWriter, ModItems.EBONY_WAR_AXE.get(), ModItems.EBONY_INGOT.get());
 
         // MISC
 
@@ -162,6 +128,55 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
     }
+
+    private void swordRecipe(Consumer<FinishedRecipe> writer, ItemLike result, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
+                .pattern("M")
+                .pattern("M")
+                .pattern("H")
+                .define('M', material)
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(material), has(material))
+                .save(writer);
+    }
+
+    private void glassSwordRecipe(Consumer<FinishedRecipe> writer, ItemLike result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
+                .pattern("R")
+                .pattern("M")
+                .pattern("H")
+                .define('R', ModItems.REFINED_MALACHITE.get())
+                .define('M', ModItems.REFINED_MOONSTONE.get())
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
+                .save(writer);
+    }
+
+    private void warAxeRecipe(Consumer<FinishedRecipe> writer, ItemLike result, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
+                .pattern("MM")
+                .pattern("MS")
+                .pattern(" H")
+                .define('M', material)
+                .define('S', Items.STICK)
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(material), has(material))
+                .save(writer);
+    }
+
+    private void glassWarAxeRecipe(Consumer<FinishedRecipe> writer, ItemLike result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
+                .pattern("RR")
+                .pattern("MS")
+                .pattern(" H")
+                .define('R', ModItems.REFINED_MALACHITE.get())
+                .define('M', ModItems.REFINED_MOONSTONE.get())
+                .define('S', Items.STICK)
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.REFINED_MALACHITE.get()), has(ModItems.REFINED_MALACHITE.get()))
+                .save(writer);
+    }
+
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
     }

@@ -5,9 +5,9 @@ import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.network.ClientboundSneakAwarenessPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
+import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerLevel;
@@ -61,13 +61,9 @@ public final class SneakAwarenessEvents {
     private static final double SNEAK_CRITICAL_HIT_XP = 12.0D;
     private static final double SNEAK_PROXIMITY_BASE_XP = 0.65D;
     private static final double SNEAK_PROXIMITY_MAX_XP_PER_SCAN = 2.25D;
-    private static final double SNEAK_LEVEL_BASE_XP = 20.0D;
-    private static final double SNEAK_LEVEL_XP_GROWTH = 4.0D;
     private static final int SNEAK_ATTACK_CRIT_PARTICLES = 24;
     private static final int SNEAK_ATTACK_ENCHANTED_HIT_PARTICLES = 12;
     private static final float TARGET_ACQUISITION_PROGRESS = 0.85F;
-    private static final String SNEAK_LEVEL_DATA_KEY = "ThuumcraftSneakLevel";
-    private static final String SNEAK_XP_DATA_KEY = "ThuumcraftSneakXp";
     private static final Map<UUID, PlayerAwarenessData> PLAYER_AWARENESS = new HashMap<>();
     private static final Map<UUID, Integer> DISABLED_SYNC_TICKS = new HashMap<>();
 
@@ -91,7 +87,7 @@ public final class SneakAwarenessEvents {
         PlayerAwarenessData data = PLAYER_AWARENESS.get(playerId);
         boolean undetectable = isUndetectable(player);
         if (player.isSpectator() || player.isCreative() || !player.isAlive() || undetectable) {
-            if (undetectable) {
+            if (undetectable && player.tickCount % UPDATE_INTERVAL_TICKS == 0) {
                 clearNearbyObserverTargets(player);
             }
             clearAwareness(player, data);
@@ -188,14 +184,7 @@ public final class SneakAwarenessEvents {
             return;
         }
 
-        CompoundTag oldData = event.getOriginal().getPersistentData();
-        CompoundTag newData = player.getPersistentData();
-        if (oldData.contains(SNEAK_LEVEL_DATA_KEY)) {
-            newData.putInt(SNEAK_LEVEL_DATA_KEY, oldData.getInt(SNEAK_LEVEL_DATA_KEY));
-        }
-        if (oldData.contains(SNEAK_XP_DATA_KEY)) {
-            newData.putDouble(SNEAK_XP_DATA_KEY, oldData.getDouble(SNEAK_XP_DATA_KEY));
-        }
+        SkillProgression.copy(event.getOriginal(), player, SkillProgression.Skill.SNEAK);
         applyPersistentSneakLevel(player);
     }
 
@@ -409,71 +398,11 @@ public final class SneakAwarenessEvents {
             return;
         }
 
-        AttributeInstance sneakAttribute = player.getAttribute(ModAttributes.SNEAK.get());
-        if (sneakAttribute == null) {
-            return;
-        }
-
-        CompoundTag data = player.getPersistentData();
-        int level = getPersistentSneakLevel(player, sneakAttribute);
-        if (level >= (int) SNEAK_ATTRIBUTE_CAP) {
-            data.putDouble(SNEAK_XP_DATA_KEY, 0.0D);
-            return;
-        }
-
-        double experience = Math.max(0.0D, data.getDouble(SNEAK_XP_DATA_KEY)) + amount;
-        boolean leveledUp = false;
-        while (level < (int) SNEAK_ATTRIBUTE_CAP) {
-            double requiredExperience = getRequiredSneakExperience(level);
-            if (experience < requiredExperience) {
-                break;
-            }
-
-            experience -= requiredExperience;
-            level++;
-            leveledUp = true;
-        }
-
-        if (level >= (int) SNEAK_ATTRIBUTE_CAP) {
-            experience = 0.0D;
-        }
-
-        data.putInt(SNEAK_LEVEL_DATA_KEY, level);
-        data.putDouble(SNEAK_XP_DATA_KEY, experience);
-        if (Math.abs(sneakAttribute.getBaseValue() - level) > 0.0001D) {
-            sneakAttribute.setBaseValue(level);
-        }
-        if (leveledUp) {
-            player.displayClientMessage(Component.literal("Sneak increased to ")
-                    .append(Component.literal(Integer.toString(level)).withStyle(Style.EMPTY.withBold(true))), true);
-        }
+        SkillProgression.award(player, SkillProgression.Skill.SNEAK, amount);
     }
 
     private static void applyPersistentSneakLevel(ServerPlayer player) {
-        AttributeInstance sneakAttribute = player.getAttribute(ModAttributes.SNEAK.get());
-        if (sneakAttribute == null) {
-            return;
-        }
-
-        int level = getPersistentSneakLevel(player, sneakAttribute);
-        CompoundTag data = player.getPersistentData();
-        data.putInt(SNEAK_LEVEL_DATA_KEY, level);
-        data.putDouble(SNEAK_XP_DATA_KEY, Math.max(0.0D, data.getDouble(SNEAK_XP_DATA_KEY)));
-        if (Math.abs(sneakAttribute.getBaseValue() - level) > 0.0001D) {
-            sneakAttribute.setBaseValue(level);
-        }
-    }
-
-    private static int getPersistentSneakLevel(ServerPlayer player, AttributeInstance sneakAttribute) {
-        CompoundTag data = player.getPersistentData();
-        int level = data.contains(SNEAK_LEVEL_DATA_KEY)
-                ? data.getInt(SNEAK_LEVEL_DATA_KEY)
-                : Mth.floor(sneakAttribute.getBaseValue());
-        return Mth.clamp(level, 0, (int) SNEAK_ATTRIBUTE_CAP);
-    }
-
-    private static double getRequiredSneakExperience(int currentLevel) {
-        return SNEAK_LEVEL_BASE_XP + currentLevel * SNEAK_LEVEL_XP_GROWTH;
+        SkillProgression.apply(player, SkillProgression.Skill.SNEAK);
     }
 
     private static double getDetectionSignal(ServerPlayer player, Mob observer, double distanceSqr, double playerNoise,

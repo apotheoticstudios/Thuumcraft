@@ -2,16 +2,14 @@ package net.apotheoticstudios.thuumcraft.client.hud;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.Config;
-import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
+import net.apotheoticstudios.thuumcraft.client.ClientManaState;
 import net.apotheoticstudios.thuumcraft.client.ClientStaminaState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
+import net.apotheoticstudios.thuumcraft.client.ClientTargetHealthState;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -31,29 +29,10 @@ public final class ThuumcraftHudClientEvents {
     }
 
     @SubscribeEvent
-    public static void preventEmptyStaminaSprinting(TickEvent.ClientTickEvent event) {
-        if (!Config.ENABLE_SKYRIM_HUD_AND_STAMINA.get()
-                || !Config.ENABLE_STAMINA_SYSTEM.get()
-                || !Config.ENABLE_STAMINA_SPRINT_LIMIT.get()
-                || event.phase != TickEvent.Phase.END) {
-            return;
-        }
-
-        LocalPlayer player = Minecraft.getInstance().player;
-        if (player == null || player.isCreative() || player.isSpectator() || !player.isSprinting()) {
-            return;
-        }
-
-        if (ClientStaminaState.stamina() < getSprintStartStamina(player)) {
-            player.setSprinting(false);
-        }
-    }
-
-    private static double getSprintStartStamina(LocalPlayer player) {
-        AttributeInstance stamina = player.getAttribute(ModAttributes.STAMINA.get());
-        double maxStamina = stamina == null ? 100.0D : stamina.getValue();
-        return Math.max(Config.STAMINA_SPRINT_START_FLOOR.get(),
-                maxStamina * Config.STAMINA_SPRINT_START_RATIO.get());
+    public static void resetStaminaState(ClientPlayerNetworkEvent.LoggingOut event) {
+        ClientManaState.reset();
+        ClientStaminaState.reset();
+        ClientTargetHealthState.reset();
     }
 
     private static boolean shouldHideOverlay(ResourceLocation overlayId) {

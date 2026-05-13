@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-10T19:52:06.99309	Item Models: thuumcraft
+// 1.20.1	2026-05-13T14:29:02.849536	Item Models: thuumcraft
 9068028bd9cf2323b3033204e5fbd0f7c14d6da9 assets/thuumcraft/models/item/abecean_longfin.json
 95af6ae2bdc88dc50cb1ad97b819a59a15a28215 assets/thuumcraft/models/item/alocasia_fruit.json
 aad725a0c8ad719ac2ff8f46c2aa0a8175dee426 assets/thuumcraft/models/item/aloe_vera_leaves.json
@@ -62,7 +62,11 @@ b6f335d6a209d116738a1b107dbccff125811288 assets/thuumcraft/models/item/dwarven_m
 57ae8183728911709e507be2318d132f6cab664c assets/thuumcraft/models/item/dwarven_war_axe.json
 966edd8378632d9cd57202199ab0804484c8b6b4 assets/thuumcraft/models/item/ebony_ingot.json
 94bcdff52e97400d2e47681b14e247205c5b46ce assets/thuumcraft/models/item/ebony_ore.json
+6842e65cc64225c68784c6764b9b15cc1bdc60e9 assets/thuumcraft/models/item/ebony_sword.json
+6631dade610d81e82c4fb8d568d81359e8b8b47f assets/thuumcraft/models/item/ebony_war_axe.json
 64e8293651586fbdb8f48f9f652e25b56fe576b9 assets/thuumcraft/models/item/ectoplasm.json
+cc9c814c2b746c424a5ffca5acda0a2c88ef218c assets/thuumcraft/models/item/elven_sword.json
+703f0c633bc653c857e2dcc4194566c186684a9c assets/thuumcraft/models/item/elven_war_axe.json
 5933a26b4b24a7d55c8bbb53dbb9c2e022d3f5f1 assets/thuumcraft/models/item/elves_ear.json
 a24fc1fdf6d20281945873e981bfaf36456cc57a assets/thuumcraft/models/item/elytra_ichor.json
 f71d474e047a5b8c54c6e3eb0183d7381029b4c8 assets/thuumcraft/models/item/emperor_parasol_moss.json
@@ -143,6 +147,8 @@ e925995e8ba533685ecd28c31e5fc54627b080b2 assets/thuumcraft/models/item/nirnroot.
 e9ed3774da543b14e9fc924cfa1e69a183e13c33 assets/thuumcraft/models/item/nordic_barnacle.json
 16024a1a88d8ae9948375ab8c46c6fd7a6d6ccab assets/thuumcraft/models/item/ogres_teeth.json
 3d49dc4a6c691ac700d1bb984cb17b5da0dfb02e assets/thuumcraft/models/item/orange_dartwing.json
+6379cf71cdd560a10934c836968d7f28674c5d1a assets/thuumcraft/models/item/orcish_sword.json
+388336e4646c2afdc29dd2f94ccbf325481035dd assets/thuumcraft/models/item/orcish_war_axe.json
 ed179bc0457a2bfe34b2fb14f2665071178b4bef assets/thuumcraft/models/item/orichalcum_ingot.json
 70c5eebf5185c4a45023ef7dd981e620a14e92f9 assets/thuumcraft/models/item/orichalcum_ore.json
 d58f52d0a071f56884e5f520f43570f30c4241c4 assets/thuumcraft/models/item/pearl.json
@@ -176,6 +182,8 @@ f554fe1fdf14edc9f5ce43a64ed67b924de0a820 assets/thuumcraft/models/item/scrib_jer
 ee6bdea4c7ba2ffbd3a1f09993acd4485409e6e6 assets/thuumcraft/models/item/septim.json
 7cd5d54761d2094705d2ed660e19757d245141f1 assets/thuumcraft/models/item/silver_ingot.json
 761a92a6c4e7868a8fe575c1933ec8329725aa40 assets/thuumcraft/models/item/silver_ore.json
+27f29eb302c2b286b69adf3957d4b55b5d8ac7ac assets/thuumcraft/models/item/silver_sword.json
+f8881418bd202d6c5bcbae813817ddd5f7264518 assets/thuumcraft/models/item/silver_war_axe.json
 28a4a10bd9bc1cf00e0ff8ead710032d3185b5c2 assets/thuumcraft/models/item/silverside_perch.json
 98c42957e333c762ae57f6273f9d95f3658147d5 assets/thuumcraft/models/item/simon_rodaynes_heart.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/thuumcraft/models/item/skeever_spawn_egg.json
@@ -194,6 +202,7 @@ b6579c7ea3ed506b6abd55b97e31072e6a16be32 assets/thuumcraft/models/item/spider_eg
 5ad43fecfde8c4a08e7a91304612e104cd0c0d77 assets/thuumcraft/models/item/steel_blue_entoloma.json
 b5f0cb548a56de56477664e6a2b03d9e0e4c0350 assets/thuumcraft/models/item/steel_ingot.json
 a600a52dbd7b5a4fd484378606f9a71b20eda717 assets/thuumcraft/models/item/steel_sword.json
+b9acb4db0bdedf24b343a52bc720c082fac9f992 assets/thuumcraft/models/item/steel_war_axe.json
 cbc73915f2848f1fbe91305923a211a82a75b3ed assets/thuumcraft/models/item/stoneflower_petals.json
 162b631e22c119db8faf467e5ddd095ffa217e47 assets/thuumcraft/models/item/swamp_fungal_pod.json
 0a90b2a2aaa3163147642a5d20a167fbb4cb57ba assets/thuumcraft/models/item/taproot.json

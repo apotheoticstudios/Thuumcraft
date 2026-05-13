@@ -38,11 +38,20 @@ public class ModItemModelProvider extends ItemModelProvider {
         ModItems.INGREDIENT_ITEMS.forEach(this::simpleItem);
         simpleItem(ModItems.ORICHALCUM_INGOT);
 
-        handheldItem(ModItems.GLASS_SWORD);
-        handheldItem(ModItems.GLASS_WAR_AXE);
+        handheldItem(ModItems.SILVER_SWORD);
+        handheldItem(ModItems.SILVER_WAR_AXE);
+        handheldItem(ModItems.STEEL_SWORD);
+        handheldItem(ModItems.STEEL_WAR_AXE);
         handheldItem(ModItems.DWARVEN_SWORD);
         handheldItem(ModItems.DWARVEN_WAR_AXE);
-        handheldItem(ModItems.STEEL_SWORD);
+        handheldItem(ModItems.ORCISH_SWORD);
+        handheldItem(ModItems.ORCISH_WAR_AXE);
+        handheldItem(ModItems.ELVEN_SWORD);
+        handheldItem(ModItems.ELVEN_WAR_AXE);
+        handheldItem(ModItems.GLASS_SWORD);
+        handheldItem(ModItems.GLASS_WAR_AXE);
+        handheldItem(ModItems.EBONY_SWORD);
+        handheldItem(ModItems.EBONY_WAR_AXE);
 
         saplingItem(ModBlocks.PINE_SAPLING);
 

@@ -1,0 +1,92 @@
+
+#Thuumcraft Books Loot Chances
+[loot]
+	#Chance for the following mobs to drop a random book (default is 1.0%):
+	#zombie, skeleton, pillager, witch
+	#Range: 0.0 ~ 1.0
+	mobDropChance = 0.01
+	#Chance for the following chests to contain a random book (default is 5%):
+	#shipwreck (treasure and supply), simple dungeon, desert pyramid, jungle temple, woodland mansion ancient city, abandoned mineshaft, nether bridge, igloo chest, bastion (bridge, other, and treasure)
+	#Range: 0.0 ~ 1.0
+	chestDropChance = 0.05
+	#Chance for fishing junk loot to include a random book (default is 3%)
+	#Range: 0.0 ~ 1.0
+	fishingDropChance = 0.03
+
+#Skyrim-style stealth awareness and sneak crosshair settings
+[stealth]
+	#Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.
+	enableStealthSystem = true
+
+#Skyrim-style HUD and stamina settings
+[hudAndStamina]
+	#Set to false to completely disable Thuumcraft's Skyrim-style HUD, stamina replacement, hunger override and Iron's Spellbooks mana bar replacement.
+	enableSkyrimHudAndStamina = true
+	#Render Thuumcraft's Skyrim-style HUD overlays. Individual bars can still be toggled below.
+	enableSkyrimHud = true
+	#Render the Skyrim-style compass at the top of the screen.
+	showCompass = true
+	#Render the targeted entity health bar.
+	showTargetHealthBar = true
+	#Render the Skyrim-style player health bar. If false, vanilla health is shown.
+	showPlayerHealthBar = true
+	#Render the Skyrim-style Iron's Spellbooks mana bar. If false, Iron's default mana overlay is shown.
+	showManaBar = true
+	#Render the Skyrim-style stamina bar.
+	showStaminaBar = true
+	#Render the Skyrim-style armor icons. If false, vanilla armor is shown.
+	showArmorIcons = true
+	#Render the Skyrim-style air icons. If false, vanilla air bubbles are shown.
+	showAirIcons = true
+	#Render the Skyrim-style experience bar. If false, vanilla experience is shown.
+	showExperienceBar = true
+
+	#Skyrim-style stamina system settings
+	[hudAndStamina.stamina]
+		#Enable stamina draining/regeneration and stamina-based sprint control.
+		enableStaminaSystem = true
+		#Keep vanilla hunger stable while stamina replaces hunger. Disable for vanilla hunger behavior.
+		enableHungerOverride = true
+		#Drain stamina while sprinting and prevent sprinting when stamina is too low.
+		enableSprintLimit = true
+		#Food level held by the hunger override. 17 prevents vanilla natural regeneration from running.
+		#Range: 1 ~ 20
+		hungerOverrideFoodLevel = 17
+		#Base stamina drained per second while sprinting and moving.
+		#Range: 0.0 ~ 1000.0
+		sprintDrainPerSecond = 5.0
+		#Extra sprint stamina drain per armor point. 0.02 means 2% more drain per armor point.
+		#Range: 0.0 ~ 10.0
+		sprintArmorDrainMultiplier = 0.02
+		#Minimum stamina ratio required to start sprinting.
+		#Range: 0.0 ~ 1.0
+		sprintStartStaminaRatio = 0.1
+		#Stamina ratio required to unlock sprinting after running out.
+		#Range: 0.0 ~ 1.0
+		sprintResumeStaminaRatio = 0.15
+		#Minimum absolute stamina required to start sprinting.
+		#Range: 0.0 ~ 1000000.0
+		sprintStartStaminaFloor = 5.0
+		#Minimum absolute stamina required to unlock sprinting after running out.
+		#Range: 0.0 ~ 1000000.0
+		sprintResumeStaminaFloor = 10.0
+		#Ticks before stamina starts regenerating after stamina is drained.
+		#Range: 0 ~ 1200
+		staminaRegenDelayTicks = 20
+
+	#Skyrim-style health regeneration settings
+	[hudAndStamina.healthRegeneration]
+		#Enable passive percentage-based Skyrim-style health regeneration.
+		enableHealthRegeneration = true
+		#Out-of-combat health regenerated per second as a fraction of max health. Skyrim default is 0.007 (0.70%).
+		#Range: 0.0 ~ 1.0
+		outOfCombatPercentPerSecond = 0.007
+		#In-combat health regenerated per second as a fraction of max health. Skyrim default is 0.0049 (0.49%).
+		#Range: 0.0 ~ 1.0
+		combatPercentPerSecond = 0.0049
+		#How often health regeneration is applied. Lower values are smoother; 20 applies once per second.
+		#Range: 1 ~ 1200
+		healthRegenIntervalTicks = 20
+		#Ticks a player remains in combat after dealing or taking damage.
+		#Range: 0 ~ 12000
+		combatDurationTicks = 200

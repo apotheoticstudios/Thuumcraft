@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "thuumcraft:handle"
+    },
+    "M": {
+      "item": "thuumcraft:silver_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "MM",
+    "MS",
+    " H"
+  ],
+  "result": {
+    "item": "thuumcraft:silver_war_axe"
+  },
+  "show_notification": true
+}

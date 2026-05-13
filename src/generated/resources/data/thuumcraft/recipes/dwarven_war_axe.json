@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "A": {
-      "item": "thuumcraft:dwarven_metal_ingot"
-    },
-    "B": {
+    "H": {
       "item": "thuumcraft:handle"
     },
-    "C": {
+    "M": {
+      "item": "thuumcraft:dwarven_metal_ingot"
+    },
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "AA",
-    "AC",
-    " B"
+    "MM",
+    "MS",
+    " H"
   ],
   "result": {
     "item": "thuumcraft:dwarven_war_axe"

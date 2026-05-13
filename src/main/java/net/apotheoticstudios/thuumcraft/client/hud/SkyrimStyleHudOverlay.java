@@ -1,11 +1,10 @@
 package net.apotheoticstudios.thuumcraft.client.hud;
 
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.player.ClientMagicData;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
-import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
+import net.apotheoticstudios.thuumcraft.client.ClientManaState;
 import net.apotheoticstudios.thuumcraft.client.ClientStaminaState;
+import net.apotheoticstudios.thuumcraft.client.ClientTargetHealthState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +12,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -55,6 +55,9 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
     private static final int TARGET_HEALTH_FRAME_HEIGHT = 8;
     private static final int TARGET_HEALTH_FILL_WIDTH = 142;
     private static final int TARGET_HEALTH_FILL_HEIGHT = 3;
+    private static final int TARGET_HEALTH_Y_WITH_COMPASS = 38;
+    private static final int TARGET_HEALTH_Y_WITHOUT_COMPASS = 18;
+    private static final double TARGET_HEALTH_MAX_DISTANCE_SQR = 96.0D * 96.0D;
     private static final int PLAYER_BAR_WIDTH = 102;
     private static final int PLAYER_BAR_HEIGHT = 10;
     private static final int PLAYER_BAR_FILL_X = 12;
@@ -78,6 +81,7 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
                 || player == null
                 || minecraft.options.hideGui
                 || minecraft.options.renderDebug
+                || player.isCreative()
                 || player.isSpectator()) {
             return;
         }
@@ -117,33 +121,65 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
     }
 
     private static void renderTargetHealth(GuiGraphics graphics, Minecraft minecraft, int width) {
-        Entity target = minecraft.crosshairPickEntity;
-        if (!(target instanceof LivingEntity livingTarget) || !livingTarget.isAlive() || target == minecraft.player) {
+        LivingEntity livingTarget = getSkyrimStyleHealthTarget(minecraft);
+        if (livingTarget == null) {
             return;
         }
 
         float maxHealth = Math.max(1.0F, livingTarget.getMaxHealth());
         float ratio = Mth.clamp(livingTarget.getHealth() / maxHealth, 0.0F, 1.0F);
-        int fillWidth = Math.round(142.0F * ratio);
-        int x = width / 2 - 78;
-        int fillX = width / 2 - 69 + (142 - fillWidth) / 2;
+        int fillWidth = ratio <= 0.0F ? 0 : Mth.clamp((int) Math.floor(TARGET_HEALTH_FILL_WIDTH * ratio), 1,
+                TARGET_HEALTH_FILL_WIDTH);
+        int x = width / 2 - TARGET_HEALTH_FRAME_WIDTH / 2;
+        int y = Config.SHOW_SKYRIM_COMPASS.get() ? TARGET_HEALTH_Y_WITH_COMPASS : TARGET_HEALTH_Y_WITHOUT_COMPASS;
 
-        graphics.blit(TARGET_HEALTH_FRAME, x, 28, 0, 0, TARGET_HEALTH_FRAME_WIDTH, TARGET_HEALTH_FRAME_HEIGHT,
+        String name = livingTarget.getDisplayName().getString();
+        graphics.drawCenteredString(minecraft.font, name, width / 2, y - 11, 0xC0C0C0);
+        graphics.blit(TARGET_HEALTH_FRAME, x, y, 0, 0, TARGET_HEALTH_FRAME_WIDTH, TARGET_HEALTH_FRAME_HEIGHT,
                 TARGET_HEALTH_FRAME_WIDTH, TARGET_HEALTH_FRAME_HEIGHT);
         if (fillWidth > 0) {
             int fillInset = (TARGET_HEALTH_FILL_WIDTH - fillWidth) / 2;
-            graphics.blit(TARGET_HEALTH_FILL, fillX, 30, fillInset, 0, fillWidth, TARGET_HEALTH_FILL_HEIGHT,
-                    TARGET_HEALTH_FILL_WIDTH, TARGET_HEALTH_FILL_HEIGHT);
+            graphics.blit(TARGET_HEALTH_FILL, x + 9 + fillInset, y + 2, fillInset, 0, fillWidth,
+                    TARGET_HEALTH_FILL_HEIGHT, TARGET_HEALTH_FILL_WIDTH, TARGET_HEALTH_FILL_HEIGHT);
+        }
+    }
+
+    private static LivingEntity getSkyrimStyleHealthTarget(Minecraft minecraft) {
+        Player player = minecraft.player;
+        if (player == null || minecraft.level == null) {
+            ClientTargetHealthState.reset();
+            return null;
         }
 
-        String name = livingTarget.getDisplayName().getString();
-        graphics.drawCenteredString(minecraft.font, name, width / 2, 40, 0xC0C0C0);
+        long gameTime = minecraft.level.getGameTime();
+        if (!ClientTargetHealthState.shouldShow(gameTime)) {
+            ClientTargetHealthState.reset();
+            return null;
+        }
+
+        Entity target = minecraft.level.getEntity(ClientTargetHealthState.entityId());
+        if (target instanceof LivingEntity livingTarget && isValidHealthTarget(player, livingTarget)) {
+            return livingTarget;
+        }
+
+        ClientTargetHealthState.reset();
+        return null;
+    }
+
+    private static boolean isValidHealthTarget(Player player, LivingEntity target) {
+        return target != null
+                && target instanceof Mob
+                && target.isAlive()
+                && target != player
+                && !target.isInvisibleTo(player)
+                && player.distanceToSqr(target) <= TARGET_HEALTH_MAX_DISTANCE_SQR;
     }
 
     private static void renderPlayerBars(GuiGraphics graphics, Player player, int width, int height) {
         int y = height - HUD_BOTTOM_Y_OFFSET;
         if (Config.SHOW_MANA_BAR.get()) {
-            drawPlayerBar(graphics, 20, y, MANA_BAR_FILL, getDisplayedMana(getMana(player)), getMaxMana(player));
+            drawPlayerBar(graphics, 20, y, MANA_BAR_FILL,
+                    getDisplayedMana(ClientManaState.mana()), ClientManaState.maxMana());
         }
         if (Config.SHOW_PLAYER_HEALTH_BAR.get()) {
             drawPlayerBar(graphics, width / 2 - PLAYER_BAR_WIDTH / 2, y, HEALTH_BAR_FILL,
@@ -151,7 +187,7 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
         }
         if (Config.SHOW_STAMINA_BAR.get() && Config.ENABLE_STAMINA_SYSTEM.get()) {
             drawPlayerBar(graphics, width - 120, y, STAMINA_BAR_FILL,
-                    ClientStaminaState.stamina(), getMaxStamina(player));
+                    ClientStaminaState.stamina(), ClientStaminaState.maxStamina());
         }
     }
 
@@ -202,8 +238,9 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
 
     private static void drawPlayerBar(GuiGraphics graphics, int x, int y, ResourceLocation fillTexture,
                                       float current, float max) {
-        float ratio = max <= 0.0F ? 0.0F : Mth.clamp(current / max, 0.0F, 1.0F);
-        int fillWidth = Mth.clamp(Math.round(PLAYER_BAR_FILL_WIDTH * ratio), 0, PLAYER_BAR_FILL_WIDTH);
+        float ratio = max <= 0.0F || current <= 0.01F ? 0.0F : Mth.clamp(current / max, 0.0F, 1.0F);
+        int fillWidth = ratio <= 0.0F ? 0 : Mth.clamp((int) Math.floor(PLAYER_BAR_FILL_WIDTH * ratio), 1,
+                PLAYER_BAR_FILL_WIDTH);
         int inset = (PLAYER_BAR_FILL_WIDTH - fillWidth) / 2;
 
         graphics.blit(PLAYER_BAR_FRAME, x, y, 0, 0, PLAYER_BAR_WIDTH, PLAYER_BAR_HEIGHT,
@@ -216,10 +253,6 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
                 inset, 0, fillWidth, PLAYER_BAR_FILL_HEIGHT, PLAYER_BAR_FILL_WIDTH, PLAYER_BAR_FILL_HEIGHT);
     }
 
-    private static float getMana(Player player) {
-        return Math.max(0.0F, ClientMagicData.getPlayerMana());
-    }
-
     private static float getDisplayedMana(float targetMana) {
         if (displayedMana < 0.0F) {
             displayedMana = targetMana;
@@ -230,14 +263,6 @@ public final class SkyrimStyleHudOverlay implements IGuiOverlay {
             displayedMana = targetMana;
         }
         return Math.max(0.0F, displayedMana);
-    }
-
-    private static float getMaxMana(Player player) {
-        return Math.max(1.0F, (float) player.getAttributeValue(AttributeRegistry.MAX_MANA.get()));
-    }
-
-    private static float getMaxStamina(Player player) {
-        return Math.max(1.0F, (float) player.getAttributeValue(ModAttributes.STAMINA.get()));
     }
 
     private static void drawCardinalDirection(GuiGraphics graphics, float yaw, float angle, int xPos, String text) {

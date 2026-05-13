@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "thuumcraft:handle"
+    },
+    "M": {
+      "item": "thuumcraft:silver_ingot"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "H"
+  ],
+  "result": {
+    "item": "thuumcraft:silver_sword"
+  },
+  "show_notification": true
+}

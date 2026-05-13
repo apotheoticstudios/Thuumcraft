@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static final String PROTOCOL_VERSION = "1";
+    private static final String PROTOCOL_VERSION = "4";
     private static int packetId = 0;
     private static SimpleChannel channel;
 
@@ -33,6 +33,18 @@ public class ModMessages {
                 .encoder(ClientboundStaminaPacket::encode)
                 .decoder(ClientboundStaminaPacket::new)
                 .consumerMainThread(ClientboundStaminaPacket::handle)
+                .add();
+
+        channel.messageBuilder(ClientboundManaPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundManaPacket::encode)
+                .decoder(ClientboundManaPacket::new)
+                .consumerMainThread(ClientboundManaPacket::handle)
+                .add();
+
+        channel.messageBuilder(ClientboundTargetHealthPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundTargetHealthPacket::encode)
+                .decoder(ClientboundTargetHealthPacket::new)
+                .consumerMainThread(ClientboundTargetHealthPacket::handle)
                 .add();
     }
 

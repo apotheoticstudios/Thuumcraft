@@ -52,7 +52,7 @@ public class Config {
         ENABLE_SKYRIM_HUD = builder.comment("Render Thuumcraft's Skyrim-style HUD overlays. Individual bars can still be toggled below.")
                 .define("enableSkyrimHud", true);
         SHOW_SKYRIM_COMPASS = builder.comment("Render the Skyrim-style compass at the top of the screen.")
-                .define("showCompass", true);
+                .define("showCompass", false);
         SHOW_TARGET_HEALTH_BAR = builder.comment("Render the targeted entity health bar.")
                 .define("showTargetHealthBar", true);
         SHOW_PLAYER_HEALTH_BAR = builder.comment("Render the Skyrim-style player health bar. If false, vanilla health is shown.")
@@ -77,15 +77,15 @@ public class Config {
                 .define("enableSprintLimit", true);
         STAMINA_HUNGER_FOOD_LEVEL = builder.comment("Food level held by the hunger override. 17 prevents vanilla natural regeneration from running.")
                 .defineInRange("hungerOverrideFoodLevel", 17, 1, 20);
-        STAMINA_SPRINT_DRAIN_PER_SECOND = builder.comment("Base stamina drained per second while sprinting and moving.")
-                .defineInRange("sprintDrainPerSecond", 3.0D, 0.0D, 1000.0D);
+        STAMINA_SPRINT_DRAIN_PER_SECOND = builder.comment("Base stamina drained per second while sprinting.")
+                .defineInRange("sprintDrainPerSecond", 5.0D, 0.0D, 1000.0D);
         STAMINA_SPRINT_ARMOR_DRAIN_MULTIPLIER = builder.comment("Extra sprint stamina drain per armor point. 0.02 means 2% more drain per armor point.")
                 .defineInRange("sprintArmorDrainMultiplier", 0.02D, 0.0D, 10.0D);
-        STAMINA_SPRINT_START_RATIO = builder.comment("Minimum stamina ratio required to start or keep sprinting.")
+        STAMINA_SPRINT_START_RATIO = builder.comment("Minimum stamina ratio required to start sprinting.")
                 .defineInRange("sprintStartStaminaRatio", 0.10D, 0.0D, 1.0D);
         STAMINA_SPRINT_RESUME_RATIO = builder.comment("Stamina ratio required to unlock sprinting after running out.")
                 .defineInRange("sprintResumeStaminaRatio", 0.15D, 0.0D, 1.0D);
-        STAMINA_SPRINT_START_FLOOR = builder.comment("Minimum absolute stamina required to start or keep sprinting.")
+        STAMINA_SPRINT_START_FLOOR = builder.comment("Minimum absolute stamina required to start sprinting.")
                 .defineInRange("sprintStartStaminaFloor", 5.0D, 0.0D, 1000000.0D);
         STAMINA_SPRINT_RESUME_FLOOR = builder.comment("Minimum absolute stamina required to unlock sprinting after running out.")
                 .defineInRange("sprintResumeStaminaFloor", 10.0D, 0.0D, 1000000.0D);

@@ -2,23 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "A": {
-      "item": "thuumcraft:refined_malachite"
-    },
-    "B": {
+    "H": {
       "item": "thuumcraft:handle"
     },
-    "C": {
-      "item": "minecraft:stick"
-    },
-    "D": {
+    "M": {
       "item": "thuumcraft:refined_moonstone"
+    },
+    "R": {
+      "item": "thuumcraft:refined_malachite"
+    },
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "AA",
-    "DC",
-    " B"
+    "RR",
+    "MS",
+    " H"
   ],
   "result": {
     "item": "thuumcraft:glass_war_axe"

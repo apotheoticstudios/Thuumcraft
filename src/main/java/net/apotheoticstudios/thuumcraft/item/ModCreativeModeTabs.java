@@ -49,12 +49,21 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SILVER_INGOT.get());
                         pOutput.accept(ModItems.EBONY_INGOT.get());
 
-                        pOutput.accept(ModItems.GLASS_SWORD.get());
-                        pOutput.accept(ModItems.DWARVEN_SWORD.get());
+                        pOutput.accept(ModItems.SILVER_SWORD.get());
                         pOutput.accept(ModItems.STEEL_SWORD.get());
+                        pOutput.accept(ModItems.DWARVEN_SWORD.get());
+                        pOutput.accept(ModItems.ORCISH_SWORD.get());
+                        pOutput.accept(ModItems.ELVEN_SWORD.get());
+                        pOutput.accept(ModItems.GLASS_SWORD.get());
+                        pOutput.accept(ModItems.EBONY_SWORD.get());
 
-                        pOutput.accept(ModItems.GLASS_WAR_AXE.get());
+                        pOutput.accept(ModItems.SILVER_WAR_AXE.get());
+                        pOutput.accept(ModItems.STEEL_WAR_AXE.get());
                         pOutput.accept(ModItems.DWARVEN_WAR_AXE.get());
+                        pOutput.accept(ModItems.ORCISH_WAR_AXE.get());
+                        pOutput.accept(ModItems.ELVEN_WAR_AXE.get());
+                        pOutput.accept(ModItems.GLASS_WAR_AXE.get());
+                        pOutput.accept(ModItems.EBONY_WAR_AXE.get());
 
                         pOutput.accept(ModItems.LEATHER_STRIPS.get());
                         pOutput.accept(ModItems.HANDLE.get());

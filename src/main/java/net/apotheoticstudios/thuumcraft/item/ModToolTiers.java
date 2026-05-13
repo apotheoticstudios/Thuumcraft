@@ -27,6 +27,21 @@ public class ModToolTiers {
                     ModTags.Blocks.NEEDS_STEEL_TOOL, () -> Ingredient.of(ModItems.STEEL_INGOT.get())),
             new ResourceLocation(Thuumcraft.MOD_ID,"steel"), List.of(Tiers.STONE), List.of());
 
+    public static final Tier SILVER = TierSortingRegistry.registerTier(
+            new ForgeTier(2, 250, 6, 2f, 22,
+                    ModTags.Blocks.NEEDS_DWARVEN_TOOL, () -> Ingredient.of(ModItems.SILVER_INGOT.get())),
+            new ResourceLocation(Thuumcraft.MOD_ID,"silver"), List.of(Tiers.STONE), List.of(Tiers.IRON));
+
+    public static final Tier ORCISH = TierSortingRegistry.registerTier(
+            new ForgeTier(3, 1200, 6, 3f, 10,
+                    ModTags.Blocks.NEEDS_MALACHITE_TOOL, () -> Ingredient.of(ModItems.ORICHALCUM_INGOT.get())),
+            new ResourceLocation(Thuumcraft.MOD_ID,"orcish"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND));
+
+    public static final Tier ELVEN = TierSortingRegistry.registerTier(
+            new ForgeTier(3, 900, 6, 2.5f, 16,
+                    ModTags.Blocks.NEEDS_MALACHITE_TOOL, () -> Ingredient.of(ModItems.REFINED_MOONSTONE.get())),
+            new ResourceLocation(Thuumcraft.MOD_ID,"elven"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND));
+
     public static final Tier EBONY = TierSortingRegistry.registerTier(
             new ForgeTier(4, 2000, 7, 4f, 20,
                     ModTags.Blocks.NEEDS_EBONY_TOOL, () -> Ingredient.of(ModItems.EBONY_INGOT.get())),

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "thuumcraft:handle"
+    },
+    "M": {
+      "item": "thuumcraft:refined_moonstone"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "H"
+  ],
+  "result": {
+    "item": "thuumcraft:elven_sword"
+  },
+  "show_notification": true
+}

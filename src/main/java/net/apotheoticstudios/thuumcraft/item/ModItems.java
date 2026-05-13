@@ -5,6 +5,7 @@ import net.apotheoticstudios.thuumcraft.entity.ModEntities;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,14 @@ public class ModItems {
 
     private static RegistryObject<Item> registerIngredient(String name) {
         return ITEMS.register(name, () -> new IngredientItem(name, new Item.Properties().food(ModFoods.INGREDIENT)));
+    }
+
+    private static RegistryObject<Item> registerSword(String name, Tier tier) {
+        return ITEMS.register(name, () -> new SwordItem(tier, 3, -2.4f, new Item.Properties()));
+    }
+
+    private static RegistryObject<Item> registerWarAxe(String name, Tier tier) {
+        return ITEMS.register(name, () -> new AxeItem(tier, 5, -3.0f, new Item.Properties()));
     }
 
     public static final RegistryObject<Item> REFINED_MALACHITE = ITEMS.register("refined_malachite",
@@ -447,18 +456,26 @@ public class ModItems {
             YELLOW_MOUNTAIN_FLOWER
     );
 
-    public static final RegistryObject<Item> GLASS_SWORD = ITEMS.register("glass_sword",
-            () -> new SwordItem(ModToolTiers.GLASS, 3, -2.4f, new Item.Properties()));
-    public static final RegistryObject<Item> GLASS_WAR_AXE = ITEMS.register("glass_war_axe",
-            () -> new AxeItem(ModToolTiers.GLASS, 5, -3, new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_SWORD = registerSword("silver_sword", ModToolTiers.SILVER);
+    public static final RegistryObject<Item> SILVER_WAR_AXE = registerWarAxe("silver_war_axe", ModToolTiers.SILVER);
 
-    public static final RegistryObject<Item> DWARVEN_SWORD = ITEMS.register("dwarven_sword",
-            () -> new SwordItem(ModToolTiers.DWARVEN, 3, -2.4f, new Item.Properties()));
-    public static final RegistryObject<Item> DWARVEN_WAR_AXE = ITEMS.register("dwarven_war_axe",
-            () -> new AxeItem(ModToolTiers.DWARVEN, 5, -3, new Item.Properties()));
+    public static final RegistryObject<Item> STEEL_SWORD = registerSword("steel_sword", ModToolTiers.STEEL);
+    public static final RegistryObject<Item> STEEL_WAR_AXE = registerWarAxe("steel_war_axe", ModToolTiers.STEEL);
 
-    public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword",
-            () -> new SwordItem(ModToolTiers.STEEL, 3, -2.4f, new Item.Properties()));
+    public static final RegistryObject<Item> DWARVEN_SWORD = registerSword("dwarven_sword", ModToolTiers.DWARVEN);
+    public static final RegistryObject<Item> DWARVEN_WAR_AXE = registerWarAxe("dwarven_war_axe", ModToolTiers.DWARVEN);
+
+    public static final RegistryObject<Item> ORCISH_SWORD = registerSword("orcish_sword", ModToolTiers.ORCISH);
+    public static final RegistryObject<Item> ORCISH_WAR_AXE = registerWarAxe("orcish_war_axe", ModToolTiers.ORCISH);
+
+    public static final RegistryObject<Item> ELVEN_SWORD = registerSword("elven_sword", ModToolTiers.ELVEN);
+    public static final RegistryObject<Item> ELVEN_WAR_AXE = registerWarAxe("elven_war_axe", ModToolTiers.ELVEN);
+
+    public static final RegistryObject<Item> GLASS_SWORD = registerSword("glass_sword", ModToolTiers.GLASS);
+    public static final RegistryObject<Item> GLASS_WAR_AXE = registerWarAxe("glass_war_axe", ModToolTiers.GLASS);
+
+    public static final RegistryObject<Item> EBONY_SWORD = registerSword("ebony_sword", ModToolTiers.EBONY);
+    public static final RegistryObject<Item> EBONY_WAR_AXE = registerWarAxe("ebony_war_axe", ModToolTiers.EBONY);
 
     public static final RegistryObject<Item> SEPTIM = ITEMS.register("septim",
             () -> new Item(new Item.Properties()));

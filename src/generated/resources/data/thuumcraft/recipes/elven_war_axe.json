@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "thuumcraft:handle"
+    },
+    "M": {
+      "item": "thuumcraft:refined_moonstone"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "MM",
+    "MS",
+    " H"
+  ],
+  "result": {
+    "item": "thuumcraft:elven_war_axe"
+  },
+  "show_notification": true
+}

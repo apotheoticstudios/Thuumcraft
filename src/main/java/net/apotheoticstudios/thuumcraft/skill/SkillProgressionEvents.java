@@ -58,7 +58,7 @@ public final class SkillProgressionEvents {
 
     @SubscribeEvent
     public static void awardWeaponExperience(LivingHurtEvent event) {
-        if (event.getEntity().level().isClientSide() || event.getAmount() <= 0.0F) {
+        if (!SkillPerk.isSystemEnabled() || event.getEntity().level().isClientSide() || event.getAmount() <= 0.0F) {
             return;
         }
         if (!(event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
@@ -76,7 +76,8 @@ public final class SkillProgressionEvents {
 
     @SubscribeEvent
     public static void awardArmorExperience(LivingDamageEvent event) {
-        if (event.getEntity().level().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
                 || event.getAmount() <= 0.0F
                 || !(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
                 || player.isCreative()
@@ -113,7 +114,8 @@ public final class SkillProgressionEvents {
 
     @SubscribeEvent
     public static void awardBlockExperience(ShieldBlockEvent event) {
-        if (event.getEntity().level().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
                 || event.getBlockedDamage() <= 0.0F
                 || !(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
                 || player.isCreative()
@@ -127,21 +129,22 @@ public final class SkillProgressionEvents {
 
     @SubscribeEvent
     public static void awardCraftingExperience(PlayerEvent.ItemCraftedEvent event) {
-        if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+        if (SkillPerk.isSystemEnabled() && event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
             awardSmithingExperience(player, event.getCrafting(), SMITHING_CRAFT_XP_MULTIPLIER);
         }
     }
 
     @SubscribeEvent
     public static void awardRepairExperience(AnvilRepairEvent event) {
-        if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+        if (SkillPerk.isSystemEnabled() && event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
             awardSmithingExperience(player, event.getOutput(), SMITHING_REPAIR_XP_MULTIPLIER);
         }
     }
 
     @SubscribeEvent
     public static void awardBarterExperience(TradeWithVillagerEvent event) {
-        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
+        if (!SkillPerk.isSystemEnabled()
+                || !(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
                 || player.isCreative()
                 || player.isSpectator()) {
             return;
@@ -166,10 +169,14 @@ public final class SkillProgressionEvents {
                     : null;
         }
         if (weapon.is(ModTags.Items.ONE_HANDED_WEAPONS)) {
-            return SkillProgression.Skill.ONE_HANDED;
+            return SkillPerk.isSkillEnabled(SkillProgression.Skill.ONE_HANDED)
+                    ? SkillProgression.Skill.ONE_HANDED
+                    : null;
         }
         if (weapon.is(ModTags.Items.TWO_HANDED_WEAPONS)) {
-            return SkillProgression.Skill.TWO_HANDED;
+            return SkillPerk.isSkillEnabled(SkillProgression.Skill.TWO_HANDED)
+                    ? SkillProgression.Skill.TWO_HANDED
+                    : null;
         }
         return null;
     }

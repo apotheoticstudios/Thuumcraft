@@ -73,6 +73,8 @@
 		#Ticks before stamina starts regenerating after stamina is drained.
 		#Range: 0 ~ 1200
 		staminaRegenDelayTicks = 20
+		#When Epic Fight is installed, make Epic Fight skills and dodges consume Thuumcraft stamina instead of Epic Fight's internal stamina.
+		enableEpicFightStaminaReplacement = true
 
 	#Skyrim-style health regeneration settings
 	[hudAndStamina.healthRegeneration]
@@ -90,4 +92,9 @@
 		#Ticks a player remains in combat after dealing or taking damage.
 		#Range: 0 ~ 12000
 		combatDurationTicks = 200
+
+#Skyrim-style skill progression and perk tree settings
+[skills]
+	#Set to false to completely disable skill XP progression, character level, perk points, skill tree unlocking and perk ability effects.
+	enableSkillSystem = true
 

@@ -11,6 +11,7 @@ import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -504,6 +505,7 @@ public class SkillTreeScreen extends Screen {
                             "Fence", "Fence", "Master Trader", "Haggling", "Bribery", "Bribery", "Persuasion",
                             "Persuasion", "Intimidation"))
     );
+    private static final List<SkillTreeDefinition> TREES_WITHOUT_EPIC_FIGHT = treesWithoutEpicFight();
 
     private static int lastTreeIndex;
 
@@ -519,6 +521,7 @@ public class SkillTreeScreen extends Screen {
 
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        normalizeTreeIndices();
         renderSkyBackground(guiGraphics);
         float transitionProgress = updateTreeTransitionProgress();
         boolean transitioning = isTreeTransitioning();
@@ -608,8 +611,10 @@ public class SkillTreeScreen extends Screen {
             SkillTreeDefinition tree = currentTree();
             guiGraphics.drawCenteredString(this.font, skillTitle(tree), this.width / 2, 18, TEXT_COLOR);
         }
+        guiGraphics.drawCenteredString(this.font, "Level " + ClientSkillPerkState.playerLevel(),
+                this.width / 2, 31, TEXT_COLOR);
         guiGraphics.drawCenteredString(this.font, "Perk Points " + ClientSkillPerkState.perkPoints(),
-                this.width / 2, 31, MUTED_TEXT_COLOR);
+                this.width / 2, 42, MUTED_TEXT_COLOR);
         renderBottomSkillStrip(guiGraphics, transitionProgress, transitioning);
         guiGraphics.drawCenteredString(this.font, Component.literal("<"), this.width / 2 - 118, this.height - 18, DIM_TEXT_COLOR);
         guiGraphics.drawCenteredString(this.font, Component.literal(">"), this.width / 2 + 118, this.height - 18, DIM_TEXT_COLOR);
@@ -618,7 +623,8 @@ public class SkillTreeScreen extends Screen {
     private void renderTransitionedHeading(GuiGraphics guiGraphics, float transitionProgress) {
         int direction = Integer.signum(transitionTreeOffset);
         int slide = Math.min(36, Math.max(18, this.width / 18));
-        SkillTreeDefinition previousTree = TREES.get(previousTreeIndex);
+        List<SkillTreeDefinition> trees = availableTrees();
+        SkillTreeDefinition previousTree = trees.get(wrapTreeIndex(previousTreeIndex));
         SkillTreeDefinition tree = currentTree();
         Component previousHeading = skillTitle(previousTree);
         Component heading = skillTitle(tree);
@@ -638,6 +644,7 @@ public class SkillTreeScreen extends Screen {
         int baseIndex = transitioning ? previousTreeIndex : treeIndex;
         float animatedOffset = transitioning ? transitionTreeOffset * transitionProgress : 0.0F;
         int extraItems = transitioning ? Math.abs(transitionTreeOffset) : 0;
+        List<SkillTreeDefinition> trees = availableTrees();
 
         for (int offset = -middle - extraItems; offset <= middle + extraItems; offset++) {
             float visualOffset = offset - animatedOffset;
@@ -646,7 +653,7 @@ public class SkillTreeScreen extends Screen {
             }
 
             int index = wrapTreeIndex(baseIndex + offset);
-            SkillTreeDefinition tree = TREES.get(index);
+            SkillTreeDefinition tree = trees.get(index);
             int x = centerX + Math.round(visualOffset * spacing);
             int color = navigationColor(visualOffset);
             guiGraphics.drawCenteredString(this.font, skillTitle(tree), x, y, color);
@@ -660,6 +667,7 @@ public class SkillTreeScreen extends Screen {
         int extraItems = transitioning ? Math.abs(transitionTreeOffset) : 0;
         int maximumOffset = VISIBLE_SIDE_TREES + extraItems;
         float spacing = treeCarouselSpacing(treeBounds(currentTree()));
+        List<SkillTreeDefinition> trees = availableTrees();
 
         for (int layer = VISIBLE_SIDE_TREES + 1; layer >= 0; layer--) {
             for (int offset = -maximumOffset; offset <= maximumOffset; offset++) {
@@ -675,7 +683,7 @@ public class SkillTreeScreen extends Screen {
                 float xOffset = visualOffset * spacing;
                 float yOffset = Math.min(26.0F, distance * 14.0F);
                 int renderedTreeIndex = wrapTreeIndex(baseIndex + offset);
-                SkillTreeDefinition tree = TREES.get(renderedTreeIndex);
+                SkillTreeDefinition tree = trees.get(renderedTreeIndex);
                 TreeBounds bounds = treeBounds(tree);
                 renderTree(guiGraphics, renderedTreeIndex, tree, bounds, mouseX, mouseY, xOffset, yOffset, scale,
                         alpha, centered);
@@ -769,16 +777,16 @@ public class SkillTreeScreen extends Screen {
         int currentRank = rankForNode(treeIndex, hoveredNode);
         int maximumRank = node.maximumRank();
         ArrayList<Component> lines = new ArrayList<>();
-        lines.add(Component.literal(node.name()));
+        lines.add(formatTooltipTitle(node.name()));
         if (maximumRank > 1) {
-            lines.add(Component.literal("Rank: " + currentRank + "/" + maximumRank));
+            lines.add(formatTooltipRank(currentRank, maximumRank));
         }
         for (String detail : node.tooltip().split("\n")) {
             if (!detail.isBlank() && !detail.startsWith("Ranks: ") && !detail.startsWith("Requires: ")) {
                 addTooltipDetailLine(lines, detail);
             }
         }
-        lines.add(Component.literal(nodeStatus(treeIndex, hoveredNode)));
+        lines.add(formatTooltipStatus(nodeStatus(treeIndex, hoveredNode)));
 
         int tooltipWidth = 0;
         for (Component line : lines) {
@@ -804,15 +812,17 @@ public class SkillTreeScreen extends Screen {
 
     private void addTooltipDetailLine(ArrayList<Component> lines, String detail) {
         if (this.font.width(detail) <= TOOLTIP_WRAP_WIDTH) {
-            lines.add(Component.literal(detail));
+            lines.add(formatTooltipDetail(detail, false));
             return;
         }
 
         StringBuilder line = new StringBuilder();
+        boolean continuation = false;
         for (String word : detail.split(" ")) {
             String candidate = line.length() == 0 ? word : line + " " + word;
             if (line.length() > 0 && this.font.width(candidate) > TOOLTIP_WRAP_WIDTH) {
-                lines.add(Component.literal(line.toString()));
+                lines.add(formatTooltipDetail(line.toString(), continuation));
+                continuation = true;
                 line.setLength(0);
                 line.append(word);
             } else {
@@ -823,12 +833,98 @@ public class SkillTreeScreen extends Screen {
             }
         }
         if (line.length() > 0) {
-            lines.add(Component.literal(line.toString()));
+            lines.add(formatTooltipDetail(line.toString(), continuation));
         }
     }
 
+    private static Component formatTooltipTitle(String title) {
+        return Component.literal(title).withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD,
+                ChatFormatting.UNDERLINE);
+    }
+
+    private static Component formatTooltipRank(int currentRank, int maximumRank) {
+        return Component.literal("Rank ")
+                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)
+                .append(Component.literal(currentRank + "/" + maximumRank)
+                        .withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD, ChatFormatting.UNDERLINE));
+    }
+
+    private static Component formatTooltipDetail(String detail, boolean continuation) {
+        if (continuation) {
+            return Component.literal("  " + detail).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC);
+        }
+
+        int separator = detail.indexOf(':');
+        if (separator <= 0) {
+            return Component.literal(detail).withStyle(ChatFormatting.GRAY);
+        }
+
+        String label = detail.substring(0, separator);
+        String text = detail.substring(separator + 1);
+        MutableComponent component = Component.literal(label + ":")
+                .withStyle(detailLabelFormatting(label));
+        if (!text.isBlank()) {
+            component.append(Component.literal(text).withStyle(detailTextFormatting(label)));
+        }
+        return component;
+    }
+
+    private static ChatFormatting[] detailLabelFormatting(String label) {
+        return switch (label) {
+            case "Bonus" -> new ChatFormatting[] {
+                    ChatFormatting.GOLD, ChatFormatting.BOLD, ChatFormatting.UNDERLINE
+            };
+            case "Effect" -> new ChatFormatting[] {
+                    ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE
+            };
+            case "Cost" -> new ChatFormatting[] {
+                    ChatFormatting.RED, ChatFormatting.BOLD, ChatFormatting.UNDERLINE
+            };
+            case "Utility" -> new ChatFormatting[] {
+                    ChatFormatting.GREEN, ChatFormatting.BOLD, ChatFormatting.ITALIC
+            };
+            case "Note" -> new ChatFormatting[] {
+                    ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD, ChatFormatting.ITALIC
+            };
+            default -> new ChatFormatting[] {
+                    ChatFormatting.YELLOW, ChatFormatting.BOLD
+            };
+        };
+    }
+
+    private static ChatFormatting[] detailTextFormatting(String label) {
+        return switch (label) {
+            case "Cost" -> new ChatFormatting[] {
+                    ChatFormatting.RED
+            };
+            case "Utility", "Note" -> new ChatFormatting[] {
+                    ChatFormatting.GRAY, ChatFormatting.ITALIC
+            };
+            default -> new ChatFormatting[] {
+                    ChatFormatting.GRAY
+            };
+        };
+    }
+
+    private static Component formatTooltipStatus(String status) {
+        if (status.contains("Unlocked")) {
+            return Component.literal(status).withStyle(ChatFormatting.GREEN, ChatFormatting.BOLD);
+        }
+        if (status.equals("Available")) {
+            return Component.literal(status).withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD,
+                    ChatFormatting.UNDERLINE);
+        }
+        if (status.startsWith("Requires")) {
+            return Component.literal(status).withStyle(ChatFormatting.RED, ChatFormatting.ITALIC);
+        }
+        if (status.equals("Not implemented yet")) {
+            return Component.literal(status).withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC);
+        }
+        return Component.literal(status).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC);
+    }
+
     private int nodeColor(int renderedTreeIndex, int nodeIndex, float alpha, boolean hovered) {
-        Node node = TREES.get(renderedTreeIndex).nodes().get(nodeIndex);
+        Node node = availableTrees().get(renderedTreeIndex).nodes().get(nodeIndex);
         if (rankForNode(renderedTreeIndex, nodeIndex) >= node.maximumRank()) {
             return withAlpha(NODE_SELECTED_COLOR, alpha);
         }
@@ -851,7 +947,8 @@ public class SkillTreeScreen extends Screen {
     }
 
     private String nodeStatus(int treeIndex, int nodeIndex) {
-        Node node = TREES.get(treeIndex).nodes().get(nodeIndex);
+        SkillTreeDefinition tree = availableTrees().get(treeIndex);
+        Node node = tree.nodes().get(nodeIndex);
         if (node.perk() == null) {
             return "Not implemented yet";
         }
@@ -863,7 +960,7 @@ public class SkillTreeScreen extends Screen {
             return "Available";
         }
         int requiredSkill = node.requiredSkillForRank(rank);
-        int skillValue = skillValue(TREES.get(treeIndex));
+        int skillValue = skillValue(tree);
         if (skillValue < requiredSkill) {
             String prefix = rank > 0 ? "Rank " + rank + " unlocked. " : "";
             return prefix + "Locked";
@@ -883,14 +980,14 @@ public class SkillTreeScreen extends Screen {
             return;
         }
 
-        Node node = TREES.get(treeIndex).nodes().get(nodeIndex);
+        Node node = availableTrees().get(treeIndex).nodes().get(nodeIndex);
         if (node.perk() != null) {
             ModMessages.sendToServer(new ServerboundUnlockPerkPacket(node.perk().id()));
         }
     }
 
     private boolean canUpgradeNode(int treeIndex, int nodeIndex) {
-        SkillTreeDefinition tree = TREES.get(treeIndex);
+        SkillTreeDefinition tree = availableTrees().get(treeIndex);
         Node node = tree.nodes().get(nodeIndex);
         if (node.perk() == null) {
             return false;
@@ -903,7 +1000,7 @@ public class SkillTreeScreen extends Screen {
     }
 
     private boolean prerequisitesMet(int treeIndex, int nodeIndex, Node node) {
-        SkillTreeDefinition tree = TREES.get(treeIndex);
+        SkillTreeDefinition tree = availableTrees().get(treeIndex);
         for (String prerequisite : node.prerequisites()) {
             int prerequisiteIndex = findNodeIndex(tree.nodes(), prerequisite);
             if (prerequisiteIndex >= 0 && rankForNode(treeIndex, prerequisiteIndex) > 0) {
@@ -930,7 +1027,7 @@ public class SkillTreeScreen extends Screen {
     }
 
     private int rankForNode(int treeIndex, int nodeIndex) {
-        Node node = TREES.get(treeIndex).nodes().get(nodeIndex);
+        Node node = availableTrees().get(treeIndex).nodes().get(nodeIndex);
         return node.perk() == null ? 0 : ClientSkillPerkState.rank(node.perk());
     }
 
@@ -1012,8 +1109,42 @@ public class SkillTreeScreen extends Screen {
         return Math.max(0.22F, 1.0F - distance * 0.36F);
     }
 
+    private static List<SkillTreeDefinition> availableTrees() {
+        return ClientSkillPerkState.meleeSkillTreesEnabled() ? TREES : TREES_WITHOUT_EPIC_FIGHT;
+    }
+
+    private static List<SkillTreeDefinition> treesWithoutEpicFight() {
+        ArrayList<SkillTreeDefinition> filteredTrees = new ArrayList<>(TREES.size() - 2);
+        for (SkillTreeDefinition tree : TREES) {
+            if (!isEpicFightTree(tree)) {
+                filteredTrees.add(tree);
+            }
+        }
+        return List.copyOf(filteredTrees);
+    }
+
+    private static boolean isEpicFightTree(SkillTreeDefinition tree) {
+        return tree.attribute().equals(ModAttributes.ONE_HANDED)
+                || tree.attribute().equals(ModAttributes.TWO_HANDED);
+    }
+
+    private void normalizeTreeIndices() {
+        int normalizedTreeIndex = wrapTreeIndex(treeIndex);
+        int normalizedPreviousTreeIndex = wrapTreeIndex(previousTreeIndex);
+        if (treeIndex != normalizedTreeIndex || previousTreeIndex != normalizedPreviousTreeIndex) {
+            treeIndex = normalizedTreeIndex;
+            previousTreeIndex = normalizedPreviousTreeIndex;
+            if (treeIndex == previousTreeIndex) {
+                transitionTreeOffset = 0;
+                treeTransitionStartMillis = 0L;
+            }
+        }
+        lastTreeIndex = treeIndex;
+    }
+
     private SkillTreeDefinition currentTree() {
-        return TREES.get(treeIndex);
+        normalizeTreeIndices();
+        return availableTrees().get(treeIndex);
     }
 
     private void previousTree() {
@@ -1026,11 +1157,12 @@ public class SkillTreeScreen extends Screen {
 
     private void setTreeIndex(int treeIndex) {
         int nextTreeIndex = wrapTreeIndex(treeIndex);
-        if (nextTreeIndex == this.treeIndex) {
+        int currentTreeIndex = wrapTreeIndex(this.treeIndex);
+        if (nextTreeIndex == currentTreeIndex) {
             return;
         }
 
-        this.previousTreeIndex = this.treeIndex;
+        this.previousTreeIndex = currentTreeIndex;
         this.transitionTreeOffset = shortestWrappedDistance(this.previousTreeIndex, nextTreeIndex);
         this.treeTransitionStartMillis = Util.getMillis();
         this.treeIndex = nextTreeIndex;
@@ -1057,13 +1189,15 @@ public class SkillTreeScreen extends Screen {
     }
 
     private int wrapTreeIndex(int index) {
-        return (index % TREES.size() + TREES.size()) % TREES.size();
+        int treeCount = availableTrees().size();
+        return (index % treeCount + treeCount) % treeCount;
     }
 
     private int shortestWrappedDistance(int from, int to) {
         int forward = wrapTreeIndex(to - from);
-        int backward = forward - TREES.size();
-        return forward <= TREES.size() / 2 ? forward : backward;
+        int treeCount = availableTrees().size();
+        int backward = forward - treeCount;
+        return forward <= treeCount / 2 ? forward : backward;
     }
 
     private boolean isTreeTransitioning() {

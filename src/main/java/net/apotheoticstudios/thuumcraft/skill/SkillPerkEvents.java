@@ -2,11 +2,16 @@ package net.apotheoticstudios.thuumcraft.skill;
 
 import com.google.common.collect.Multimap;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
+import net.apotheoticstudios.thuumcraft.compat.EpicFightCompat;
+import net.apotheoticstudios.thuumcraft.compat.EpicFightSkillIntegration;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.stamina.StaminaEvents;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -75,6 +80,10 @@ public final class SkillPerkEvents {
     private static final String SMITHING_QUALITY_TAG = "ThuumcraftSmithingQuality";
     private static final double SWORD_CRIT_DAMAGE_MULTIPLIER = 1.5D;
     private static final double ARCHERY_CRIT_DAMAGE_MULTIPLIER = 1.5D;
+    private static final int ARCHERY_CRITICAL_SHOT_CRIT_PARTICLES = 18;
+    private static final int ARCHERY_CRITICAL_SHOT_ENCHANTED_PARTICLES = 8;
+    private static final int ARCHERY_POWER_SHOT_POOF_PARTICLES = 16;
+    private static final int ARCHERY_POWER_SHOT_CLOUD_PARTICLES = 8;
     private static final double POWER_ATTACK_STAMINA_COST = 12.0D;
     private static final UUID ARMOR_BONUS_MODIFIER = UUID.fromString("f1fb1334-1098-4ed2-bcdd-803448596ff8");
     private static final UUID ATTACK_SPEED_BONUS_MODIFIER = UUID.fromString("91185af2-b84f-4ca5-b8b4-e1c34d1b334f");
@@ -99,15 +108,19 @@ public final class SkillPerkEvents {
             return;
         }
 
-        RuntimeState runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState());
-        if (player.isSpectator() || player.isCreative() || !player.isAlive()) {
+        if (!SkillPerk.isSystemEnabled() || player.isSpectator() || player.isCreative() || !player.isAlive()) {
             removeModifier(player, Attributes.ARMOR, ARMOR_BONUS_MODIFIER);
             removeModifier(player, Attributes.ATTACK_SPEED, ATTACK_SPEED_BONUS_MODIFIER);
             removeModifier(player, Attributes.MOVEMENT_SPEED, BLOCK_RUNNER_MODIFIER);
             removeModifier(player, Attributes.MOVEMENT_SPEED, RANGER_MODIFIER);
+            RUNTIME.remove(player.getUUID());
             return;
         }
+        if (EpicFightCompat.isLoaded()) {
+            EpicFightSkillIntegration.ensureRegistered(player);
+        }
 
+        RuntimeState runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState());
         applyArmorRatingPerks(player);
         applyCombatMovementPerks(player);
         tickShieldCharge(player, runtime);
@@ -116,6 +129,10 @@ public final class SkillPerkEvents {
     @SubscribeEvent
     public static void tickBleeds(TickEvent.LevelTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.level.isClientSide() || BLEEDS.isEmpty()) {
+            return;
+        }
+        if (!SkillPerk.isSystemEnabled()) {
+            BLEEDS.clear();
             return;
         }
 
@@ -143,11 +160,19 @@ public final class SkillPerkEvents {
     @SubscribeEvent
     public static void clearRuntime(PlayerEvent.PlayerLoggedOutEvent event) {
         RUNTIME.remove(event.getEntity().getUUID());
+        if (event.getEntity() instanceof ServerPlayer player && EpicFightCompat.isLoaded()) {
+            EpicFightSkillIntegration.clear(player);
+        }
     }
 
     @SubscribeEvent
     public static void applyWeaponPerkDamage(LivingHurtEvent event) {
-        if (event.getEntity().level().isClientSide() || applyingSecondaryDamage || event.getAmount() <= 0.0F) {
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
+                || applyingSecondaryDamage
+                || EpicFightCompat.isApplyingSecondaryDamage()
+                || EpicFightCompat.isEpicFightDamageSource(event.getSource())
+                || event.getAmount() <= 0.0F) {
             return;
         }
         if (!(event.getSource().getEntity() instanceof ServerPlayer player) || event.getEntity() == player) {
@@ -172,7 +197,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyDefensivePerks(LivingHurtEvent event) {
-        if (event.getEntity().level().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
                 || !(event.getEntity() instanceof ServerPlayer player)
                 || event.getAmount() <= 0.0F) {
             return;
@@ -199,7 +225,9 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyBlockPerks(ShieldBlockEvent event) {
-        if (event.getEntity().level().isClientSide() || !(event.getEntity() instanceof ServerPlayer player)) {
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
+                || !(event.getEntity() instanceof ServerPlayer player)) {
             return;
         }
 
@@ -230,7 +258,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyBashPerks(AttackEntityEvent event) {
-        if (event.getEntity().level().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
                 || !(event.getEntity() instanceof ServerPlayer player)
                 || !(event.getTarget() instanceof LivingEntity target)
                 || !isUsingShield(player)
@@ -254,7 +283,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyFallPerks(LivingFallEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player
+        if (SkillPerk.isSystemEnabled()
+                && event.getEntity() instanceof ServerPlayer player
                 && SkillPerk.has(player, SkillPerk.HEAVY_ARMOR_CUSHIONED)
                 && isWearingOnlyTaggedArmor(player, ModTags.Items.HEAVY_ARMOR)) {
             event.setDamageMultiplier(event.getDamageMultiplier() * 0.5F);
@@ -263,7 +293,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyStaggerResistance(LivingKnockBackEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player
+        if (SkillPerk.isSystemEnabled()
+                && event.getEntity() instanceof ServerPlayer player
                 && SkillPerk.has(player, SkillPerk.HEAVY_ARMOR_TOWER_OF_STRENGTH)
                 && isWearingOnlyTaggedArmor(player, ModTags.Items.HEAVY_ARMOR)) {
             event.setStrength(event.getStrength() * 0.5F);
@@ -272,7 +303,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyQuickShot(ArrowLooseEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer player)
+        if (!SkillPerk.isSystemEnabled()
+                || !(event.getEntity() instanceof ServerPlayer player)
                 || !SkillPerk.has(player, SkillPerk.ARCHERY_QUICK_SHOT)
                 || !event.hasAmmo()) {
             return;
@@ -283,7 +315,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void duplicateGreenThumbHarvest(BlockEvent.BreakEvent event) {
-        if (event.getLevel().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getLevel().isClientSide()
                 || !(event.getLevel() instanceof ServerLevel level)
                 || !(event.getPlayer() instanceof ServerPlayer player)
                 || !SkillPerk.has(player, SkillPerk.ALCHEMY_GREEN_THUMB)
@@ -313,7 +346,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyHuntersDiscipline(LivingDropsEvent event) {
-        if (event.getEntity().level().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getEntity().level().isClientSide()
                 || !event.getSource().is(DamageTypeTags.IS_PROJECTILE)
                 || !(event.getSource().getEntity() instanceof ServerPlayer player)
                 || !SkillPerk.has(player, SkillPerk.ARCHERY_HUNTERS_DISCIPLINE)) {
@@ -338,20 +372,23 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void tagCraftedSmithingQuality(PlayerEvent.ItemCraftedEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
+        if (SkillPerk.isSystemEnabled() && event.getEntity() instanceof ServerPlayer player) {
             applySmithingQuality(player, event.getCrafting());
         }
     }
 
     @SubscribeEvent
     public static void tagRepairedSmithingQuality(AnvilRepairEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
+        if (SkillPerk.isSystemEnabled() && event.getEntity() instanceof ServerPlayer player) {
             applySmithingQuality(player, event.getOutput());
         }
     }
 
     @SubscribeEvent
     public static void applySmithingQualityAttributes(ItemAttributeModifierEvent event) {
+        if (!SkillPerk.isSystemEnabled()) {
+            return;
+        }
         int quality = event.getItemStack().getOrCreateTag().getInt(SMITHING_QUALITY_TAG);
         if (quality <= 0) {
             return;
@@ -379,7 +416,8 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void applyMerchantDiscounts(PlayerInteractEvent.EntityInteract event) {
-        if (event.getLevel().isClientSide()
+        if (!SkillPerk.isSystemEnabled()
+                || event.getLevel().isClientSide()
                 || !(event.getEntity() instanceof ServerPlayer player)
                 || !(event.getTarget() instanceof AbstractVillager villager)) {
             return;
@@ -390,7 +428,7 @@ public final class SkillPerkEvents {
 
     @SubscribeEvent
     public static void awardSpeechTradeBonuses(TradeWithVillagerEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer player)) {
+        if (!SkillPerk.isSystemEnabled() || !(event.getEntity() instanceof ServerPlayer player)) {
             return;
         }
 
@@ -408,6 +446,7 @@ public final class SkillPerkEvents {
             event.setAmount((float) (event.getAmount() * (1.0D + overdraw * 0.2D)));
         }
 
+        LivingEntity target = event.getEntity();
         int criticalShot = SkillPerk.rank(player, SkillPerk.ARCHERY_CRITICAL_SHOT);
         if (criticalShot > 0) {
             double chance = switch (criticalShot) {
@@ -422,17 +461,61 @@ public final class SkillPerkEvents {
                     default -> 1.5D;
                 };
                 event.setAmount((float) (event.getAmount() * ARCHERY_CRIT_DAMAGE_MULTIPLIER * rankMultiplier));
+                showArcheryCriticalShotIndicator(player, target, ARCHERY_CRIT_DAMAGE_MULTIPLIER * rankMultiplier);
             }
         }
 
-        LivingEntity target = event.getEntity();
         if (SkillPerk.has(player, SkillPerk.ARCHERY_POWER_SHOT) && player.getRandom().nextBoolean()) {
             target.knockback(0.55D, player.getX() - target.getX(), player.getZ() - target.getZ());
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1));
+            showArcheryPowerShotIndicator(player, target);
         }
         if (SkillPerk.has(player, SkillPerk.ARCHERY_BULLSEYE) && player.getRandom().nextFloat() < 0.15F) {
             target.addEffect(new MobEffectInstance(ModEffects.PARALYSIS.get(), 60));
         }
+    }
+
+    private static void showArcheryCriticalShotIndicator(ServerPlayer player, LivingEntity target,
+                                                         double damageMultiplier) {
+        ServerLevel level = player.serverLevel();
+        double x = target.getX();
+        double y = target.getY() + target.getBbHeight() * 0.55D;
+        double z = target.getZ();
+        double horizontalSpread = Math.max(0.25D, target.getBbWidth() * 0.45D);
+        double verticalSpread = Math.max(0.35D, target.getBbHeight() * 0.25D);
+
+        level.sendParticles(ParticleTypes.CRIT, x, y, z, ARCHERY_CRITICAL_SHOT_CRIT_PARTICLES,
+                horizontalSpread, verticalSpread, horizontalSpread, 0.18D);
+        level.sendParticles(ParticleTypes.ENCHANTED_HIT, x, y, z, ARCHERY_CRITICAL_SHOT_ENCHANTED_PARTICLES,
+                horizontalSpread, verticalSpread, horizontalSpread, 0.12D);
+        player.displayClientMessage(Component.literal("Critical Shot ")
+                .withStyle(ChatFormatting.GOLD)
+                .append(Component.literal(formatMultiplier(damageMultiplier) + "x")
+                        .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD))
+                .append(Component.literal(" damage").withStyle(ChatFormatting.GOLD)), true);
+    }
+
+    private static void showArcheryPowerShotIndicator(ServerPlayer player, LivingEntity target) {
+        ServerLevel level = player.serverLevel();
+        double x = target.getX();
+        double y = target.getY() + target.getBbHeight() * 0.5D;
+        double z = target.getZ();
+        double horizontalSpread = Math.max(0.3D, target.getBbWidth() * 0.55D);
+        double verticalSpread = Math.max(0.25D, target.getBbHeight() * 0.2D);
+
+        level.sendParticles(ParticleTypes.POOF, x, y, z, ARCHERY_POWER_SHOT_POOF_PARTICLES,
+                horizontalSpread, verticalSpread, horizontalSpread, 0.08D);
+        level.sendParticles(ParticleTypes.CLOUD, x, y, z, ARCHERY_POWER_SHOT_CLOUD_PARTICLES,
+                horizontalSpread * 0.7D, verticalSpread * 0.6D, horizontalSpread * 0.7D, 0.03D);
+        player.displayClientMessage(Component.literal("Power Shot")
+                .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD), true);
+    }
+
+    private static String formatMultiplier(double multiplier) {
+        if (multiplier == Math.rint(multiplier)) {
+            return Integer.toString((int) multiplier);
+        }
+        return String.format(Locale.ROOT, "%.2f", multiplier).replaceAll("0+$", "").replaceAll("\\.$", "");
     }
 
     private static void applyOneHandedDamage(ServerPlayer player, LivingHurtEvent event, ItemStack weapon) {
@@ -642,7 +725,7 @@ public final class SkillPerkEvents {
         return (float) (amount * (1.0D + armorReductionEstimate * ignore));
     }
 
-    private static void applyBleed(LivingEntity target, int rank, double baseDamagePerSecond, int seconds) {
+    public static void applyBleed(LivingEntity target, int rank, double baseDamagePerSecond, int seconds) {
         if (rank <= 0 || target.level().isClientSide()) {
             return;
         }

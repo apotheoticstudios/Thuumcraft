@@ -1,5 +1,6 @@
 package net.apotheoticstudios.thuumcraft.client;
 
+import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
@@ -18,7 +19,8 @@ public final class SkillPerkClientEvents {
 
     @SubscribeEvent
     public static void applyEagleEyeZoom(ComputeFovModifierEvent event) {
-        if (ClientSkillPerkState.rank(SkillPerk.ARCHERY_EAGLE_EYE) <= 0
+        if (!Config.ENABLE_SKILL_SYSTEM.get()
+                || ClientSkillPerkState.rank(SkillPerk.ARCHERY_EAGLE_EYE) <= 0
                 || !event.getPlayer().isUsingItem()
                 || !isRangedWeapon(event.getPlayer().getUseItem())) {
             return;

@@ -3,6 +3,8 @@ package net.apotheoticstudios.thuumcraft.stamina;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
+import net.apotheoticstudios.thuumcraft.compat.EpicFightCompat;
+import net.apotheoticstudios.thuumcraft.compat.EpicFightSkillIntegration;
 import net.apotheoticstudios.thuumcraft.network.ClientboundStaminaPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
@@ -60,6 +62,10 @@ public final class StaminaEvents {
         }
 
         PlayerStaminaRuntime runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new PlayerStaminaRuntime());
+        if (EpicFightCompat.isLoaded() && EpicFightSkillIntegration.shouldReplaceEpicFightStamina()) {
+            EpicFightSkillIntegration.ensureRegistered(player);
+            EpicFightSkillIntegration.refillEpicFightStamina(player);
+        }
 
         if (Config.ENABLE_STAMINA_SYSTEM.get() && Config.ENABLE_STAMINA_HUNGER_OVERRIDE.get()) {
             overrideVanillaHunger(player);
@@ -293,7 +299,7 @@ public final class StaminaEvents {
         data.putDouble(STAMINA_TAG, stamina);
     }
 
-    private static double getMaxStamina(ServerPlayer player) {
+    public static double getMaxStamina(ServerPlayer player) {
         AttributeInstance stamina = player.getAttribute(ModAttributes.STAMINA.get());
         if (stamina == null || stamina.getValue() <= 0.0D) {
             return BASE_MAX_STAMINA;

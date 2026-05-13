@@ -23,7 +23,11 @@ public final class SkillProgression {
     }
 
     public static void award(ServerPlayer player, Skill skill, double amount) {
-        if (amount <= 0.0D || player.isSpectator() || player.isCreative()) {
+        if (!SkillPerk.isSystemEnabled()
+                || !SkillPerk.isSkillEnabled(skill)
+                || amount <= 0.0D
+                || player.isSpectator()
+                || player.isCreative()) {
             return;
         }
 
@@ -68,6 +72,10 @@ public final class SkillProgression {
     }
 
     public static void applyAll(ServerPlayer player) {
+        if (!SkillPerk.isSystemEnabled()) {
+            clearAll(player);
+            return;
+        }
         for (Skill skill : Skill.values()) {
             apply(player, skill);
         }
@@ -76,6 +84,10 @@ public final class SkillProgression {
     public static void apply(ServerPlayer player, Skill skill) {
         AttributeInstance attribute = player.getAttribute(skill.attribute().get());
         if (attribute == null) {
+            return;
+        }
+        if (!SkillPerk.isSystemEnabled() || !SkillPerk.isSkillEnabled(skill)) {
+            setBaseValue(attribute, 0);
             return;
         }
 
@@ -105,8 +117,44 @@ public final class SkillProgression {
     }
 
     public static int getLevel(ServerPlayer player, Skill skill) {
+        if (!SkillPerk.isSystemEnabled() || !SkillPerk.isSkillEnabled(skill)) {
+            return 0;
+        }
         AttributeInstance attribute = player.getAttribute(skill.attribute().get());
         return attribute == null ? 0 : getPersistentLevel(player, skill, attribute);
+    }
+
+    public static int addLevels(ServerPlayer player, Skill skill, int amount) {
+        if (!SkillPerk.isSystemEnabled() || !SkillPerk.isSkillEnabled(skill) || amount <= 0) {
+            return 0;
+        }
+        AttributeInstance attribute = player.getAttribute(skill.attribute().get());
+        if (attribute == null) {
+            return 0;
+        }
+
+        SkillPerk.refreshPerkPoints(player);
+        int currentLevel = getPersistentLevel(player, skill, attribute);
+        int nextLevel = Mth.clamp(currentLevel + amount, 0, SKILL_CAP);
+        if (nextLevel == currentLevel) {
+            return 0;
+        }
+
+        CompoundTag data = player.getPersistentData();
+        data.putInt(skill.levelKey(), nextLevel);
+        data.putDouble(skill.xpKey(), 0.0D);
+        setBaseValue(attribute, nextLevel);
+        SkillPerk.syncCommandGrantedSkillLevels(player);
+        return nextLevel - currentLevel;
+    }
+
+    private static void clearAll(ServerPlayer player) {
+        for (Skill skill : Skill.values()) {
+            AttributeInstance attribute = player.getAttribute(skill.attribute().get());
+            if (attribute != null) {
+                setBaseValue(attribute, 0);
+            }
+        }
     }
 
     private static int getPersistentLevel(ServerPlayer player, Skill skill, AttributeInstance attribute) {

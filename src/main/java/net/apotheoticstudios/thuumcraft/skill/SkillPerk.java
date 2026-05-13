@@ -1,5 +1,7 @@
 package net.apotheoticstudios.thuumcraft.skill;
 
+import net.apotheoticstudios.thuumcraft.Config;
+import net.apotheoticstudios.thuumcraft.compat.EpicFightCompat;
 import net.apotheoticstudios.thuumcraft.network.ClientboundSkillPerksPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.minecraft.nbt.CompoundTag;
@@ -162,7 +164,9 @@ public enum SkillPerk {
     private static final String PERKS_TAG = "ThuumcraftSkillPerks";
     private static final String PERK_POINTS_TAG = "ThuumcraftSkillPerkPoints";
     private static final String EARNED_PERK_POINTS_TAG = "ThuumcraftSkillPerkPointsEarned";
-    private static final int TOTAL_SKILL_LEVELS_PER_PERK_POINT = 10;
+    private static final String BONUS_PLAYER_LEVELS_TAG = "ThuumcraftSkillBonusPlayerLevels";
+    private static final int STARTING_PLAYER_LEVEL = 1;
+    private static final int MAX_BONUS_PLAYER_LEVELS = 1_000_000;
     private static final Map<String, SkillPerk> BY_ID = new HashMap<>();
 
     static {
@@ -214,8 +218,22 @@ public enum SkillPerk {
         return BY_ID.get(id);
     }
 
+    public static boolean isSystemEnabled() {
+        return Config.ENABLE_SKILL_SYSTEM.get();
+    }
+
+    public static boolean isSkillEnabled(SkillProgression.Skill skill) {
+        if (skill == null) {
+            return false;
+        }
+        return switch (skill) {
+            case ONE_HANDED, TWO_HANDED -> EpicFightCompat.isLoaded();
+            default -> true;
+        };
+    }
+
     public static int rank(Player player, SkillPerk perk) {
-        if (player == null || perk == null) {
+        if (!isSystemEnabled() || player == null || perk == null || !isSkillEnabled(perk.skill)) {
             return 0;
         }
         return Mth.clamp(player.getPersistentData().getCompound(PERKS_TAG).getInt(perk.id), 0,
@@ -227,6 +245,9 @@ public enum SkillPerk {
     }
 
     public static boolean canUnlock(ServerPlayer player, SkillPerk perk) {
+        if (!isSystemEnabled() || perk == null || !isSkillEnabled(perk.skill)) {
+            return false;
+        }
         int rank = rank(player, perk);
         if (rank >= perk.maximumRank()) {
             return false;
@@ -251,7 +272,7 @@ public enum SkillPerk {
 
     public static boolean unlock(ServerPlayer player, String perkId) {
         SkillPerk perk = byId(perkId);
-        if (perk == null || !canUnlock(player, perk)) {
+        if (!isSystemEnabled() || perk == null || !canUnlock(player, perk)) {
             sync(player);
             return false;
         }
@@ -268,10 +289,16 @@ public enum SkillPerk {
     }
 
     public static int perkPoints(Player player) {
+        if (!isSystemEnabled()) {
+            return 0;
+        }
         return Math.max(0, player.getPersistentData().getInt(PERK_POINTS_TAG));
     }
 
     public static void refreshPerkPoints(ServerPlayer player) {
+        if (!isSystemEnabled()) {
+            return;
+        }
         int earnedPoints = getEarnedPerkPoints(player);
         CompoundTag data = player.getPersistentData();
         int recordedEarnedPoints = Math.max(0, data.getInt(EARNED_PERK_POINTS_TAG));
@@ -282,9 +309,43 @@ public enum SkillPerk {
         int gained = earnedPoints - recordedEarnedPoints;
         data.putInt(EARNED_PERK_POINTS_TAG, earnedPoints);
         setPerkPoints(player, perkPoints(player) + gained);
-        player.displayClientMessage(Component.literal("Perk point gained: ")
+        player.displayClientMessage(Component.literal("Level increased to ")
+                .append(Component.literal(Integer.toString(playerLevel(player))).withStyle(Style.EMPTY.withBold(true)))
+                .append(Component.literal(" - Perk points: "))
                 .append(Component.literal(Integer.toString(perkPoints(player))).withStyle(Style.EMPTY.withBold(true)))
                 .append(Component.literal(" available")), true);
+    }
+
+    public static int addPlayerLevels(ServerPlayer player, int levels) {
+        if (!isSystemEnabled() || levels <= 0) {
+            return 0;
+        }
+
+        refreshPerkPoints(player);
+        int currentLevel = playerLevel(player);
+        int currentBonusLevels = getBonusPlayerLevels(player);
+        int nextBonusLevels = (int) Math.min(MAX_BONUS_PLAYER_LEVELS, (long) currentBonusLevels + levels);
+        if (nextBonusLevels == currentBonusLevels) {
+            sendSync(player);
+            return 0;
+        }
+
+        player.getPersistentData().putInt(BONUS_PLAYER_LEVELS_TAG, nextBonusLevels);
+        sync(player);
+        return playerLevel(player) - currentLevel;
+    }
+
+    public static int addPerkPoints(ServerPlayer player, int points) {
+        if (!isSystemEnabled() || points <= 0) {
+            return 0;
+        }
+
+        refreshPerkPoints(player);
+        int currentPoints = perkPoints(player);
+        int nextPoints = (int) Math.min(Integer.MAX_VALUE, (long) currentPoints + points);
+        setPerkPoints(player, nextPoints);
+        sendSync(player);
+        return perkPoints(player) - currentPoints;
     }
 
     public static void copy(Player original, ServerPlayer clone) {
@@ -295,6 +356,7 @@ public enum SkillPerk {
         CompoundTag originalData = original.getPersistentData();
         clone.getPersistentData().putInt(PERK_POINTS_TAG, originalData.getInt(PERK_POINTS_TAG));
         clone.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, originalData.getInt(EARNED_PERK_POINTS_TAG));
+        clone.getPersistentData().putInt(BONUS_PLAYER_LEVELS_TAG, originalData.getInt(BONUS_PLAYER_LEVELS_TAG));
         sync(clone);
     }
 
@@ -311,16 +373,39 @@ public enum SkillPerk {
         sendSync(player);
     }
 
+    public static void syncCommandGrantedSkillLevels(ServerPlayer player) {
+        if (!isSystemEnabled()) {
+            return;
+        }
+        player.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, getEarnedPerkPoints(player));
+        sendSync(player);
+    }
+
     private static void sendSync(ServerPlayer player) {
-        ModMessages.sendToPlayer(new ClientboundSkillPerksPacket(snapshot(player), perkPoints(player)), player);
+        ModMessages.sendToPlayer(new ClientboundSkillPerksPacket(snapshot(player), perkPoints(player),
+                playerLevel(player), EpicFightCompat.isLoaded()), player);
+    }
+
+    public static int playerLevel(ServerPlayer player) {
+        if (!isSystemEnabled()) {
+            return STARTING_PLAYER_LEVEL;
+        }
+        return STARTING_PLAYER_LEVEL + getEarnedPerkPoints(player);
     }
 
     private static int getEarnedPerkPoints(ServerPlayer player) {
         int totalSkillLevels = 0;
         for (SkillProgression.Skill skill : SkillProgression.Skill.values()) {
-            totalSkillLevels += SkillProgression.getLevel(player, skill);
+            if (isSkillEnabled(skill)) {
+                totalSkillLevels += SkillProgression.getLevel(player, skill);
+            }
         }
-        return totalSkillLevels / TOTAL_SKILL_LEVELS_PER_PERK_POINT;
+        return totalSkillLevels + getBonusPlayerLevels(player);
+    }
+
+    private static int getBonusPlayerLevels(Player player) {
+        return Mth.clamp(player.getPersistentData().getInt(BONUS_PLAYER_LEVELS_TAG), 0,
+                MAX_BONUS_PLAYER_LEVELS);
     }
 
     private static void setPerkPoints(Player player, int points) {

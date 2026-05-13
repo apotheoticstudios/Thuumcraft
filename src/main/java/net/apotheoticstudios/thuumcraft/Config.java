@@ -7,6 +7,7 @@ public class Config {
     public static final ForgeConfigSpec.DoubleValue MOB_DROP_CHANCE;
     public static final ForgeConfigSpec.DoubleValue CHEST_DROP_CHANCE;
     public static final ForgeConfigSpec.DoubleValue FISHING_DROP_CHANCE;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_SKILL_SYSTEM;
     public static final ForgeConfigSpec.BooleanValue ENABLE_STEALTH_SYSTEM;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKYRIM_HUD_AND_STAMINA;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKYRIM_HUD;
@@ -21,6 +22,7 @@ public class Config {
     public static final ForgeConfigSpec.BooleanValue ENABLE_STAMINA_SYSTEM;
     public static final ForgeConfigSpec.BooleanValue ENABLE_STAMINA_HUNGER_OVERRIDE;
     public static final ForgeConfigSpec.BooleanValue ENABLE_STAMINA_SPRINT_LIMIT;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_EPIC_FIGHT_STAMINA_REPLACEMENT;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKYRIM_HEALTH_REGENERATION;
     public static final ForgeConfigSpec.IntValue STAMINA_HUNGER_FOOD_LEVEL;
     public static final ForgeConfigSpec.DoubleValue STAMINA_SPRINT_DRAIN_PER_SECOND;
@@ -41,6 +43,10 @@ public class Config {
         MOB_DROP_CHANCE = builder.comment("Chance for the following mobs to drop a random book (default is 1.0%):").comment("zombie, skeleton, pillager, witch").defineInRange("mobDropChance", 0.01, (double)0.0F, (double)1.0F);
         CHEST_DROP_CHANCE = builder.comment("Chance for the following chests to contain a random book (default is 5%):").comment("shipwreck (treasure and supply), simple dungeon, desert pyramid, jungle temple, woodland mansion ancient city, abandoned mineshaft, nether bridge, igloo chest, bastion (bridge, other, and treasure)").defineInRange("chestDropChance", 0.05, (double)0.0F, (double)1.0F);
         FISHING_DROP_CHANCE = builder.comment("Chance for fishing junk loot to include a random book (default is 3%)").defineInRange("fishingDropChance", 0.03, (double)0.0F, (double)1.0F);
+        builder.pop();
+        builder.comment("Skyrim-style skill progression and perk tree settings").push("skills");
+        ENABLE_SKILL_SYSTEM = builder.comment("Set to false to completely disable skill XP progression, character level, perk points, skill tree unlocking and perk ability effects.")
+                .define("enableSkillSystem", true);
         builder.pop();
         builder.comment("Skyrim-style stealth awareness and sneak crosshair settings").push("stealth");
         ENABLE_STEALTH_SYSTEM = builder.comment("Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.")
@@ -75,6 +81,8 @@ public class Config {
                 .define("enableHungerOverride", true);
         ENABLE_STAMINA_SPRINT_LIMIT = builder.comment("Drain stamina while sprinting and prevent sprinting when stamina is too low.")
                 .define("enableSprintLimit", true);
+        ENABLE_EPIC_FIGHT_STAMINA_REPLACEMENT = builder.comment("When Epic Fight is installed, make Epic Fight skills and dodges consume Thuumcraft stamina instead of Epic Fight's internal stamina.")
+                .define("enableEpicFightStaminaReplacement", true);
         STAMINA_HUNGER_FOOD_LEVEL = builder.comment("Food level held by the hunger override. 17 prevents vanilla natural regeneration from running.")
                 .defineInRange("hungerOverrideFoodLevel", 17, 1, 20);
         STAMINA_SPRINT_DRAIN_PER_SECOND = builder.comment("Base stamina drained per second while sprinting.")

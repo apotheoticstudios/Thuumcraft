@@ -1,12 +1,14 @@
 package net.apotheoticstudios.thuumcraft.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.client.gui.SkillTreeScreen;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.network.ServerboundRequestSkillPerksPacket;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,6 +35,10 @@ public final class SkillTreeClientEvents {
         Minecraft minecraft = Minecraft.getInstance();
         while (OPEN_SKILL_TREES.consumeClick()) {
             if (minecraft.player != null && minecraft.screen == null) {
+                if (!Config.ENABLE_SKILL_SYSTEM.get()) {
+                    minecraft.player.displayClientMessage(Component.literal("Skill system is disabled"), true);
+                    continue;
+                }
                 ModMessages.sendToServer(new ServerboundRequestSkillPerksPacket());
                 minecraft.setScreen(new SkillTreeScreen());
             }

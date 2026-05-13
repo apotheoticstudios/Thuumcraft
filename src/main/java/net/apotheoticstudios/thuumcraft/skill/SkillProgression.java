@@ -63,6 +63,7 @@ public final class SkillProgression {
         if (leveledUp) {
             player.displayClientMessage(Component.literal(skill.displayName() + " increased to ")
                     .append(Component.literal(Integer.toString(level)).withStyle(Style.EMPTY.withBold(true))), true);
+            SkillPerk.sync(player);
         }
     }
 

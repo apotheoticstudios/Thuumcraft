@@ -19,8 +19,16 @@ public class IngredientKnowledge {
     private static final Set<String> CLIENT_KNOWN_EFFECTS = new HashSet<>();
 
     public static void discover(ServerPlayer player, String ingredientId) {
+        discover(player, ingredientId, 1);
+    }
+
+    public static void discover(ServerPlayer player, String ingredientId, int effectCount) {
         Set<String> knownEffects = getKnownEffects(player);
-        if (knownEffects.add(ingredientId)) {
+        boolean changed = knownEffects.add(ingredientId);
+        for (int effectIndex = 0; effectIndex < Math.max(1, effectCount); effectIndex++) {
+            changed |= knownEffects.add(effectKey(ingredientId, effectIndex));
+        }
+        if (changed) {
             saveKnownEffects(player, knownEffects);
             sync(player);
         }
@@ -38,11 +46,22 @@ public class IngredientKnowledge {
     }
 
     public static boolean isKnownClient(String ingredientId) {
-        return CLIENT_KNOWN_EFFECTS.contains(ingredientId);
+        return CLIENT_KNOWN_EFFECTS.contains(ingredientId) || CLIENT_KNOWN_EFFECTS.contains(effectKey(ingredientId, 0));
+    }
+
+    public static int knownEffectCountClient(String ingredientId) {
+        int count = CLIENT_KNOWN_EFFECTS.contains(ingredientId) ? 1 : 0;
+        for (int effectIndex = 0; effectIndex < 4; effectIndex++) {
+            if (CLIENT_KNOWN_EFFECTS.contains(effectKey(ingredientId, effectIndex))) {
+                count = Math.max(count, effectIndex + 1);
+            }
+        }
+        return count;
     }
 
     public static void markKnownClient(String ingredientId) {
         CLIENT_KNOWN_EFFECTS.add(ingredientId);
+        CLIENT_KNOWN_EFFECTS.add(effectKey(ingredientId, 0));
     }
 
     public static void setKnownClient(Collection<String> ingredientIds) {
@@ -62,5 +81,9 @@ public class IngredientKnowledge {
         ListTag knownList = new ListTag();
         ingredientIds.stream().sorted().map(StringTag::valueOf).forEach(knownList::add);
         persistentData.put(KNOWN_EFFECTS_TAG, knownList);
+    }
+
+    private static String effectKey(String ingredientId, int effectIndex) {
+        return ingredientId + "#" + effectIndex;
     }
 }

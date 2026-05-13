@@ -3,6 +3,7 @@ package net.apotheoticstudios.thuumcraft.client.hud;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.client.ClientManaState;
+import net.apotheoticstudios.thuumcraft.client.ClientSkillPerkState;
 import net.apotheoticstudios.thuumcraft.client.ClientStaminaState;
 import net.apotheoticstudios.thuumcraft.client.ClientTargetHealthState;
 import net.minecraft.resources.ResourceLocation;
@@ -31,6 +32,7 @@ public final class ThuumcraftHudClientEvents {
     @SubscribeEvent
     public static void resetStaminaState(ClientPlayerNetworkEvent.LoggingOut event) {
         ClientManaState.reset();
+        ClientSkillPerkState.reset();
         ClientStaminaState.reset();
         ClientTargetHealthState.reset();
     }

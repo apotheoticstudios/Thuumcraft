@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static final String PROTOCOL_VERSION = "4";
+    private static final String PROTOCOL_VERSION = "5";
     private static int packetId = 0;
     private static SimpleChannel channel;
 
@@ -46,10 +46,32 @@ public class ModMessages {
                 .decoder(ClientboundTargetHealthPacket::new)
                 .consumerMainThread(ClientboundTargetHealthPacket::handle)
                 .add();
+
+        channel.messageBuilder(ClientboundSkillPerksPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundSkillPerksPacket::encode)
+                .decoder(ClientboundSkillPerksPacket::new)
+                .consumerMainThread(ClientboundSkillPerksPacket::handle)
+                .add();
+
+        channel.messageBuilder(ServerboundUnlockPerkPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ServerboundUnlockPerkPacket::encode)
+                .decoder(ServerboundUnlockPerkPacket::new)
+                .consumerMainThread(ServerboundUnlockPerkPacket::handle)
+                .add();
+
+        channel.messageBuilder(ServerboundRequestSkillPerksPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ServerboundRequestSkillPerksPacket::encode)
+                .decoder(ServerboundRequestSkillPerksPacket::new)
+                .consumerMainThread(ServerboundRequestSkillPerksPacket::handle)
+                .add();
     }
 
     public static void sendToPlayer(Object message, ServerPlayer player) {
         channel.send(PacketDistributor.PLAYER.with(() -> player), message);
+    }
+
+    public static void sendToServer(Object message) {
+        channel.sendToServer(message);
     }
 
     private static int nextPacketId() {

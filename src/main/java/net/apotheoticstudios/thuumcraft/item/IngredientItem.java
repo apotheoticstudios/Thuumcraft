@@ -40,8 +40,11 @@ public class IngredientItem extends Item {
         super.appendHoverText(stack, level, tooltip, flag);
 
         if (IngredientKnowledge.isKnownClient(ingredientId)) {
-            tooltip.add(Component.translatable("tooltip.thuumcraft.ingredient_effect",
-                    ModFoods.getIngredientEffectName(ingredientId)).withStyle(ChatFormatting.GRAY));
+            for (Component effectName : ModFoods.getIngredientEffectNames(ingredientId,
+                    IngredientKnowledge.knownEffectCountClient(ingredientId))) {
+                tooltip.add(Component.translatable("tooltip.thuumcraft.ingredient_effect", effectName)
+                        .withStyle(ChatFormatting.GRAY));
+            }
         }
     }
 }

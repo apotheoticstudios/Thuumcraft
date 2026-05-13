@@ -5,13 +5,19 @@ import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.network.ClientboundStaminaPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
+import net.apotheoticstudios.thuumcraft.util.ModTags;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.food.FoodData;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -30,6 +36,12 @@ public final class StaminaEvents {
     private static final double BASE_MAX_STAMINA = 100.0D;
     private static final int SYNC_INTERVAL_TICKS = 5;
     private static final float SYNC_EPSILON = 0.01F;
+    private static final EquipmentSlot[] ARMOR_SLOTS = {
+            EquipmentSlot.HEAD,
+            EquipmentSlot.CHEST,
+            EquipmentSlot.LEGS,
+            EquipmentSlot.FEET
+    };
 
     private static final Map<UUID, PlayerStaminaRuntime> RUNTIME = new HashMap<>();
 
@@ -92,6 +104,29 @@ public final class StaminaEvents {
             runtime.sprintLocked = false;
         }
         syncNow(player, runtime, (float) stamina, (float) maxStamina);
+    }
+
+    public static boolean tryConsumeCurrentStamina(ServerPlayer player, double amount) {
+        if (amount <= 0.0D || !Config.ENABLE_SKYRIM_HUD_AND_STAMINA.get() || !Config.ENABLE_STAMINA_SYSTEM.get()) {
+            return true;
+        }
+
+        double maxStamina = getMaxStamina(player);
+        double stamina = getCurrentStamina(player, maxStamina);
+        if (stamina < amount) {
+            return false;
+        }
+
+        stamina = Mth.clamp(stamina - amount, 0.0D, maxStamina);
+        setCurrentStamina(player, stamina);
+        PlayerStaminaRuntime runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new PlayerStaminaRuntime());
+        runtime.regenDelayTicks = Config.STAMINA_REGEN_DELAY_TICKS.get();
+        if (stamina <= 0.0D) {
+            runtime.sprintLocked = true;
+            player.setSprinting(false);
+        }
+        syncNow(player, runtime, (float) stamina, (float) maxStamina);
+        return true;
     }
 
     public static void clampCurrentStamina(ServerPlayer player) {
@@ -269,12 +304,33 @@ public final class StaminaEvents {
     private static double getStaminaRegenerationPerTick(ServerPlayer player) {
         AttributeInstance regeneration = player.getAttribute(ModAttributes.STAMINA_REGENERATION.get());
         double regenerationPerSecond = regeneration == null ? 10.0D : regeneration.getValue();
+        if (SkillPerk.has(player, SkillPerk.LIGHT_ARMOR_WIND_WALKER)
+                && isWearingOnlyTaggedArmor(player, ModTags.Items.LIGHT_ARMOR)) {
+            regenerationPerSecond *= 1.5D;
+        }
         return Math.max(0.0D, regenerationPerSecond) / 20.0D;
     }
 
     private static double getSprintDrainPerTick(ServerPlayer player) {
-        double wornWeightMultiplier = 1.0D + player.getArmorValue() * Config.STAMINA_SPRINT_ARMOR_DRAIN_MULTIPLIER.get();
+        double armorDrainValue = player.getArmorValue();
+        if ((SkillPerk.has(player, SkillPerk.HEAVY_ARMOR_CONDITIONING)
+                && isWearingOnlyTaggedArmor(player, ModTags.Items.HEAVY_ARMOR))
+                || (SkillPerk.has(player, SkillPerk.LIGHT_ARMOR_UNHINDERED)
+                && isWearingOnlyTaggedArmor(player, ModTags.Items.LIGHT_ARMOR))) {
+            armorDrainValue = 0.0D;
+        }
+        double wornWeightMultiplier = 1.0D + armorDrainValue * Config.STAMINA_SPRINT_ARMOR_DRAIN_MULTIPLIER.get();
         return Config.STAMINA_SPRINT_DRAIN_PER_SECOND.get() * wornWeightMultiplier / 20.0D;
+    }
+
+    private static boolean isWearingOnlyTaggedArmor(ServerPlayer player, TagKey<Item> tag) {
+        for (EquipmentSlot slot : ARMOR_SLOTS) {
+            ItemStack stack = player.getItemBySlot(slot);
+            if (stack.isEmpty() || !stack.is(tag)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static double getSprintStartStamina(double maxStamina) {

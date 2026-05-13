@@ -4,6 +4,7 @@ import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -32,6 +33,12 @@ public class ModEffectEvents {
     public static void onMobEffectApplicable(MobEffectEvent.Applicable event) {
         if (event.getEntity().hasEffect(ModEffects.POISON_RESISTANCE.get())
                 && event.getEffectInstance().getEffect() == MobEffects.POISON) {
+            event.setResult(Event.Result.DENY);
+        }
+        if (event.getEntity() instanceof Player player
+                && SkillPerk.has(player, SkillPerk.ALCHEMY_SNAKEBLOOD)
+                && event.getEffectInstance().getEffect() == MobEffects.POISON
+                && player.getRandom().nextFloat() < 0.5F) {
             event.setResult(Event.Result.DENY);
         }
     }

@@ -5,11 +5,14 @@ import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.network.ClientboundSneakAwarenessPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
+import net.apotheoticstudios.thuumcraft.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -24,6 +27,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -35,6 +39,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -99,6 +104,12 @@ public final class SneakAwarenessEvents {
             return;
         }
 
+        if (SkillPerk.has(player, SkillPerk.SNEAK_SHADOW_WARRIOR) && player.tickCount % 80 == 0) {
+            clearNearbyObserverTargets(player);
+            clearAwareness(player, data);
+            data = null;
+        }
+
         if (player.tickCount % UPDATE_INTERVAL_TICKS != 0) {
             return;
         }
@@ -121,6 +132,9 @@ public final class SneakAwarenessEvents {
         float noise = event.getOriginalVolume();
         if (event.getSource() == SoundSource.PLAYERS) {
             noise *= 1.35F;
+        }
+        if (SkillPerk.has(player, SkillPerk.SNEAK_LIGHT_FOOT)) {
+            noise *= 0.5F;
         }
         if (noise <= 0.0F) {
             return;
@@ -339,6 +353,16 @@ public final class SneakAwarenessEvents {
             case RANGED -> player.getAttributeValue(ModAttributes.RANGED_SNEAK_ATTACK_CRIT_DAMAGE.get());
             case NONE -> MIN_SNEAK_ATTACK_CRIT_DAMAGE;
         };
+        if (sneakAttackType == SneakAttackType.RANGED && SkillPerk.has(player, SkillPerk.SNEAK_DEADLY_AIM)) {
+            critDamage = Math.max(critDamage, 3.0D);
+        } else if (sneakAttackType == SneakAttackType.MELEE) {
+            if (SkillPerk.has(player, SkillPerk.SNEAK_ASSASSINS_BLADE) && isDagger(player.getMainHandItem())) {
+                critDamage = Math.max(critDamage, 15.0D);
+            } else if (SkillPerk.has(player, SkillPerk.SNEAK_BACKSTAB)
+                    && isOneHandedSneakWeapon(player.getMainHandItem())) {
+                critDamage = Math.max(critDamage, 6.0D);
+            }
+        }
         return Math.max(MIN_SNEAK_ATTACK_CRIT_DAMAGE, critDamage);
     }
 
@@ -424,7 +448,7 @@ public final class SneakAwarenessEvents {
         double signal = visualSignal + soundSignal;
 
         signal *= 0.78D;
-        signal *= getSneakAttributeDetectionMultiplier(normalizedSneak);
+        signal *= getSneakAttributeDetectionMultiplier(player, normalizedSneak);
 
         if (player.hasEffect(MobEffects.GLOWING) || player.getRemainingFireTicks() > 0) {
             signal = Math.max(signal, 0.86D);
@@ -479,11 +503,21 @@ public final class SneakAwarenessEvents {
         return noise * falloff * lineOfSightMultiplier;
     }
 
-    private static double getSneakAttributeDetectionMultiplier(double normalizedSneak) {
+    private static double getSneakAttributeDetectionMultiplier(ServerPlayer player, double normalizedSneak) {
         double multiplier = normalizedSneak >= 0.0D
                 ? 1.0D - normalizedSneak * MAX_SNEAK_DETECTION_REDUCTION
                 : 1.0D + -normalizedSneak * MAX_NEGATIVE_SNEAK_DETECTION_PENALTY;
+        multiplier *= getStealthPerkDetectionMultiplier(player);
         return Mth.clamp(multiplier, MIN_SNEAK_DETECTION_MULTIPLIER, MAX_SNEAK_DETECTION_MULTIPLIER);
+    }
+
+    private static double getStealthPerkDetectionMultiplier(ServerPlayer player) {
+        int rank = SkillPerk.rank(player, SkillPerk.SNEAK_STEALTH);
+        if (rank <= 0) {
+            return 1.0D;
+        }
+        double[] reductions = {0.20D, 0.25D, 0.30D, 0.35D, 0.40D};
+        return 1.0D - reductions[Math.min(rank, reductions.length) - 1];
     }
 
     private static boolean canDetectSneakingTarget(Mob observer, ServerPlayer player) {
@@ -520,7 +554,7 @@ public final class SneakAwarenessEvents {
             return false;
         }
 
-        double targetRange = getSneakTargetDetectionRange(scanRange, normalizedSneak);
+        double targetRange = getSneakTargetDetectionRange(player, scanRange, normalizedSneak);
         double lightMultiplier = 0.65D + playerLight / 15.0D * 0.7D;
         double facingMultiplier = 0.18D + facingScore * 1.02D;
         double noiseMultiplier = 1.0D + playerNoise * 0.65D;
@@ -542,10 +576,11 @@ public final class SneakAwarenessEvents {
                 || player.getRemainingFireTicks() > 0;
     }
 
-    private static double getSneakTargetDetectionRange(double scanRange, double normalizedSneak) {
+    private static double getSneakTargetDetectionRange(ServerPlayer player, double scanRange, double normalizedSneak) {
         double rangeMultiplier = normalizedSneak >= 0.0D
                 ? 0.9D - normalizedSneak * 0.78D
                 : 0.9D + -normalizedSneak * 0.3D;
+        rangeMultiplier *= getStealthPerkDetectionMultiplier(player);
         return Math.max(MIN_SNEAK_TARGET_DETECTION_RANGE,
                 scanRange * Mth.clamp(rangeMultiplier, 0.12D, 1.2D));
     }
@@ -576,9 +611,33 @@ public final class SneakAwarenessEvents {
             movementNoise += 0.55D;
         }
         movementNoise *= 0.45D;
+        if (player.isSprinting() && SkillPerk.has(player, SkillPerk.SNEAK_SILENT_ROLL)) {
+            movementNoise *= 0.55D;
+        }
+        if (SkillPerk.has(player, SkillPerk.SNEAK_SILENCE)) {
+            movementNoise = 0.0D;
+        }
 
         double armorNoise = player.getArmorValue() / 40.0D;
+        if (SkillPerk.has(player, SkillPerk.SNEAK_MUFFLED_MOVEMENT)) {
+            armorNoise *= 0.5D;
+        }
+        if (SkillPerk.has(player, SkillPerk.SNEAK_LIGHT_FOOT)) {
+            armorNoise *= 0.75D;
+        }
         return Mth.clamp(movementNoise + armorNoise + recentNoise * 0.55D, 0.0D, 1.2D);
+    }
+
+    private static boolean isDagger(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+        ResourceLocation itemId = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        return itemId != null && itemId.getPath().contains("dagger");
+    }
+
+    private static boolean isOneHandedSneakWeapon(ItemStack stack) {
+        return !stack.isEmpty() && (stack.is(ModTags.Items.ONE_HANDED_WEAPONS) || isDagger(stack));
     }
 
     private static double getFacingScore(LivingEntity watcher, Player player) {

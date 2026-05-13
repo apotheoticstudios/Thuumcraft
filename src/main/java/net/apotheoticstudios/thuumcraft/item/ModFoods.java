@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
 import net.apotheoticstudios.thuumcraft.stamina.StaminaEvents;
 import net.minecraft.network.chat.Component;
@@ -255,6 +256,8 @@ public class ModFoods {
 
         applyEffect(effect, entity);
         if (entity instanceof ServerPlayer player) {
+            int experimenterRank = SkillPerk.rank(player, SkillPerk.ALCHEMY_EXPERIMENTER);
+            IngredientKnowledge.discover(player, ingredientId, Math.min(4, 1 + experimenterRank));
             SkillProgression.award(player, SkillProgression.Skill.ALCHEMY, getAlchemyIngredientExperience(effect));
         }
     }
@@ -262,6 +265,14 @@ public class ModFoods {
     public static Component getIngredientEffectName(String ingredientId) {
         AlchemyEffect effect = PRIMARY_EFFECTS.get(ingredientId);
         return effect == null ? Component.empty() : effect.getDisplayName();
+    }
+
+    public static List<Component> getIngredientEffectNames(String ingredientId, int count) {
+        List<Component> names = new ArrayList<>();
+        for (AlchemyEffect effect : getIngredientEffects(ingredientId, Math.max(1, count))) {
+            names.add(effect.getDisplayName());
+        }
+        return names;
     }
 
     public static void tickIngredientAttributeModifiers(LivingEntity entity) {
@@ -327,78 +338,173 @@ public class ModFoods {
     }
 
     private static void applyEffect(AlchemyEffect effect, LivingEntity entity) {
+        if (entity instanceof ServerPlayer player
+                && SkillPerk.has(player, SkillPerk.ALCHEMY_PURITY)
+                && isHarmfulEffect(effect)) {
+            return;
+        }
+
+        double magnitude = getAlchemyMagnitudeMultiplier(entity, effect);
+        int duration = getAlchemyDuration(entity, effect, INGREDIENT_EFFECT_DURATION_TICKS);
+        int fortifyDuration = getAlchemyDuration(entity, effect, FORTIFY_RESOURCE_DURATION_TICKS);
+        int regenerationDuration = getAlchemyDuration(entity, effect, REGENERATE_RESOURCE_DURATION_TICKS);
+        int damageRegenerationDuration = getAlchemyDuration(entity, effect, DAMAGE_REGENERATION_DURATION_TICKS);
+        int lingeringDuration = getAlchemyDuration(entity, effect, LINGERING_DAMAGE_DURATION_TICKS);
+        int ravageDuration = getAlchemyDuration(entity, effect, RAVAGE_RESOURCE_DURATION_TICKS);
         switch (effect) {
             case RESTORE_HEALTH -> {
-                entity.heal(2.0F);
-                addEffect(entity, MobEffects.REGENERATION);
+                entity.heal((float) (2.0F * magnitude));
+                addEffect(entity, MobEffects.REGENERATION, duration);
             }
-            case DAMAGE_HEALTH -> entity.hurt(entity.damageSources().magic(), 2.0F);
-            case RAVAGE_HEALTH -> entity.hurt(entity.damageSources().magic(), 4.0F);
-            case LINGERING_DAMAGE_HEALTH -> addEffect(entity, MobEffects.POISON);
-            case RESTORE_MAGICKA -> applyResourceChange(entity, ResourceType.MAGICKA, RESTORE_RESOURCE_AMOUNT);
-            case REGENERATE_HEALTH -> addEffect(entity, MobEffects.REGENERATION);
+            case DAMAGE_HEALTH -> entity.hurt(entity.damageSources().magic(), (float) (2.0F * magnitude));
+            case RAVAGE_HEALTH -> entity.hurt(entity.damageSources().magic(), (float) (4.0F * magnitude));
+            case LINGERING_DAMAGE_HEALTH -> addEffect(entity, MobEffects.POISON, lingeringDuration);
+            case RESTORE_MAGICKA -> applyResourceChange(entity, ResourceType.MAGICKA,
+                    RESTORE_RESOURCE_AMOUNT * magnitude);
+            case REGENERATE_HEALTH -> addEffect(entity, MobEffects.REGENERATION, duration);
             case REGENERATE_MAGICKA ->
                     addAttributeModifier(entity, AttributeRegistry.MANA_REGEN, "regenerate_magicka",
-                            REGENERATE_RESOURCE_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
-                            REGENERATE_RESOURCE_DURATION_TICKS);
+                            REGENERATE_RESOURCE_MULTIPLIER * magnitude, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            regenerationDuration);
             case FORTIFY_MAGICKA -> {
-                addAttributeModifier(entity, AttributeRegistry.MAX_MANA, "fortify_magicka", FORTIFY_RESOURCE_AMOUNT,
-                        AttributeModifier.Operation.ADDITION, FORTIFY_RESOURCE_DURATION_TICKS);
-                applyResourceChange(entity, ResourceType.MAGICKA, FORTIFY_RESOURCE_AMOUNT);
+                addAttributeModifier(entity, AttributeRegistry.MAX_MANA, "fortify_magicka",
+                        FORTIFY_RESOURCE_AMOUNT * magnitude, AttributeModifier.Operation.ADDITION, fortifyDuration);
+                applyResourceChange(entity, ResourceType.MAGICKA, FORTIFY_RESOURCE_AMOUNT * magnitude);
             }
-            case RESTORE_STAMINA -> applyResourceChange(entity, ResourceType.STAMINA, RESTORE_RESOURCE_AMOUNT);
+            case RESTORE_STAMINA -> applyResourceChange(entity, ResourceType.STAMINA,
+                    RESTORE_RESOURCE_AMOUNT * magnitude);
             case REGENERATE_STAMINA ->
                     addAttributeModifier(entity, ModAttributes.STAMINA_REGENERATION, "regenerate_stamina",
-                            REGENERATE_RESOURCE_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
-                            REGENERATE_RESOURCE_DURATION_TICKS);
+                            REGENERATE_RESOURCE_MULTIPLIER * magnitude, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            regenerationDuration);
             case FORTIFY_STAMINA -> {
-                addAttributeModifier(entity, ModAttributes.STAMINA, "fortify_stamina", FORTIFY_RESOURCE_AMOUNT,
-                        AttributeModifier.Operation.ADDITION, FORTIFY_RESOURCE_DURATION_TICKS);
-                applyResourceChange(entity, ResourceType.STAMINA, FORTIFY_RESOURCE_AMOUNT);
+                addAttributeModifier(entity, ModAttributes.STAMINA, "fortify_stamina",
+                        FORTIFY_RESOURCE_AMOUNT * magnitude, AttributeModifier.Operation.ADDITION, fortifyDuration);
+                applyResourceChange(entity, ResourceType.STAMINA, FORTIFY_RESOURCE_AMOUNT * magnitude);
             }
-            case DAMAGE_STAMINA -> applyResourceChange(entity, ResourceType.STAMINA, -DAMAGE_STAMINA_AMOUNT);
+            case DAMAGE_STAMINA -> applyResourceChange(entity, ResourceType.STAMINA, -DAMAGE_STAMINA_AMOUNT * magnitude);
             case RAVAGE_STAMINA -> {
-                addAttributeModifier(entity, ModAttributes.STAMINA, "ravage_stamina", RAVAGE_RESOURCE_AMOUNT,
-                        AttributeModifier.Operation.ADDITION, RAVAGE_RESOURCE_DURATION_TICKS);
+                addAttributeModifier(entity, ModAttributes.STAMINA, "ravage_stamina",
+                        RAVAGE_RESOURCE_AMOUNT * magnitude, AttributeModifier.Operation.ADDITION, ravageDuration);
                 clampResourceAfterAttributeChange(entity, ModAttributes.STAMINA.get());
             }
             case LINGERING_DAMAGE_STAMINA ->
                     addResourceEffect(entity, ResourceType.STAMINA, "lingering_damage_stamina",
-                            LINGERING_DAMAGE_PER_SECOND, LINGERING_DAMAGE_DURATION_TICKS);
+                            LINGERING_DAMAGE_PER_SECOND * magnitude, lingeringDuration);
             case DAMAGE_STAMINA_REGENERATION ->
                     addAttributeModifier(entity, ModAttributes.STAMINA_REGENERATION, "damage_stamina_regeneration",
-                            DAMAGE_REGENERATION_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
-                            DAMAGE_REGENERATION_DURATION_TICKS);
-            case DAMAGE_MAGICKA -> applyResourceChange(entity, ResourceType.MAGICKA, -DAMAGE_RESOURCE_AMOUNT);
+                            DAMAGE_REGENERATION_MULTIPLIER * magnitude, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            damageRegenerationDuration);
+            case DAMAGE_MAGICKA -> applyResourceChange(entity, ResourceType.MAGICKA, -DAMAGE_RESOURCE_AMOUNT * magnitude);
             case DAMAGE_MAGICKA_REGENERATION ->
                     addAttributeModifier(entity, AttributeRegistry.MANA_REGEN, "damage_magicka_regeneration",
-                            DAMAGE_REGENERATION_MULTIPLIER, AttributeModifier.Operation.MULTIPLY_TOTAL,
-                            DAMAGE_REGENERATION_DURATION_TICKS);
-            case RESIST_FIRE -> addEffect(entity, MobEffects.FIRE_RESISTANCE);
-            case RESIST_FROST -> addEffect(entity, ModEffects.FROST_RESISTANCE.get());
-            case RESIST_MAGIC -> addEffect(entity, ModEffects.MAGIC_RESISTANCE.get());
-            case RESIST_POISON -> addEffect(entity, ModEffects.POISON_RESISTANCE.get());
-            case RESIST_SHOCK -> addEffect(entity, ModEffects.SHOCK_RESISTANCE.get());
-            case WEAKNESS_TO_FIRE -> addEffect(entity, ModEffects.FIRE_WEAKNESS.get());
-            case WEAKNESS_TO_FROST -> addEffect(entity, ModEffects.FROST_WEAKNESS.get());
-            case WEAKNESS_TO_MAGIC -> addEffect(entity, ModEffects.MAGIC_WEAKNESS.get());
-            case WEAKNESS_TO_POISON -> addEffect(entity, ModEffects.POISON_WEAKNESS.get());
-            case WEAKNESS_TO_SHOCK -> addEffect(entity, ModEffects.SHOCK_WEAKNESS.get());
-            case INVISIBILITY -> addEffect(entity, MobEffects.INVISIBILITY);
+                            DAMAGE_REGENERATION_MULTIPLIER * magnitude, AttributeModifier.Operation.MULTIPLY_TOTAL,
+                            damageRegenerationDuration);
+            case RESIST_FIRE -> addEffect(entity, MobEffects.FIRE_RESISTANCE, duration);
+            case RESIST_FROST -> addEffect(entity, ModEffects.FROST_RESISTANCE.get(), duration);
+            case RESIST_MAGIC -> addEffect(entity, ModEffects.MAGIC_RESISTANCE.get(), duration);
+            case RESIST_POISON -> addEffect(entity, ModEffects.POISON_RESISTANCE.get(), duration);
+            case RESIST_SHOCK -> addEffect(entity, ModEffects.SHOCK_RESISTANCE.get(), duration);
+            case WEAKNESS_TO_FIRE -> addEffect(entity, ModEffects.FIRE_WEAKNESS.get(), duration);
+            case WEAKNESS_TO_FROST -> addEffect(entity, ModEffects.FROST_WEAKNESS.get(), duration);
+            case WEAKNESS_TO_MAGIC -> addEffect(entity, ModEffects.MAGIC_WEAKNESS.get(), duration);
+            case WEAKNESS_TO_POISON -> addEffect(entity, ModEffects.POISON_WEAKNESS.get(), duration);
+            case WEAKNESS_TO_SHOCK -> addEffect(entity, ModEffects.SHOCK_WEAKNESS.get(), duration);
+            case INVISIBILITY -> addEffect(entity, MobEffects.INVISIBILITY, duration);
             case LIGHT -> {
-                addEffect(entity, ModEffects.LIGHT.get());
-                addEffect(entity, MobEffects.GLOWING);
+                addEffect(entity, ModEffects.LIGHT.get(), duration);
+                addEffect(entity, MobEffects.GLOWING, duration);
             }
-            case NIGHT_EYE -> addEffect(entity, MobEffects.NIGHT_VISION);
-            case PARALYSIS -> addEffect(entity, ModEffects.PARALYSIS.get());
-            case SLOW -> addEffect(entity, MobEffects.MOVEMENT_SLOWDOWN);
-            case WATERBREATHING -> addEffect(entity, MobEffects.WATER_BREATHING);
+            case NIGHT_EYE -> addEffect(entity, MobEffects.NIGHT_VISION, duration);
+            case PARALYSIS -> addEffect(entity, ModEffects.PARALYSIS.get(), duration);
+            case SLOW -> addEffect(entity, MobEffects.MOVEMENT_SLOWDOWN, duration);
+            case WATERBREATHING -> addEffect(entity, MobEffects.WATER_BREATHING, duration);
             case CURE_DISEASE -> cureDiseaseLikeEffects(entity);
             case FORTIFY_LOCKPICKING ->
-                    addAttributeModifier(entity, ModAttributes.LOCKPICKING, "fortify_lockpicking", SKILL_ATTRIBUTE_BONUS);
+                    addAttributeModifier(entity, ModAttributes.LOCKPICKING, "fortify_lockpicking",
+                            SKILL_ATTRIBUTE_BONUS * magnitude);
             case FORTIFY_ARCHERY ->
-                    addAttributeModifier(entity, ModAttributes.ARCHERY, "fortify_archery", SKILL_ATTRIBUTE_BONUS);
+                    addAttributeModifier(entity, ModAttributes.ARCHERY, "fortify_archery",
+                            SKILL_ATTRIBUTE_BONUS * magnitude);
         }
+    }
+
+    private static double getAlchemyMagnitudeMultiplier(LivingEntity entity, AlchemyEffect effect) {
+        if (!(entity instanceof ServerPlayer player)) {
+            return 1.0D;
+        }
+
+        double multiplier = 1.0D + SkillPerk.rank(player, SkillPerk.ALCHEMY_ALCHEMIST) * 0.2D;
+        if (SkillPerk.has(player, SkillPerk.ALCHEMY_PHYSICIAN) && isRestorativeEffect(effect)) {
+            multiplier *= 1.25D;
+        }
+        if (SkillPerk.has(player, SkillPerk.ALCHEMY_BENEFACTOR) && isBeneficialEffect(effect)) {
+            multiplier *= 1.25D;
+        }
+        if (SkillPerk.has(player, SkillPerk.ALCHEMY_POISONER) && isHarmfulEffect(effect)) {
+            multiplier *= 1.25D;
+        }
+        return multiplier;
+    }
+
+    private static int getAlchemyDuration(LivingEntity entity, AlchemyEffect effect, int baseDuration) {
+        if (!(entity instanceof ServerPlayer player)) {
+            return baseDuration;
+        }
+
+        double multiplier = 1.0D;
+        if (SkillPerk.rank(player, SkillPerk.ALCHEMY_ALCHEMIST) > 0) {
+            multiplier += SkillPerk.rank(player, SkillPerk.ALCHEMY_ALCHEMIST) * 0.08D;
+        }
+        if (SkillPerk.has(player, SkillPerk.ALCHEMY_BENEFACTOR) && isBeneficialEffect(effect)) {
+            multiplier *= 1.15D;
+        }
+        if (SkillPerk.has(player, SkillPerk.ALCHEMY_POISONER) && isHarmfulEffect(effect)) {
+            multiplier *= 1.15D;
+        }
+        if (SkillPerk.has(player, SkillPerk.ALCHEMY_CONCENTRATED_POISON) && isHarmfulEffect(effect)) {
+            multiplier *= 2.0D;
+        }
+        return Math.max(1, Mth.floor(baseDuration * multiplier));
+    }
+
+    private static List<AlchemyEffect> getIngredientEffects(String ingredientId, int count) {
+        AlchemyEffect primary = PRIMARY_EFFECTS.get(ingredientId);
+        if (primary == null || count <= 0) {
+            return List.of();
+        }
+
+        List<AlchemyEffect> effects = new ArrayList<>();
+        effects.add(primary);
+        AlchemyEffect[] values = AlchemyEffect.values();
+        int seed = ingredientId.hashCode();
+        for (int offset = 1; effects.size() < Math.min(4, count) && offset < values.length * 2; offset++) {
+            AlchemyEffect candidate = values[Math.floorMod(seed + offset * 13, values.length)];
+            if (!effects.contains(candidate)) {
+                effects.add(candidate);
+            }
+        }
+        return effects;
+    }
+
+    private static boolean isRestorativeEffect(AlchemyEffect effect) {
+        return effect == AlchemyEffect.RESTORE_HEALTH
+                || effect == AlchemyEffect.RESTORE_MAGICKA
+                || effect == AlchemyEffect.RESTORE_STAMINA;
+    }
+
+    private static boolean isBeneficialEffect(AlchemyEffect effect) {
+        return switch (effect) {
+            case CURE_DISEASE, FORTIFY_ARCHERY, FORTIFY_LOCKPICKING, FORTIFY_MAGICKA, FORTIFY_STAMINA,
+                    INVISIBILITY, LIGHT, NIGHT_EYE, REGENERATE_HEALTH, REGENERATE_MAGICKA, REGENERATE_STAMINA,
+                    RESIST_FIRE, RESIST_FROST, RESIST_MAGIC, RESIST_POISON, RESIST_SHOCK, RESTORE_HEALTH,
+                    RESTORE_MAGICKA, RESTORE_STAMINA, WATERBREATHING -> true;
+            default -> false;
+        };
+    }
+
+    private static boolean isHarmfulEffect(AlchemyEffect effect) {
+        return !isBeneficialEffect(effect);
     }
 
     private static double getAlchemyIngredientExperience(AlchemyEffect effect) {
@@ -415,6 +521,10 @@ public class ModFoods {
 
     private static void addEffect(LivingEntity entity, MobEffect effect) {
         entity.addEffect(new MobEffectInstance(effect, INGREDIENT_EFFECT_DURATION_TICKS));
+    }
+
+    private static void addEffect(LivingEntity entity, MobEffect effect, int durationTicks) {
+        entity.addEffect(new MobEffectInstance(effect, durationTicks));
     }
 
     private static void addAttributeModifier(LivingEntity entity, RegistryObject<Attribute> attribute, String effectName, double amount) {

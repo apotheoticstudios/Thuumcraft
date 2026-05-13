@@ -2,6 +2,10 @@ package net.apotheoticstudios.thuumcraft.client.gui;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
+import net.apotheoticstudios.thuumcraft.client.ClientSkillPerkState;
+import net.apotheoticstudios.thuumcraft.network.ModMessages;
+import net.apotheoticstudios.thuumcraft.network.ServerboundUnlockPerkPacket;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
@@ -40,92 +44,203 @@ public class SkillTreeScreen extends Screen {
     private static final int PERK_LABEL_LOCKED_COLOR = 0x775D7484;
     private static final int TOOLTIP_BACKGROUND_COLOR = 0xE8040912;
     private static final int TOOLTIP_BORDER_COLOR = 0x99D3B66D;
+    private static final int TOOLTIP_WRAP_WIDTH = 220;
     private static final int VISIBLE_NAVIGATION_TREES = 5;
     private static final int VISIBLE_SIDE_TREES = 2;
     private static final long TREE_TRANSITION_MILLIS = 220L;
 
     private static final List<SkillTreeDefinition> TREES = List.of(
             tree(ModAttributes.ARCHERY, 400, 487, perks(
-                    perk("Overdraw", "Ranks: 5\nRequires: 0/20/40/60/80 Archery", 0.730D, 0.749D),
-                    perk("Critical Shot", "Ranks: 3\nRequires: 30/60/90 Archery", 0.668D, 0.497D),
-                    perk("Eagle Eye", "Requires: 30 Archery", 0.400D, 0.550D),
-                    perk("Steady Hand", "Ranks: 2\nRequires: 40/60 Archery", 0.510D, 0.499D),
-                    perk("Power Shot", "Requires: 50 Archery", 0.323D, 0.396D),
-                    perk("Hunter's Discipline", "Requires: 50 Archery", 0.560D, 0.308D),
-                    perk("Ranger", "Requires: 60 Archery", 0.528D, 0.234D),
-                    perk("Quick Shot", "Requires: 70 Archery", 0.330D, 0.199D),
-                    perk("Bullseye", "Requires: 100 Archery", 0.443D, 0.142D)),
+                    perk(SkillPerk.ARCHERY_OVERDRAW, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Archery",
+                            "Bonus: Ranged projectile attacks deal +20/40/60/80/100% damage.",
+                            "Effect: Every shot hits harder as your Archery mastery rises."), 0.730D, 0.749D),
+                    perk(SkillPerk.ARCHERY_CRITICAL_SHOT, tooltip("Ranks: 3", "Requires: 30/60/90 Archery",
+                            "Bonus: Ranged projectile attacks have a 10/15/20% critical chance.",
+                            "Effect: Critical hits deal 1.5/1.875/2.25x damage."), 0.668D, 0.497D),
+                    perk(SkillPerk.ARCHERY_EAGLE_EYE, tooltip("Requires: 30 Archery",
+                            "Effect: Aiming with a bow or crossbow zooms your view.",
+                            "Cost: Zooming drains stamina while held."), 0.400D, 0.550D),
+                    perk(SkillPerk.ARCHERY_STEADY_HAND, tooltip("Ranks: 2", "Requires: 40/60 Archery",
+                            "Bonus: Eagle Eye slows enemies in your aiming cone.",
+                            "Effect: Rank 2 applies a stronger slow."), 0.510D, 0.499D),
+                    perk(SkillPerk.ARCHERY_POWER_SHOT, tooltip("Requires: 50 Archery",
+                            "Effect: Ranged projectiles stagger most targets 50% of the time.",
+                            "Note: Applies knockback and a brief slow when it triggers."), 0.323D, 0.396D),
+                    perk(SkillPerk.ARCHERY_HUNTERS_DISCIPLINE, tooltip("Requires: 50 Archery",
+                            "Effect: Recover extra arrows from fallen enemies.",
+                            "Utility: Keeps ranged builds supplied during long fights."), 0.560D, 0.308D),
+                    perk(SkillPerk.ARCHERY_RANGER, tooltip("Requires: 60 Archery",
+                            "Effect: Move faster while a bow or crossbow is drawn.",
+                            "Utility: Lets archers reposition without lowering their weapon."), 0.528D, 0.234D),
+                    perk(SkillPerk.ARCHERY_QUICK_SHOT, tooltip("Requires: 70 Archery",
+                            "Bonus: Bow shots reach full draw 30% faster.",
+                            "Effect: Increases sustained ranged pressure."), 0.330D, 0.199D),
+                    perk(SkillPerk.ARCHERY_BULLSEYE, tooltip("Requires: 100 Archery",
+                            "Effect: Ranged projectiles have a 15% chance to paralyze briefly.",
+                            "Utility: Rewards precision with crowd control."), 0.443D, 0.142D)),
                     links("Overdraw", "Critical Shot", "Critical Shot", "Hunter's Discipline",
                             "Hunter's Discipline", "Ranger", "Overdraw", "Eagle Eye", "Eagle Eye", "Power Shot",
                             "Power Shot", "Quick Shot", "Eagle Eye", "Steady Hand", "Ranger", "Bullseye",
                             "Quick Shot", "Bullseye")),
             tree(ModAttributes.BLOCK, 300, 275, perks(
-                    perk("Shield Wall", "Ranks: 5\nRequires: 0/20/40/60/80 Block", 0.527D, 0.862D),
-                    perk("Deflect Arrows", "Requires: 30 Block", 0.093D, 0.629D),
-                    perk("Block Runner", "Requires: 70 Block", 0.340D, 0.175D),
-                    perk("Elemental Protection", "Requires: 50 Block", 0.217D, 0.262D),
-                    perk("Quick Reflexes", "Requires: 30 Block", 0.427D, 0.545D),
-                    perk("Power Bash", "Requires: 30 Block", 0.887D, 0.615D),
-                    perk("Deadly Bash", "Requires: 50 Block", 0.867D, 0.356D),
-                    perk("Disarming Bash", "Requires: 70 Block", 0.787D, 0.164D),
-                    perk("Shield Charge", "Requires: 100 Block", 0.527D, 0.102D)),
+                    perk(SkillPerk.BLOCK_SHIELD_WALL, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Block",
+                            "Bonus: Blocking is 20/25/30/35/40% more effective.",
+                            "Effect: Works as the foundation for shield blocking."), 0.527D, 0.862D),
+                    perk(SkillPerk.BLOCK_DEFLECT_ARROWS, tooltip("Requires: 30 Block",
+                            "Effect: Projectiles that strike a raised shield deal no damage.",
+                            "Utility: Turns shield timing into reliable ranged defense."), 0.093D, 0.629D),
+                    perk(SkillPerk.BLOCK_BLOCK_RUNNER, tooltip("Requires: 70 Block",
+                            "Effect: Move faster while blocking.",
+                            "Utility: Lets defensive fighters close gaps without dropping guard."), 0.340D, 0.175D),
+                    perk(SkillPerk.BLOCK_ELEMENTAL_PROTECTION, tooltip("Requires: 50 Block",
+                            "Bonus: Blocking with a shield reduces fire, frost, and shock damage by 50%.",
+                            "Effect: Makes shields useful against elemental attacks."), 0.217D, 0.262D),
+                    perk(SkillPerk.BLOCK_QUICK_REFLEXES, tooltip("Requires: 30 Block",
+                            "Effect: Briefly slows attackers when you block them.",
+                            "Utility: Creates a reaction window for counterplay."), 0.427D, 0.545D),
+                    perk(SkillPerk.BLOCK_POWER_BASH, tooltip("Requires: 30 Block",
+                            "Effect: Unlocks power bashes while blocking.",
+                            "Cost: Uses stamina for a stronger interrupt."), 0.887D, 0.615D),
+                    perk(SkillPerk.BLOCK_DEADLY_BASH, tooltip("Requires: 50 Block",
+                            "Bonus: Bashes deal 5x damage.",
+                            "Effect: Turns bash interrupts into real offense."), 0.867D, 0.356D),
+                    perk(SkillPerk.BLOCK_DISARMING_BASH, tooltip("Requires: 70 Block",
+                            "Effect: Power bashes can disarm enemies.",
+                            "Utility: Punishes armed opponents who pressure your guard."), 0.787D, 0.164D),
+                    perk(SkillPerk.BLOCK_SHIELD_CHARGE, tooltip("Requires: 100 Block",
+                            "Effect: Sprinting with a raised shield knocks back and slows nearby targets.",
+                            "Utility: Breaks enemy lines with a defensive rush."), 0.527D, 0.102D)),
                     links("Shield Wall", "Deflect Arrows", "Deflect Arrows", "Elemental Protection",
                             "Elemental Protection", "Block Runner", "Shield Wall", "Power Bash", "Power Bash",
                             "Deadly Bash", "Deadly Bash", "Disarming Bash", "Disarming Bash", "Shield Charge",
                             "Block Runner", "Shield Charge", "Shield Wall", "Quick Reflexes")),
             tree(ModAttributes.HEAVY_ARMOR, 300, 292, perks(
-                    perk("Juggernaut", "Ranks: 5\nRequires: 0/20/40/60/80 Heavy Armor", 0.503D, 0.901D),
-                    perk("Fists of Steel", "Requires: 30 Heavy Armor", 0.277D, 0.685D),
-                    perk("Cushioned", "Requires: 50 Heavy Armor", 0.157D, 0.479D),
-                    perk("Conditioning", "Requires: 70 Heavy Armor", 0.167D, 0.247D),
-                    perk("Well Fitted", "Requires: 30 Heavy Armor", 0.727D, 0.668D),
-                    perk("Tower of Strength", "Requires: 50 Heavy Armor", 0.790D, 0.438D),
-                    perk("Matching Set", "Requires: 70 Heavy Armor", 0.850D, 0.301D),
-                    perk("Reflect Blows", "Requires: 100 Heavy Armor", 0.800D, 0.072D)),
+                    perk(SkillPerk.HEAVY_ARMOR_JUGGERNAUT, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Heavy Armor",
+                            "Bonus: Heavy armor rating increases by 20/40/60/80/100%.",
+                            "Effect: Shields are not counted in this armor bonus."), 0.503D, 0.901D),
+                    perk(SkillPerk.HEAVY_ARMOR_FISTS_OF_STEEL, tooltip("Requires: 30 Heavy Armor",
+                            "Bonus: Heavy armor adds bonus unarmed damage.",
+                            "Effect: Uses chest armor as the Minecraft slot proxy."), 0.277D, 0.685D),
+                    perk(SkillPerk.HEAVY_ARMOR_CUSHIONED, tooltip("Requires: 50 Heavy Armor",
+                            "Bonus: Take 50% less fall damage while wearing all heavy armor.",
+                            "Effect: Rewards committing to a full heavy set."), 0.157D, 0.479D),
+                    perk(SkillPerk.HEAVY_ARMOR_CONDITIONING, tooltip("Requires: 70 Heavy Armor",
+                            "Effect: Heavy armor no longer increases sprint stamina drain.",
+                            "Utility: Removes the stamina mobility drawback of heavy gear."), 0.167D, 0.247D),
+                    perk(SkillPerk.HEAVY_ARMOR_WELL_FITTED, tooltip("Requires: 30 Heavy Armor",
+                            "Bonus: Gain +25% armor rating while wearing all heavy armor.",
+                            "Effect: Stacks with Juggernaut for full-set defense."), 0.727D, 0.668D),
+                    perk(SkillPerk.HEAVY_ARMOR_TOWER_OF_STRENGTH, tooltip("Requires: 50 Heavy Armor",
+                            "Bonus: Take 50% less knockback while wearing only heavy armor.",
+                            "Effect: Helps heavy fighters keep attacking under pressure."), 0.790D, 0.438D),
+                    perk(SkillPerk.HEAVY_ARMOR_MATCHING_SET, tooltip("Requires: 70 Heavy Armor",
+                            "Bonus: Gain another +25% armor rating with a matched heavy set.",
+                            "Effect: Rewards wearing armor pieces from the same material family."), 0.850D, 0.301D),
+                    perk(SkillPerk.HEAVY_ARMOR_REFLECT_BLOWS, tooltip("Requires: 100 Heavy Armor",
+                            "Effect: 10% chance to reflect melee damage while wearing all heavy armor.",
+                            "Utility: Makes attackers pay for striking a fully armored target."), 0.800D, 0.072D)),
                     links("Juggernaut", "Fists of Steel", "Fists of Steel", "Cushioned", "Cushioned",
                             "Conditioning", "Juggernaut", "Well Fitted", "Well Fitted", "Tower of Strength",
                             "Tower of Strength", "Matching Set", "Matching Set", "Reflect Blows")),
             tree(ModAttributes.ONE_HANDED, 300, 282, perks(
-                    perk("Armsman", "Ranks: 5\nRequires: 0/20/40/60/80 One-handed", 0.437D, 0.929D),
-                    perk("Bladesman", "Ranks: 3\nRequires: 30/60/90 One-handed", 0.623D, 0.596D),
-                    perk("Bone Breaker", "Ranks: 3\nRequires: 30/60/90 One-handed", 0.533D, 0.592D),
-                    perk("Dual Flurry", "Ranks: 2\nRequires: 30/50 One-handed", 0.783D, 0.784D),
-                    perk("Dual Savagery", "Requires: 70 One-handed", 0.687D, 0.301D),
-                    perk("Fighting Stance", "Requires: 20 One-handed", 0.443D, 0.709D),
-                    perk("Critical Charge", "Requires: 50 One-handed", 0.503D, 0.443D),
-                    perk("Savage Strike", "Requires: 50 One-handed", 0.370D, 0.433D),
-                    perk("Paralyzing Strike", "Requires: 100 One-handed", 0.443D, 0.064D),
-                    perk("Hack and Slash", "Ranks: 3\nRequires: 30/60/90 One-handed", 0.260D, 0.574D)),
+                    perk(SkillPerk.ONE_HANDED_ARMSMAN, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 One-handed",
+                            "Bonus: One-handed weapons deal +20/40/60/80/100% damage.",
+                            "Effect: Applies to swords, war axes, maces, and daggers."), 0.437D, 0.929D),
+                    perk(SkillPerk.ONE_HANDED_BLADESMAN, tooltip("Ranks: 3", "Requires: 30/60/90 One-handed",
+                            "Bonus: Swords have a 10/15/20% critical chance.",
+                            "Effect: Critical hits multiply final hit damage by 1.5x."), 0.623D, 0.596D),
+                    perk(SkillPerk.ONE_HANDED_BONE_BREAKER, tooltip("Ranks: 3", "Requires: 30/60/90 One-handed",
+                            "Bonus: Maces bypass 25/50/75% of armor mitigation.",
+                            "Effect: Strong against heavily armored targets."), 0.533D, 0.592D),
+                    perk(SkillPerk.ONE_HANDED_DUAL_FLURRY, tooltip("Ranks: 2", "Requires: 30/50 One-handed",
+                            "Bonus: Dual wield attacks are 20/35% faster.",
+                            "Effect: Rewards fighting with weapons in both hands."), 0.783D, 0.784D),
+                    perk(SkillPerk.ONE_HANDED_DUAL_SAVAGERY, tooltip("Requires: 70 One-handed",
+                            "Bonus: Dual-wield full-strength attacks consume stamina and deal +50% damage.",
+                            "Effect: Converts stamina into high burst damage."), 0.687D, 0.301D),
+                    perk(SkillPerk.ONE_HANDED_FIGHTING_STANCE, tooltip("Requires: 20 One-handed",
+                            "Bonus: One-handed perk power attacks cost 25% less stamina.",
+                            "Effect: Lets melee builds use stamina attacks more often."), 0.443D, 0.709D),
+                    perk(SkillPerk.ONE_HANDED_CRITICAL_CHARGE, tooltip("Requires: 50 One-handed",
+                            "Effect: Sprinting full-strength attacks consume stamina and deal 2x damage.",
+                            "Utility: Opens fights with a high-impact charge."), 0.503D, 0.443D),
+                    perk(SkillPerk.ONE_HANDED_SAVAGE_STRIKE, tooltip("Requires: 50 One-handed",
+                            "Bonus: Standing power attacks deal +25% damage.",
+                            "Effect: Consumes stamina when the perk attack triggers."), 0.370D, 0.433D),
+                    perk(SkillPerk.ONE_HANDED_PARALYZING_STRIKE, tooltip("Requires: 100 One-handed",
+                            "Effect: Backwards full-strength attacks have a 25% chance to paralyze.",
+                            "Utility: Creates space when enemies push into melee range."), 0.443D, 0.064D),
+                    perk(SkillPerk.ONE_HANDED_HACK_AND_SLASH, tooltip("Ranks: 3", "Requires: 30/60/90 One-handed",
+                            "Bonus: War axes inflict increasing bleed damage.",
+                            "Effect: Bleed keeps hurting the target after the hit lands."), 0.260D, 0.574D)),
                     links("Armsman", "Bladesman", "Armsman", "Bone Breaker", "Armsman", "Dual Flurry",
                             "Dual Flurry", "Dual Savagery", "Armsman", "Fighting Stance", "Fighting Stance",
                             "Critical Charge", "Fighting Stance", "Savage Strike", "Critical Charge",
                             "Paralyzing Strike", "Savage Strike", "Paralyzing Strike", "Armsman", "Hack and Slash")),
             tree(ModAttributes.SMITHING, 400, 210, perks(
-                    perk("Steel Smithing", "Requires: 0 Smithing", 0.365D, 0.819D),
-                    perk("Arcane Blacksmith", "Requires: 60 Smithing", 0.388D, 0.371D),
-                    perk("Elven Smithing", "Requires: 30 Smithing", 0.080D, 0.362D),
-                    perk("Advanced Armors", "Requires: 50 Smithing", 0.108D, 0.257D),
-                    perk("Glass Smithing", "Requires: 70 Smithing", 0.310D, 0.114D),
-                    perk("Dragon Armor", "Requires: 100 Smithing", 0.505D, 0.114D),
-                    perk("Dwarven Smithing", "Requires: 30 Smithing", 0.580D, 0.486D),
-                    perk("Orcish Smithing", "Requires: 50 Smithing", 0.795D, 0.310D),
-                    perk("Ebony Smithing", "Requires: 80 Smithing", 0.963D, 0.314D),
-                    perk("Daedric Smithing", "Requires: 90 Smithing", 0.675D, 0.162D)),
+                    perk(SkillPerk.SMITHING_STEEL_SMITHING, tooltip("Requires: 0 Smithing",
+                            "Effect: Crafted or repaired steel and iron gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.365D, 0.819D),
+                    perk(SkillPerk.SMITHING_ARCANE_BLACKSMITH, tooltip("Requires: 60 Smithing",
+                            "Effect: Enchanted gear can receive the full smithing quality bonus.",
+                            "Utility: Lets enchanted gear keep pace with crafted equipment."), 0.388D, 0.371D),
+                    perk(SkillPerk.SMITHING_ELVEN_SMITHING, tooltip("Requires: 30 Smithing",
+                            "Effect: Crafted or repaired elven gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.080D, 0.362D),
+                    perk(SkillPerk.SMITHING_ADVANCED_ARMORS, tooltip("Requires: 50 Smithing",
+                            "Effect: Crafted or repaired scaled and plate gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.108D, 0.257D),
+                    perk(SkillPerk.SMITHING_GLASS_SMITHING, tooltip("Requires: 70 Smithing",
+                            "Effect: Crafted or repaired glass gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.310D, 0.114D),
+                    perk(SkillPerk.SMITHING_DRAGON_ARMOR, tooltip("Requires: 100 Smithing",
+                            "Effect: Crafted or repaired dragon gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.505D, 0.114D),
+                    perk(SkillPerk.SMITHING_DWARVEN_SMITHING, tooltip("Requires: 30 Smithing",
+                            "Effect: Crafted or repaired dwarven gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.580D, 0.486D),
+                    perk(SkillPerk.SMITHING_ORCISH_SMITHING, tooltip("Requires: 50 Smithing",
+                            "Effect: Crafted or repaired orcish gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.795D, 0.310D),
+                    perk(SkillPerk.SMITHING_EBONY_SMITHING, tooltip("Requires: 80 Smithing",
+                            "Effect: Crafted or repaired ebony gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.963D, 0.314D),
+                    perk(SkillPerk.SMITHING_DAEDRIC_SMITHING, tooltip("Requires: 90 Smithing",
+                            "Effect: Crafted or repaired daedric gear gains smithing quality.",
+                            "Bonus: Quality increases damage or armor rating."), 0.675D, 0.162D)),
                     links("Steel Smithing", "Arcane Blacksmith", "Steel Smithing", "Dwarven Smithing",
                             "Dwarven Smithing", "Orcish Smithing", "Orcish Smithing", "Ebony Smithing",
                             "Ebony Smithing", "Daedric Smithing", "Steel Smithing", "Elven Smithing",
                             "Elven Smithing", "Advanced Armors", "Advanced Armors", "Glass Smithing",
                             "Daedric Smithing", "Dragon Armor", "Glass Smithing", "Dragon Armor")),
             tree(ModAttributes.TWO_HANDED, 300, 404, perks(
-                    perk("Barbarian", "Ranks: 5\nRequires: 0/20/40/60/80 Two-handed", 0.443D, 0.844D),
-                    perk("Limbsplitter", "Ranks: 3\nRequires: 30/60/90 Two-handed", 0.257D, 0.574D),
-                    perk("Champion's Stance", "Requires: 20 Two-handed", 0.450D, 0.661D),
-                    perk("Devastating Blow", "Requires: 50 Two-handed", 0.510D, 0.453D),
-                    perk("Great Critical Charge", "Requires: 50 Two-handed", 0.377D, 0.458D),
-                    perk("Sweep", "Requires: 70 Two-handed", 0.460D, 0.260D),
-                    perk("Warmaster", "Requires: 100 Two-handed", 0.463D, 0.116D),
-                    perk("Deep Wounds", "Ranks: 3\nRequires: 30/60/90 Two-handed", 0.637D, 0.559D),
-                    perk("Skullcrusher", "Ranks: 3\nRequires: 30/60/90 Two-handed", 0.770D, 0.550D)),
+                    perk(SkillPerk.TWO_HANDED_BARBARIAN, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Two-handed",
+                            "Bonus: Two-handed weapons deal +20/40/60/80/100% damage.",
+                            "Effect: Applies to greatswords, battleaxes, and warhammers."), 0.443D, 0.844D),
+                    perk(SkillPerk.TWO_HANDED_LIMBSPLITTER, tooltip("Ranks: 3", "Requires: 30/60/90 Two-handed",
+                            "Bonus: Battleaxes inflict increasing bleed damage.",
+                            "Effect: Bleed keeps hurting the target after the hit lands."), 0.257D, 0.574D),
+                    perk(SkillPerk.TWO_HANDED_CHAMPIONS_STANCE, tooltip("Requires: 20 Two-handed",
+                            "Bonus: Two-handed perk power attacks cost 25% less stamina.",
+                            "Effect: Keeps heavy weapons from exhausting stamina too quickly."), 0.450D, 0.661D),
+                    perk(SkillPerk.TWO_HANDED_DEVASTATING_BLOW, tooltip("Requires: 50 Two-handed",
+                            "Bonus: Standing power attacks deal +25% damage.",
+                            "Effect: Consumes stamina when the perk attack triggers."), 0.510D, 0.453D),
+                    perk(SkillPerk.TWO_HANDED_GREAT_CRITICAL_CHARGE, tooltip("Requires: 50 Two-handed",
+                            "Effect: Sprinting full-strength attacks consume stamina and deal 2x damage.",
+                            "Utility: Lets heavy weapons open fights with a crushing charge."), 0.377D, 0.458D),
+                    perk(SkillPerk.TWO_HANDED_SWEEP, tooltip("Requires: 70 Two-handed",
+                            "Effect: Sideways power attacks hit multiple enemies in front of you.",
+                            "Utility: Adds crowd control to two-handed melee."), 0.460D, 0.260D),
+                    perk(SkillPerk.TWO_HANDED_WARMASTER, tooltip("Requires: 100 Two-handed",
+                            "Effect: Backwards full-strength attacks have a 25% chance to paralyze.",
+                            "Utility: Gives heavy weapon users a defensive finisher."), 0.463D, 0.116D),
+                    perk(SkillPerk.TWO_HANDED_DEEP_WOUNDS, tooltip("Ranks: 3", "Requires: 30/60/90 Two-handed",
+                            "Bonus: Greatswords have a 10/15/20% critical chance.",
+                            "Effect: Critical hits multiply final hit damage by 1.5x."), 0.637D, 0.559D),
+                    perk(SkillPerk.TWO_HANDED_SKULLCRUSHER, tooltip("Ranks: 3", "Requires: 30/60/90 Two-handed",
+                            "Bonus: Warhammers bypass 25/50/75% of armor mitigation.",
+                            "Effect: Strong against heavily armored targets."), 0.770D, 0.550D)),
                     links("Barbarian", "Champion's Stance", "Champion's Stance", "Devastating Blow",
                             "Champion's Stance", "Great Critical Charge", "Great Critical Charge", "Sweep",
                             "Devastating Blow", "Sweep", "Sweep", "Warmaster", "Barbarian", "Deep Wounds",
@@ -245,26 +360,56 @@ public class SkillTreeScreen extends Screen {
                             "Regeneration", "Regeneration", "Necromage", "Novice Restoration", "Respite",
                             "Novice Restoration", "Restoration Dual Casting", "Novice Restoration", "Ward Absorb")),
             tree(ModAttributes.ALCHEMY, 300, 301, perks(
-                    perk("Alchemist", "Ranks: 5\nRequires: 0/20/40/60/80 Alchemy", 0.243D, 0.910D),
-                    perk("Physician", "Requires: 20 Alchemy", 0.697D, 0.841D),
-                    perk("Benefactor", "Requires: 30 Alchemy", 0.610D, 0.648D),
-                    perk("Experimenter", "Ranks: 3\nRequires: 50/70/90 Alchemy", 0.573D, 0.495D),
-                    perk("Purity", "Requires: 100 Alchemy", 0.507D, 0.083D),
-                    perk("Poisoner", "Requires: 30 Alchemy", 0.337D, 0.635D),
-                    perk("Concentrated Poison", "Requires: 60 Alchemy", 0.357D, 0.482D),
-                    perk("Green Thumb", "Requires: 70 Alchemy", 0.393D, 0.282D),
-                    perk("Snakeblood", "Requires: 80 Alchemy", 0.550D, 0.239D)),
+                    perk(SkillPerk.ALCHEMY_ALCHEMIST, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Alchemy",
+                            "Bonus: Ingredient effect magnitude is 20/40/60/80/100% stronger.",
+                            "Effect: Useful duration also improves by 8% per rank where applicable."), 0.243D, 0.910D),
+                    perk(SkillPerk.ALCHEMY_PHYSICIAN, tooltip("Requires: 20 Alchemy",
+                            "Bonus: Restore Health, Magicka, and Stamina ingredient effects are 25% stronger.",
+                            "Effect: Directly improves survival and resource recovery brews."), 0.697D, 0.841D),
+                    perk(SkillPerk.ALCHEMY_BENEFACTOR, tooltip("Requires: 30 Alchemy",
+                            "Bonus: Beneficial ingredient effects gain +25% magnitude.",
+                            "Effect: Strengthens buffs, healing, and other positive mixtures."), 0.610D, 0.648D),
+                    perk(SkillPerk.ALCHEMY_EXPERIMENTER, tooltip("Ranks: 3", "Requires: 50/70/90 Alchemy",
+                            "Bonus: Eating ingredients reveals 2/3/4 effect entries.",
+                            "Effect: Makes ingredient discovery much faster."), 0.573D, 0.495D),
+                    perk(SkillPerk.ALCHEMY_PURITY, tooltip("Requires: 100 Alchemy",
+                            "Effect: Harmful ingredient effects are suppressed when consumed.",
+                            "Utility: Produces cleaner ingredient use for alchemists."), 0.507D, 0.083D),
+                    perk(SkillPerk.ALCHEMY_POISONER, tooltip("Requires: 30 Alchemy",
+                            "Bonus: Harmful ingredient effects gain +25% magnitude.",
+                            "Effect: Makes hostile mixtures more dangerous."), 0.337D, 0.635D),
+                    perk(SkillPerk.ALCHEMY_CONCENTRATED_POISON, tooltip("Requires: 60 Alchemy",
+                            "Effect: Harmful ingredient effects last twice as long.",
+                            "Utility: Extends poison-style pressure."), 0.357D, 0.482D),
+                    perk(SkillPerk.ALCHEMY_GREEN_THUMB, tooltip("Requires: 70 Alchemy",
+                            "Effect: Harvest extra drops from most plant and crop ingredient sources.",
+                            "Utility: Speeds up gathering for potion-heavy characters."), 0.393D, 0.282D),
+                    perk(SkillPerk.ALCHEMY_SNAKEBLOOD, tooltip("Requires: 80 Alchemy",
+                            "Bonus: Gain a 50% chance to resist incoming poison.",
+                            "Effect: Protects alchemists from hostile toxins and venom."), 0.550D, 0.239D)),
                     links("Alchemist", "Physician", "Physician", "Benefactor", "Benefactor", "Experimenter",
                             "Physician", "Poisoner", "Poisoner", "Concentrated Poison", "Concentrated Poison",
                             "Green Thumb", "Experimenter", "Snakeblood", "Concentrated Poison", "Snakeblood",
                             "Snakeblood", "Purity")),
             tree(ModAttributes.LIGHT_ARMOR, 300, 325, perks(
-                    perk("Agile Defender", "Ranks: 5\nRequires: 0/20/40/60/80 Light Armor", 0.613D, 0.908D),
-                    perk("Custom Fit", "Requires: 30 Light Armor", 0.523D, 0.609D),
-                    perk("Matching Set", "Requires: 70 Light Armor", 0.647D, 0.157D),
-                    perk("Unhindered", "Requires: 50 Light Armor", 0.333D, 0.378D),
-                    perk("Wind Walker", "Requires: 60 Light Armor", 0.367D, 0.225D),
-                    perk("Deft Movement", "Requires: 100 Light Armor", 0.513D, 0.080D)),
+                    perk(SkillPerk.LIGHT_ARMOR_AGILE_DEFENDER, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Light Armor",
+                            "Bonus: Light armor rating increases by 20/40/60/80/100%.",
+                            "Effect: Shields are not counted in this armor bonus."), 0.613D, 0.908D),
+                    perk(SkillPerk.LIGHT_ARMOR_CUSTOM_FIT, tooltip("Requires: 30 Light Armor",
+                            "Bonus: Gain +25% armor rating while wearing all light armor.",
+                            "Effect: Rewards committing to a full light set."), 0.523D, 0.609D),
+                    perk(SkillPerk.LIGHT_ARMOR_MATCHING_SET, tooltip("Requires: 70 Light Armor",
+                            "Bonus: Gain another +25% armor rating with a matched light set.",
+                            "Effect: Rewards armor pieces from the same material family."), 0.647D, 0.157D),
+                    perk(SkillPerk.LIGHT_ARMOR_UNHINDERED, tooltip("Requires: 50 Light Armor",
+                            "Effect: Light armor no longer increases sprint stamina drain.",
+                            "Utility: Keeps agile builds fast while armored."), 0.333D, 0.378D),
+                    perk(SkillPerk.LIGHT_ARMOR_WIND_WALKER, tooltip("Requires: 60 Light Armor",
+                            "Bonus: Stamina regenerates 50% faster while wearing all light armor.",
+                            "Effect: Supports sprinting, dodging, and repeated power attacks."), 0.367D, 0.225D),
+                    perk(SkillPerk.LIGHT_ARMOR_DEFT_MOVEMENT, tooltip("Requires: 100 Light Armor",
+                            "Effect: 10% chance to avoid all damage from a melee attack.",
+                            "Utility: Gives light armor a final evasive defense."), 0.513D, 0.080D)),
                     links("Agile Defender", "Custom Fit", "Custom Fit", "Matching Set", "Custom Fit", "Unhindered",
                             "Unhindered", "Wind Walker", "Wind Walker", "Deft Movement", "Matching Set",
                             "Deft Movement")),
@@ -297,34 +442,68 @@ public class SkillTreeScreen extends Screen {
                             "Cutpurse", "Misdirection", "Misdirection", "Perfect Touch", "Night Thief",
                             "Extra Pockets", "Night Thief", "Poisoned")),
             tree(ModAttributes.SNEAK, 300, 254, perks(
-                    perk("Stealth", "Ranks: 5\nRequires: 0/20/40/60/80 Sneak", 0.463D, 0.921D),
-                    perk("Backstab", "Requires: 30 Sneak", 0.657D, 0.657D),
-                    perk("Deadly Aim", "Requires: 40 Sneak", 0.683D, 0.386D),
-                    perk("Assassin's Blade", "Requires: 50 Sneak", 0.593D, 0.327D),
-                    perk("Muffled Movement", "Requires: 30 Sneak", 0.223D, 0.638D),
-                    perk("Light Foot", "Requires: 40 Sneak", 0.327D, 0.358D),
-                    perk("Silent Roll", "Requires: 50 Sneak", 0.437D, 0.260D),
-                    perk("Silence", "Requires: 70 Sneak", 0.570D, 0.138D),
-                    perk("Shadow Warrior", "Requires: 100 Sneak", 0.773D, 0.083D)),
+                    perk(SkillPerk.SNEAK_STEALTH, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Sneak",
+                            "Bonus: You are 20/25/30/35/40% harder to detect while sneaking.",
+                            "Effect: Reduces enemy detection range before light and sound are applied."), 0.463D, 0.921D),
+                    perk(SkillPerk.SNEAK_BACKSTAB, tooltip("Requires: 30 Sneak",
+                            "Bonus: One-handed melee sneak attacks deal 6x damage.",
+                            "Effect: Rewards getting close while undetected."), 0.657D, 0.657D),
+                    perk(SkillPerk.SNEAK_DEADLY_AIM, tooltip("Requires: 40 Sneak",
+                            "Bonus: Ranged projectile sneak attacks deal 3x damage.",
+                            "Effect: Turns hidden opening shots into decisive strikes."), 0.683D, 0.386D),
+                    perk(SkillPerk.SNEAK_ASSASSINS_BLADE, tooltip("Requires: 50 Sneak",
+                            "Bonus: Dagger sneak attacks deal 15x damage.",
+                            "Effect: Highest reward for reaching melee range unseen."), 0.593D, 0.327D),
+                    perk(SkillPerk.SNEAK_MUFFLED_MOVEMENT, tooltip("Requires: 30 Sneak",
+                            "Bonus: Armor makes 50% less movement noise.",
+                            "Effect: Reduces sound-based detection while sneaking."), 0.223D, 0.638D),
+                    perk(SkillPerk.SNEAK_LIGHT_FOOT, tooltip("Requires: 40 Sneak",
+                            "Bonus: Player sounds are 50% quieter and armor noise is reduced.",
+                            "Effect: Makes sound-based detection less punishing."), 0.327D, 0.358D),
+                    perk(SkillPerk.SNEAK_SILENT_ROLL, tooltip("Requires: 50 Sneak",
+                            "Effect: Sprinting while sneaking creates much less movement noise.",
+                            "Utility: Supports faster stealth repositioning."), 0.437D, 0.260D),
+                    perk(SkillPerk.SNEAK_SILENCE, tooltip("Requires: 70 Sneak",
+                            "Effect: Walking and running no longer affect detection.",
+                            "Utility: Removes movement noise from the stealth equation."), 0.570D, 0.138D),
+                    perk(SkillPerk.SNEAK_SHADOW_WARRIOR, tooltip("Requires: 100 Sneak",
+                            "Effect: Crouching periodically breaks nearby enemy targets.",
+                            "Utility: Lets a master sneak vanish even after being found."), 0.773D, 0.083D)),
                     links("Stealth", "Backstab", "Backstab", "Deadly Aim", "Deadly Aim", "Assassin's Blade",
                             "Stealth", "Muffled Movement", "Muffled Movement", "Light Foot", "Light Foot",
                             "Silent Roll", "Silent Roll", "Silence", "Silence", "Shadow Warrior")),
             tree(ModAttributes.BARTER, 300, 286, perks(
-                    perk("Haggling", "Ranks: 5\nRequires: 0/20/40/60/80 Speech", 0.317D, 0.927D),
-                    perk("Allure", "Requires: 30 Speech", 0.380D, 0.668D),
-                    perk("Merchant", "Requires: 50 Speech", 0.330D, 0.406D),
-                    perk("Investor", "Requires: 70 Speech", 0.287D, 0.262D),
-                    perk("Fence", "Requires: 90 Speech", 0.250D, 0.143D),
-                    perk("Master Trader", "Requires: 100 Speech", 0.570D, 0.073D),
-                    perk("Bribery", "Requires: 30 Speech", 0.593D, 0.654D),
-                    perk("Persuasion", "Requires: 50 Speech", 0.713D, 0.385D),
-                    perk("Intimidation", "Requires: 70 Speech", 0.763D, 0.224D)),
+                    perk(SkillPerk.BARTER_HAGGLING, tooltip("Ranks: 5", "Requires: 0/20/40/60/80 Speech",
+                            "Bonus: Villager trade prices are 10/15/20/25/30% better.",
+                            "Effect: Improves merchant costs when trading."), 0.317D, 0.927D),
+                    perk(SkillPerk.BARTER_ALLURE, tooltip("Requires: 30 Speech",
+                            "Bonus: Villager merchants offer another 10% discount.",
+                            "Effect: Skyrim-style social charm adapted for merchant trading."), 0.380D, 0.668D),
+                    perk(SkillPerk.BARTER_MERCHANT, tooltip("Requires: 50 Speech",
+                            "Bonus: Villager merchants offer another 5% discount.",
+                            "Utility: Adapts broad merchant access into better prices."), 0.330D, 0.406D),
+                    perk(SkillPerk.BARTER_INVESTOR, tooltip("Requires: 70 Speech",
+                            "Bonus: Villager merchants offer another 5% discount.",
+                            "Effect: Completed trades can improve that offer by 1 emerald."), 0.287D, 0.262D),
+                    perk(SkillPerk.BARTER_FENCE, tooltip("Requires: 90 Speech",
+                            "Bonus: Villager merchants offer another 5% discount.",
+                            "Utility: Adapts fence access into better merchant prices."), 0.250D, 0.143D),
+                    perk(SkillPerk.BARTER_MASTER_TRADER, tooltip("Requires: 100 Speech",
+                            "Bonus: Villager merchants offer another 15% discount.",
+                            "Effect: Successful trades grant a small bonus XP reward."), 0.570D, 0.073D),
+                    perk(SkillPerk.BARTER_BRIBERY, tooltip("Requires: 30 Speech",
+                            "Bonus: Villager merchants offer another 5% discount.",
+                            "Utility: Adapts bribery into lower merchant costs."), 0.593D, 0.654D),
+                    perk(SkillPerk.BARTER_PERSUASION, tooltip("Requires: 50 Speech",
+                            "Bonus: Villager merchants offer another 5% discount.",
+                            "Effect: Adapts persuasion into peaceful trade value."), 0.713D, 0.385D),
+                    perk(SkillPerk.BARTER_INTIMIDATION, tooltip("Requires: 70 Speech",
+                            "Bonus: Villager merchants offer another 5% discount.",
+                            "Effect: Adapts intimidation into stronger merchant leverage."), 0.763D, 0.224D)),
                     links("Haggling", "Allure", "Allure", "Merchant", "Merchant", "Investor", "Investor",
                             "Fence", "Fence", "Master Trader", "Haggling", "Bribery", "Bribery", "Persuasion",
                             "Persuasion", "Intimidation"))
     );
-
-    private static final List<int[]> PERK_RANKS = createPerkRanks();
 
     private static int lastTreeIndex;
 
@@ -429,6 +608,8 @@ public class SkillTreeScreen extends Screen {
             SkillTreeDefinition tree = currentTree();
             guiGraphics.drawCenteredString(this.font, skillTitle(tree), this.width / 2, 18, TEXT_COLOR);
         }
+        guiGraphics.drawCenteredString(this.font, "Perk Points " + ClientSkillPerkState.perkPoints(),
+                this.width / 2, 31, MUTED_TEXT_COLOR);
         renderBottomSkillStrip(guiGraphics, transitionProgress, transitioning);
         guiGraphics.drawCenteredString(this.font, Component.literal("<"), this.width / 2 - 118, this.height - 18, DIM_TEXT_COLOR);
         guiGraphics.drawCenteredString(this.font, Component.literal(">"), this.width / 2 + 118, this.height - 18, DIM_TEXT_COLOR);
@@ -514,7 +695,6 @@ public class SkillTreeScreen extends Screen {
         guiGraphics.pose().translate(this.width / 2.0F + xOffset, this.height / 2.0F + yOffset, 0.0F);
         guiGraphics.pose().scale(scale, scale, 1.0F);
         guiGraphics.pose().translate(-this.width / 2.0F, -this.height / 2.0F, 0.0F);
-        int[] ranks = PERK_RANKS.get(renderedTreeIndex);
         for (Edge edge : tree.edges()) {
             Node from = tree.nodes().get(edge.from());
             Node to = tree.nodes().get(edge.to());
@@ -531,12 +711,13 @@ public class SkillTreeScreen extends Screen {
             Node node = tree.nodes().get(i);
             int x = bounds.x(node.x());
             int y = bounds.y(node.y());
+            int rank = rankForNode(renderedTreeIndex, i);
             int color = nodeColor(renderedTreeIndex, i, alpha, interactive && i == hoveredNode);
-            int glowColor = ranks[i] > 0 || canUpgradeNode(renderedTreeIndex, i) ? nodeGlowColor
+            int glowColor = rank > 0 || canUpgradeNode(renderedTreeIndex, i) ? nodeGlowColor
                     : withAlpha(NODE_GLOW_COLOR, alpha * 0.3F);
-            int coreColor = ranks[i] > 0 ? withAlpha(0xFFFFFFFF, alpha) : withAlpha(0xFFFFFFFF, alpha * 0.45F);
+            int coreColor = rank > 0 ? withAlpha(0xFFFFFFFF, alpha) : withAlpha(0xFFFFFFFF, alpha * 0.45F);
             drawNode(guiGraphics, x, y, color, glowColor, coreColor);
-            drawRankPips(guiGraphics, x, y, node.maximumRank(), ranks[i], alpha);
+            drawRankPips(guiGraphics, x, y, node.maximumRank(), rank, alpha);
         }
         if (interactive) {
             renderPerkLabels(guiGraphics, renderedTreeIndex, tree, bounds, alpha);
@@ -556,7 +737,7 @@ public class SkillTreeScreen extends Screen {
             if (labelY > bounds.top() + bounds.height() - 8) {
                 labelY = y - 17;
             }
-            int color = PERK_RANKS.get(renderedTreeIndex)[i] > 0 || canUpgradeNode(renderedTreeIndex, i)
+            int color = rankForNode(renderedTreeIndex, i) > 0 || canUpgradeNode(renderedTreeIndex, i)
                     ? PERK_LABEL_COLOR : PERK_LABEL_LOCKED_COLOR;
             guiGraphics.drawString(this.font, Component.literal(node.name()), labelX, labelY,
                     withAlpha(color, alpha), false);
@@ -585,7 +766,7 @@ public class SkillTreeScreen extends Screen {
         }
 
         Node node = tree.nodes().get(hoveredNode);
-        int currentRank = PERK_RANKS.get(treeIndex)[hoveredNode];
+        int currentRank = rankForNode(treeIndex, hoveredNode);
         int maximumRank = node.maximumRank();
         ArrayList<Component> lines = new ArrayList<>();
         lines.add(Component.literal(node.name()));
@@ -593,8 +774,8 @@ public class SkillTreeScreen extends Screen {
             lines.add(Component.literal("Rank: " + currentRank + "/" + maximumRank));
         }
         for (String detail : node.tooltip().split("\n")) {
-            if (!detail.isBlank() && !detail.startsWith("Ranks: ")) {
-                lines.add(Component.literal(detail));
+            if (!detail.isBlank() && !detail.startsWith("Ranks: ") && !detail.startsWith("Requires: ")) {
+                addTooltipDetailLine(lines, detail);
             }
         }
         lines.add(Component.literal(nodeStatus(treeIndex, hoveredNode)));
@@ -621,10 +802,34 @@ public class SkillTreeScreen extends Screen {
         }
     }
 
+    private void addTooltipDetailLine(ArrayList<Component> lines, String detail) {
+        if (this.font.width(detail) <= TOOLTIP_WRAP_WIDTH) {
+            lines.add(Component.literal(detail));
+            return;
+        }
+
+        StringBuilder line = new StringBuilder();
+        for (String word : detail.split(" ")) {
+            String candidate = line.length() == 0 ? word : line + " " + word;
+            if (line.length() > 0 && this.font.width(candidate) > TOOLTIP_WRAP_WIDTH) {
+                lines.add(Component.literal(line.toString()));
+                line.setLength(0);
+                line.append(word);
+            } else {
+                if (line.length() > 0) {
+                    line.append(' ');
+                }
+                line.append(word);
+            }
+        }
+        if (line.length() > 0) {
+            lines.add(Component.literal(line.toString()));
+        }
+    }
+
     private int nodeColor(int renderedTreeIndex, int nodeIndex, float alpha, boolean hovered) {
-        int[] ranks = PERK_RANKS.get(renderedTreeIndex);
         Node node = TREES.get(renderedTreeIndex).nodes().get(nodeIndex);
-        if (ranks[nodeIndex] >= node.maximumRank()) {
+        if (rankForNode(renderedTreeIndex, nodeIndex) >= node.maximumRank()) {
             return withAlpha(NODE_SELECTED_COLOR, alpha);
         }
         if (canUpgradeNode(renderedTreeIndex, nodeIndex)) {
@@ -634,11 +839,12 @@ public class SkillTreeScreen extends Screen {
     }
 
     private float edgeAlpha(int renderedTreeIndex, Edge edge, float alpha) {
-        int[] ranks = PERK_RANKS.get(renderedTreeIndex);
-        if (ranks[edge.from()] > 0 && ranks[edge.to()] > 0) {
+        int fromRank = rankForNode(renderedTreeIndex, edge.from());
+        int toRank = rankForNode(renderedTreeIndex, edge.to());
+        if (fromRank > 0 && toRank > 0) {
             return alpha;
         }
-        if (ranks[edge.from()] > 0 || canUpgradeNode(renderedTreeIndex, edge.to())) {
+        if (fromRank > 0 || canUpgradeNode(renderedTreeIndex, edge.to())) {
             return alpha * 0.7F;
         }
         return alpha * 0.28F;
@@ -646,7 +852,10 @@ public class SkillTreeScreen extends Screen {
 
     private String nodeStatus(int treeIndex, int nodeIndex) {
         Node node = TREES.get(treeIndex).nodes().get(nodeIndex);
-        int rank = PERK_RANKS.get(treeIndex)[nodeIndex];
+        if (node.perk() == null) {
+            return "Not implemented yet";
+        }
+        int rank = rankForNode(treeIndex, nodeIndex);
         if (rank >= node.maximumRank()) {
             return "Unlocked";
         }
@@ -663,6 +872,9 @@ public class SkillTreeScreen extends Screen {
             String prefix = rank > 0 ? "Rank " + rank + " unlocked. " : "";
             return prefix + "Requires prerequisite perk";
         }
+        if (node.perk() != null && ClientSkillPerkState.perkPoints() <= 0) {
+            return "Requires perk point";
+        }
         return "Locked";
     }
 
@@ -671,24 +883,30 @@ public class SkillTreeScreen extends Screen {
             return;
         }
 
-        PERK_RANKS.get(treeIndex)[nodeIndex]++;
+        Node node = TREES.get(treeIndex).nodes().get(nodeIndex);
+        if (node.perk() != null) {
+            ModMessages.sendToServer(new ServerboundUnlockPerkPacket(node.perk().id()));
+        }
     }
 
     private boolean canUpgradeNode(int treeIndex, int nodeIndex) {
         SkillTreeDefinition tree = TREES.get(treeIndex);
         Node node = tree.nodes().get(nodeIndex);
-        int currentRank = PERK_RANKS.get(treeIndex)[nodeIndex];
+        if (node.perk() == null) {
+            return false;
+        }
+        int currentRank = rankForNode(treeIndex, nodeIndex);
         return currentRank < node.maximumRank()
+                && ClientSkillPerkState.perkPoints() > 0
                 && skillValue(tree) >= node.requiredSkillForRank(currentRank)
                 && prerequisitesMet(treeIndex, nodeIndex, node);
     }
 
     private boolean prerequisitesMet(int treeIndex, int nodeIndex, Node node) {
-        int[] ranks = PERK_RANKS.get(treeIndex);
         SkillTreeDefinition tree = TREES.get(treeIndex);
         for (String prerequisite : node.prerequisites()) {
             int prerequisiteIndex = findNodeIndex(tree.nodes(), prerequisite);
-            if (prerequisiteIndex >= 0 && ranks[prerequisiteIndex] > 0) {
+            if (prerequisiteIndex >= 0 && rankForNode(treeIndex, prerequisiteIndex) > 0) {
                 return true;
             }
         }
@@ -700,7 +918,7 @@ public class SkillTreeScreen extends Screen {
         for (Edge edge : tree.edges()) {
             if (edge.to() == nodeIndex) {
                 hasIncomingEdge = true;
-                if (ranks[edge.from()] > 0) {
+                if (rankForNode(treeIndex, edge.from()) > 0) {
                     return true;
                 }
             }
@@ -709,6 +927,11 @@ public class SkillTreeScreen extends Screen {
             return false;
         }
         return true;
+    }
+
+    private int rankForNode(int treeIndex, int nodeIndex) {
+        Node node = TREES.get(treeIndex).nodes().get(nodeIndex);
+        return node.perk() == null ? 0 : ClientSkillPerkState.rank(node.perk());
     }
 
     private void drawNode(GuiGraphics guiGraphics, int x, int y, int color, int glowColor, int coreColor) {
@@ -913,14 +1136,6 @@ public class SkillTreeScreen extends Screen {
                 .append(Component.literal(String.valueOf(skillValue(tree))).withStyle(ChatFormatting.BOLD));
     }
 
-    private static List<int[]> createPerkRanks() {
-        ArrayList<int[]> ranks = new ArrayList<>(TREES.size());
-        for (SkillTreeDefinition tree : TREES) {
-            ranks.add(new int[tree.nodes().size()]);
-        }
-        return List.copyOf(ranks);
-    }
-
     private static SkillTreeDefinition tree(RegistryObject<Attribute> attribute, int sourceWidth, int sourceHeight,
                                             List<Node> nodes, List<EdgeDefinition> edges) {
         return new SkillTreeDefinition(attribute, sourceWidth, sourceHeight, nodes, indexedEdges(nodes, edges));
@@ -931,7 +1146,15 @@ public class SkillTreeScreen extends Screen {
     }
 
     private static Node perk(String name, String tooltip, double x, double y) {
-        return new Node(name, tooltip, skillRequirements(tooltip), prerequisites(tooltip), x, y);
+        return new Node(null, name, tooltip, skillRequirements(tooltip), prerequisites(tooltip), x, y);
+    }
+
+    private static Node perk(SkillPerk perk, String tooltip, double x, double y) {
+        return new Node(perk, perk.displayName(), tooltip, skillRequirements(tooltip), prerequisites(tooltip), x, y);
+    }
+
+    private static String tooltip(String... lines) {
+        return String.join("\n", lines);
     }
 
     private static List<EdgeDefinition> links(String... names) {
@@ -1036,8 +1259,8 @@ public class SkillTreeScreen extends Screen {
         }
     }
 
-    private record Node(String name, String tooltip, int[] skillRequirements, List<String> prerequisites, double x,
-                        double y) {
+    private record Node(SkillPerk perk, String name, String tooltip, int[] skillRequirements,
+                        List<String> prerequisites, double x, double y) {
         private int maximumRank() {
             return skillRequirements.length;
         }

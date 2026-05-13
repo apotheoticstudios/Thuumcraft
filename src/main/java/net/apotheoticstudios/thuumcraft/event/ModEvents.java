@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.item.IngredientKnowledge;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -24,6 +25,7 @@ public class ModEvents {
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             IngredientKnowledge.sync(player);
+            SkillPerk.sync(player);
         }
     }
 
@@ -31,6 +33,7 @@ public class ModEvents {
     public static void onPlayerClone(PlayerEvent.Clone event) {
         IngredientKnowledge.copy(event.getOriginal(), event.getEntity());
         if (event.getEntity() instanceof ServerPlayer player) {
+            SkillPerk.copy(event.getOriginal(), player);
             IngredientKnowledge.sync(player);
         }
     }

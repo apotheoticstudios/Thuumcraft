@@ -112,7 +112,7 @@ public final class SituationalCrosshairClientEvents {
         }
 
         SneakAwareness sneakAwareness = ClientSneakAwarenessState.awareness();
-        if ((player.isCrouching() || player.isShiftKeyDown())
+        if (isTryingToSneak(player)
                 && Config.ENABLE_STEALTH_SYSTEM.get()
                 && sneakAwareness != SneakAwareness.DISABLED) {
             return switch (sneakAwareness) {
@@ -167,6 +167,25 @@ public final class SituationalCrosshairClientEvents {
         }
 
         return CrosshairProfile.of(CrosshairSprite.NORMAL);
+    }
+
+    private static boolean isTryingToSneak(Player player) {
+        return (player.isCrouching() || player.isShiftKeyDown()) && canEnterStealthMode(player);
+    }
+
+    private static boolean canEnterStealthMode(Player player) {
+        if (!player.onGround()
+                || player.isInWaterOrBubble()
+                || player.isInLava()
+                || player.isSwimming()
+                || player.isFallFlying()
+                || player.getAbilities().flying) {
+            return false;
+        }
+
+        BlockPos groundPos = player.getOnPos();
+        BlockState groundState = player.level().getBlockState(groundPos);
+        return !groundState.getCollisionShape(player.level(), groundPos).isEmpty();
     }
 
     private static ItemStack getActiveOrMainHandItem(Player player) {

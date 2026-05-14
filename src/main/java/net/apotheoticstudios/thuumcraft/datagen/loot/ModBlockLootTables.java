@@ -37,6 +37,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(), ModItems.MOONSTONE_ORE.get()));
 
+        this.add(ModBlocks.QUICKSILVER_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.QUICKSILVER_ORE_VEIN.get(), ModItems.QUICKSILVER_ORE.get()));
+        this.add(ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get(),
+                block -> createOreDrop(ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get(), ModItems.QUICKSILVER_ORE.get()));
+
         this.add(ModBlocks.SILVER_ORE_VEIN.get(),
                 block -> createOreDrop(ModBlocks.SILVER_ORE_VEIN.get(), ModItems.SILVER_ORE.get()));
         this.add(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get(),

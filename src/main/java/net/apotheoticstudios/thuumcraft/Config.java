@@ -7,6 +7,9 @@ public class Config {
     public static final ForgeConfigSpec.DoubleValue MOB_DROP_CHANCE;
     public static final ForgeConfigSpec.DoubleValue CHEST_DROP_CHANCE;
     public static final ForgeConfigSpec.DoubleValue FISHING_DROP_CHANCE;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_PLAYER_ARROW_TRAJECTORY_TUNING;
+    public static final ForgeConfigSpec.DoubleValue PLAYER_ARROW_VELOCITY_MULTIPLIER;
+    public static final ForgeConfigSpec.BooleanValue PRESERVE_PLAYER_ARROW_DAMAGE;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKILL_SYSTEM;
     public static final ForgeConfigSpec.BooleanValue ENABLE_STEALTH_SYSTEM;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKYRIM_HUD_AND_STAMINA;
@@ -43,6 +46,14 @@ public class Config {
         MOB_DROP_CHANCE = builder.comment("Chance for the following mobs to drop a random book (default is 1.0%):").comment("zombie, skeleton, pillager, witch").defineInRange("mobDropChance", 0.01, (double)0.0F, (double)1.0F);
         CHEST_DROP_CHANCE = builder.comment("Chance for the following chests to contain a random book (default is 5%):").comment("shipwreck (treasure and supply), simple dungeon, desert pyramid, jungle temple, woodland mansion ancient city, abandoned mineshaft, nether bridge, igloo chest, bastion (bridge, other, and treasure)").defineInRange("chestDropChance", 0.05, (double)0.0F, (double)1.0F);
         FISHING_DROP_CHANCE = builder.comment("Chance for fishing junk loot to include a random book (default is 3%)").defineInRange("fishingDropChance", 0.03, (double)0.0F, (double)1.0F);
+        builder.pop();
+        builder.comment("Ranged combat tuning").push("rangedCombat");
+        ENABLE_PLAYER_ARROW_TRAJECTORY_TUNING = builder.comment("Enable faster, flatter player-fired arrow trajectories.")
+                .define("enablePlayerArrowTrajectoryTuning", true);
+        PLAYER_ARROW_VELOCITY_MULTIPLIER = builder.comment("Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less.")
+                .defineInRange("playerArrowVelocityMultiplier", 1.35D, 0.1D, 10.0D);
+        PRESERVE_PLAYER_ARROW_DAMAGE = builder.comment("Compensate the arrow damage attribute by the inverse velocity multiplier. Vanilla arrow damage scales with impact speed, so disabling this makes faster arrows hit harder.")
+                .define("preservePlayerArrowDamage", true);
         builder.pop();
         builder.comment("Skyrim-style skill progression and perk tree settings").push("skills");
         ENABLE_SKILL_SYSTEM = builder.comment("Set to false to completely disable skill XP progression, character level, perk points, skill tree unlocking and perk ability effects.")

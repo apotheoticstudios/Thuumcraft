@@ -47,6 +47,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ORICHALCUM_INGOT = ITEMS.register("orichalcum_ingot",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> QUICKSILVER_INGOT = ITEMS.register("quicksilver_ingot",
+            () -> new Item(new Item.Properties()));
 
 
     public static final RegistryObject<Item> MALACHITE_ORE = ITEMS.register("malachite_ore",
@@ -60,6 +62,8 @@ public class ModItems {
     public static final RegistryObject<Item> ORICHALCUM_ORE = ITEMS.register("orichalcum_ore",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EBONY_ORE = ITEMS.register("ebony_ore",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> QUICKSILVER_ORE = ITEMS.register("quicksilver_ore",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> LEATHER_STRIPS = ITEMS.register("leather_strips",

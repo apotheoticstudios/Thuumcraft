@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-13T14:29:02.849536	Item Models: thuumcraft
+// 1.20.1	2026-05-14T19:14:12.068294	Item Models: thuumcraft
 9068028bd9cf2323b3033204e5fbd0f7c14d6da9 assets/thuumcraft/models/item/abecean_longfin.json
 95af6ae2bdc88dc50cb1ad97b819a59a15a28215 assets/thuumcraft/models/item/alocasia_fruit.json
 aad725a0c8ad719ac2ff8f46c2aa0a8175dee426 assets/thuumcraft/models/item/aloe_vera_leaves.json
@@ -160,6 +160,8 @@ f796cb720cf0070b45ddd37117b269bf8854b2d6 assets/thuumcraft/models/item/pine_thru
 80386c84f3ce946b2fa156a314f5463d861f28ff assets/thuumcraft/models/item/purple_butterfly_wing.json
 28956c7fa7a6a817b3036a9497a259a43bbcada1 assets/thuumcraft/models/item/purple_mountain_flower.json
 b04d9e1bf8a8110afbe346dd24eea8c596ebe4e8 assets/thuumcraft/models/item/pygmy_sunfish.json
+b14bb91fdfce1740fd6e54f18e0da39811cad216 assets/thuumcraft/models/item/quicksilver_ingot.json
+bb8cfc9dc7e1711522b36734d8c98493bda9feb6 assets/thuumcraft/models/item/quicksilver_ore.json
 bcdb13d37287ad69d913aa79552e48d09cb8eee2 assets/thuumcraft/models/item/red_kelp_gas_bladder.json
 5252703f6294ba23eb621e210e1081f660a106da assets/thuumcraft/models/item/red_mountain_flower.json
 a2502af545de72c66e297ad04c1d6ff39ff491cf assets/thuumcraft/models/item/redwort_flower.json

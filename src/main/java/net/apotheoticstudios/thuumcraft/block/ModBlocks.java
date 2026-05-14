@@ -45,6 +45,13 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
                     .strength(3f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST), UniformInt.of(1, 4)));
 
+    public static final RegistryObject<Block> QUICKSILVER_ORE_VEIN = registerBlock("quicksilver_ore_vein",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f).requiresCorrectToolForDrops().sound(SoundType.METAL), UniformInt.of(1, 3)));
+    public static final RegistryObject<Block> DEEPSLATE_QUICKSILVER_ORE_VEIN = registerBlock("deepslate_quicksilver_ore_vein",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(3f).requiresCorrectToolForDrops().sound(SoundType.METAL), UniformInt.of(1, 4)));
+
     public static final RegistryObject<Block> SILVER_ORE_VEIN = registerBlock("silver_ore_vein",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(2f).requiresCorrectToolForDrops().sound(SoundType.METAL), UniformInt.of(1, 3)));

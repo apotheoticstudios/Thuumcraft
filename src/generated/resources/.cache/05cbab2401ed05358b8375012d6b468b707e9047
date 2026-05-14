@@ -1,8 +1,9 @@
-// 1.20.1	2026-05-03T16:45:53.8095335	Tags for minecraft:block mod id thuumcraft
+// 1.20.1	2026-05-14T19:14:12.071158	Tags for minecraft:block mod id thuumcraft
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/forge/tags/blocks/needs_netherite_tool.json
-4c65b6eec7c8e3ac7ea2391e127710b66fc35a0d data/minecraft/tags/blocks/mineable/pickaxe.json
+64c65c40bdee3c6f6e8e76cc0b78e59447d74656 data/forge/tags/blocks/ores.json
+c39036265f6184d79ba82bd7d1b6f7dcaadd4caf data/minecraft/tags/blocks/mineable/pickaxe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_diamond_tool.json
-4c65b6eec7c8e3ac7ea2391e127710b66fc35a0d data/minecraft/tags/blocks/needs_iron_tool.json
+c39036265f6184d79ba82bd7d1b6f7dcaadd4caf data/minecraft/tags/blocks/needs_iron_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_stone_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/thuumcraft/tags/blocks/needs_dwarven_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/thuumcraft/tags/blocks/needs_ebony_tool.json

@@ -3,20 +3,24 @@ package net.apotheoticstudios.thuumcraft.datagen;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagGenerator extends ItemTagsProvider {
+    private static final TagKey<Item> FORGE_ORES = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath("forge", "ores"));
+
     public ModItemTagGenerator(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pLookupProvider, CompletableFuture<TagLookup<Block>> pBlockTags, @Nullable ExistingFileHelper existingFileHelper) {
         super(pOutput, pLookupProvider, pBlockTags, Thuumcraft.MOD_ID, existingFileHelper);
     }
@@ -31,7 +35,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.SILVER_INGOT.get(),
                         ModItems.REFINED_MALACHITE.get(),
                         ModItems.REFINED_MOONSTONE.get(),
-                        ModItems.ORICHALCUM_INGOT.get()
+                        ModItems.ORICHALCUM_INGOT.get(),
+                        ModItems.QUICKSILVER_INGOT.get()
 
                 );
 
@@ -41,7 +46,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.CORUNDUM_ORE.get(),
                         ModItems.EBONY_ORE.get(),
                         ModItems.MOONSTONE_ORE.get(),
-                        ModItems.SILVER_ORE.get()
+                        ModItems.SILVER_ORE.get(),
+                        ModItems.QUICKSILVER_ORE.get()
 
                 );
 

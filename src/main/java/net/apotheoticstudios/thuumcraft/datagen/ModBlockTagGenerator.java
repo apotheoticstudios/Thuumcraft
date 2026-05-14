@@ -34,6 +34,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get(),
                         ModBlocks.MOONSTONE_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(),
+                        ModBlocks.QUICKSILVER_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get(),
                         ModBlocks.SILVER_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get()
 
@@ -52,10 +54,16 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
                         ModBlocks.MOONSTONE_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(),
+
+                        ModBlocks.QUICKSILVER_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get(),
+
                         ModBlocks.SILVER_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get(),
+
                         ModBlocks.ORICHALCUM_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get(),
+
                         ModBlocks.EBONY_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get()
 
@@ -91,6 +99,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
                         ModBlocks.MOONSTONE_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(),
+                        ModBlocks.QUICKSILVER_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get(),
                         ModBlocks.SILVER_ORE_VEIN.get(),
                         ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get(),
                         ModBlocks.ORICHALCUM_ORE_VEIN.get(),

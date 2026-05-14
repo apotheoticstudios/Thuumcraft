@@ -98,3 +98,13 @@
 	#Set to false to completely disable skill XP progression, character level, perk points, skill tree unlocking and perk ability effects.
 	enableSkillSystem = true
 
+#Ranged combat tuning
+[rangedCombat]
+	#Enable faster, flatter player-fired arrow trajectories.
+	enablePlayerArrowTrajectoryTuning = true
+	#Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less.
+	#Range: 0.1 ~ 10.0
+	playerArrowVelocityMultiplier = 1.35
+	#Compensate the arrow damage attribute by the inverse velocity multiplier. Vanilla arrow damage scales with impact speed, so disabling this makes faster arrows hit harder.
+	preservePlayerArrowDamage = true
+

@@ -8,12 +8,15 @@
     "M": {
       "item": "thuumcraft:refined_moonstone"
     },
+    "Q": {
+      "item": "thuumcraft:quicksilver_ingot"
+    },
     "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "MM",
+    "MQ",
     "MS",
     " H"
   ],

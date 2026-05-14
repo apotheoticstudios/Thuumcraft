@@ -19,6 +19,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MALACHITE_ORE_VEIN_PLACED_KEY = registerKey("malachite_ore_vein_placed");
     public static final ResourceKey<PlacedFeature> CORUNDUM_ORE_VEIN_PLACED_KEY = registerKey("corundum_ore_vein_placed");
     public static final ResourceKey<PlacedFeature> MOONSTONE_ORE_VEIN_PLACED_KEY = registerKey("moonstone_ore_vein_placed");
+    public static final ResourceKey<PlacedFeature> QUICKSILVER_ORE_VEIN_PLACED_KEY = registerKey("quicksilver_ore_vein_placed");
     public static final ResourceKey<PlacedFeature> SILVER_ORE_VEIN_PLACED_KEY = registerKey("silver_ore_vein_placed");
     public static final ResourceKey<PlacedFeature> ORICHALCUM_ORE_VEIN_PLACED_KEY = registerKey("orichalcum_ore_vein_placed");
     public static final ResourceKey<PlacedFeature> EBONY_ORE_VEIN_PLACED_KEY = registerKey("ebony_ore_vein_placed");
@@ -37,6 +38,10 @@ public class ModPlacedFeatures {
         register(context, MOONSTONE_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_MOONSTONE_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(4,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-48), VerticalAnchor.absolute(64))));
+
+        register(context, QUICKSILVER_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_QUICKSILVER_ORE_KEY),
+                ModOrePlacement.rareOrePlacement(3,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-32), VerticalAnchor.absolute(96))));
 
         register(context, SILVER_ORE_VEIN_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_SILVER_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(4,

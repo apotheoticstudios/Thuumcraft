@@ -35,6 +35,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             ModBlocks.MOONSTONE_ORE_VEIN.get(),
             ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get());
 
+    private static final List<ItemLike> QUICKSILVER_SMELTABLES = List.of(ModItems.QUICKSILVER_ORE.get(),
+            ModBlocks.QUICKSILVER_ORE_VEIN.get(),
+            ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get());
+
     private static final List<ItemLike> SILVER_SMELTABLES = List.of(ModItems.SILVER_ORE.get(),
             ModBlocks.SILVER_ORE_VEIN.get(),
             ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get());
@@ -72,6 +76,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreSmelting(pWriter, MOONSTONE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MOONSTONE.get(), 0.7f, 400, "refined_moonstone");
         oreBlasting(pWriter, MOONSTONE_SMELTABLES, RecipeCategory.MISC, ModItems.REFINED_MOONSTONE.get(), 0.7f, 200, "refined_moonstone");
 
+        //QUICKSILVER
+        oreSmelting(pWriter, QUICKSILVER_SMELTABLES, RecipeCategory.MISC, ModItems.QUICKSILVER_INGOT.get(), 0.7f, 400, "quicksilver_ingot");
+        oreBlasting(pWriter, QUICKSILVER_SMELTABLES, RecipeCategory.MISC, ModItems.QUICKSILVER_INGOT.get(), 0.7f, 200, "quicksilver_ingot");
+
         //ORICHALCUM
         oreSmelting(pWriter, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT.get(), 0.7f, 400, "orichalcum_ingot");
         oreBlasting(pWriter, ORICHALCUM_SMELTABLES, RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT.get(), 0.7f, 200, "orichalcum_ingot");
@@ -106,7 +114,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         swordRecipe(pWriter, ModItems.STEEL_SWORD.get(), ModItems.STEEL_INGOT.get());
         swordRecipe(pWriter, ModItems.DWARVEN_SWORD.get(), ModItems.DWARVEN_METAL_INGOT.get());
         swordRecipe(pWriter, ModItems.ORCISH_SWORD.get(), ModItems.ORICHALCUM_INGOT.get());
-        swordRecipe(pWriter, ModItems.ELVEN_SWORD.get(), ModItems.REFINED_MOONSTONE.get());
+        elvenSwordRecipe(pWriter, ModItems.ELVEN_SWORD.get());
         glassSwordRecipe(pWriter, ModItems.GLASS_SWORD.get());
         swordRecipe(pWriter, ModItems.EBONY_SWORD.get(), ModItems.EBONY_INGOT.get());
 
@@ -115,7 +123,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         warAxeRecipe(pWriter, ModItems.STEEL_WAR_AXE.get(), ModItems.STEEL_INGOT.get());
         warAxeRecipe(pWriter, ModItems.DWARVEN_WAR_AXE.get(), ModItems.DWARVEN_METAL_INGOT.get());
         warAxeRecipe(pWriter, ModItems.ORCISH_WAR_AXE.get(), ModItems.ORICHALCUM_INGOT.get());
-        warAxeRecipe(pWriter, ModItems.ELVEN_WAR_AXE.get(), ModItems.REFINED_MOONSTONE.get());
+        elvenWarAxeRecipe(pWriter, ModItems.ELVEN_WAR_AXE.get());
         glassWarAxeRecipe(pWriter, ModItems.GLASS_WAR_AXE.get());
         warAxeRecipe(pWriter, ModItems.EBONY_WAR_AXE.get(), ModItems.EBONY_INGOT.get());
 
@@ -140,6 +148,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(writer);
     }
 
+    private void elvenSwordRecipe(Consumer<FinishedRecipe> writer, ItemLike result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
+                .pattern("M")
+                .pattern("Q")
+                .pattern("H")
+                .define('M', ModItems.REFINED_MOONSTONE.get())
+                .define('Q', ModItems.QUICKSILVER_INGOT.get())
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.REFINED_MOONSTONE.get()), has(ModItems.REFINED_MOONSTONE.get()))
+                .save(writer);
+    }
+
     private void glassSwordRecipe(Consumer<FinishedRecipe> writer, ItemLike result) {
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
                 .pattern("R")
@@ -161,6 +181,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .define('H', ModItems.HANDLE.get())
                 .unlockedBy(getHasName(material), has(material))
+                .save(writer);
+    }
+
+    private void elvenWarAxeRecipe(Consumer<FinishedRecipe> writer, ItemLike result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result)
+                .pattern("MQ")
+                .pattern("MS")
+                .pattern(" H")
+                .define('M', ModItems.REFINED_MOONSTONE.get())
+                .define('Q', ModItems.QUICKSILVER_INGOT.get())
+                .define('S', Items.STICK)
+                .define('H', ModItems.HANDLE.get())
+                .unlockedBy(getHasName(ModItems.REFINED_MOONSTONE.get()), has(ModItems.REFINED_MOONSTONE.get()))
                 .save(writer);
     }
 

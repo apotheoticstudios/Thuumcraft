@@ -12,6 +12,8 @@ import net.apotheoticstudios.thuumcraft.item.ModCreativeModeTabs;
 import net.apotheoticstudios.thuumcraft.item.ModFoods;
 import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.apotheoticstudios.thuumcraft.loot.ModLootModifiers;
+import net.apotheoticstudios.thuumcraft.magic.IronSpellbooksItemDisabler;
+import net.apotheoticstudios.thuumcraft.magic.ModSpellSchools;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
@@ -50,6 +52,8 @@ public class Thuumcraft {
 
         ModEffects.register(modEventBus);
 
+        ModSpellSchools.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -75,6 +79,7 @@ public class Thuumcraft {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        IronSpellbooksItemDisabler.removeFromCreativeTab(event);
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
         }
     }

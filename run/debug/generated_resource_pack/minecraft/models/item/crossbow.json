@@ -113,13 +113,6 @@
         "minecraft:charged": 1.0,
         "supplementaries:rope_arrow": 1.0
       }
-    },
-    {
-      "model": "minecraft:item/crossbow_rope_arrow",
-      "predicate": {
-        "minecraft:charged": 1.0,
-        "supplementaries:rope_arrow": 1.0
-      }
     }
   ]
 }

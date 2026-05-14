@@ -29,6 +29,7 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.PlayLevelSoundEvent;
@@ -596,7 +597,22 @@ public final class SneakAwarenessEvents {
     }
 
     private static boolean isTryingToSneak(Player player) {
-        return player.isCrouching() || player.isShiftKeyDown();
+        return (player.isCrouching() || player.isShiftKeyDown()) && canEnterStealthMode(player);
+    }
+
+    private static boolean canEnterStealthMode(Player player) {
+        if (!player.onGround()
+                || player.isInWaterOrBubble()
+                || player.isInLava()
+                || player.isSwimming()
+                || player.isFallFlying()
+                || player.getAbilities().flying) {
+            return false;
+        }
+
+        BlockPos groundPos = player.getOnPos();
+        BlockState groundState = player.level().getBlockState(groundPos);
+        return !groundState.getCollisionShape(player.level(), groundPos).isEmpty();
     }
 
     private static float getRecentNoise(ServerPlayer player) {

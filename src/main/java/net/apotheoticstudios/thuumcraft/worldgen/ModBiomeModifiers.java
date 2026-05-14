@@ -17,12 +17,14 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_MALACHITE_ORE_VEIN = registerKey("add_malachite_ore_vein");
     public static final ResourceKey<BiomeModifier> ADD_CORUNDUM_ORE_VEIN = registerKey("add_corundum_ore_vein");
     public static final ResourceKey<BiomeModifier> ADD_MOONSTONE_ORE_VEIN = registerKey("add_moonstone_ore_vein");
+    public static final ResourceKey<BiomeModifier> ADD_QUICKSILVER_ORE_VEIN = registerKey("add_quicksilver_ore_vein");
     public static final ResourceKey<BiomeModifier> ADD_SILVER_ORE_VEIN = registerKey("add_silver_ore_vein");
     public static final ResourceKey<BiomeModifier> ADD_ORICHALCUM_ORE_VEIN = registerKey("add_orichalcum_ore_vein");
     public static final ResourceKey<BiomeModifier> ADD_EBONY_ORE_VEIN = registerKey("add_ebony_ore_vein");
     private static final TagKey<Biome> MALACHITE_ORE_BIOMES = biomeTag("malachite_ore_biomes");
     private static final TagKey<Biome> CORUNDUM_ORE_BIOMES = biomeTag("corundum_ore_biomes");
     private static final TagKey<Biome> MOONSTONE_ORE_BIOMES = biomeTag("moonstone_ore_biomes");
+    private static final TagKey<Biome> QUICKSILVER_ORE_BIOMES = biomeTag("quicksilver_ore_biomes");
     private static final TagKey<Biome> SILVER_ORE_BIOMES = biomeTag("silver_ore_biomes");
     private static final TagKey<Biome> ORICHALCUM_ORE_BIOMES = biomeTag("orichalcum_ore_biomes");
     private static final TagKey<Biome> EBONY_ORE_BIOMES = biomeTag("ebony_ore_biomes");
@@ -44,6 +46,11 @@ public class ModBiomeModifiers {
         context.register(ADD_MOONSTONE_ORE_VEIN, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(MOONSTONE_ORE_BIOMES),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.MOONSTONE_ORE_VEIN_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_QUICKSILVER_ORE_VEIN, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(QUICKSILVER_ORE_BIOMES),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.QUICKSILVER_ORE_VEIN_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_SILVER_ORE_VEIN, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(

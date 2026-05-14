@@ -84,6 +84,7 @@ public final class SkillPerkEvents {
     private static final int ARCHERY_CRITICAL_SHOT_ENCHANTED_PARTICLES = 8;
     private static final int ARCHERY_POWER_SHOT_POOF_PARTICLES = 16;
     private static final int ARCHERY_POWER_SHOT_CLOUD_PARTICLES = 8;
+    private static final double EAGLE_EYE_STAMINA_COST_PER_TICK = 0.08D;
     private static final double POWER_ATTACK_STAMINA_COST = 12.0D;
     private static final UUID ARMOR_BONUS_MODIFIER = UUID.fromString("f1fb1334-1098-4ed2-bcdd-803448596ff8");
     private static final UUID ATTACK_SPEED_BONUS_MODIFIER = UUID.fromString("91185af2-b84f-4ca5-b8b4-e1c34d1b334f");
@@ -100,6 +101,18 @@ public final class SkillPerkEvents {
     private static boolean applyingSecondaryDamage;
 
     private SkillPerkEvents() {
+    }
+
+    public static void setEagleEyeZooming(ServerPlayer player, boolean zooming) {
+        if (!zooming) {
+            RuntimeState runtime = RUNTIME.get(player.getUUID());
+            if (runtime != null) {
+                runtime.eagleEyeZooming = false;
+            }
+            return;
+        }
+
+        RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState()).eagleEyeZooming = true;
     }
 
     @SubscribeEvent
@@ -648,13 +661,20 @@ public final class SkillPerkEvents {
                 blockRunner, AttributeModifier.Operation.MULTIPLY_TOTAL);
 
         boolean usingRanged = player.isUsingItem() && isRangedWeapon(player.getUseItem());
-        if (usingRanged && SkillPerk.has(player, SkillPerk.ARCHERY_EAGLE_EYE)
-                && !StaminaEvents.tryConsumeCurrentStamina(player, 0.06D)) {
+        boolean eagleEyeZooming = usingRanged
+                && RUNTIME.getOrDefault(player.getUUID(), RuntimeState.EMPTY).eagleEyeZooming
+                && SkillPerk.has(player, SkillPerk.ARCHERY_EAGLE_EYE);
+        if (eagleEyeZooming && !StaminaEvents.tryConsumeCurrentStamina(player, EAGLE_EYE_STAMINA_COST_PER_TICK)) {
             player.stopUsingItem();
             usingRanged = false;
+            eagleEyeZooming = false;
+            RuntimeState runtime = RUNTIME.get(player.getUUID());
+            if (runtime != null) {
+                runtime.eagleEyeZooming = false;
+            }
         }
         int steadyHand = SkillPerk.rank(player, SkillPerk.ARCHERY_STEADY_HAND);
-        if (usingRanged && steadyHand > 0 && player.tickCount % 5 == 0) {
+        if (eagleEyeZooming && steadyHand > 0 && player.tickCount % 5 == 0) {
             applySteadyHandSlow(player, steadyHand);
         }
         double ranger = SkillPerk.has(player, SkillPerk.ARCHERY_RANGER) && usingRanged ? 0.18D : 0.0D;
@@ -973,7 +993,9 @@ public final class SkillPerkEvents {
     }
 
     private static final class RuntimeState {
+        private static final RuntimeState EMPTY = new RuntimeState();
         private int lastShieldChargeTick = -1000;
+        private boolean eagleEyeZooming;
     }
 
     private static final class BleedState {

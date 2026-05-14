@@ -25,6 +25,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN);
         blockWithItem(ModBlocks.MOONSTONE_ORE_VEIN);
         blockWithItem(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN);
+        blockWithItem(ModBlocks.QUICKSILVER_ORE_VEIN);
+        blockWithItem(ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN);
         blockWithItem(ModBlocks.SILVER_ORE_VEIN);
         blockWithItem(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN);
         blockWithItem(ModBlocks.ORICHALCUM_ORE_VEIN);

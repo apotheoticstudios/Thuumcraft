@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_quicksilver_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thuumcraft:quicksilver_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thuumcraft:quicksilver_ingot_from_blasting_quicksilver_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_quicksilver_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thuumcraft:quicksilver_ingot_from_blasting_quicksilver_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -11,7 +11,6 @@ import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -838,89 +837,31 @@ public class SkillTreeScreen extends Screen {
     }
 
     private static Component formatTooltipTitle(String title) {
-        return Component.literal(title).withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD,
-                ChatFormatting.UNDERLINE);
+        return Component.literal(title).withStyle(ChatFormatting.GOLD, ChatFormatting.UNDERLINE);
     }
 
     private static Component formatTooltipRank(int currentRank, int maximumRank) {
-        return Component.literal("Rank ")
-                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)
-                .append(Component.literal(currentRank + "/" + maximumRank)
-                        .withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD, ChatFormatting.UNDERLINE));
+        return Component.literal("Rank: " + currentRank + "/" + maximumRank);
     }
 
     private static Component formatTooltipDetail(String detail, boolean continuation) {
-        if (continuation) {
-            return Component.literal("  " + detail).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC);
-        }
-
-        int separator = detail.indexOf(':');
-        if (separator <= 0) {
-            return Component.literal(detail).withStyle(ChatFormatting.GRAY);
-        }
-
-        String label = detail.substring(0, separator);
-        String text = detail.substring(separator + 1);
-        MutableComponent component = Component.literal(label + ":")
-                .withStyle(detailLabelFormatting(label));
-        if (!text.isBlank()) {
-            component.append(Component.literal(text).withStyle(detailTextFormatting(label)));
-        }
-        return component;
-    }
-
-    private static ChatFormatting[] detailLabelFormatting(String label) {
-        return switch (label) {
-            case "Bonus" -> new ChatFormatting[] {
-                    ChatFormatting.GOLD, ChatFormatting.BOLD, ChatFormatting.UNDERLINE
-            };
-            case "Effect" -> new ChatFormatting[] {
-                    ChatFormatting.AQUA, ChatFormatting.BOLD, ChatFormatting.UNDERLINE
-            };
-            case "Cost" -> new ChatFormatting[] {
-                    ChatFormatting.RED, ChatFormatting.BOLD, ChatFormatting.UNDERLINE
-            };
-            case "Utility" -> new ChatFormatting[] {
-                    ChatFormatting.GREEN, ChatFormatting.BOLD, ChatFormatting.ITALIC
-            };
-            case "Note" -> new ChatFormatting[] {
-                    ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD, ChatFormatting.ITALIC
-            };
-            default -> new ChatFormatting[] {
-                    ChatFormatting.YELLOW, ChatFormatting.BOLD
-            };
-        };
-    }
-
-    private static ChatFormatting[] detailTextFormatting(String label) {
-        return switch (label) {
-            case "Cost" -> new ChatFormatting[] {
-                    ChatFormatting.RED
-            };
-            case "Utility", "Note" -> new ChatFormatting[] {
-                    ChatFormatting.GRAY, ChatFormatting.ITALIC
-            };
-            default -> new ChatFormatting[] {
-                    ChatFormatting.GRAY
-            };
-        };
+        return Component.literal(continuation ? "  " + detail : detail);
     }
 
     private static Component formatTooltipStatus(String status) {
-        if (status.contains("Unlocked")) {
-            return Component.literal(status).withStyle(ChatFormatting.GREEN, ChatFormatting.BOLD);
+        if (status.equals("Unlocked")) {
+            return Component.literal(status).withStyle(ChatFormatting.GREEN);
         }
         if (status.equals("Available")) {
-            return Component.literal(status).withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD,
-                    ChatFormatting.UNDERLINE);
+            return Component.literal(status).withStyle(ChatFormatting.GOLD);
         }
-        if (status.startsWith("Requires")) {
-            return Component.literal(status).withStyle(ChatFormatting.RED, ChatFormatting.ITALIC);
+        if (status.equals("Locked") || status.startsWith("Requires") || status.contains("Locked")) {
+            return Component.literal(status).withStyle(ChatFormatting.RED);
         }
         if (status.equals("Not implemented yet")) {
-            return Component.literal(status).withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC);
+            return Component.literal(status).withStyle(ChatFormatting.DARK_GRAY);
         }
-        return Component.literal(status).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC);
+        return Component.literal(status).withStyle(ChatFormatting.GRAY);
     }
 
     private int nodeColor(int renderedTreeIndex, int nodeIndex, float alpha, boolean hovered) {

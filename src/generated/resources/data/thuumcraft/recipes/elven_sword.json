@@ -7,11 +7,14 @@
     },
     "M": {
       "item": "thuumcraft:refined_moonstone"
+    },
+    "Q": {
+      "item": "thuumcraft:quicksilver_ingot"
     }
   },
   "pattern": [
     "M",
-    "M",
+    "Q",
     "H"
   ],
   "result": {

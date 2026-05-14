@@ -26,6 +26,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.MOONSTONE_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.QUICKSILVER_ORE_VEIN.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_QUICKSILVER_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.SILVER_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get());
                         pOutput.accept(ModBlocks.ORICHALCUM_ORE_VEIN.get());
@@ -36,6 +38,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.MALACHITE_ORE.get());
                         pOutput.accept(ModItems.CORUNDUM_ORE.get());
                         pOutput.accept(ModItems.MOONSTONE_ORE.get());
+                        pOutput.accept(ModItems.QUICKSILVER_ORE.get());
                         pOutput.accept(ModItems.SILVER_ORE.get());
                         pOutput.accept(ModItems.ORICHALCUM_ORE.get());
                         pOutput.accept(ModItems.EBONY_ORE.get());
@@ -46,6 +49,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.STEEL_INGOT.get());
                         pOutput.accept(ModItems.ORICHALCUM_INGOT.get());
                         pOutput.accept(ModItems.REFINED_MOONSTONE.get());
+                        pOutput.accept(ModItems.QUICKSILVER_INGOT.get());
                         pOutput.accept(ModItems.SILVER_INGOT.get());
                         pOutput.accept(ModItems.EBONY_INGOT.get());
 

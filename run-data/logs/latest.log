@@ -1,72 +1,103 @@
-[13May2026 14:28:46.959] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
-[13May2026 14:28:46.966] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Microsoft; OS Mac OS X arch aarch64 version 26.3.1
-[13May2026 14:28:47.056] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[13May2026 14:28:47.104] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/bowieconnors/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
-[13May2026 14:28:47.400] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.10/ccc533c7dd67e0983217197d7549c8b49e7ab453/javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[13May2026 14:28:47.403] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.10/e9a2879fe3612ea34b9728ec2633304a1e67d480/lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[13May2026 14:28:47.404] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.10/ec5cefbbc65c67302b8fac317010faab85fa14b9/mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
-[13May2026 14:28:47.404] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.10/94dae566be650566ea9115a1414ab76bfcf5a804/fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
-[13May2026 14:28:47.748] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 11 dependencies adding them to mods collection
-[13May2026 14:28:49.823] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[13May2026 14:28:49.864] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
-[13May2026 14:28:50.182] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.183] [main/INFO] [mixin/]: Remapping refMap handcrafted-common-1.20.1-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.184] [main/WARN] [mixin/]: Reference map 'handcrafted-forge-1.20.1-forge-refmap.json' for handcrafted.mixins.json could not be read. If this is a development environment you can ignore this message
-[13May2026 14:28:50.190] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.191] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.211] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.212] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.215] [main/INFO] [mixin/]: Remapping refMap player-animation-lib-minecraft_common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.216] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.217] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.218] [main/INFO] [mixin/]: Remapping refMap placebo.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.219] [main/INFO] [mixin/]: Remapping refMap attributeslib.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.220] [main/INFO] [mixin/]: Remapping refMap configured.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.220] [main/INFO] [mixin/]: Remapping refMap irons_spellbooks.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.222] [main/INFO] [mixin/]: Remapping refMap framedblocks.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.302] [main/WARN] [mixin/]: Reference map 'apexcore.refmap.json' for apexcore.mixins.json could not be read. If this is a development environment you can ignore this message
-[13May2026 14:28:50.304] [main/INFO] [mixin/]: Remapping refMap fantasyfurniture.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.309] [main/INFO] [mixin/]: Remapping refMap supplementaries-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.312] [main/INFO] [mixin/]: Remapping refMap supplementaries-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
-[13May2026 14:28:50.860] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[13May2026 14:28:50.872] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[13May2026 14:28:51.083] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/compile/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.FluidRenderer)
-[13May2026 14:28:51.085] [main/WARN] [mixin/]: Error loading class: net/raphimc/immediatelyfast/feature/map_atlas_generation/MapAtlasTexture (java.lang.ClassNotFoundException: net.raphimc.immediatelyfast.feature.map_atlas_generation.MapAtlasTexture)
-[13May2026 14:28:51.357] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [thuumcraft]
-[13May2026 14:28:51.433] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
-[13May2026 14:28:51.689] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[13May2026 14:28:51.690] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[13May2026 14:28:53.436] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[13May2026 14:28:53.436] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[13May2026 14:28:56.727] [modloading-worker-0/INFO] [net.minecraftforge.coremod.CoreMod.attributeslib/COREMODLOG]: Patching EffectRenderingInventoryScreen#renderEffects
-[13May2026 14:28:56.827] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
-[13May2026 14:28:56.944] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
-[13May2026 14:28:56.945] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
-[13May2026 14:28:56.948] [modloading-worker-0/INFO] [xyz.apex.forge.commonality.Mods.CommonalityMod/]: Running Minecraft '1.20.1', & Forge '47.4.10' on Java '17.0.17, Microsoft'
-[13May2026 14:28:56.953] [modloading-worker-0/WARN] [TrustManager/]: Currently running in a Development Environment, All mods will be forcefully trusted!
-[13May2026 14:28:56.954] [modloading-worker-0/INFO] [TrustedSourceList/]: Currently running in Development Environment, Disabling trusted source list!
-[13May2026 14:28:56.956] [modloading-worker-0/ERROR] [xyz.apex.forge.commonality.Mods$CommonalityMod/]: Failed to register DataGeneration for Commonality!
-[13May2026 14:28:56.957] [modloading-worker-0/ERROR] [xyz.apex.forge.commonality.Mods$CommonalityMod/]: java.lang.ClassNotFoundException: xyz.apex.forge.commonality.Commonality
-[13May2026 14:28:57.017] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[13May2026 14:28:57.024] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 5.851 ms
-[13May2026 14:29:02.112] [main/INFO] [Moonlight/]: Initialized block sets in 9ms
-[13May2026 14:29:02.456] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
-[13May2026 14:29:02.456] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
-[13May2026 14:29:02.588] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[13May2026 14:29:02.639] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 50 ms
-[13May2026 14:29:02.639] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[13May2026 14:29:02.731] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 92 ms
-[13May2026 14:29:02.732] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: thuumcraft
-[13May2026 14:29:02.749] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: thuumcraft finished after 17 ms
-[13May2026 14:29:02.749] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: thuumcraft
-[13May2026 14:29:02.783] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: thuumcraft finished after 33 ms
-[13May2026 14:29:02.783] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id thuumcraft
-[13May2026 14:29:02.831] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id thuumcraft finished after 48 ms
-[13May2026 14:29:02.831] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id thuumcraft
-[13May2026 14:29:02.835] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id thuumcraft finished after 2 ms
-[13May2026 14:29:02.835] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[13May2026 14:29:02.846] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 11 ms
-[13May2026 14:29:02.846] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : thuumcraft
-[13May2026 14:29:02.848] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : thuumcraft finished after 1 ms
-[13May2026 14:29:02.849] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 260 ms
-[13May2026 14:29:02.860] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 414, old count: 387, new count: 415, removed stale: 0, written: 31
+[14May2026 19:28:11.545] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.4.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
+[14May2026 19:28:11.548] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.17 by Microsoft; OS Mac OS X arch aarch64 version 26.3.1
+[14May2026 19:28:11.629] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[14May2026 19:28:11.669] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/bowieconnors/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23121!/ Service=ModLauncher Env=CLIENT
+[14May2026 19:28:11.942] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.4.10/ccc533c7dd67e0983217197d7549c8b49e7ab453/javafmllanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[14May2026 19:28:11.943] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.4.10/e9a2879fe3612ea34b9728ec2633304a1e67d480/lowcodelanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[14May2026 19:28:11.944] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.4.10/ec5cefbbc65c67302b8fac317010faab85fa14b9/mclanguage-1.20.1-47.4.10.jar is missing mods.toml file
+[14May2026 19:28:11.945] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/bowieconnors/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.4.10/94dae566be650566ea9115a1414ab76bfcf5a804/fmlcore-1.20.1-47.4.10.jar is missing mods.toml file
+[14May2026 19:28:12.376] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select two dependency jars from JarJar which have the same identification: Mod File:  and Mod File: . Using Mod File: 
+[14May2026 19:28:12.377] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 12 dependencies adding them to mods collection
+[14May2026 19:28:15.774] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[14May2026 19:28:15.820] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /Users/bowieconnors/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, thuumcraft, --all, --output, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/generated/resources, --existing, /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/src/main/resources]
+[14May2026 19:28:16.228] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.230] [main/INFO] [mixin/]: Remapping refMap handcrafted-common-1.20.1-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.232] [main/WARN] [mixin/]: Reference map 'handcrafted-forge-1.20.1-forge-refmap.json' for handcrafted.mixins.json could not be read. If this is a development environment you can ignore this message
+[14May2026 19:28:16.240] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.241] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.242] [main/INFO] [mixin/]: Remapping refMap invincible.mixin-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.267] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.268] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.270] [main/INFO] [mixin/]: Remapping refMap player-animation-lib-minecraft_common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.271] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.272] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.273] [main/INFO] [mixin/]: Remapping refMap mixins.epicfight.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.274] [main/INFO] [mixin/]: Remapping refMap placebo.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.275] [main/INFO] [mixin/]: Remapping refMap attributeslib.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.276] [main/INFO] [mixin/]: Remapping refMap configured.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.276] [main/INFO] [mixin/]: Remapping refMap irons_spellbooks.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.278] [main/INFO] [mixin/]: Remapping refMap framedblocks.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.340] [main/WARN] [mixin/]: Reference map 'apexcore.refmap.json' for apexcore.mixins.json could not be read. If this is a development environment you can ignore this message
+[14May2026 19:28:16.341] [main/INFO] [mixin/]: Remapping refMap fantasyfurniture.refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.342] [main/WARN] [mixin/]: Reference map 'epicfight_animation.refmap.json' for epicfightx.mixins.json could not be read. If this is a development environment you can ignore this message
+[14May2026 19:28:16.345] [main/INFO] [mixin/]: Remapping refMap supplementaries-common-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.346] [main/INFO] [mixin/]: Remapping refMap supplementaries-forge-refmap.json using /Users/bowieconnors/Documents/GitHub/Thuumcraft/Thuumcraft/build/createSrgToMcp/output.srg
+[14May2026 19:28:16.964] [main/WARN] [mixin/]: Error loading class: dev/tr7zw/skinlayers/versionless/render/CustomModelPart (java.lang.ClassNotFoundException: dev.tr7zw.skinlayers.versionless.render.CustomModelPart)
+[14May2026 19:28:16.964] [main/WARN] [mixin/]: @Mixin target dev.tr7zw.skinlayers.versionless.render.CustomModelPart was not found mixins.epicfight.json:skinlayers.MixinCustomModelPart
+[14May2026 19:28:16.966] [main/WARN] [mixin/]: Error loading class: dev/tr7zw/skinlayers/versionless/render/CustomizableCube (java.lang.ClassNotFoundException: dev.tr7zw.skinlayers.versionless.render.CustomizableCube)
+[14May2026 19:28:16.966] [main/WARN] [mixin/]: @Mixin target dev.tr7zw.skinlayers.versionless.render.CustomizableCube was not found mixins.epicfight.json:skinlayers.MixinCustomizableCubeWrapper$SkinLayer3DMixinCustomModelCube
+[14May2026 19:28:16.967] [main/WARN] [mixin/]: Error loading class: de/teamlapen/vampirism/client/renderer/entity/layers/VampirePlayerHeadLayer (java.lang.ClassNotFoundException: de.teamlapen.vampirism.client.renderer.entity.layers.VampirePlayerHeadLayer)
+[14May2026 19:28:16.967] [main/WARN] [mixin/]: @Mixin target de.teamlapen.vampirism.client.renderer.entity.layers.VampirePlayerHeadLayer was not found mixins.epicfight.json:teamlapen.MixinVampirePlayerHeadLayer
+[14May2026 19:28:16.969] [main/WARN] [mixin/]: Error loading class: de/teamlapen/werewolves/client/render/layer/HumanWerewolfLayer (java.lang.ClassNotFoundException: de.teamlapen.werewolves.client.render.layer.HumanWerewolfLayer)
+[14May2026 19:28:16.970] [main/WARN] [mixin/]: @Mixin target de.teamlapen.werewolves.client.render.layer.HumanWerewolfLayer was not found mixins.epicfight.json:teamlapen.MixinHumanWerewolfLayer
+[14May2026 19:28:16.991] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[14May2026 19:28:17.001] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[14May2026 19:28:17.196] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/compile/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.FluidRenderer)
+[14May2026 19:28:17.198] [main/WARN] [mixin/]: Error loading class: net/raphimc/immediatelyfast/feature/map_atlas_generation/MapAtlasTexture (java.lang.ClassNotFoundException: net.raphimc.immediatelyfast.feature.map_atlas_generation.MapAtlasTexture)
+[14May2026 19:28:17.469] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [thuumcraft]
+[14May2026 19:28:17.535] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[14May2026 19:28:17.884] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[14May2026 19:28:17.885] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[14May2026 19:28:19.780] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[14May2026 19:28:19.781] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[14May2026 19:28:19.864] [main/WARN] [mixin/]: @Final field nextHeadUpdate:[I in mixins.epicfight.json:common.MixinWitherBoss should be final
+[14May2026 19:28:19.864] [main/WARN] [mixin/]: @Final field idleHeadUpdates:[I in mixins.epicfight.json:common.MixinWitherBoss should be final
+[14May2026 19:28:21.781] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[14May2026 19:28:21.782] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[14May2026 19:28:21.782] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[14May2026 19:28:21.782] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.LivingEntity from class yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch
+[14May2026 19:28:23.595] [modloading-worker-0/INFO] [net.minecraftforge.coremod.CoreMod.attributeslib/COREMODLOG]: Patching EffectRenderingInventoryScreen#renderEffects
+[14May2026 19:28:23.682] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
+[14May2026 19:28:23.975] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[14May2026 19:28:23.987] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 10.26 ms
+[14May2026 19:28:24.016] [modloading-worker-0/INFO] [xyz.apex.forge.commonality.Mods.CommonalityMod/]: Running Minecraft '1.20.1', & Forge '47.4.10' on Java '17.0.17, Microsoft'
+[14May2026 19:28:24.020] [modloading-worker-0/WARN] [TrustManager/]: Currently running in a Development Environment, All mods will be forcefully trusted!
+[14May2026 19:28:24.022] [modloading-worker-0/INFO] [TrustedSourceList/]: Currently running in Development Environment, Disabling trusted source list!
+[14May2026 19:28:24.023] [modloading-worker-0/ERROR] [xyz.apex.forge.commonality.Mods$CommonalityMod/]: Failed to register DataGeneration for Commonality!
+[14May2026 19:28:24.023] [modloading-worker-0/ERROR] [xyz.apex.forge.commonality.Mods$CommonalityMod/]: java.lang.ClassNotFoundException: xyz.apex.forge.commonality.Commonality
+[14May2026 19:28:24.024] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.10, for MC 1.20.1 with MCP 20230612.114412
+[14May2026 19:28:24.049] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.10 Initialized
+[14May2026 19:28:24.184] [modloading-worker-0/INFO] [epicfight/]: Loaded mod compat: GeckolibCompat
+[14May2026 19:28:24.200] [modloading-worker-0/INFO] [epicfight/]: Loaded mod compat: CuriosCompat
+[14May2026 19:28:24.203] [modloading-worker-0/INFO] [epicfight/]: Loaded mod compat: PlayerAnimatorCompat
+[14May2026 19:28:30.536] [main/INFO] [Moonlight/]: Initialized block sets in 12ms
+[14May2026 19:28:30.968] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.player.Player from class yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch
+[14May2026 19:28:30.992] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.992] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.992] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.992] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.992] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.993] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.993] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.993] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:30.993] [main/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.boss.wither.WitherBoss from class yesman.epicfight.world.capabilities.entitypatch.boss.WitherPatch
+[14May2026 19:28:31.044] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/assets/.mcassetsroot' uses unexpected schema
+[14May2026 19:28:31.044] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/bowieconnors/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.10_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23184!/data/.mcassetsroot' uses unexpected schema
+[14May2026 19:28:31.174] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[14May2026 19:28:31.216] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 41 ms
+[14May2026 19:28:31.216] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[14May2026 19:28:31.316] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 99 ms
+[14May2026 19:28:31.316] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: thuumcraft
+[14May2026 19:28:31.336] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: thuumcraft finished after 19 ms
+[14May2026 19:28:31.336] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: thuumcraft
+[14May2026 19:28:31.367] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: thuumcraft finished after 30 ms
+[14May2026 19:28:31.367] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id thuumcraft
+[14May2026 19:28:31.377] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id thuumcraft finished after 9 ms
+[14May2026 19:28:31.377] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id thuumcraft
+[14May2026 19:28:31.381] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id thuumcraft finished after 3 ms
+[14May2026 19:28:31.381] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[14May2026 19:28:31.394] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 13 ms
+[14May2026 19:28:31.394] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : thuumcraft
+[14May2026 19:28:31.398] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : thuumcraft finished after 2 ms
+[14May2026 19:28:31.398] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 223 ms
+[14May2026 19:28:31.407] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 441, old count: 441, new count: 442, removed stale: 0, written: 0

@@ -31,3 +31,8 @@ run-data/logs/debug-5.log.gz
 run-data/logs/debug.log
 run-data/logs/latest.log
 /run-data
+/run/debug/
+/run/crash-reports/
+/run/GeoTexture Debug Printouts/
+/run/logs/
+/run/moonlight-global-datapacks/

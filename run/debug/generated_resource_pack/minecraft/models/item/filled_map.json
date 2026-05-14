@@ -10,6 +10,12 @@
       "predicate": {
         "supplementaries:antique_ink": 1.0
       }
+    },
+    {
+      "model": "minecraft:item/antique_map",
+      "predicate": {
+        "supplementaries:antique_ink": 1.0
+      }
     }
   ]
 }

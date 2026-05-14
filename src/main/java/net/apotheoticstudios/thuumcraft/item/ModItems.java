@@ -66,10 +66,10 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HANDLE = ITEMS.register("handle",
             () -> new Item(new Item.Properties()));
+
+
+    // Ingredients
     public static final RegistryObject<Item> SKEEVER_TAIL = registerIngredient("skeever_tail");
-
-
-    // Skyrim ingredient items
     public static final RegistryObject<Item> ABECEAN_LONGFIN = registerIngredient("abecean_longfin");
     public static final RegistryObject<Item> ALOCASIA_FRUIT = registerIngredient("alocasia_fruit");
     public static final RegistryObject<Item> ALOE_VERA_LEAVES = registerIngredient("aloe_vera_leaves");
@@ -258,8 +258,6 @@ public class ModItems {
     public static final RegistryObject<Item> WITHERING_MOON = registerIngredient("withering_moon");
     public static final RegistryObject<Item> WORMS_HEAD_CAP = registerIngredient("worms_head_cap");
     public static final RegistryObject<Item> YELLOW_MOUNTAIN_FLOWER = registerIngredient("yellow_mountain_flower");
-
-
     public static final RegistryObject<Item> JUNIPER_BERRIES = registerIngredient("juniper_berries");
 
 

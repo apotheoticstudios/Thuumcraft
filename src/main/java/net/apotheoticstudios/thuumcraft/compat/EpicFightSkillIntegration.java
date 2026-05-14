@@ -48,7 +48,7 @@ public final class EpicFightSkillIntegration {
     private static final int RECENT_STAMINA_CONSUME_TICKS = 4;
     private static final int POWER_ATTACK_STAMINA_MEMORY_TICKS = 10;
     private static final double SWORD_CRIT_MULTIPLIER = 1.5D;
-    private static final double POWER_ATTACK_STAMINA_COST = 12.0D;
+    private static final double POWER_ATTACK_STAMINA_COST = 30.0D;
 
     private static final Map<UUID, ServerPlayerPatch> REGISTERED_PATCHES = new HashMap<>();
     private static final Map<UUID, CombatState> COMBAT_STATES = new HashMap<>();

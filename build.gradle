@@ -197,6 +197,9 @@ dependencies {
     compileOnly fg.deobf("curse.maven:epic-fight-mod-405076:8049910")
     runtimeOnly fg.deobf("curse.maven:epic-fight-mod-405076:8049910")
 
+    // Epic Fight Extra
+    runtimeOnly fg.deobf("curse.maven:epicfight-extra-1434276:7961244")
+
     // Required at runtime by Iron's Spells 'n Spellbooks
     runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
     runtimeOnly fg.deobf("curse.maven:geckolib-388172:7553267")

@@ -22,6 +22,23 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+
+        this.tag(Tags.Blocks.ORES)
+                .add(ModBlocks.ORICHALCUM_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_ORICHALCUM_ORE_VEIN.get(),
+                        ModBlocks.CORUNDUM_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_CORUNDUM_ORE_VEIN.get(),
+                        ModBlocks.MALACHITE_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_MALACHITE_ORE_VEIN.get(),
+                        ModBlocks.EBONY_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_EBONY_ORE_VEIN.get(),
+                        ModBlocks.MOONSTONE_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_MOONSTONE_ORE_VEIN.get(),
+                        ModBlocks.SILVER_ORE_VEIN.get(),
+                        ModBlocks.DEEPSLATE_SILVER_ORE_VEIN.get()
+
+                );
+
         this.tag(BlockTags.NEEDS_STONE_TOOL);
 
 

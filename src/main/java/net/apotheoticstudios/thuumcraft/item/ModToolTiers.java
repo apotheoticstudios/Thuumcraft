@@ -15,12 +15,12 @@ public class ModToolTiers {
     public static final Tier GLASS = TierSortingRegistry.registerTier(
             new ForgeTier(3, 1500, 7, 3f, 12,
                     ModTags.Blocks.NEEDS_MALACHITE_TOOL, () -> Ingredient.of(ModItems.REFINED_MALACHITE.get())),
-                    new ResourceLocation(Thuumcraft.MOD_ID,"glass"), List.of(Tiers.IRON), List.of());
+            new ResourceLocation(Thuumcraft.MOD_ID,"glass"), List.of(Tiers.IRON), List.of());
 
     public static final Tier DWARVEN = TierSortingRegistry.registerTier(
             new ForgeTier(2, 1000, 5, 2f, 12,
                     ModTags.Blocks.NEEDS_DWARVEN_TOOL, () -> Ingredient.of(ModItems.DWARVEN_METAL_INGOT.get())),
-                    new ResourceLocation(Thuumcraft.MOD_ID,"dwarven"), List.of(Tiers.STONE), List.of());
+            new ResourceLocation(Thuumcraft.MOD_ID,"dwarven"), List.of(Tiers.STONE), List.of());
 
     public static final Tier STEEL = TierSortingRegistry.registerTier(
             new ForgeTier(2, 800, 5, 2f, 8,

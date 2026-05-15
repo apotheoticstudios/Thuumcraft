@@ -43,7 +43,8 @@ public final class SkillProgression {
             return;
         }
 
-        double experience = Math.max(0.0D, data.getDouble(skill.xpKey())) + amount;
+        double experience = Math.max(0.0D, data.getDouble(skill.xpKey()))
+                + amount * RestedSkillBonusEvents.getSkillExperienceMultiplier(player);
         boolean leveledUp = false;
         while (level < SKILL_CAP) {
             double requiredExperience = getRequiredExperience(level);

@@ -1,5 +1,6 @@
 package net.apotheoticstudios.thuumcraft.compat;
 
+import com.google.common.collect.Multimap;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
@@ -11,7 +12,11 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
@@ -47,7 +52,7 @@ public final class EpicFightSkillIntegration {
     private static final int DODGE_DIRECTION_MEMORY_TICKS = 24;
     private static final int RECENT_STAMINA_CONSUME_TICKS = 4;
     private static final int POWER_ATTACK_STAMINA_MEMORY_TICKS = 10;
-    private static final double SWORD_CRIT_MULTIPLIER = 1.5D;
+    private static final double BASE_CRITICAL_DAMAGE_FRACTION = 0.5D;
     private static final double POWER_ATTACK_STAMINA_COST = 30.0D;
 
     private static final Map<UUID, ServerPlayerPatch> REGISTERED_PATCHES = new HashMap<>();
@@ -245,25 +250,30 @@ public final class EpicFightSkillIntegration {
         }
 
         EpicFightDamageSource source = event.getDamageSource();
-        double damageMultiplier = weapon.oneHanded()
-                ? applyOneHandedPerks(player, event, weapon, source)
-                : applyTwoHandedPerks(player, event, weapon, source);
+        DamageAdjustment adjustment = weapon.oneHanded()
+                ? applyOneHandedPerks(player, event, weaponStack, weapon, source)
+                : applyTwoHandedPerks(player, event, weaponStack, weapon, source);
 
-        if (Math.abs(damageMultiplier - 1.0D) > 0.0001D) {
-            source.attachDamageModifier(ValueModifier.multiplier((float) damageMultiplier));
+        if (adjustment.criticalBonus() > 0.0F) {
+            source.attachDamageModifier(ValueModifier.adder(adjustment.scaledCriticalAdder()));
+        }
+        if (Math.abs(adjustment.damageMultiplier() - 1.0D) > 0.0001D) {
+            source.attachDamageModifier(ValueModifier.multiplier((float) adjustment.damageMultiplier()));
         }
     }
 
-    private static double applyOneHandedPerks(ServerPlayer player, DealDamageEvent.Hurt event, WeaponProfile weapon,
-                                             EpicFightDamageSource source) {
+    private static DamageAdjustment applyOneHandedPerks(ServerPlayer player, DealDamageEvent.Hurt event,
+                                                       ItemStack weaponStack, WeaponProfile weapon,
+                                                       EpicFightDamageSource source) {
         double damageMultiplier = 1.0D;
+        float criticalBonus = 0.0F;
         int armsman = SkillPerk.rank(player, SkillPerk.ONE_HANDED_ARMSMAN);
         if (armsman > 0) {
             damageMultiplier *= 1.0D + armsman * 0.2D;
         }
 
         if (weapon.sword()) {
-            damageMultiplier *= criticalMultiplier(player, event.getTarget(),
+            criticalBonus = rollCriticalBonus(player, event.getTarget(), weaponStack,
                     SkillPerk.rank(player, SkillPerk.ONE_HANDED_BLADESMAN));
         } else if (weapon.axe()) {
             SkillPerkEvents.applyBleed(event.getTarget(), SkillPerk.rank(player, SkillPerk.ONE_HANDED_HACK_AND_SLASH),
@@ -274,12 +284,12 @@ public final class EpicFightSkillIntegration {
 
         EpicFightAttackContext attack = EpicFightAttackContext.of(player, source);
         if (!attack.powerAttack()) {
-            return damageMultiplier;
+            return new DamageAdjustment(damageMultiplier, criticalBonus);
         }
         if (!consumePowerAttackStamina(event.getPlayerPatch(), player, attack,
                 SkillPerk.has(player, SkillPerk.ONE_HANDED_FIGHTING_STANCE))) {
             attack.consumeDodgeDirection();
-            return damageMultiplier;
+            return new DamageAdjustment(damageMultiplier, criticalBonus);
         }
 
         if (attack.charging() && SkillPerk.has(player, SkillPerk.ONE_HANDED_CRITICAL_CHARGE)) {
@@ -295,19 +305,21 @@ public final class EpicFightSkillIntegration {
             damageMultiplier *= 1.5D;
         }
         attack.consumeDodgeDirection();
-        return damageMultiplier;
+        return new DamageAdjustment(damageMultiplier, criticalBonus);
     }
 
-    private static double applyTwoHandedPerks(ServerPlayer player, DealDamageEvent.Hurt event, WeaponProfile weapon,
-                                             EpicFightDamageSource source) {
+    private static DamageAdjustment applyTwoHandedPerks(ServerPlayer player, DealDamageEvent.Hurt event,
+                                                       ItemStack weaponStack, WeaponProfile weapon,
+                                                       EpicFightDamageSource source) {
         double damageMultiplier = 1.0D;
+        float criticalBonus = 0.0F;
         int barbarian = SkillPerk.rank(player, SkillPerk.TWO_HANDED_BARBARIAN);
         if (barbarian > 0) {
             damageMultiplier *= 1.0D + barbarian * 0.2D;
         }
 
         if (weapon.greatsword()) {
-            damageMultiplier *= criticalMultiplier(player, event.getTarget(),
+            criticalBonus = rollCriticalBonus(player, event.getTarget(), weaponStack,
                     SkillPerk.rank(player, SkillPerk.TWO_HANDED_DEEP_WOUNDS));
         } else if (weapon.battleaxe()) {
             SkillPerkEvents.applyBleed(event.getTarget(), SkillPerk.rank(player, SkillPerk.TWO_HANDED_LIMBSPLITTER),
@@ -318,12 +330,12 @@ public final class EpicFightSkillIntegration {
 
         EpicFightAttackContext attack = EpicFightAttackContext.of(player, source);
         if (!attack.powerAttack()) {
-            return damageMultiplier;
+            return new DamageAdjustment(damageMultiplier, criticalBonus);
         }
         if (!consumePowerAttackStamina(event.getPlayerPatch(), player, attack,
                 SkillPerk.has(player, SkillPerk.TWO_HANDED_CHAMPIONS_STANCE))) {
             attack.consumeDodgeDirection();
-            return damageMultiplier;
+            return new DamageAdjustment(damageMultiplier, criticalBonus);
         }
 
         if (attack.charging() && SkillPerk.has(player, SkillPerk.TWO_HANDED_GREAT_CRITICAL_CHARGE)) {
@@ -339,12 +351,12 @@ public final class EpicFightSkillIntegration {
             sweepNearbyTargets(player, event.getTarget(), (float) (event.getAttackDamage() * damageMultiplier * 0.5D));
         }
         attack.consumeDodgeDirection();
-        return damageMultiplier;
+        return new DamageAdjustment(damageMultiplier, criticalBonus);
     }
 
-    private static double criticalMultiplier(ServerPlayer player, LivingEntity target, int rank) {
+    private static float rollCriticalBonus(ServerPlayer player, LivingEntity target, ItemStack weapon, int rank) {
         if (rank <= 0) {
-            return 1.0D;
+            return 0.0F;
         }
         double chance = switch (rank) {
             case 1 -> 0.10D;
@@ -352,11 +364,24 @@ public final class EpicFightSkillIntegration {
             default -> 0.20D;
         };
         if (player.getRandom().nextDouble() >= chance) {
-            return 1.0D;
+            return 0.0F;
         }
         player.serverLevel().sendParticles(ParticleTypes.CRIT, target.getX(), target.getY(0.55D), target.getZ(),
                 12, 0.35D, 0.35D, 0.35D, 0.08D);
-        return SWORD_CRIT_MULTIPLIER;
+        return getWeaponCriticalBonus(weapon, rank);
+    }
+
+    private static float getWeaponCriticalBonus(ItemStack weapon, int rank) {
+        double baseDamage = getItemModifierValue(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_DAMAGE);
+        return (float) Math.max(1.0D, baseDamage * BASE_CRITICAL_DAMAGE_FRACTION * getCriticalRankMultiplier(rank));
+    }
+
+    private static double getCriticalRankMultiplier(int rank) {
+        return switch (rank) {
+            case 1 -> 1.0D;
+            case 2 -> 1.25D;
+            default -> 1.5D;
+        };
     }
 
     private static void addArmorNegation(EpicFightDamageSource source, int rank) {
@@ -413,6 +438,17 @@ public final class EpicFightSkillIntegration {
         return !stack.isEmpty() && stack.is(tag);
     }
 
+    private static double getItemModifierValue(ItemStack stack, EquipmentSlot slot, Attribute attribute) {
+        double value = 0.0D;
+        Multimap<Attribute, AttributeModifier> modifiers = stack.getAttributeModifiers(slot);
+        for (AttributeModifier modifier : modifiers.get(attribute)) {
+            if (modifier.getOperation() == AttributeModifier.Operation.ADDITION) {
+                value += modifier.getAmount();
+            }
+        }
+        return Math.max(0.0D, value);
+    }
+
     private static boolean isDualWielding(ServerPlayerPatch playerPatch, ServerPlayer player) {
         ItemStack offhand = player.getOffhandItem();
         if (offhand.isEmpty()) {
@@ -438,6 +474,12 @@ public final class EpicFightSkillIntegration {
         FORWARD,
         BACKWARD,
         SIDEWAYS
+    }
+
+    private record DamageAdjustment(double damageMultiplier, float criticalBonus) {
+        private float scaledCriticalAdder() {
+            return criticalBonus / (float) Math.max(0.0001D, damageMultiplier);
+        }
     }
 
     private record WeaponProfile(boolean oneHanded, boolean twoHanded, boolean sword, boolean axe, boolean mace,
@@ -508,7 +550,7 @@ public final class EpicFightSkillIntegration {
                                           boolean standing, boolean backward, boolean sideways,
                                           CombatState combatState, boolean usedDodgeDirection) {
         private static EpicFightAttackContext of(ServerPlayer player, EpicFightDamageSource source) {
-            DynamicAnimation animation = source.getAnimation().get();
+            DynamicAnimation animation = source.getAnimation().orElse(null);
             boolean dashAttack = animation instanceof DashAttackAnimation;
             boolean airAttack = animation instanceof AirSlashAnimation;
             boolean weaponInnate = source.is(EpicFightDamageTypeTags.WEAPON_INNATE) || !source.isBasicAttack();

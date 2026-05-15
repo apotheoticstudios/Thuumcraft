@@ -22,6 +22,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -31,6 +32,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.AbstractVillager;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.BowItem;
@@ -63,6 +65,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.TradeWithVillagerEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -78,14 +81,17 @@ import java.util.UUID;
 @Mod.EventBusSubscriber(modid = Thuumcraft.MOD_ID)
 public final class SkillPerkEvents {
     private static final String SMITHING_QUALITY_TAG = "ThuumcraftSmithingQuality";
-    private static final double SWORD_CRIT_DAMAGE_MULTIPLIER = 1.5D;
-    private static final double ARCHERY_CRIT_DAMAGE_MULTIPLIER = 1.5D;
+    private static final double MAX_CRITICAL_DAMAGE_MULTIPLIER = 1.5D;
+    private static final double BASE_CRITICAL_DAMAGE_FRACTION = 0.5D;
     private static final int ARCHERY_CRITICAL_SHOT_CRIT_PARTICLES = 18;
     private static final int ARCHERY_CRITICAL_SHOT_ENCHANTED_PARTICLES = 8;
     private static final int ARCHERY_POWER_SHOT_POOF_PARTICLES = 16;
     private static final int ARCHERY_POWER_SHOT_CLOUD_PARTICLES = 8;
     private static final double EAGLE_EYE_STAMINA_COST_PER_TICK = 0.08D;
     private static final double POWER_ATTACK_STAMINA_COST = 12.0D;
+    private static final int BASH_COOLDOWN_TICKS = 10;
+    private static final int QUICK_REFLEXES_COOLDOWN_TICKS = 25;
+    private static final float QUICK_REFLEXES_DAMAGE_THRESHOLD = 4.0F;
     private static final UUID ARMOR_BONUS_MODIFIER = UUID.fromString("f1fb1334-1098-4ed2-bcdd-803448596ff8");
     private static final UUID ATTACK_SPEED_BONUS_MODIFIER = UUID.fromString("91185af2-b84f-4ca5-b8b4-e1c34d1b334f");
     private static final UUID BLOCK_RUNNER_MODIFIER = UUID.fromString("4c915d16-8d9a-47d7-95f0-bc1139130c79");
@@ -113,6 +119,10 @@ public final class SkillPerkEvents {
         }
 
         RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState()).eagleEyeZooming = true;
+    }
+
+    public static boolean isApplyingSecondaryDamage() {
+        return applyingSecondaryDamage;
     }
 
     @SubscribeEvent
@@ -148,6 +158,9 @@ public final class SkillPerkEvents {
             BLEEDS.clear();
             return;
         }
+        if (!(event.level instanceof ServerLevel level)) {
+            return;
+        }
 
         Iterator<Map.Entry<UUID, BleedState>> iterator = BLEEDS.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -155,16 +168,21 @@ public final class SkillPerkEvents {
             if (!event.level.dimension().equals(bleed.dimension)) {
                 continue;
             }
-            LivingEntity target = (LivingEntity) ((ServerLevel) event.level).getEntity(bleed.targetId);
-            if (target == null || !target.isAlive() || event.level.getGameTime() > bleed.expiresAt) {
+            Entity targetEntity = level.getEntity(bleed.targetId);
+            if (!(targetEntity instanceof LivingEntity target)
+                    || !target.isAlive()
+                    || event.level.getGameTime() > bleed.expiresAt) {
                 iterator.remove();
                 continue;
             }
 
             if (event.level.getGameTime() >= bleed.nextTick) {
                 applyingSecondaryDamage = true;
-                target.hurt(target.damageSources().generic(), (float) bleed.damagePerSecond);
-                applyingSecondaryDamage = false;
+                try {
+                    target.hurt(target.damageSources().generic(), (float) bleed.damagePerSecond);
+                } finally {
+                    applyingSecondaryDamage = false;
+                }
                 bleed.nextTick += 20L;
             }
         }
@@ -176,6 +194,13 @@ public final class SkillPerkEvents {
         if (event.getEntity() instanceof ServerPlayer player && EpicFightCompat.isLoaded()) {
             EpicFightSkillIntegration.clear(player);
         }
+    }
+
+    @SubscribeEvent
+    public static void clearServerRuntime(ServerStoppingEvent event) {
+        RUNTIME.clear();
+        BLEEDS.clear();
+        applyingSecondaryDamage = false;
     }
 
     @SubscribeEvent
@@ -231,8 +256,11 @@ public final class SkillPerkEvents {
                 && event.getSource().getEntity() instanceof LivingEntity attacker
                 && player.getRandom().nextFloat() < 0.10F) {
             applyingSecondaryDamage = true;
-            attacker.hurt(player.damageSources().thorns(player), event.getAmount());
-            applyingSecondaryDamage = false;
+            try {
+                attacker.hurt(player.damageSources().thorns(player), event.getAmount());
+            } finally {
+                applyingSecondaryDamage = false;
+            }
         }
     }
 
@@ -264,9 +292,29 @@ public final class SkillPerkEvents {
         }
 
         if (SkillPerk.has(player, SkillPerk.BLOCK_QUICK_REFLEXES)
+                && shouldTriggerQuickReflexes(player, event)
                 && event.getDamageSource().getEntity() instanceof LivingEntity attacker) {
             attacker.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 25, 2));
+            RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState()).lastQuickReflexesTick = player.tickCount;
         }
+    }
+
+    private static boolean shouldTriggerQuickReflexes(ServerPlayer player, ShieldBlockEvent event) {
+        if (!isMeleeDamage(event.getDamageSource())) {
+            return false;
+        }
+
+        RuntimeState runtime = RUNTIME.getOrDefault(player.getUUID(), RuntimeState.EMPTY);
+        if (player.tickCount - runtime.lastQuickReflexesTick < QUICK_REFLEXES_COOLDOWN_TICKS) {
+            return false;
+        }
+        if (event.getOriginalBlockedDamage() >= QUICK_REFLEXES_DAMAGE_THRESHOLD) {
+            return true;
+        }
+
+        Entity attacker = event.getDamageSource().getEntity();
+        return attacker != null
+                && (attacker.isSprinting() || attacker.getDeltaMovement().horizontalDistanceSqr() > 0.08D);
     }
 
     @SubscribeEvent
@@ -276,16 +324,28 @@ public final class SkillPerkEvents {
                 || !(event.getEntity() instanceof ServerPlayer player)
                 || !(event.getTarget() instanceof LivingEntity target)
                 || !isUsingShield(player)
-                || !SkillPerk.has(player, SkillPerk.BLOCK_POWER_BASH)
+                || !SkillPerk.has(player, SkillPerk.BLOCK_POWER_BASH)) {
+            return;
+        }
+
+        RuntimeState runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState());
+        if (player.tickCount - runtime.lastBashTick < BASH_COOLDOWN_TICKS
                 || !StaminaEvents.tryConsumeCurrentStamina(player, 8.0D)) {
             return;
         }
 
+        runtime.lastBashTick = player.tickCount;
+        event.setCanceled(true);
         float damage = SkillPerk.has(player, SkillPerk.BLOCK_DEADLY_BASH) ? 5.0F : 1.0F;
-        target.hurt(player.damageSources().playerAttack(player), damage);
+        applyingSecondaryDamage = true;
+        try {
+            target.hurt(player.damageSources().playerAttack(player), damage);
+        } finally {
+            applyingSecondaryDamage = false;
+        }
         target.knockback(0.65D, player.getX() - target.getX(), player.getZ() - target.getZ());
         if (SkillPerk.has(player, SkillPerk.BLOCK_DISARMING_BASH) && target instanceof Mob mob
-                && player.getRandom().nextFloat() < 0.35F) {
+                && player.getRandom().nextFloat() < 0.50F) {
             ItemStack held = mob.getMainHandItem();
             if (!held.isEmpty()) {
                 mob.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
@@ -468,17 +528,15 @@ public final class SkillPerkEvents {
                 default -> 0.20D;
             };
             if (player.getRandom().nextDouble() < chance) {
-                double rankMultiplier = switch (criticalShot) {
-                    case 1 -> 1.0D;
-                    case 2 -> 1.25D;
-                    default -> 1.5D;
-                };
-                event.setAmount((float) (event.getAmount() * ARCHERY_CRIT_DAMAGE_MULTIPLIER * rankMultiplier));
-                showArcheryCriticalShotIndicator(player, target, ARCHERY_CRIT_DAMAGE_MULTIPLIER * rankMultiplier);
+                float criticalBonus = getArcheryCriticalBonus(event, criticalShot);
+                event.setAmount(event.getAmount() + criticalBonus);
+                showArcheryCriticalShotIndicator(player, target, criticalBonus);
             }
         }
 
-        if (SkillPerk.has(player, SkillPerk.ARCHERY_POWER_SHOT) && player.getRandom().nextBoolean()) {
+        if (SkillPerk.has(player, SkillPerk.ARCHERY_POWER_SHOT)
+                && canPowerShotStagger(target)
+                && player.getRandom().nextBoolean()) {
             target.knockback(0.55D, player.getX() - target.getX(), player.getZ() - target.getZ());
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1));
             showArcheryPowerShotIndicator(player, target);
@@ -488,8 +546,19 @@ public final class SkillPerkEvents {
         }
     }
 
-    private static void showArcheryCriticalShotIndicator(ServerPlayer player, LivingEntity target,
-                                                         double damageMultiplier) {
+    private static float getArcheryCriticalBonus(LivingHurtEvent event, int rank) {
+        double baseDamage = 2.0D;
+        if (event.getSource().getDirectEntity() instanceof AbstractArrow arrow) {
+            baseDamage = Math.max(baseDamage, arrow.getBaseDamage());
+        }
+        return (float) Math.max(1.0D, baseDamage * BASE_CRITICAL_DAMAGE_FRACTION * getCriticalRankMultiplier(rank));
+    }
+
+    private static boolean canPowerShotStagger(LivingEntity target) {
+        return target.getBbWidth() <= 2.0F && target.getBbHeight() <= 3.2F && target.getMaxHealth() <= 80.0F;
+    }
+
+    private static void showArcheryCriticalShotIndicator(ServerPlayer player, LivingEntity target, float bonusDamage) {
         ServerLevel level = player.serverLevel();
         double x = target.getX();
         double y = target.getY() + target.getBbHeight() * 0.55D;
@@ -501,9 +570,9 @@ public final class SkillPerkEvents {
                 horizontalSpread, verticalSpread, horizontalSpread, 0.18D);
         level.sendParticles(ParticleTypes.ENCHANTED_HIT, x, y, z, ARCHERY_CRITICAL_SHOT_ENCHANTED_PARTICLES,
                 horizontalSpread, verticalSpread, horizontalSpread, 0.12D);
-        player.displayClientMessage(Component.literal("Critical Shot ")
+        player.displayClientMessage(Component.literal("Critical Shot +")
                 .withStyle(ChatFormatting.GOLD)
-                .append(Component.literal(formatMultiplier(damageMultiplier) + "x")
+                .append(Component.literal(formatNumber(bonusDamage))
                         .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD))
                 .append(Component.literal(" damage").withStyle(ChatFormatting.GOLD)), true);
     }
@@ -524,11 +593,11 @@ public final class SkillPerkEvents {
                 .withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD), true);
     }
 
-    private static String formatMultiplier(double multiplier) {
-        if (multiplier == Math.rint(multiplier)) {
-            return Integer.toString((int) multiplier);
+    private static String formatNumber(double value) {
+        if (value == Math.rint(value)) {
+            return Integer.toString((int) value);
         }
-        return String.format(Locale.ROOT, "%.2f", multiplier).replaceAll("0+$", "").replaceAll("\\.$", "");
+        return String.format(Locale.ROOT, "%.2f", value).replaceAll("0+$", "").replaceAll("\\.$", "");
     }
 
     private static void applyOneHandedDamage(ServerPlayer player, LivingHurtEvent event, ItemStack weapon) {
@@ -538,7 +607,7 @@ public final class SkillPerkEvents {
         }
 
         if (isSword(weapon)) {
-            applyCriticalPerk(player, event, SkillPerk.rank(player, SkillPerk.ONE_HANDED_BLADESMAN));
+            applyCriticalPerk(player, event, SkillPerk.rank(player, SkillPerk.ONE_HANDED_BLADESMAN), weapon);
         } else if (isAxe(weapon)) {
             applyBleed(event.getEntity(), SkillPerk.rank(player, SkillPerk.ONE_HANDED_HACK_AND_SLASH),
                     0.5D, 4);
@@ -584,7 +653,7 @@ public final class SkillPerkEvents {
         }
 
         if (isGreatsword(weapon)) {
-            applyCriticalPerk(player, event, SkillPerk.rank(player, SkillPerk.TWO_HANDED_DEEP_WOUNDS));
+            applyCriticalPerk(player, event, SkillPerk.rank(player, SkillPerk.TWO_HANDED_DEEP_WOUNDS), weapon);
         } else if (isBattleaxe(weapon)) {
             applyBleed(event.getEntity(), SkillPerk.rank(player, SkillPerk.TWO_HANDED_LIMBSPLITTER),
                     0.75D, 4);
@@ -683,16 +752,11 @@ public final class SkillPerkEvents {
     }
 
     private static void applySteadyHandSlow(ServerPlayer player, int rank) {
-        Vec3 look = player.getLookAngle().normalize();
         double range = rank >= 2 ? 24.0D : 18.0D;
         int amplifier = rank >= 2 ? 1 : 0;
         AABB area = player.getBoundingBox().inflate(range);
-        for (Mob target : player.serverLevel().getEntitiesOfClass(Mob.class, area,
-                target -> target.isAlive() && player.hasLineOfSight(target))) {
-            Vec3 toTarget = target.getEyePosition().subtract(player.getEyePosition());
-            if (toTarget.lengthSqr() > 0.0001D && look.dot(toTarget.normalize()) > 0.35D) {
-                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 8, amplifier, false, false));
-            }
+        for (Mob target : player.serverLevel().getEntitiesOfClass(Mob.class, area, Mob::isAlive)) {
+            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 8, amplifier, false, false));
         }
     }
 
@@ -718,7 +782,7 @@ public final class SkillPerkEvents {
         }
     }
 
-    private static void applyCriticalPerk(ServerPlayer player, LivingHurtEvent event, int rank) {
+    private static void applyCriticalPerk(ServerPlayer player, LivingHurtEvent event, int rank, ItemStack weapon) {
         if (rank <= 0) {
             return;
         }
@@ -728,8 +792,21 @@ public final class SkillPerkEvents {
             default -> 0.20D;
         };
         if (player.getRandom().nextDouble() < chance) {
-            event.setAmount((float) (event.getAmount() * SWORD_CRIT_DAMAGE_MULTIPLIER));
+            event.setAmount(event.getAmount() + getWeaponCriticalBonus(weapon, rank));
         }
+    }
+
+    private static float getWeaponCriticalBonus(ItemStack weapon, int rank) {
+        double baseDamage = getItemModifierValue(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_DAMAGE);
+        return (float) Math.max(1.0D, baseDamage * BASE_CRITICAL_DAMAGE_FRACTION * getCriticalRankMultiplier(rank));
+    }
+
+    private static double getCriticalRankMultiplier(int rank) {
+        return switch (rank) {
+            case 1 -> 1.0D;
+            case 2 -> 1.25D;
+            default -> MAX_CRITICAL_DAMAGE_MULTIPLIER;
+        };
     }
 
     private static float applyArmorIgnore(LivingEntity target, float amount, int rank) {
@@ -764,14 +841,17 @@ public final class SkillPerkEvents {
         Vec3 look = player.getLookAngle().normalize();
         AABB area = primary.getBoundingBox().inflate(2.0D, 0.45D, 2.0D);
         applyingSecondaryDamage = true;
-        for (LivingEntity target : player.serverLevel().getEntitiesOfClass(LivingEntity.class, area,
-                target -> target != player && target != primary && target.isAlive() && player.hasLineOfSight(target))) {
-            Vec3 toTarget = target.position().subtract(player.position());
-            if (toTarget.horizontalDistanceSqr() > 0.0001D && look.dot(toTarget.normalize()) > 0.15D) {
-                target.hurt(player.damageSources().playerAttack(player), event.getAmount() * 0.5F);
+        try {
+            for (LivingEntity target : player.serverLevel().getEntitiesOfClass(LivingEntity.class, area,
+                    target -> target != player && target != primary && target.isAlive() && player.hasLineOfSight(target))) {
+                Vec3 toTarget = target.position().subtract(player.position());
+                if (toTarget.horizontalDistanceSqr() > 0.0001D && look.dot(toTarget.normalize()) > 0.15D) {
+                    target.hurt(player.damageSources().playerAttack(player), event.getAmount() * 0.5F);
+                }
             }
+        } finally {
+            applyingSecondaryDamage = false;
         }
-        applyingSecondaryDamage = false;
     }
 
     private static boolean consumePowerAttackStamina(ServerPlayer player, boolean reducedCost) {
@@ -884,8 +964,19 @@ public final class SkillPerkEvents {
     }
 
     private static double getGauntletArmor(ServerPlayer player) {
-        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-        return chest.is(ModTags.Items.HEAVY_ARMOR) ? Math.max(1.0D, getArmorValue(chest, EquipmentSlot.CHEST) * 0.25D) : 0.0D;
+        double lowestHeavyArmorPiece = 0.0D;
+        for (EquipmentSlot slot : ARMOR_SLOTS) {
+            ItemStack stack = player.getItemBySlot(slot);
+            if (!stack.is(ModTags.Items.HEAVY_ARMOR)) {
+                continue;
+            }
+
+            double armor = getArmorValue(stack, slot);
+            if (armor > 0.0D && (lowestHeavyArmorPiece <= 0.0D || armor < lowestHeavyArmorPiece)) {
+                lowestHeavyArmorPiece = armor;
+            }
+        }
+        return Math.max(0.0D, lowestHeavyArmorPiece);
     }
 
     private static boolean isWearingOnlyTaggedArmor(ServerPlayer player, TagKey<Item> tag) {
@@ -995,6 +1086,8 @@ public final class SkillPerkEvents {
     private static final class RuntimeState {
         private static final RuntimeState EMPTY = new RuntimeState();
         private int lastShieldChargeTick = -1000;
+        private int lastBashTick = -BASH_COOLDOWN_TICKS;
+        private int lastQuickReflexesTick = -QUICK_REFLEXES_COOLDOWN_TICKS;
         private boolean eagleEyeZooming;
     }
 

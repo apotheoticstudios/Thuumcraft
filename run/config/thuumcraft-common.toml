@@ -93,18 +93,90 @@
 		#Range: 0 ~ 12000
 		combatDurationTicks = 200
 
+	#Skyrim-style food effects settings
+	[hudAndStamina.food]
+		#Enable food restoring Skyrim-style health, stamina and occasional magicka, with soups/stews granting timed regeneration.
+		enableFoodEffects = true
+		#Health restored per Minecraft nutrition point when food is eaten.
+		#Range: 0.0 ~ 1000.0
+		healthRestorePerNutrition = 0.6
+		#Stamina restored per Minecraft nutrition point when food is eaten.
+		#Range: 0.0 ~ 1000.0
+		staminaRestorePerNutrition = 3.0
+		#Magicka restored per Minecraft nutrition point for magicka-themed foods.
+		#Range: 0.0 ~ 1000.0
+		magickaRestorePerNutrition = 0.75
+		#Multiplier for direct food recovery from raw food.
+		#Range: 0.0 ~ 10.0
+		rawRestoreMultiplier = 0.5
+		#Multiplier for direct food recovery from cooked food.
+		#Range: 0.0 ~ 10.0
+		cookedRestoreMultiplier = 1.25
+		#Multiplier for direct food recovery from soups, stews and full meals.
+		#Range: 0.0 ~ 10.0
+		mealRestoreMultiplier = 1.5
+		#Ticks soups, stews and full meals grant regeneration. Skyrim meal regeneration commonly lasts 720 seconds.
+		#Range: 0 ~ 240000
+		mealRegenDurationTicks = 14400
+		#Health restored per second by soup/stew/full-meal regeneration.
+		#Range: 0.0 ~ 1000.0
+		mealHealthRegenPerSecond = 1.0
+		#Stamina restored per second by soup/stew/full-meal regeneration.
+		#Range: 0.0 ~ 1000.0
+		mealStaminaRegenPerSecond = 1.0
+		#Magicka restored per second by magicka-themed meal regeneration.
+		#Range: 0.0 ~ 1000.0
+		mealMagickaRegenPerSecond = 1.0
+
 #Skyrim-style skill progression and perk tree settings
 [skills]
 	#Set to false to completely disable skill XP progression, character level, perk points, skill tree unlocking and perk ability effects.
 	enableSkillSystem = true
+	#Grant a Skyrim-style Well Rested bonus to skill XP after sleeping.
+	enableRestedSkillXpBonus = true
+	#Skill XP multiplier while Well Rested. Skyrim's Well Rested bonus is 10% faster skill improvement.
+	#Range: 1.0 ~ 10.0
+	restedSkillXpMultiplier = 1.1
+	#Ticks the Well Rested skill XP bonus lasts after sleeping.
+	#Range: 0 ~ 240000
+	restedSkillXpDurationTicks = 24000
 
 #Ranged combat tuning
 [rangedCombat]
 	#Enable faster, flatter player-fired arrow trajectories.
 	enablePlayerArrowTrajectoryTuning = true
-	#Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less.
+	#Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less. Default 2.25 gives a much flatter Skyrim-like shot.
 	#Range: 0.1 ~ 10.0
-	playerArrowVelocityMultiplier = 1.35
-	#Compensate the arrow damage attribute by the inverse velocity multiplier. Vanilla arrow damage scales with impact speed, so disabling this makes faster arrows hit harder.
+	playerArrowVelocityMultiplier = 4.0
+	#Compensate the arrow damage attribute by the inverse velocity multiplier. At the default 2.25 velocity multiplier, arrow damage is multiplied by 0.4444 before other ranged bonuses so the faster arrow does not gain free damage from speed.
 	preservePlayerArrowDamage = true
+
+#Skyrim-style kill camera settings
+[killCam]
+	#Enable client-side cinematic kill cameras after the player lands a killing blow.
+	enableKillCam = true
+	#Chance for a valid killing blow to trigger a kill camera.
+	#Range: 0.0 ~ 1.0
+	chance = 0.25
+	#Length of the client-side kill camera in ticks. This does not slow server or world time.
+	#Range: 1 ~ 200
+	durationTicks = 48
+	#Minimum ticks between kill cameras for the same player.
+	#Range: 0 ~ 12000
+	cooldownTicks = 100
+	#Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected stealth kills.
+	requireLastThreat = true
+	#Only trigger kill cameras when killing hostile mobs.
+	hostileOnly = false
+	#Radius used when checking for other nearby active threats.
+	#Range: 0.0 ~ 128.0
+	threatRadius = 24.0
+	#Maximum distance between player and target for a kill camera.
+	#Range: 1.0 ~ 256.0
+	maxDistance = 256.0
+	#Camera FOV during the kill camera. Lower values feel more cinematic.
+	#Range: 10.0 ~ 120.0
+	fov = 54.0
+	#Hide HUD overlays during the kill camera.
+	hideHud = true
 

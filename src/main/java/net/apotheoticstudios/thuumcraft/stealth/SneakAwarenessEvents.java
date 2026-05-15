@@ -3,10 +3,13 @@ package net.apotheoticstudios.thuumcraft.stealth;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
+import net.apotheoticstudios.thuumcraft.compat.EpicFightCompat;
 import net.apotheoticstudios.thuumcraft.network.ClientboundSneakAwarenessPacket;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
+import net.apotheoticstudios.thuumcraft.skill.SkillPerkEvents;
 import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
+import net.apotheoticstudios.thuumcraft.stamina.StaminaEvents;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -29,6 +32,10 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.block.BasePressurePlateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.TripWireBlock;
+import net.minecraft.world.level.block.WeightedPressurePlateBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -38,6 +45,7 @@ import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -67,10 +75,20 @@ public final class SneakAwarenessEvents {
     private static final double SNEAK_CRITICAL_HIT_XP = 12.0D;
     private static final double SNEAK_PROXIMITY_BASE_XP = 0.65D;
     private static final double SNEAK_PROXIMITY_MAX_XP_PER_SCAN = 2.25D;
+    private static final float BOW_ATTACK_NOISE = 0.25F;
+    private static final float DAGGER_ATTACK_NOISE = 0.25F;
+    private static final float ONE_HANDED_ATTACK_NOISE = 0.85F;
+    private static final float TWO_HANDED_ATTACK_NOISE = 1.2F;
+    private static final float UNCLASSIFIED_ATTACK_NOISE = 0.7F;
+    private static final int SHADOW_WARRIOR_COOLDOWN_TICKS = 40;
+    private static final int SILENT_ROLL_COOLDOWN_TICKS = 18;
+    private static final double SILENT_ROLL_STAMINA_COST = 7.0D;
+    private static final double SILENT_ROLL_TARGET_FORWARD_SPEED = 0.36D;
     private static final int SNEAK_ATTACK_CRIT_PARTICLES = 24;
     private static final int SNEAK_ATTACK_ENCHANTED_HIT_PARTICLES = 12;
     private static final float TARGET_ACQUISITION_PROGRESS = 0.85F;
     private static final Map<UUID, PlayerAwarenessData> PLAYER_AWARENESS = new HashMap<>();
+    private static final Map<UUID, PlayerStealthRuntime> PLAYER_STEALTH_RUNTIME = new HashMap<>();
     private static final Map<UUID, Integer> DISABLED_SYNC_TICKS = new HashMap<>();
 
     private SneakAwarenessEvents() {
@@ -93,6 +111,7 @@ public final class SneakAwarenessEvents {
         PlayerAwarenessData data = PLAYER_AWARENESS.get(playerId);
         boolean undetectable = isUndetectable(player);
         if (player.isSpectator() || player.isCreative() || !player.isAlive() || undetectable) {
+            PLAYER_STEALTH_RUNTIME.remove(playerId);
             if (undetectable && player.tickCount % UPDATE_INTERVAL_TICKS == 0) {
                 clearNearbyObserverTargets(player);
             }
@@ -100,15 +119,24 @@ public final class SneakAwarenessEvents {
             return;
         }
 
-        if (!isTryingToSneak(player)) {
-            clearAwareness(player, data);
-            return;
+        suppressLightFootTriggers(player);
+
+        boolean tryingToSneak = isTryingToSneak(player);
+        boolean hasShadowWarrior = SkillPerk.has(player, SkillPerk.SNEAK_SHADOW_WARRIOR);
+        boolean hasSilentRoll = SkillPerk.has(player, SkillPerk.SNEAK_SILENT_ROLL);
+        if (hasShadowWarrior || hasSilentRoll) {
+            PlayerStealthRuntime runtime = PLAYER_STEALTH_RUNTIME.computeIfAbsent(playerId,
+                    ignored -> new PlayerStealthRuntime());
+            if (tickStealthPerkActivations(player, runtime, tryingToSneak, hasShadowWarrior, hasSilentRoll)) {
+                data = null;
+            }
+        } else {
+            PLAYER_STEALTH_RUNTIME.remove(playerId);
         }
 
-        if (SkillPerk.has(player, SkillPerk.SNEAK_SHADOW_WARRIOR) && player.tickCount % 80 == 0) {
-            clearNearbyObserverTargets(player);
+        if (!tryingToSneak) {
             clearAwareness(player, data);
-            data = null;
+            return;
         }
 
         if (player.tickCount % UPDATE_INTERVAL_TICKS != 0) {
@@ -162,7 +190,10 @@ public final class SneakAwarenessEvents {
 
     @SubscribeEvent
     public static void applySneakAttackDamage(LivingHurtEvent event) {
-        if (!isStealthSystemEnabled() || event.getEntity().level().isClientSide()) {
+        if (!isStealthSystemEnabled()
+                || event.getEntity().level().isClientSide()
+                || SkillPerkEvents.isApplyingSecondaryDamage()
+                || EpicFightCompat.isApplyingSecondaryDamage()) {
             return;
         }
         if (!(event.getEntity() instanceof Mob observer)) {
@@ -186,6 +217,29 @@ public final class SneakAwarenessEvents {
         }
     }
 
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void recordSneakAttackNoise(LivingHurtEvent event) {
+        if (!isStealthSystemEnabled()
+                || event.getEntity().level().isClientSide()
+                || event.getAmount() <= 0.0F
+                || SkillPerkEvents.isApplyingSecondaryDamage()
+                || EpicFightCompat.isApplyingSecondaryDamage()
+                || !(event.getSource().getEntity() instanceof ServerPlayer player)
+                || event.getEntity() == player
+                || !isTryingToSneak(player)
+                || isUndetectable(player)) {
+            return;
+        }
+
+        float noise = getAttackNoise(player, getSneakAttackType(event.getSource()));
+        if (noise <= 0.0F) {
+            return;
+        }
+
+        PLAYER_AWARENESS.computeIfAbsent(player.getUUID(), uuid -> new PlayerAwarenessData())
+                .recordNoise(noise);
+    }
+
     @SubscribeEvent
     public static void applySneakProgress(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
@@ -206,12 +260,14 @@ public final class SneakAwarenessEvents {
     @SubscribeEvent
     public static void clearPlayer(PlayerEvent.PlayerLoggedOutEvent event) {
         PLAYER_AWARENESS.remove(event.getEntity().getUUID());
+        PLAYER_STEALTH_RUNTIME.remove(event.getEntity().getUUID());
         DISABLED_SYNC_TICKS.remove(event.getEntity().getUUID());
     }
 
     @SubscribeEvent
     public static void clearServer(ServerStoppingEvent event) {
         PLAYER_AWARENESS.clear();
+        PLAYER_STEALTH_RUNTIME.clear();
         DISABLED_SYNC_TICKS.clear();
     }
 
@@ -225,6 +281,7 @@ public final class SneakAwarenessEvents {
         if (data != null) {
             data.clear(player);
         }
+        PLAYER_STEALTH_RUNTIME.remove(playerId);
 
         Integer lastSyncTick = DISABLED_SYNC_TICKS.get(playerId);
         if (lastSyncTick == null || player.tickCount - lastSyncTick >= FORCE_SYNC_TICKS) {
@@ -238,6 +295,117 @@ public final class SneakAwarenessEvents {
             data.clear(player);
             PLAYER_AWARENESS.remove(player.getUUID());
         }
+    }
+
+    private static boolean tickStealthPerkActivations(ServerPlayer player, PlayerStealthRuntime runtime,
+                                                      boolean tryingToSneak, boolean hasShadowWarrior,
+                                                      boolean hasSilentRoll) {
+        if (!tryingToSneak) {
+            runtime.wasTryingToSneak = false;
+            return false;
+        }
+
+        boolean shadowWarriorActivated = false;
+        if (!runtime.wasTryingToSneak
+                && hasShadowWarrior
+                && player.tickCount - runtime.lastShadowWarriorTick >= SHADOW_WARRIOR_COOLDOWN_TICKS) {
+            runtime.lastShadowWarriorTick = player.tickCount;
+            clearNearbyObserverTargets(player);
+            clearAwareness(player, PLAYER_AWARENESS.get(player.getUUID()));
+            shadowWarriorActivated = true;
+        }
+
+        runtime.wasTryingToSneak = true;
+        if (hasSilentRoll) {
+            trySilentRoll(player, runtime);
+        }
+        return shadowWarriorActivated;
+    }
+
+    private static void trySilentRoll(ServerPlayer player, PlayerStealthRuntime runtime) {
+        if (!player.isSprinting()
+                || player.tickCount - runtime.lastSilentRollTick < SILENT_ROLL_COOLDOWN_TICKS) {
+            return;
+        }
+
+        Vec3 look = player.getLookAngle();
+        Vec3 forward = new Vec3(look.x, 0.0D, look.z);
+        if (forward.lengthSqr() <= 0.0001D) {
+            return;
+        }
+        forward = forward.normalize();
+
+        double currentForwardSpeed = Math.max(0.0D, horizontalDot(player.getDeltaMovement(), forward));
+        double impulse = SILENT_ROLL_TARGET_FORWARD_SPEED - currentForwardSpeed;
+        if (impulse <= 0.02D || !StaminaEvents.tryConsumeCurrentStamina(player, SILENT_ROLL_STAMINA_COST)) {
+            return;
+        }
+
+        runtime.lastSilentRollTick = player.tickCount;
+        player.push(forward.x * impulse, 0.02D, forward.z * impulse);
+        player.hasImpulse = true;
+        player.hurtMarked = true;
+    }
+
+    private static void suppressLightFootTriggers(ServerPlayer player) {
+        if (!SkillPerk.has(player, SkillPerk.SNEAK_LIGHT_FOOT)) {
+            return;
+        }
+
+        BlockPos standingPos = player.blockPosition();
+        suppressLightFootTriggerAt(player, standingPos);
+        BlockPos groundPos = player.getOnPos();
+        if (!groundPos.equals(standingPos)) {
+            suppressLightFootTriggerAt(player, groundPos);
+        }
+    }
+
+    private static void suppressLightFootTriggerAt(ServerPlayer player, BlockPos pos) {
+        BlockState state = player.level().getBlockState(pos);
+        if (!(state.getBlock() instanceof BasePressurePlateBlock || state.getBlock() instanceof TripWireBlock)
+                || hasOtherTriggeringEntity(player, pos)) {
+            return;
+        }
+
+        BlockState unpoweredState = getLightFootUnpoweredState(state);
+        if (unpoweredState == state) {
+            return;
+        }
+
+        player.level().setBlock(pos, unpoweredState, 3);
+        player.level().updateNeighborsAt(pos, state.getBlock());
+    }
+
+    private static BlockState getLightFootUnpoweredState(BlockState state) {
+        if (state.hasProperty(PressurePlateBlock.POWERED) && state.getValue(PressurePlateBlock.POWERED)) {
+            return state.setValue(PressurePlateBlock.POWERED, false);
+        }
+        if (state.hasProperty(WeightedPressurePlateBlock.POWER)
+                && state.getValue(WeightedPressurePlateBlock.POWER) > 0) {
+            return state.setValue(WeightedPressurePlateBlock.POWER, 0);
+        }
+        if (state.hasProperty(TripWireBlock.POWERED) && state.getValue(TripWireBlock.POWERED)) {
+            return state.setValue(TripWireBlock.POWERED, false);
+        }
+        return state;
+    }
+
+    private static boolean hasOtherTriggeringEntity(ServerPlayer player, BlockPos pos) {
+        AABB triggerArea = new AABB(
+                pos.getX() + 0.125D, pos.getY(), pos.getZ() + 0.125D,
+                pos.getX() + 0.875D, pos.getY() + 0.35D, pos.getZ() + 0.875D);
+        for (Entity entity : player.level().getEntities((Entity) null, triggerArea,
+                entity -> entity.isAlive() && !entity.isSpectator())) {
+            if (isLightFootImmune(entity)) {
+                continue;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean isLightFootImmune(Entity entity) {
+        return entity instanceof ServerPlayer otherPlayer && SkillPerk.has(otherPlayer, SkillPerk.SNEAK_LIGHT_FOOT);
     }
 
     private static void updatePlayerAwareness(ServerPlayer player, PlayerAwarenessData data) {
@@ -488,8 +656,14 @@ public final class SneakAwarenessEvents {
     private static void clearNearbyObserverTargets(ServerPlayer player) {
         AABB scanArea = player.getBoundingBox().inflate(MAX_SCAN_RANGE);
         for (Mob observer : player.serverLevel().getEntitiesOfClass(Mob.class, scanArea,
-                observer -> observer.isAlive() && observer.getTarget() == player)) {
-            observer.setTarget(null);
+                observer -> observer.isAlive()
+                        && (observer.getTarget() == player || observer.getLastHurtByMob() == player))) {
+            if (observer.getTarget() == player) {
+                observer.setTarget(null);
+            }
+            if (observer.getLastHurtByMob() == player) {
+                observer.setLastHurtByMob(null);
+            }
         }
     }
 
@@ -652,6 +826,26 @@ public final class SneakAwarenessEvents {
         return itemId != null && itemId.getPath().contains("dagger");
     }
 
+    private static float getAttackNoise(ServerPlayer player, SneakAttackType sneakAttackType) {
+        return switch (sneakAttackType) {
+            case RANGED -> BOW_ATTACK_NOISE;
+            case MELEE -> {
+                ItemStack weapon = player.getMainHandItem();
+                if (isDagger(weapon)) {
+                    yield DAGGER_ATTACK_NOISE;
+                }
+                if (weapon.is(ModTags.Items.TWO_HANDED_WEAPONS)) {
+                    yield TWO_HANDED_ATTACK_NOISE;
+                }
+                if (weapon.is(ModTags.Items.ONE_HANDED_WEAPONS)) {
+                    yield ONE_HANDED_ATTACK_NOISE;
+                }
+                yield UNCLASSIFIED_ATTACK_NOISE;
+            }
+            case NONE -> UNCLASSIFIED_ATTACK_NOISE;
+        };
+    }
+
     private static boolean isOneHandedSneakWeapon(ItemStack stack) {
         return !stack.isEmpty() && (stack.is(ModTags.Items.ONE_HANDED_WEAPONS) || isDagger(stack));
     }
@@ -673,6 +867,16 @@ public final class SneakAwarenessEvents {
         }
 
         return Mth.clamp(Math.max(level.getBrightness(LightLayer.BLOCK, pos), skyLight), 0, 15);
+    }
+
+    private static double horizontalDot(Vec3 a, Vec3 b) {
+        return a.x * b.x + a.z * b.z;
+    }
+
+    private static final class PlayerStealthRuntime {
+        private boolean wasTryingToSneak;
+        private int lastShadowWarriorTick = -SHADOW_WARRIOR_COOLDOWN_TICKS;
+        private int lastSilentRollTick = -SILENT_ROLL_COOLDOWN_TICKS;
     }
 
     private static final class PlayerAwarenessData {

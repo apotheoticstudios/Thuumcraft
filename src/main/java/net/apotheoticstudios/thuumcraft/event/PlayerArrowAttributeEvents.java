@@ -44,10 +44,11 @@ public final class PlayerArrowAttributeEvents {
             return;
         }
 
-        double velocityMultiplier = Config.PLAYER_ARROW_VELOCITY_MULTIPLIER.get();
+        double velocityMultiplier = Math.max(EPSILON, Config.PLAYER_ARROW_VELOCITY_MULTIPLIER.get());
         setMultiplicativeModifier(player, arrowVelocity, ARROW_VELOCITY_MODIFIER,
                 "Thuumcraft arrow velocity", velocityMultiplier - 1.0D);
 
+        // Vanilla arrow damage scales with impact speed, so inverse scaling keeps faster arrows from double dipping.
         double damageMultiplier = Config.PRESERVE_PLAYER_ARROW_DAMAGE.get() ? 1.0D / velocityMultiplier : 1.0D;
         setMultiplicativeModifier(player, arrowDamage, ARROW_DAMAGE_COMPENSATION_MODIFIER,
                 "Thuumcraft arrow damage compensation", damageMultiplier - 1.0D);

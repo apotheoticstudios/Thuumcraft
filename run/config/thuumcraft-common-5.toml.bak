@@ -25,7 +25,7 @@
 	#Render Thuumcraft's Skyrim-style HUD overlays. Individual bars can still be toggled below.
 	enableSkyrimHud = true
 	#Render the Skyrim-style compass at the top of the screen.
-	showCompass = true
+	showCompass = false
 	#Render the targeted entity health bar.
 	showTargetHealthBar = true
 	#Render the Skyrim-style player health bar. If false, vanilla health is shown.
@@ -58,13 +58,13 @@
 		#Extra sprint stamina drain per armor point. 0.02 means 2% more drain per armor point.
 		#Range: 0.0 ~ 10.0
 		sprintArmorDrainMultiplier = 0.02
-		#Minimum stamina ratio required to start or keep sprinting.
+		#Minimum stamina ratio required to start sprinting.
 		#Range: 0.0 ~ 1.0
 		sprintStartStaminaRatio = 0.1
 		#Stamina ratio required to unlock sprinting after running out.
 		#Range: 0.0 ~ 1.0
 		sprintResumeStaminaRatio = 0.15
-		#Minimum absolute stamina required to start or keep sprinting.
+		#Minimum absolute stamina required to start sprinting.
 		#Range: 0.0 ~ 1000000.0
 		sprintStartStaminaFloor = 5.0
 		#Minimum absolute stamina required to unlock sprinting after running out.
@@ -73,6 +73,8 @@
 		#Ticks before stamina starts regenerating after stamina is drained.
 		#Range: 0 ~ 1200
 		staminaRegenDelayTicks = 20
+		#When Epic Fight is installed, make Epic Fight skills and dodges consume Thuumcraft stamina instead of Epic Fight's internal stamina.
+		enableEpicFightStaminaReplacement = true
 
 	#Skyrim-style health regeneration settings
 	[hudAndStamina.healthRegeneration]
@@ -90,3 +92,61 @@
 		#Ticks a player remains in combat after dealing or taking damage.
 		#Range: 0 ~ 12000
 		combatDurationTicks = 200
+
+	#Skyrim-style food effects settings
+	[hudAndStamina.food]
+		#Enable food restoring Skyrim-style health, stamina and occasional magicka, with soups/stews granting timed regeneration.
+		enableFoodEffects = true
+		#Health restored per Minecraft nutrition point when food is eaten.
+		#Range: 0.0 ~ 1000.0
+		healthRestorePerNutrition = 0.6
+		#Stamina restored per Minecraft nutrition point when food is eaten.
+		#Range: 0.0 ~ 1000.0
+		staminaRestorePerNutrition = 3.0
+		#Magicka restored per Minecraft nutrition point for magicka-themed foods.
+		#Range: 0.0 ~ 1000.0
+		magickaRestorePerNutrition = 0.75
+		#Multiplier for direct food recovery from raw food.
+		#Range: 0.0 ~ 10.0
+		rawRestoreMultiplier = 0.5
+		#Multiplier for direct food recovery from cooked food.
+		#Range: 0.0 ~ 10.0
+		cookedRestoreMultiplier = 1.25
+		#Multiplier for direct food recovery from soups, stews and full meals.
+		#Range: 0.0 ~ 10.0
+		mealRestoreMultiplier = 1.5
+		#Ticks soups, stews and full meals grant regeneration. Skyrim meal regeneration commonly lasts 720 seconds.
+		#Range: 0 ~ 240000
+		mealRegenDurationTicks = 14400
+		#Health restored per second by soup/stew/full-meal regeneration.
+		#Range: 0.0 ~ 1000.0
+		mealHealthRegenPerSecond = 1.0
+		#Stamina restored per second by soup/stew/full-meal regeneration.
+		#Range: 0.0 ~ 1000.0
+		mealStaminaRegenPerSecond = 1.0
+		#Magicka restored per second by magicka-themed meal regeneration.
+		#Range: 0.0 ~ 1000.0
+		mealMagickaRegenPerSecond = 1.0
+
+#Skyrim-style skill progression and perk tree settings
+[skills]
+	#Set to false to completely disable skill XP progression, character level, perk points, skill tree unlocking and perk ability effects.
+	enableSkillSystem = true
+	#Grant a Skyrim-style Well Rested bonus to skill XP after sleeping.
+	enableRestedSkillXpBonus = true
+	#Skill XP multiplier while Well Rested. Skyrim's Well Rested bonus is 10% faster skill improvement.
+	#Range: 1.0 ~ 10.0
+	restedSkillXpMultiplier = 1.1
+	#Ticks the Well Rested skill XP bonus lasts after sleeping.
+	#Range: 0 ~ 240000
+	restedSkillXpDurationTicks = 24000
+
+#Ranged combat tuning
+[rangedCombat]
+	#Enable faster, flatter player-fired arrow trajectories.
+	enablePlayerArrowTrajectoryTuning = true
+	#Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less. Default 2.25 gives a much flatter Skyrim-like shot.
+	#Range: 0.1 ~ 10.0
+	playerArrowVelocityMultiplier = 2.25
+	#Compensate the arrow damage attribute by the inverse velocity multiplier. At the default 2.25 velocity multiplier, arrow damage is multiplied by 0.4444 before other ranged bonuses so the faster arrow does not gain free damage from speed.
+	preservePlayerArrowDamage = true

@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static final String PROTOCOL_VERSION = "8";
+    private static final String PROTOCOL_VERSION = "9";
     private static int packetId = 0;
     private static SimpleChannel channel;
 
@@ -45,6 +45,12 @@ public class ModMessages {
                 .encoder(ClientboundTargetHealthPacket::encode)
                 .decoder(ClientboundTargetHealthPacket::new)
                 .consumerMainThread(ClientboundTargetHealthPacket::handle)
+                .add();
+
+        channel.messageBuilder(ClientboundKillCamPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundKillCamPacket::encode)
+                .decoder(ClientboundKillCamPacket::new)
+                .consumerMainThread(ClientboundKillCamPacket::handle)
                 .add();
 
         channel.messageBuilder(ClientboundSkillPerksPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)

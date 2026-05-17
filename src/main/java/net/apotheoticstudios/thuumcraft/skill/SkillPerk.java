@@ -348,6 +348,50 @@ public enum SkillPerk {
         return perkPoints(player) - currentPoints;
     }
 
+    public static int resetSkillTrees(ServerPlayer player) {
+        if (!isSystemEnabled()) {
+            return 0;
+        }
+
+        CompoundTag data = player.getPersistentData();
+        CompoundTag perks = data.getCompound(PERKS_TAG);
+        int removedRanks = 0;
+        for (SkillPerk perk : values()) {
+            removedRanks += Math.max(0, perks.getInt(perk.id));
+        }
+        data.remove(PERKS_TAG);
+        sendSync(player);
+        return removedRanks;
+    }
+
+    public static int resetPerkPoints(ServerPlayer player) {
+        if (!isSystemEnabled()) {
+            return 0;
+        }
+
+        int previousPoints = perkPoints(player);
+        setPerkPoints(player, 0);
+        player.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, getEarnedPerkPoints(player));
+        sendSync(player);
+        return previousPoints;
+    }
+
+    public static int resetAllSkillProgress(ServerPlayer player) {
+        if (!isSystemEnabled()) {
+            return 0;
+        }
+
+        int removed = countUnlockedRanks(player) + perkPoints(player) + getBonusPlayerLevels(player);
+        removed += SkillProgression.resetAll(player);
+        CompoundTag data = player.getPersistentData();
+        data.remove(PERKS_TAG);
+        data.remove(PERK_POINTS_TAG);
+        data.remove(EARNED_PERK_POINTS_TAG);
+        data.remove(BONUS_PLAYER_LEVELS_TAG);
+        sendSync(player);
+        return removed;
+    }
+
     public static void copy(Player original, ServerPlayer clone) {
         CompoundTag originalPerks = original.getPersistentData().getCompound(PERKS_TAG);
         if (!originalPerks.isEmpty()) {
@@ -410,6 +454,15 @@ public enum SkillPerk {
 
     private static void setPerkPoints(Player player, int points) {
         player.getPersistentData().putInt(PERK_POINTS_TAG, Math.max(0, points));
+    }
+
+    private static int countUnlockedRanks(Player player) {
+        CompoundTag perks = player.getPersistentData().getCompound(PERKS_TAG);
+        int ranks = 0;
+        for (SkillPerk perk : values()) {
+            ranks += Math.max(0, perks.getInt(perk.id));
+        }
+        return ranks;
     }
 
     private static int[] req(int... values) {

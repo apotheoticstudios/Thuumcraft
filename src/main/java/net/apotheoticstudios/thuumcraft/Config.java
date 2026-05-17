@@ -141,11 +141,11 @@ public class Config {
         ENABLE_SKYRIM_FOOD_EFFECTS = builder.comment("Enable food restoring Skyrim-style health, stamina and occasional magicka, with soups/stews granting timed regeneration.")
                 .define("enableFoodEffects", true);
         FOOD_HEALTH_RESTORE_PER_NUTRITION = builder.comment("Health restored per Minecraft nutrition point when food is eaten.")
-                .defineInRange("healthRestorePerNutrition", 0.1D, 0.0D, 1000.0D);
+                .defineInRange("healthRestorePerNutrition", 0.05D, 0.0D, 1000.0D);
         FOOD_STAMINA_RESTORE_PER_NUTRITION = builder.comment("Stamina restored per Minecraft nutrition point when food is eaten.")
-                .defineInRange("staminaRestorePerNutrition", 1.0D, 0.0D, 1000.0D);
+                .defineInRange("staminaRestorePerNutrition", 0.06D, 0.0D, 1000.0D);
         FOOD_MAGICKA_RESTORE_PER_NUTRITION = builder.comment("Magicka restored per Minecraft nutrition point for magicka-themed foods.")
-                .defineInRange("magickaRestorePerNutrition", 0.2D, 0.0D, 1000.0D);
+                .defineInRange("magickaRestorePerNutrition", 0.03D, 0.0D, 1000.0D);
         FOOD_RAW_RESTORE_MULTIPLIER = builder.comment("Multiplier for direct food recovery from raw food.")
                 .defineInRange("rawRestoreMultiplier", 0.5D, 0.0D, 10.0D);
         FOOD_COOKED_RESTORE_MULTIPLIER = builder.comment("Multiplier for direct food recovery from cooked food.")

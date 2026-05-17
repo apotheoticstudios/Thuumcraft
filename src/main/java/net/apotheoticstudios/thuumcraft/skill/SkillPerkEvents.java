@@ -88,6 +88,9 @@ public final class SkillPerkEvents {
     private static final int ARCHERY_POWER_SHOT_POOF_PARTICLES = 16;
     private static final int ARCHERY_POWER_SHOT_CLOUD_PARTICLES = 8;
     private static final double EAGLE_EYE_STAMINA_COST_PER_TICK = 0.08D;
+    private static final double STEADY_HAND_RANGE = 256.0D;
+    private static final double STEADY_HAND_VIEW_DOT_RANK_1 = 0.25D;
+    private static final double STEADY_HAND_VIEW_DOT_RANK_2 = 0.08D;
     private static final double POWER_ATTACK_STAMINA_COST = 12.0D;
     private static final int BASH_COOLDOWN_TICKS = 10;
     private static final int QUICK_REFLEXES_COOLDOWN_TICKS = 25;
@@ -752,10 +755,22 @@ public final class SkillPerkEvents {
     }
 
     private static void applySteadyHandSlow(ServerPlayer player, int rank) {
-        double range = rank >= 2 ? 24.0D : 18.0D;
         int amplifier = rank >= 2 ? 1 : 0;
-        AABB area = player.getBoundingBox().inflate(range);
+        double requiredDot = rank >= 2 ? STEADY_HAND_VIEW_DOT_RANK_2 : STEADY_HAND_VIEW_DOT_RANK_1;
+        Vec3 eyePosition = player.getEyePosition();
+        Vec3 look = player.getLookAngle().normalize();
+        AABB area = player.getBoundingBox().inflate(STEADY_HAND_RANGE);
+        double maxDistanceSqr = STEADY_HAND_RANGE * STEADY_HAND_RANGE;
         for (Mob target : player.serverLevel().getEntitiesOfClass(Mob.class, area, Mob::isAlive)) {
+            Vec3 targetCenter = target.getBoundingBox().getCenter();
+            Vec3 toTarget = targetCenter.subtract(eyePosition);
+            double distanceSqr = toTarget.lengthSqr();
+            if (distanceSqr <= 0.0001D
+                    || distanceSqr > maxDistanceSqr
+                    || look.dot(toTarget.normalize()) < requiredDot
+                    || !player.hasLineOfSight(target)) {
+                continue;
+            }
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 8, amplifier, false, false));
         }
     }

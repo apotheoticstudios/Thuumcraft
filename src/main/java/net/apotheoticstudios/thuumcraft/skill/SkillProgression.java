@@ -149,6 +149,35 @@ public final class SkillProgression {
         return nextLevel - currentLevel;
     }
 
+    public static int reset(ServerPlayer player, Skill skill) {
+        return reset(player, skill, true);
+    }
+
+    public static int resetAll(ServerPlayer player) {
+        int removedLevels = 0;
+        for (Skill skill : Skill.values()) {
+            removedLevels += reset(player, skill, false);
+        }
+        return removedLevels;
+    }
+
+    private static int reset(ServerPlayer player, Skill skill, boolean requireEnabled) {
+        if (!SkillPerk.isSystemEnabled() || (requireEnabled && !SkillPerk.isSkillEnabled(skill))) {
+            return 0;
+        }
+        AttributeInstance attribute = player.getAttribute(skill.attribute().get());
+        CompoundTag data = player.getPersistentData();
+        int previousLevel = attribute == null
+                ? Mth.clamp(data.getInt(skill.levelKey()), 0, SKILL_CAP)
+                : getPersistentLevel(player, skill, attribute);
+        data.remove(skill.levelKey());
+        data.remove(skill.xpKey());
+        if (attribute != null) {
+            setBaseValue(attribute, 0);
+        }
+        return previousLevel;
+    }
+
     private static void clearAll(ServerPlayer player) {
         for (Skill skill : Skill.values()) {
             AttributeInstance attribute = player.getAttribute(skill.attribute().get());

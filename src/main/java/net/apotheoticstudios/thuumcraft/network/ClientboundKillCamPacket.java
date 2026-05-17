@@ -16,6 +16,10 @@ public class ClientboundKillCamPacket {
     private final double attackerX;
     private final double attackerY;
     private final double attackerZ;
+    private final int projectileId;
+    private final double projectileStartX;
+    private final double projectileStartY;
+    private final double projectileStartZ;
     private final boolean ranged;
     private final int durationTicks;
     private final double fov;
@@ -23,7 +27,8 @@ public class ClientboundKillCamPacket {
     public ClientboundKillCamPacket(int targetId, double targetX, double targetY, double targetZ,
                                     float targetWidth, float targetHeight,
                                     double attackerX, double attackerY, double attackerZ,
-                                    boolean ranged, int durationTicks, double fov) {
+                                    int projectileId, double projectileStartX, double projectileStartY,
+                                    double projectileStartZ, boolean ranged, int durationTicks, double fov) {
         this.targetId = targetId;
         this.targetX = targetX;
         this.targetY = targetY;
@@ -33,6 +38,10 @@ public class ClientboundKillCamPacket {
         this.attackerX = attackerX;
         this.attackerY = attackerY;
         this.attackerZ = attackerZ;
+        this.projectileId = projectileId;
+        this.projectileStartX = projectileStartX;
+        this.projectileStartY = projectileStartY;
+        this.projectileStartZ = projectileStartZ;
         this.ranged = ranged;
         this.durationTicks = durationTicks;
         this.fov = fov;
@@ -45,6 +54,10 @@ public class ClientboundKillCamPacket {
                 buffer.readDouble(),
                 buffer.readFloat(),
                 buffer.readFloat(),
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readVarInt(),
                 buffer.readDouble(),
                 buffer.readDouble(),
                 buffer.readDouble(),
@@ -63,6 +76,10 @@ public class ClientboundKillCamPacket {
         buffer.writeDouble(attackerX);
         buffer.writeDouble(attackerY);
         buffer.writeDouble(attackerZ);
+        buffer.writeVarInt(projectileId);
+        buffer.writeDouble(projectileStartX);
+        buffer.writeDouble(projectileStartY);
+        buffer.writeDouble(projectileStartZ);
         buffer.writeBoolean(ranged);
         buffer.writeVarInt(durationTicks);
         buffer.writeDouble(fov);
@@ -71,7 +88,8 @@ public class ClientboundKillCamPacket {
     public void handle(Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
         context.enqueueWork(() -> KillCamClientEvents.start(targetId, targetX, targetY, targetZ,
-                targetWidth, targetHeight, attackerX, attackerY, attackerZ, ranged, durationTicks, fov));
+                targetWidth, targetHeight, attackerX, attackerY, attackerZ, projectileId,
+                projectileStartX, projectileStartY, projectileStartZ, ranged, durationTicks, fov));
         context.setPacketHandled(true);
     }
 }

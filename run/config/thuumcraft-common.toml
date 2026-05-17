@@ -115,8 +115,8 @@
 		#Multiplier for direct food recovery from soups, stews and full meals.
 		#Range: 0.0 ~ 10.0
 		mealRestoreMultiplier = 1.5
-		#Ticks soups, stews and full meals grant regeneration. Skyrim meal regeneration commonly lasts 720 seconds.
-		#Range: 0 ~ 240000
+		#Ticks soups, stews and full meals grant regeneration. Default 60 seconds (1200 ticks)
+		#Range: 0 ~ 24000
 		mealRegenDurationTicks = 14400
 		#Health restored per second by soup/stew/full-meal regeneration.
 		#Range: 0.0 ~ 1000.0
@@ -157,7 +157,7 @@
 	enableKillCam = true
 	#Chance for a valid killing blow to trigger a kill camera.
 	#Range: 0.0 ~ 1.0
-	chance = 0.25
+	chance = 0.3
 	#Length of the client-side kill camera in ticks. This does not slow server or world time.
 	#Range: 1 ~ 200
 	durationTicks = 48
@@ -165,9 +165,9 @@
 	#Range: 0 ~ 12000
 	cooldownTicks = 100
 	#Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected stealth kills.
-	requireLastThreat = true
+	requireLastThreat = false
 	#Only trigger kill cameras when killing hostile mobs.
-	hostileOnly = false
+	hostileOnly = true
 	#Radius used when checking for other nearby active threats.
 	#Range: 0.0 ~ 128.0
 	threatRadius = 24.0

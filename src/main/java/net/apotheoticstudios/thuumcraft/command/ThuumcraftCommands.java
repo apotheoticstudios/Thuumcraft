@@ -50,7 +50,11 @@ public final class ThuumcraftCommands {
                 .requires(source -> source.hasPermission(2))
                 .then(playerLevels())
                 .then(skillLevels())
-                .then(perkPoints()));
+                .then(perkPoints())
+                .then(resetSkillTrees())
+                .then(resetPerkPoints())
+                .then(resetSkillLevels())
+                .then(resetAllSkillProgress()));
     }
 
     private static LiteralArgumentBuilder<CommandSourceStack> playerLevels() {
@@ -74,6 +78,33 @@ public final class ThuumcraftCommands {
                 .then(Commands.argument("targets", EntityArgument.players())
                         .then(Commands.argument("amount", IntegerArgumentType.integer(1, MAX_COMMAND_AMOUNT))
                                 .executes(ThuumcraftCommands::givePerkPoints)));
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> resetSkillTrees() {
+        return Commands.literal("reset_skill_trees")
+                .then(Commands.argument("targets", EntityArgument.players())
+                        .executes(ThuumcraftCommands::resetSkillTrees));
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> resetPerkPoints() {
+        return Commands.literal("reset_perk_points")
+                .then(Commands.argument("targets", EntityArgument.players())
+                        .executes(ThuumcraftCommands::resetPerkPoints));
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> resetSkillLevels() {
+        return Commands.literal("reset_skill_levels")
+                .then(Commands.argument("targets", EntityArgument.players())
+                        .executes(ThuumcraftCommands::resetAllSkillLevels)
+                        .then(Commands.argument("skill", StringArgumentType.word())
+                                .suggests(SKILL_SUGGESTIONS)
+                                .executes(ThuumcraftCommands::resetOneSkillLevel)));
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> resetAllSkillProgress() {
+        return Commands.literal("reset_all_skill_progress")
+                .then(Commands.argument("targets", EntityArgument.players())
+                        .executes(ThuumcraftCommands::resetAllSkillProgress));
     }
 
     private static int givePlayerLevels(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
@@ -113,6 +144,64 @@ public final class ThuumcraftCommands {
         return applied;
     }
 
+    private static int resetSkillTrees(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        requireSkillSystemEnabled();
+        Collection<ServerPlayer> targets = EntityArgument.getPlayers(context, "targets");
+        int removed = 0;
+        for (ServerPlayer player : targets) {
+            removed += SkillPerk.resetSkillTrees(player);
+        }
+        sendResetSuccess(context.getSource(), "skill tree rank(s)", removed, targets);
+        return removed;
+    }
+
+    private static int resetPerkPoints(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        requireSkillSystemEnabled();
+        Collection<ServerPlayer> targets = EntityArgument.getPlayers(context, "targets");
+        int removed = 0;
+        for (ServerPlayer player : targets) {
+            removed += SkillPerk.resetPerkPoints(player);
+        }
+        sendResetSuccess(context.getSource(), "available perk point(s)", removed, targets);
+        return removed;
+    }
+
+    private static int resetAllSkillLevels(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        requireSkillSystemEnabled();
+        Collection<ServerPlayer> targets = EntityArgument.getPlayers(context, "targets");
+        int removed = 0;
+        for (ServerPlayer player : targets) {
+            removed += SkillProgression.resetAll(player);
+            SkillPerk.syncCommandGrantedSkillLevels(player);
+        }
+        sendResetSuccess(context.getSource(), "skill level(s)", removed, targets);
+        return removed;
+    }
+
+    private static int resetOneSkillLevel(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        requireSkillSystemEnabled();
+        SkillProgression.Skill skill = parseEnabledSkill(StringArgumentType.getString(context, "skill"));
+        Collection<ServerPlayer> targets = EntityArgument.getPlayers(context, "targets");
+        int removed = 0;
+        for (ServerPlayer player : targets) {
+            removed += SkillProgression.reset(player, skill);
+            SkillPerk.syncCommandGrantedSkillLevels(player);
+        }
+        sendResetSuccess(context.getSource(), skill.displayName() + " skill level(s)", removed, targets);
+        return removed;
+    }
+
+    private static int resetAllSkillProgress(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        requireSkillSystemEnabled();
+        Collection<ServerPlayer> targets = EntityArgument.getPlayers(context, "targets");
+        int removed = 0;
+        for (ServerPlayer player : targets) {
+            removed += SkillPerk.resetAllSkillProgress(player);
+        }
+        sendResetSuccess(context.getSource(), "skill progress value(s)", removed, targets);
+        return removed;
+    }
+
     private static void requireSkillSystemEnabled() throws CommandSyntaxException {
         if (!SkillPerk.isSystemEnabled()) {
             throw SKILL_SYSTEM_DISABLED.create();
@@ -133,6 +222,12 @@ public final class ThuumcraftCommands {
     private static void sendSuccess(CommandSourceStack source, String label, int amount,
                                     Collection<ServerPlayer> targets) {
         source.sendSuccess(() -> Component.literal("Added " + amount + " " + label + " across "
+                + targets.size() + " player(s)."), true);
+    }
+
+    private static void sendResetSuccess(CommandSourceStack source, String label, int amount,
+                                         Collection<ServerPlayer> targets) {
+        source.sendSuccess(() -> Component.literal("Reset " + amount + " " + label + " across "
                 + targets.size() + " player(s)."), true);
     }
 }

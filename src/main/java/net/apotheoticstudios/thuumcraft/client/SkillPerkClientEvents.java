@@ -9,6 +9,7 @@ import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
@@ -28,18 +29,18 @@ public final class SkillPerkClientEvents {
             "key.categories.thuumcraft");
 
     private static boolean lastSentEagleEyeZooming;
+    private static float displayedEagleEyeZoom = 1.0F;
 
     private SkillPerkClientEvents() {
     }
 
     @SubscribeEvent
     public static void applyEagleEyeZoom(ComputeFovModifierEvent event) {
-        if (!isEagleEyeZooming()) {
+        if (displayedEagleEyeZoom >= 0.999F) {
             return;
         }
 
-        float zoom = ClientSkillPerkState.rank(SkillPerk.ARCHERY_STEADY_HAND) > 0 ? 0.55F : 0.68F;
-        event.setNewFovModifier(event.getNewFovModifier() * zoom);
+        event.setNewFovModifier(event.getNewFovModifier() * displayedEagleEyeZoom);
     }
 
     @SubscribeEvent
@@ -51,14 +52,27 @@ public final class SkillPerkClientEvents {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.getConnection() == null) {
             lastSentEagleEyeZooming = false;
+            displayedEagleEyeZoom = 1.0F;
             return;
         }
 
         boolean zooming = isEagleEyeZooming();
+        updateDisplayedZoom(zooming);
         if (zooming != lastSentEagleEyeZooming) {
             lastSentEagleEyeZooming = zooming;
             ModMessages.sendToServer(new ServerboundEagleEyeZoomPacket(zooming));
         }
+    }
+
+    private static void updateDisplayedZoom(boolean zooming) {
+        float targetZoom = 1.0F;
+        if (zooming) {
+            targetZoom = ClientSkillPerkState.rank(SkillPerk.ARCHERY_STEADY_HAND) > 0 ? 0.24F : 0.34F;
+        }
+
+        float step = zooming ? 0.025F : 0.09F;
+        displayedEagleEyeZoom = Mth.clamp(Mth.approach(displayedEagleEyeZoom, targetZoom, step),
+                0.2F, 1.0F);
     }
 
     private static boolean isEagleEyeZooming() {

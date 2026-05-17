@@ -3,6 +3,7 @@ package net.apotheoticstudios.thuumcraft.client;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.minecraft.client.CameraType;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -11,7 +12,9 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,6 +32,8 @@ public final class KillCamClientEvents {
     public static void start(int targetId, double targetX, double targetY, double targetZ,
                              float targetWidth, float targetHeight,
                              double attackerX, double attackerY, double attackerZ,
+                             int projectileId, double projectileStartX, double projectileStartY,
+                             double projectileStartZ,
                              boolean ranged, int durationTicks, double fov) {
         Minecraft minecraft = Minecraft.getInstance();
         if (!Config.ENABLE_KILL_CAM.get()
@@ -46,16 +51,22 @@ public final class KillCamClientEvents {
         cameraEntity.setNoGravity(true);
         setCameraPosition(cameraEntity, startPosition, false);
 
+        float safeTargetHeight = Math.max(0.6F, targetHeight);
+        Vec3 targetBase = new Vec3(targetX, targetY, targetZ);
+        Vec3 targetCenter = targetBase.add(0.0D, safeTargetHeight * 0.58D, 0.0D);
         active = new KillCamState(
                 cameraEntity,
                 minecraft.getCameraEntity(),
                 minecraft.options.getCameraType(),
                 targetId,
-                new Vec3(targetX, targetY, targetZ),
+                targetBase,
                 Math.max(0.6F, targetWidth),
-                Math.max(0.6F, targetHeight),
+                safeTargetHeight,
                 new Vec3(attackerX, attackerY, attackerZ),
                 startPosition,
+                targetCenter,
+                projectileId,
+                new Vec3(projectileStartX, projectileStartY, projectileStartZ),
                 ranged,
                 Math.max(1, durationTicks),
                 Mth.clamp(fov, 10.0D, 120.0D));
@@ -77,6 +88,7 @@ public final class KillCamClientEvents {
             return;
         }
 
+        suppressInputs(minecraft);
         active.ageTicks++;
         if (active.ageTicks > active.durationTicks) {
             stop(true);
@@ -115,6 +127,35 @@ public final class KillCamClientEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void hideHands(RenderHandEvent event) {
+        if (active != null) {
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void blockInteractionInput(InputEvent.InteractionKeyMappingTriggered event) {
+        if (active != null) {
+            event.setSwingHand(false);
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void blockMouseButtons(InputEvent.MouseButton.Pre event) {
+        if (active != null) {
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void blockMouseScrolling(InputEvent.MouseScrollingEvent event) {
+        if (active != null) {
+            event.setCanceled(true);
+        }
+    }
+
     private static void updateCamera(KillCamState state, float partialTick) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.level == null || state.cameraEntity.level() != minecraft.level) {
@@ -123,10 +164,13 @@ public final class KillCamClientEvents {
 
         double progress = state.progress(partialTick);
         Vec3 targetCenter = getTargetCenter(minecraft, state);
-        Vec3 cameraPosition = state.ranged
-                ? getRangedCameraPosition(state, targetCenter, progress)
+        Vec3 desiredCameraPosition = state.ranged
+                ? getRangedCameraPosition(minecraft, state, targetCenter, progress)
                 : getMeleeCameraPosition(state, targetCenter, progress);
-        cameraPosition = avoidBlockClipping(minecraft, state.cameraEntity, targetCenter, cameraPosition);
+        desiredCameraPosition = avoidBlockClipping(minecraft, state.cameraEntity, targetCenter, desiredCameraPosition);
+        double smoothing = state.ranged ? 0.48D : 0.36D;
+        Vec3 cameraPosition = lerpVec(state.smoothedCameraPosition, desiredCameraPosition, smoothing);
+        state.smoothedCameraPosition = cameraPosition;
         setCameraPosition(state.cameraEntity, cameraPosition, true);
         lookAt(state.cameraEntity, cameraPosition, targetCenter);
     }
@@ -138,7 +182,9 @@ public final class KillCamClientEvents {
             state.targetWidth = Math.max(0.6F, target.getBbWidth());
             state.targetHeight = Math.max(0.6F, target.getBbHeight());
         }
-        return state.lastTargetBase.add(0.0D, state.targetHeight * 0.58D, 0.0D);
+        Vec3 rawCenter = state.lastTargetBase.add(0.0D, state.targetHeight * 0.58D, 0.0D);
+        state.smoothedTargetCenter = lerpVec(state.smoothedTargetCenter, rawCenter, 0.42D);
+        return state.smoothedTargetCenter;
     }
 
     private static Vec3 getMeleeCameraPosition(KillCamState state, Vec3 targetCenter, double progress) {
@@ -152,15 +198,56 @@ public final class KillCamClientEvents {
         return targetCenter.add(orbit);
     }
 
-    private static Vec3 getRangedCameraPosition(KillCamState state, Vec3 targetCenter, double progress) {
-        Vec3 direction = horizontalDirection(state.attackerPosition, targetCenter);
+    private static Vec3 getRangedCameraPosition(Minecraft minecraft, KillCamState state, Vec3 targetCenter,
+                                                double progress) {
+        Vec3 shotDirection = targetCenter.subtract(state.projectileStartPosition);
+        if (shotDirection.lengthSqr() <= MIN_DIRECTION_LENGTH) {
+            shotDirection = targetCenter.subtract(state.attackerPosition);
+        }
+        Vec3 direction = shotDirection.lengthSqr() <= MIN_DIRECTION_LENGTH
+                ? horizontalDirection(state.attackerPosition, targetCenter)
+                : shotDirection.normalize();
         Vec3 side = new Vec3(-direction.z, 0.0D, direction.x);
-        Vec3 start = state.startCameraPosition;
-        Vec3 mid = targetCenter.subtract(direction.scale(6.0D)).add(side.scale(-1.2D)).add(0.0D, 1.15D, 0.0D);
-        Vec3 end = targetCenter.subtract(direction.scale(Math.max(3.8D, state.targetWidth * 3.4D)))
-                .add(side.scale(1.25D))
-                .add(0.0D, 0.6D, 0.0D);
-        return quadraticBezier(start, mid, end, easeInOut(progress));
+        if (side.lengthSqr() <= MIN_DIRECTION_LENGTH) {
+            side = new Vec3(1.0D, 0.0D, 0.0D);
+        } else {
+            side = side.normalize();
+        }
+
+        double flightProgress = Mth.clamp(progress / 0.68D, 0.0D, 1.0D);
+        if (flightProgress < 1.0D) {
+            Vec3 projectilePoint = getProjectileReplayPoint(minecraft, state, targetCenter, direction,
+                    easeOutCubic(flightProgress));
+            double chaseDistance = Mth.lerp(flightProgress, 3.4D, 1.25D);
+            double chaseHeight = Mth.lerp(flightProgress, 0.45D, 0.18D);
+            return projectilePoint.subtract(direction.scale(chaseDistance))
+                    .add(side.scale(0.45D))
+                    .add(0.0D, chaseHeight, 0.0D);
+        }
+
+        double impactProgress = easeInOut((progress - 0.68D) / 0.32D);
+        double orbitAngle = Math.toRadians(-25.0D + 55.0D * impactProgress);
+        double radius = Math.max(3.6D, state.targetWidth * 3.3D);
+        Vec3 orbitForward = direction.scale(-Math.cos(orbitAngle) * radius);
+        Vec3 orbitSide = side.scale(Math.sin(orbitAngle) * radius);
+        return targetCenter.add(orbitForward).add(orbitSide).add(0.0D, 0.65D, 0.0D);
+    }
+
+    private static Vec3 getProjectileReplayPoint(Minecraft minecraft, KillCamState state, Vec3 targetCenter,
+                                                 Vec3 direction, double progress) {
+        if (minecraft.level != null && state.projectileId >= 0 && progress < 0.18D) {
+            Entity projectile = minecraft.level.getEntity(state.projectileId);
+            if (projectile != null && projectile.distanceToSqr(targetCenter) > 1.0D) {
+                return projectile.position();
+            }
+        }
+
+        double shotDistance = state.projectileStartPosition.distanceTo(targetCenter);
+        double arcHeight = Mth.clamp(shotDistance * 0.025D, 0.0D, 4.0D);
+        Vec3 control = state.projectileStartPosition.lerp(targetCenter, 0.52D)
+                .add(0.0D, arcHeight, 0.0D)
+                .add(direction.scale(0.75D));
+        return quadraticBezier(state.projectileStartPosition, control, targetCenter, progress);
     }
 
     private static Vec3 avoidBlockClipping(Minecraft minecraft, Entity cameraEntity, Vec3 targetCenter,
@@ -209,8 +296,29 @@ public final class KillCamClientEvents {
         return clamped * clamped * (3.0D - 2.0D * clamped);
     }
 
+    private static double easeOutCubic(double progress) {
+        double clamped = Mth.clamp(progress, 0.0D, 1.0D);
+        double inverse = 1.0D - clamped;
+        return 1.0D - inverse * inverse * inverse;
+    }
+
+    private static Vec3 lerpVec(Vec3 from, Vec3 to, double amount) {
+        double clamped = Mth.clamp(amount, 0.0D, 1.0D);
+        return new Vec3(
+                Mth.lerp(clamped, from.x, to.x),
+                Mth.lerp(clamped, from.y, to.y),
+                Mth.lerp(clamped, from.z, to.z));
+    }
+
     private static double getTransitionBlend(double progress) {
         return Mth.clamp(Math.min(progress / 0.18D, (1.0D - progress) / 0.18D), 0.0D, 1.0D);
+    }
+
+    private static void suppressInputs(Minecraft minecraft) {
+        KeyMapping.releaseAll();
+        if (minecraft.player != null && minecraft.player.isUsingItem()) {
+            minecraft.player.stopUsingItem();
+        }
     }
 
     private static void setCameraPosition(ArmorStand cameraEntity, Vec3 cameraPosition, boolean interpolate) {
@@ -277,7 +385,10 @@ public final class KillCamClientEvents {
         private float targetWidth;
         private float targetHeight;
         private final Vec3 attackerPosition;
-        private final Vec3 startCameraPosition;
+        private Vec3 smoothedCameraPosition;
+        private Vec3 smoothedTargetCenter;
+        private final int projectileId;
+        private final Vec3 projectileStartPosition;
         private final boolean ranged;
         private final int durationTicks;
         private final double fov;
@@ -285,7 +396,8 @@ public final class KillCamClientEvents {
 
         private KillCamState(ArmorStand cameraEntity, Entity previousCameraEntity, CameraType previousCameraType,
                              int targetId, Vec3 lastTargetBase, float targetWidth, float targetHeight,
-                             Vec3 attackerPosition, Vec3 startCameraPosition, boolean ranged,
+                             Vec3 attackerPosition, Vec3 smoothedCameraPosition,
+                             Vec3 smoothedTargetCenter, int projectileId, Vec3 projectileStartPosition, boolean ranged,
                              int durationTicks, double fov) {
             this.cameraEntity = cameraEntity;
             this.previousCameraEntity = previousCameraEntity;
@@ -295,7 +407,10 @@ public final class KillCamClientEvents {
             this.targetWidth = targetWidth;
             this.targetHeight = targetHeight;
             this.attackerPosition = attackerPosition;
-            this.startCameraPosition = startCameraPosition;
+            this.smoothedCameraPosition = smoothedCameraPosition;
+            this.smoothedTargetCenter = smoothedTargetCenter;
+            this.projectileId = projectileId;
+            this.projectileStartPosition = projectileStartPosition;
             this.ranged = ranged;
             this.durationTicks = durationTicks;
             this.fov = fov;

@@ -95,7 +95,11 @@ public final class SkillPerkEvents {
     private static final int BASH_COOLDOWN_TICKS = 10;
     private static final int QUICK_REFLEXES_COOLDOWN_TICKS = 25;
     private static final float QUICK_REFLEXES_DAMAGE_THRESHOLD = 4.0F;
+    private static final ResourceLocation ATTRIBUTESLIB_ARROW_DAMAGE =
+            ResourceLocation.fromNamespaceAndPath("attributeslib", "arrow_damage");
     private static final UUID ARMOR_BONUS_MODIFIER = UUID.fromString("f1fb1334-1098-4ed2-bcdd-803448596ff8");
+    private static final UUID BASIC_WEAPON_DAMAGE_MODIFIER = UUID.fromString("8ebc053b-c6d5-47f8-9008-e0734382b9d9");
+    private static final UUID ARCHERY_OVERDRAW_MODIFIER = UUID.fromString("d61f0f44-cd5e-45ac-b1f8-2494a4d0f3fc");
     private static final UUID ATTACK_SPEED_BONUS_MODIFIER = UUID.fromString("91185af2-b84f-4ca5-b8b4-e1c34d1b334f");
     private static final UUID BLOCK_RUNNER_MODIFIER = UUID.fromString("4c915d16-8d9a-47d7-95f0-bc1139130c79");
     private static final UUID RANGER_MODIFIER = UUID.fromString("36170d64-015f-4ea7-811b-c3c8ee073efb");
@@ -136,9 +140,11 @@ public final class SkillPerkEvents {
 
         if (!SkillPerk.isSystemEnabled() || player.isSpectator() || player.isCreative() || !player.isAlive()) {
             removeModifier(player, Attributes.ARMOR, ARMOR_BONUS_MODIFIER);
+            removeModifier(player, Attributes.ATTACK_DAMAGE, BASIC_WEAPON_DAMAGE_MODIFIER);
             removeModifier(player, Attributes.ATTACK_SPEED, ATTACK_SPEED_BONUS_MODIFIER);
             removeModifier(player, Attributes.MOVEMENT_SPEED, BLOCK_RUNNER_MODIFIER);
             removeModifier(player, Attributes.MOVEMENT_SPEED, RANGER_MODIFIER);
+            removeOptionalModifier(player, ATTRIBUTESLIB_ARROW_DAMAGE, ARCHERY_OVERDRAW_MODIFIER);
             RUNTIME.remove(player.getUUID());
             return;
         }
@@ -148,6 +154,7 @@ public final class SkillPerkEvents {
 
         RuntimeState runtime = RUNTIME.computeIfAbsent(player.getUUID(), ignored -> new RuntimeState());
         applyArmorRatingPerks(player);
+        applyBasicStatAttributePerks(player);
         applyCombatMovementPerks(player);
         tickShieldCharge(player, runtime);
     }
@@ -518,7 +525,7 @@ public final class SkillPerkEvents {
 
     private static void applyArcheryDamage(ServerPlayer player, LivingHurtEvent event) {
         int overdraw = SkillPerk.rank(player, SkillPerk.ARCHERY_OVERDRAW);
-        if (overdraw > 0) {
+        if (overdraw > 0 && !hasOptionalModifier(player, ATTRIBUTESLIB_ARROW_DAMAGE, ARCHERY_OVERDRAW_MODIFIER)) {
             event.setAmount((float) (event.getAmount() * (1.0D + overdraw * 0.2D)));
         }
 
@@ -604,11 +611,6 @@ public final class SkillPerkEvents {
     }
 
     private static void applyOneHandedDamage(ServerPlayer player, LivingHurtEvent event, ItemStack weapon) {
-        int armsman = SkillPerk.rank(player, SkillPerk.ONE_HANDED_ARMSMAN);
-        if (armsman > 0) {
-            event.setAmount((float) (event.getAmount() * (1.0D + armsman * 0.2D)));
-        }
-
         if (isSword(weapon)) {
             applyCriticalPerk(player, event, SkillPerk.rank(player, SkillPerk.ONE_HANDED_BLADESMAN), weapon);
         } else if (isAxe(weapon)) {
@@ -650,11 +652,6 @@ public final class SkillPerkEvents {
     }
 
     private static void applyTwoHandedDamage(ServerPlayer player, LivingHurtEvent event, ItemStack weapon) {
-        int barbarian = SkillPerk.rank(player, SkillPerk.TWO_HANDED_BARBARIAN);
-        if (barbarian > 0) {
-            event.setAmount((float) (event.getAmount() * (1.0D + barbarian * 0.2D)));
-        }
-
         if (isGreatsword(weapon)) {
             applyCriticalPerk(player, event, SkillPerk.rank(player, SkillPerk.TWO_HANDED_DEEP_WOUNDS), weapon);
         } else if (isBattleaxe(weapon)) {
@@ -719,6 +716,22 @@ public final class SkillPerkEvents {
                 AttributeModifier.Operation.ADDITION);
     }
 
+    private static void applyBasicStatAttributePerks(ServerPlayer player) {
+        int overdraw = SkillPerk.rank(player, SkillPerk.ARCHERY_OVERDRAW);
+        setOptionalModifier(player, ATTRIBUTESLIB_ARROW_DAMAGE, ARCHERY_OVERDRAW_MODIFIER,
+                "Thuumcraft overdraw", overdraw * 0.2D, AttributeModifier.Operation.MULTIPLY_TOTAL);
+
+        ItemStack weapon = player.getMainHandItem();
+        double weaponDamageBonus = 0.0D;
+        if (weapon.is(ModTags.Items.ONE_HANDED_WEAPONS)) {
+            weaponDamageBonus = SkillPerk.rank(player, SkillPerk.ONE_HANDED_ARMSMAN) * 0.2D;
+        } else if (weapon.is(ModTags.Items.TWO_HANDED_WEAPONS)) {
+            weaponDamageBonus = SkillPerk.rank(player, SkillPerk.TWO_HANDED_BARBARIAN) * 0.2D;
+        }
+        setModifier(player, Attributes.ATTACK_DAMAGE, BASIC_WEAPON_DAMAGE_MODIFIER,
+                "Thuumcraft weapon damage perk bonus", weaponDamageBonus, AttributeModifier.Operation.MULTIPLY_TOTAL);
+    }
+
     private static void applyCombatMovementPerks(ServerPlayer player) {
         double attackSpeedBonus = 0.0D;
         int dualFlurry = SkillPerk.rank(player, SkillPerk.ONE_HANDED_DUAL_FLURRY);
@@ -765,7 +778,7 @@ public final class SkillPerkEvents {
             Vec3 targetCenter = target.getBoundingBox().getCenter();
             Vec3 toTarget = targetCenter.subtract(eyePosition);
             double distanceSqr = toTarget.lengthSqr();
-            if (distanceSqr <= 0.0001D
+            if (distanceSqr < 1.0D
                     || distanceSqr > maxDistanceSqr
                     || look.dot(toTarget.normalize()) < requiredDot
                     || !player.hasLineOfSight(target)) {
@@ -1037,11 +1050,35 @@ public final class SkillPerkEvents {
         instance.addTransientModifier(new AttributeModifier(id, name, amount, operation));
     }
 
+    private static void setOptionalModifier(LivingEntity entity, ResourceLocation attributeId, UUID id, String name,
+                                            double amount, AttributeModifier.Operation operation) {
+        Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(attributeId);
+        if (attribute != null) {
+            setModifier(entity, attribute, id, name, amount, operation);
+        }
+    }
+
     private static void removeModifier(LivingEntity entity, Attribute attribute, UUID id) {
         AttributeInstance instance = entity.getAttribute(attribute);
         if (instance != null) {
             instance.removeModifier(id);
         }
+    }
+
+    private static void removeOptionalModifier(LivingEntity entity, ResourceLocation attributeId, UUID id) {
+        Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(attributeId);
+        if (attribute != null) {
+            removeModifier(entity, attribute, id);
+        }
+    }
+
+    private static boolean hasOptionalModifier(LivingEntity entity, ResourceLocation attributeId, UUID id) {
+        Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(attributeId);
+        if (attribute == null) {
+            return false;
+        }
+        AttributeInstance instance = entity.getAttribute(attribute);
+        return instance != null && instance.getModifier(id) != null;
     }
 
     private static double getItemModifierValue(ItemStack stack, EquipmentSlot slot, Attribute attribute) {

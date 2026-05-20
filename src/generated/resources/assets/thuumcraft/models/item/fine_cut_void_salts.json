@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "thuumcraft:item/fine_cut_void_salts"
-  }
-}

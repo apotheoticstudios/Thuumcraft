@@ -12,7 +12,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "thuumcraft:bone_meal"
+          "name": "minecraft:bone_meal"
         }
       ],
       "rolls": 1.0

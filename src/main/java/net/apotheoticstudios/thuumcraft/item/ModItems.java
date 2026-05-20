@@ -88,10 +88,8 @@ public class ModItems {
     public static final RegistryObject<Item> BEAR_CLAWS = registerIngredient("bear_claws");
     public static final RegistryObject<Item> BEE = registerIngredient("bee");
     public static final RegistryObject<Item> BEEHIVE_HUSK = registerIngredient("beehive_husk");
-    public static final RegistryObject<Item> BERITS_ASHES = registerIngredient("berits_ashes");
     public static final RegistryObject<Item> BITTERGREEN_PETALS = registerIngredient("bittergreen_petals");
     public static final RegistryObject<Item> BLEEDING_CROWN = registerIngredient("bleeding_crown");
-    public static final RegistryObject<Item> BLIND_WATCHERS_EYE = registerIngredient("blind_watchers_eye");
     public static final RegistryObject<Item> BLISS_BUG_THORAX = registerIngredient("bliss_bug_thorax");
     public static final RegistryObject<Item> BLISTER_POD_CAP = registerIngredient("blister_pod_cap");
     public static final RegistryObject<Item> BLISTERWORT = registerIngredient("blisterwort");
@@ -101,7 +99,6 @@ public class ModItems {
     public static final RegistryObject<Item> BLUE_MOUNTAIN_FLOWER = registerIngredient("blue_mountain_flower");
     public static final RegistryObject<Item> BOAR_TUSK = registerIngredient("boar_tusk");
     public static final RegistryObject<Item> BOG_BEACON = registerIngredient("bog_beacon");
-    public static final RegistryObject<Item> BONE_MEAL = registerIngredient("bone_meal");
     public static final RegistryObject<Item> BRIAR_HEART = registerIngredient("briar_heart");
     public static final RegistryObject<Item> BUNGLERS_BANE = registerIngredient("bunglers_bane");
     public static final RegistryObject<Item> BURNT_SPRIGGAN_WOOD = registerIngredient("burnt_spriggan_wood");
@@ -110,7 +107,6 @@ public class ModItems {
     public static final RegistryObject<Item> CHARRED_SKEEVER_HIDE = registerIngredient("charred_skeever_hide");
     public static final RegistryObject<Item> CHAURUS_EGGS = registerIngredient("chaurus_eggs");
     public static final RegistryObject<Item> CHAURUS_HUNTER_ANTENNAE = registerIngredient("chaurus_hunter_antennae");
-    public static final RegistryObject<Item> CHICKENS_EGG = registerIngredient("chickens_egg");
     public static final RegistryObject<Item> CHOKEBERRY = registerIngredient("chokeberry");
     public static final RegistryObject<Item> CHOKEWEED = registerIngredient("chokeweed");
     public static final RegistryObject<Item> CODA_FLOWER = registerIngredient("coda_flower");
@@ -135,9 +131,7 @@ public class ModItems {
     public static final RegistryObject<Item> EMPEROR_PARASOL_MOSS = registerIngredient("emperor_parasol_moss");
     public static final RegistryObject<Item> EYE_OF_SABRE_CAT = registerIngredient("eye_of_sabre_cat");
     public static final RegistryObject<Item> FALMER_EAR = registerIngredient("falmer_ear");
-    public static final RegistryObject<Item> FARENGARS_FROST_SALT = registerIngredient("farengars_frost_salt");
     public static final RegistryObject<Item> FELSAAD_TERN_FEATHERS = registerIngredient("felsaad_tern_feathers");
-    public static final RegistryObject<Item> FINE_CUT_VOID_SALTS = registerIngredient("fine_cut_void_salts");
     public static final RegistryObject<Item> FIRE_PETAL = registerIngredient("fire_petal");
     public static final RegistryObject<Item> FIRE_SALTS = registerIngredient("fire_salts");
     public static final RegistryObject<Item> FLAME_STALK = registerIngredient("flame_stalk");
@@ -228,7 +222,6 @@ public class ModItems {
     public static final RegistryObject<Item> SCRIB_JELLY = registerIngredient("scrib_jelly");
     public static final RegistryObject<Item> SCRIB_JERKY = registerIngredient("scrib_jerky");
     public static final RegistryObject<Item> SILVERSIDE_PERCH = registerIngredient("silverside_perch");
-    public static final RegistryObject<Item> SIMON_RODAYNES_HEART = registerIngredient("simon_rodaynes_heart");
     public static final RegistryObject<Item> SLAUGHTERFISH_EGG = registerIngredient("slaughterfish_egg");
     public static final RegistryObject<Item> SLAUGHTERFISH_SCALES = registerIngredient("slaughterfish_scales");
     public static final RegistryObject<Item> SLOAD_SOAP = registerIngredient("sload_soap");
@@ -254,9 +247,7 @@ public class ModItems {
     public static final RegistryObject<Item> VOID_ESSENCE = registerIngredient("void_essence");
     public static final RegistryObject<Item> VOID_SALTS = registerIngredient("void_salts");
     public static final RegistryObject<Item> WATCHERS_EYE = registerIngredient("watchers_eye");
-    public static final RegistryObject<Item> WHEAT = registerIngredient("wheat");
     public static final RegistryObject<Item> WHITE_CAP = registerIngredient("white_cap");
-    public static final RegistryObject<Item> WILD_GRASS_POD = registerIngredient("wild_grass_pod");
     public static final RegistryObject<Item> WISP_STALK_CAPS = registerIngredient("wisp_stalk_caps");
     public static final RegistryObject<Item> WISP_WRAPPINGS = registerIngredient("wisp_wrappings");
     public static final RegistryObject<Item> WITHERING_MOON = registerIngredient("withering_moon");
@@ -280,10 +271,8 @@ public class ModItems {
             BEAR_CLAWS,
             BEE,
             BEEHIVE_HUSK,
-            BERITS_ASHES,
             BITTERGREEN_PETALS,
             BLEEDING_CROWN,
-            BLIND_WATCHERS_EYE,
             BLISS_BUG_THORAX,
             BLISTER_POD_CAP,
             BLISTERWORT,
@@ -293,7 +282,6 @@ public class ModItems {
             BLUE_MOUNTAIN_FLOWER,
             BOAR_TUSK,
             BOG_BEACON,
-            BONE_MEAL,
             BRIAR_HEART,
             BUNGLERS_BANE,
             BURNT_SPRIGGAN_WOOD,
@@ -302,7 +290,6 @@ public class ModItems {
             CHARRED_SKEEVER_HIDE,
             CHAURUS_EGGS,
             CHAURUS_HUNTER_ANTENNAE,
-            CHICKENS_EGG,
             CHOKEBERRY,
             CHOKEWEED,
             CODA_FLOWER,
@@ -327,9 +314,7 @@ public class ModItems {
             EMPEROR_PARASOL_MOSS,
             EYE_OF_SABRE_CAT,
             FALMER_EAR,
-            FARENGARS_FROST_SALT,
             FELSAAD_TERN_FEATHERS,
-            FINE_CUT_VOID_SALTS,
             FIRE_PETAL,
             FIRE_SALTS,
             FLAME_STALK,
@@ -421,7 +406,6 @@ public class ModItems {
             SCRIB_JELLY,
             SCRIB_JERKY,
             SILVERSIDE_PERCH,
-            SIMON_RODAYNES_HEART,
             SKEEVER_TAIL,
             SLAUGHTERFISH_EGG,
             SLAUGHTERFISH_SCALES,
@@ -448,9 +432,7 @@ public class ModItems {
             VOID_ESSENCE,
             VOID_SALTS,
             WATCHERS_EYE,
-            WHEAT,
             WHITE_CAP,
-            WILD_GRASS_POD,
             WISP_STALK_CAPS,
             WISP_WRAPPINGS,
             WITHERING_MOON,

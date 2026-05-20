@@ -165,7 +165,9 @@ public enum SkillPerk {
     private static final String PERK_POINTS_TAG = "ThuumcraftSkillPerkPoints";
     private static final String EARNED_PERK_POINTS_TAG = "ThuumcraftSkillPerkPointsEarned";
     private static final String BONUS_PLAYER_LEVELS_TAG = "ThuumcraftSkillBonusPlayerLevels";
+    private static final String FORFEITED_PERK_POINTS_TAG = "ThuumcraftSkillPerkPointsForfeited";
     private static final int STARTING_PLAYER_LEVEL = 1;
+    private static final int SKILL_LEVELS_PER_PLAYER_LEVEL = 10;
     private static final int MAX_BONUS_PLAYER_LEVELS = 1_000_000;
     private static final Map<String, SkillPerk> BY_ID = new HashMap<>();
 
@@ -302,18 +304,23 @@ public enum SkillPerk {
         int earnedPoints = getEarnedPerkPoints(player);
         CompoundTag data = player.getPersistentData();
         int recordedEarnedPoints = Math.max(0, data.getInt(EARNED_PERK_POINTS_TAG));
-        if (earnedPoints <= recordedEarnedPoints) {
+        int targetPerkPoints = Math.max(0,
+                earnedPoints - countUnlockedRanks(player) - getForfeitedPerkPoints(player, earnedPoints));
+        boolean leveledUp = earnedPoints > recordedEarnedPoints;
+        boolean pointsChanged = perkPoints(player) != targetPerkPoints;
+        if (!leveledUp && !pointsChanged && recordedEarnedPoints == earnedPoints) {
             return;
         }
 
-        int gained = earnedPoints - recordedEarnedPoints;
         data.putInt(EARNED_PERK_POINTS_TAG, earnedPoints);
-        setPerkPoints(player, perkPoints(player) + gained);
-        player.displayClientMessage(Component.literal("Level increased to ")
-                .append(Component.literal(Integer.toString(playerLevel(player))).withStyle(Style.EMPTY.withBold(true)))
-                .append(Component.literal(" - Perk points: "))
-                .append(Component.literal(Integer.toString(perkPoints(player))).withStyle(Style.EMPTY.withBold(true)))
-                .append(Component.literal(" available")), true);
+        setPerkPoints(player, targetPerkPoints);
+        if (leveledUp) {
+            player.displayClientMessage(Component.literal("Level increased to ")
+                    .append(Component.literal(Integer.toString(playerLevel(player))).withStyle(Style.EMPTY.withBold(true)))
+                    .append(Component.literal(" - Perk points: "))
+                    .append(Component.literal(Integer.toString(perkPoints(player))).withStyle(Style.EMPTY.withBold(true)))
+                    .append(Component.literal(" available")), true);
+        }
     }
 
     public static int addPlayerLevels(ServerPlayer player, int levels) {
@@ -336,16 +343,7 @@ public enum SkillPerk {
     }
 
     public static int addPerkPoints(ServerPlayer player, int points) {
-        if (!isSystemEnabled() || points <= 0) {
-            return 0;
-        }
-
-        refreshPerkPoints(player);
-        int currentPoints = perkPoints(player);
-        int nextPoints = (int) Math.min(Integer.MAX_VALUE, (long) currentPoints + points);
-        setPerkPoints(player, nextPoints);
-        sendSync(player);
-        return perkPoints(player) - currentPoints;
+        return addPlayerLevels(player, points);
     }
 
     public static int resetSkillTrees(ServerPlayer player) {
@@ -360,7 +358,7 @@ public enum SkillPerk {
             removedRanks += Math.max(0, perks.getInt(perk.id));
         }
         data.remove(PERKS_TAG);
-        sendSync(player);
+        sync(player);
         return removedRanks;
     }
 
@@ -370,8 +368,10 @@ public enum SkillPerk {
         }
 
         int previousPoints = perkPoints(player);
+        int earnedPoints = getEarnedPerkPoints(player);
+        setForfeitedPerkPoints(player, getForfeitedPerkPoints(player, earnedPoints) + previousPoints, earnedPoints);
         setPerkPoints(player, 0);
-        player.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, getEarnedPerkPoints(player));
+        player.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, earnedPoints);
         sendSync(player);
         return previousPoints;
     }
@@ -381,13 +381,15 @@ public enum SkillPerk {
             return 0;
         }
 
-        int removed = countUnlockedRanks(player) + perkPoints(player) + getBonusPlayerLevels(player);
+        int removed = countUnlockedRanks(player) + perkPoints(player) + getBonusPlayerLevels(player)
+                + getForfeitedPerkPoints(player, getEarnedPerkPoints(player));
         removed += SkillProgression.resetAll(player);
         CompoundTag data = player.getPersistentData();
         data.remove(PERKS_TAG);
         data.remove(PERK_POINTS_TAG);
         data.remove(EARNED_PERK_POINTS_TAG);
         data.remove(BONUS_PLAYER_LEVELS_TAG);
+        data.remove(FORFEITED_PERK_POINTS_TAG);
         sendSync(player);
         return removed;
     }
@@ -401,6 +403,7 @@ public enum SkillPerk {
         clone.getPersistentData().putInt(PERK_POINTS_TAG, originalData.getInt(PERK_POINTS_TAG));
         clone.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, originalData.getInt(EARNED_PERK_POINTS_TAG));
         clone.getPersistentData().putInt(BONUS_PLAYER_LEVELS_TAG, originalData.getInt(BONUS_PLAYER_LEVELS_TAG));
+        clone.getPersistentData().putInt(FORFEITED_PERK_POINTS_TAG, originalData.getInt(FORFEITED_PERK_POINTS_TAG));
         sync(clone);
     }
 
@@ -421,8 +424,7 @@ public enum SkillPerk {
         if (!isSystemEnabled()) {
             return;
         }
-        player.getPersistentData().putInt(EARNED_PERK_POINTS_TAG, getEarnedPerkPoints(player));
-        sendSync(player);
+        sync(player);
     }
 
     private static void sendSync(ServerPlayer player) {
@@ -444,7 +446,7 @@ public enum SkillPerk {
                 totalSkillLevels += SkillProgression.getLevel(player, skill);
             }
         }
-        return totalSkillLevels + getBonusPlayerLevels(player);
+        return totalSkillLevels / SKILL_LEVELS_PER_PLAYER_LEVEL + getBonusPlayerLevels(player);
     }
 
     private static int getBonusPlayerLevels(Player player) {
@@ -454,6 +456,16 @@ public enum SkillPerk {
 
     private static void setPerkPoints(Player player, int points) {
         player.getPersistentData().putInt(PERK_POINTS_TAG, Math.max(0, points));
+    }
+
+    private static int getForfeitedPerkPoints(Player player, int earnedPoints) {
+        return Mth.clamp(player.getPersistentData().getInt(FORFEITED_PERK_POINTS_TAG), 0,
+                Math.max(0, earnedPoints));
+    }
+
+    private static void setForfeitedPerkPoints(Player player, int points, int earnedPoints) {
+        player.getPersistentData().putInt(FORFEITED_PERK_POINTS_TAG,
+                Mth.clamp(points, 0, Math.max(0, earnedPoints)));
     }
 
     private static int countUnlockedRanks(Player player) {

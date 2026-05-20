@@ -8,6 +8,7 @@ import net.apotheoticstudios.thuumcraft.skill.SkillPerk;
 import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
 import net.apotheoticstudios.thuumcraft.stamina.StaminaEvents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
@@ -18,6 +19,8 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.nio.charset.StandardCharsets;
@@ -67,10 +70,8 @@ public class ModFoods {
             entry("bear_claws", AlchemyEffect.RESTORE_STAMINA),
             entry("bee", AlchemyEffect.RESTORE_STAMINA),
             entry("beehive_husk", AlchemyEffect.RESIST_POISON),
-            entry("berits_ashes", AlchemyEffect.DAMAGE_STAMINA),
             entry("bittergreen_petals", AlchemyEffect.LINGERING_DAMAGE_STAMINA),
             entry("bleeding_crown", AlchemyEffect.WEAKNESS_TO_FIRE),
-            entry("blind_watchers_eye", AlchemyEffect.LIGHT),
             entry("bliss_bug_thorax", AlchemyEffect.WEAKNESS_TO_FIRE),
             entry("blister_pod_cap", AlchemyEffect.RESTORE_MAGICKA),
             entry("blisterwort", AlchemyEffect.DAMAGE_STAMINA),
@@ -114,9 +115,7 @@ public class ModFoods {
             entry("emperor_parasol_moss", AlchemyEffect.DAMAGE_HEALTH),
             entry("eye_of_sabre_cat", AlchemyEffect.RESTORE_STAMINA),
             entry("falmer_ear", AlchemyEffect.DAMAGE_HEALTH),
-            entry("farengars_frost_salt", AlchemyEffect.WEAKNESS_TO_FIRE),
             entry("felsaad_tern_feathers", AlchemyEffect.RESTORE_HEALTH),
-            entry("fine_cut_void_salts", AlchemyEffect.WEAKNESS_TO_SHOCK),
             entry("fire_petal", AlchemyEffect.DAMAGE_HEALTH),
             entry("fire_salts", AlchemyEffect.WEAKNESS_TO_FROST),
             entry("flame_stalk", AlchemyEffect.RESTORE_HEALTH),
@@ -208,7 +207,6 @@ public class ModFoods {
             entry("scrib_jelly", AlchemyEffect.REGENERATE_MAGICKA),
             entry("scrib_jerky", AlchemyEffect.RESTORE_STAMINA),
             entry("silverside_perch", AlchemyEffect.RESTORE_STAMINA),
-            entry("simon_rodaynes_heart", AlchemyEffect.DAMAGE_HEALTH),
             entry("skeever_tail", AlchemyEffect.DAMAGE_STAMINA_REGENERATION),
             entry("slaughterfish_egg", AlchemyEffect.RESIST_POISON),
             entry("slaughterfish_scales", AlchemyEffect.RESIST_POISON),
@@ -237,34 +235,67 @@ public class ModFoods {
             entry("watchers_eye", AlchemyEffect.NIGHT_EYE),
             entry("wheat", AlchemyEffect.RESTORE_HEALTH),
             entry("white_cap", AlchemyEffect.WEAKNESS_TO_FROST),
-            entry("wild_grass_pod", AlchemyEffect.RESIST_POISON),
             entry("wisp_stalk_caps", AlchemyEffect.DAMAGE_HEALTH),
             entry("wisp_wrappings", AlchemyEffect.RESTORE_STAMINA),
             entry("withering_moon", AlchemyEffect.RESTORE_MAGICKA),
             entry("worms_head_cap", AlchemyEffect.FORTIFY_LOCKPICKING),
             entry("yellow_mountain_flower", AlchemyEffect.RESIST_POISON)
     );
+    private static final Map<ResourceLocation, String> ITEM_ALIASES = Map.of(
+            ResourceLocation.fromNamespaceAndPath("minecraft", "bone_meal"), "bone_meal",
+            ResourceLocation.fromNamespaceAndPath("minecraft", "egg"), "chickens_egg",
+            ResourceLocation.fromNamespaceAndPath("minecraft", "wheat"), "wheat"
+    );
+    private static final Map<String, List<AlchemyEffect>> COUNTERPART_TRANSFERRED_EFFECTS = Map.of(
+            "grass_pod", List.of(AlchemyEffect.RESIST_POISON),
+            "spawn_ash", List.of(AlchemyEffect.DAMAGE_STAMINA),
+            "watchers_eye", List.of(AlchemyEffect.LIGHT),
+            "frost_salts", List.of(AlchemyEffect.WEAKNESS_TO_FIRE),
+            "void_salts", List.of(AlchemyEffect.WEAKNESS_TO_SHOCK),
+            "human_heart", List.of(AlchemyEffect.DAMAGE_HEALTH)
+    );
 
     private static final Map<UUID, List<TemporaryAttributeModifier>> ACTIVE_ATTRIBUTE_MODIFIERS = new HashMap<>();
     private static final Map<UUID, List<ActiveResourceEffect>> ACTIVE_RESOURCE_EFFECTS = new HashMap<>();
 
     public static void applyIngredientEffects(String ingredientId, LivingEntity entity) {
-        AlchemyEffect effect = PRIMARY_EFFECTS.get(ingredientId);
-        if (effect == null) {
+        List<AlchemyEffect> effects = getBaseIngredientEffects(ingredientId);
+        if (effects.isEmpty()) {
             return;
         }
 
-        applyEffect(effect, entity);
+        effects.forEach(effect -> applyEffect(effect, entity));
         if (entity instanceof ServerPlayer player) {
             int experimenterRank = SkillPerk.rank(player, SkillPerk.ALCHEMY_EXPERIMENTER);
-            IngredientKnowledge.discover(player, ingredientId, Math.min(4, 1 + experimenterRank));
-            SkillProgression.award(player, SkillProgression.Skill.ALCHEMY, getAlchemyIngredientExperience(effect));
+            IngredientKnowledge.discover(player, ingredientId, Math.min(4,
+                    Math.max(effects.size(), 1 + experimenterRank)));
+            SkillProgression.award(player, SkillProgression.Skill.ALCHEMY,
+                    getAlchemyIngredientExperience(effects.get(0)));
         }
     }
 
+    public static String getIngredientId(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return null;
+        }
+
+        ResourceLocation itemId = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        if (itemId == null) {
+            return null;
+        }
+
+        String alias = ITEM_ALIASES.get(itemId);
+        if (alias != null) {
+            return alias;
+        }
+
+        String path = itemId.getPath().toLowerCase(Locale.ROOT);
+        return PRIMARY_EFFECTS.containsKey(path) ? path : null;
+    }
+
     public static Component getIngredientEffectName(String ingredientId) {
-        AlchemyEffect effect = PRIMARY_EFFECTS.get(ingredientId);
-        return effect == null ? Component.empty() : effect.getDisplayName();
+        List<AlchemyEffect> effects = getBaseIngredientEffects(ingredientId);
+        return effects.isEmpty() ? Component.empty() : effects.get(0).getDisplayName();
     }
 
     public static List<Component> getIngredientEffectNames(String ingredientId, int count) {
@@ -469,19 +500,34 @@ public class ModFoods {
     }
 
     private static List<AlchemyEffect> getIngredientEffects(String ingredientId, int count) {
+        List<AlchemyEffect> effects = new ArrayList<>(getBaseIngredientEffects(ingredientId));
+        if (effects.isEmpty() || count <= 0) {
+            return List.of();
+        }
+
+        AlchemyEffect[] values = AlchemyEffect.values();
+        int seed = ingredientId.hashCode();
+        int targetCount = Math.min(4, Math.max(count, effects.size()));
+        for (int offset = 1; effects.size() < targetCount && offset < values.length * 2; offset++) {
+            AlchemyEffect candidate = values[Math.floorMod(seed + offset * 13, values.length)];
+            if (!effects.contains(candidate)) {
+                effects.add(candidate);
+            }
+        }
+        return effects;
+    }
+
+    private static List<AlchemyEffect> getBaseIngredientEffects(String ingredientId) {
         AlchemyEffect primary = PRIMARY_EFFECTS.get(ingredientId);
-        if (primary == null || count <= 0) {
+        if (primary == null) {
             return List.of();
         }
 
         List<AlchemyEffect> effects = new ArrayList<>();
         effects.add(primary);
-        AlchemyEffect[] values = AlchemyEffect.values();
-        int seed = ingredientId.hashCode();
-        for (int offset = 1; effects.size() < Math.min(4, count) && offset < values.length * 2; offset++) {
-            AlchemyEffect candidate = values[Math.floorMod(seed + offset * 13, values.length)];
-            if (!effects.contains(candidate)) {
-                effects.add(candidate);
+        for (AlchemyEffect effect : COUNTERPART_TRANSFERRED_EFFECTS.getOrDefault(ingredientId, List.of())) {
+            if (!effects.contains(effect)) {
+                effects.add(effect);
             }
         }
         return effects;

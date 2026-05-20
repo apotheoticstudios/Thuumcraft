@@ -10,6 +10,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -51,7 +52,19 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
                 );
 
+        this.tag(FORGE_ORES)
+                .add(ModItems.ORICHALCUM_ORE.get(),
+                        ModItems.MALACHITE_ORE.get(),
+                        ModItems.CORUNDUM_ORE.get(),
+                        ModItems.EBONY_ORE.get(),
+                        ModItems.MOONSTONE_ORE.get(),
+                        ModItems.SILVER_ORE.get(),
+                        ModItems.QUICKSILVER_ORE.get()
+
+                );
+
         var ingredientTag = this.tag(ModTags.Items.INGREDIENT);
         ModItems.INGREDIENT_ITEMS.forEach(ingredient -> ingredientTag.add(ingredient.get()));
+        ingredientTag.add(Items.BONE_MEAL, Items.EGG, Items.WHEAT);
     }
 }

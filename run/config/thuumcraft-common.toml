@@ -147,7 +147,7 @@
 	enablePlayerArrowTrajectoryTuning = true
 	#Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less. Default 2.25 gives a much flatter Skyrim-like shot.
 	#Range: 0.1 ~ 10.0
-	playerArrowVelocityMultiplier = 4.0
+	playerArrowVelocityMultiplier = 3.0
 	#Compensate the arrow damage attribute by the inverse velocity multiplier. At the default 2.25 velocity multiplier, arrow damage is multiplied by 0.4444 before other ranged bonuses so the faster arrow does not gain free damage from speed.
 	preservePlayerArrowDamage = true
 
@@ -157,7 +157,7 @@
 	enableKillCam = true
 	#Chance for a valid killing blow to trigger a kill camera.
 	#Range: 0.0 ~ 1.0
-	chance = 0.3
+	chance = 0.25
 	#Length of the client-side kill camera in ticks. This does not slow server or world time.
 	#Range: 1 ~ 200
 	durationTicks = 48
@@ -165,7 +165,7 @@
 	#Range: 0 ~ 12000
 	cooldownTicks = 100
 	#Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected stealth kills.
-	requireLastThreat = false
+	requireLastThreat = true
 	#Only trigger kill cameras when killing hostile mobs.
 	hostileOnly = true
 	#Radius used when checking for other nearby active threats.

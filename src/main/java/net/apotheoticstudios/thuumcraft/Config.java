@@ -75,7 +75,7 @@ public class Config {
         ENABLE_PLAYER_ARROW_TRAJECTORY_TUNING = builder.comment("Enable faster, flatter player-fired arrow trajectories.")
                 .define("enablePlayerArrowTrajectoryTuning", true);
         PLAYER_ARROW_VELOCITY_MULTIPLIER = builder.comment("Player arrow velocity attribute multiplier. Higher values make arrows fly faster and drop less. Default 2.25 gives a much flatter Skyrim-like shot.")
-                .defineInRange("playerArrowVelocityMultiplier", 2.25D, 0.1D, 10.0D);
+                .defineInRange("playerArrowVelocityMultiplier", 3.0D, 0.1D, 10.0D);
         PRESERVE_PLAYER_ARROW_DAMAGE = builder.comment("Compensate the arrow damage attribute by the inverse velocity multiplier. At the default 2.25 velocity multiplier, arrow damage is multiplied by 0.4444 before other ranged bonuses so the faster arrow does not gain free damage from speed.")
                 .define("preservePlayerArrowDamage", true);
         builder.pop();

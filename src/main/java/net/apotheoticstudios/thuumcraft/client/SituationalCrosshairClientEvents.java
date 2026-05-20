@@ -111,6 +111,18 @@ public final class SituationalCrosshairClientEvents {
             return CrosshairProfile.HIDDEN;
         }
 
+        ItemStack activeOrMainHand = getActiveOrMainHandItem(player);
+        if (player.isUsingItem()) {
+            if (isAimingItem(activeOrMainHand)) {
+                return CrosshairProfile.of(CrosshairSprite.AIM);
+            }
+        }
+        if (minecraft.options.keyUse.isDown()) {
+            if (hasAimingItem(player)) {
+                return CrosshairProfile.of(CrosshairSprite.AIM);
+            }
+        }
+
         SneakAwareness sneakAwareness = ClientSneakAwarenessState.awareness();
         if (isTryingToSneak(player)
                 && Config.ENABLE_STEALTH_SYSTEM.get()
@@ -124,19 +136,10 @@ public final class SituationalCrosshairClientEvents {
             };
         }
 
-        ItemStack activeOrMainHand = getActiveOrMainHandItem(player);
-        if (player.isUsingItem()) {
-            if (isAimingItem(activeOrMainHand)) {
-                return CrosshairProfile.of(CrosshairSprite.AIM);
-            }
-            if (isBlockingItem(activeOrMainHand)) {
-                return CrosshairProfile.of(CrosshairSprite.BLOCK);
-            }
+        if (player.isUsingItem() && isBlockingItem(activeOrMainHand)) {
+            return CrosshairProfile.of(CrosshairSprite.BLOCK);
         }
         if (minecraft.options.keyUse.isDown()) {
-            if (hasAimingItem(player)) {
-                return CrosshairProfile.of(CrosshairSprite.AIM);
-            }
             if (hasBlockingItem(player)) {
                 return CrosshairProfile.of(CrosshairSprite.BLOCK);
             }

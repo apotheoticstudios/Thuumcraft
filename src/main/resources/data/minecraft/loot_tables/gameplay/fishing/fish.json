@@ -1,0 +1,147 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cod",
+          "weight": 60
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:salmon",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tropical_fish",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pufferfish",
+          "weight": 13
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:abecean_longfin",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:cyrodilic_spadetail",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:histcarp",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:river_betty",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:silverside_perch",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:spadefish",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:angelfish",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:glassfish",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:goldfish",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:lyretail_anthias",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:pearlfish",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:pygmy_sunfish",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:scalon_fin",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:angler_larvae",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:salmon_roe",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:slaughterfish_egg",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:slaughterfish_scales",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:juvenile_mudcrab",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:mudcrab_chitin",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:red_kelp_gas_bladder",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:nordic_barnacle",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:small_pearl",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thuumcraft:pearl",
+          "weight": 1
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/fishing/fish"
+}

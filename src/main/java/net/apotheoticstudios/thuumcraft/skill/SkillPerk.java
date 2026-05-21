@@ -141,16 +141,6 @@ public enum SkillPerk {
     LIGHT_ARMOR_DEFT_MOVEMENT(SkillProgression.Skill.LIGHT_ARMOR, "Deft Movement", req(100),
             "light_armor_wind_walker", "light_armor_matching_set"),
 
-    SNEAK_STEALTH(SkillProgression.Skill.SNEAK, "Stealth", 0, 20, 40, 60, 80),
-    SNEAK_BACKSTAB(SkillProgression.Skill.SNEAK, "Backstab", req(30), "sneak_stealth"),
-    SNEAK_DEADLY_AIM(SkillProgression.Skill.SNEAK, "Deadly Aim", req(40), "sneak_backstab"),
-    SNEAK_ASSASSINS_BLADE(SkillProgression.Skill.SNEAK, "Assassin's Blade", req(50), "sneak_deadly_aim"),
-    SNEAK_MUFFLED_MOVEMENT(SkillProgression.Skill.SNEAK, "Muffled Movement", req(30), "sneak_stealth"),
-    SNEAK_LIGHT_FOOT(SkillProgression.Skill.SNEAK, "Light Foot", req(40), "sneak_muffled_movement"),
-    SNEAK_SILENT_ROLL(SkillProgression.Skill.SNEAK, "Silent Roll", req(50), "sneak_light_foot"),
-    SNEAK_SILENCE(SkillProgression.Skill.SNEAK, "Silence", req(70), "sneak_silent_roll"),
-    SNEAK_SHADOW_WARRIOR(SkillProgression.Skill.SNEAK, "Shadow Warrior", req(100), "sneak_silence"),
-
     BARTER_HAGGLING(SkillProgression.Skill.BARTER, "Haggling", 0, 20, 40, 60, 80),
     BARTER_ALLURE(SkillProgression.Skill.BARTER, "Allure", req(30), "barter_haggling"),
     BARTER_MERCHANT(SkillProgression.Skill.BARTER, "Merchant", req(50), "barter_allure"),

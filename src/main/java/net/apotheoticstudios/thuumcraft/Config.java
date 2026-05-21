@@ -24,7 +24,6 @@ public class Config {
     public static final ForgeConfigSpec.BooleanValue ENABLE_RESTED_SKILL_XP_BONUS;
     public static final ForgeConfigSpec.DoubleValue RESTED_SKILL_XP_MULTIPLIER;
     public static final ForgeConfigSpec.IntValue RESTED_SKILL_XP_DURATION_TICKS;
-    public static final ForgeConfigSpec.BooleanValue ENABLE_STEALTH_SYSTEM;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKYRIM_HUD_AND_STAMINA;
     public static final ForgeConfigSpec.BooleanValue ENABLE_SKYRIM_HUD;
     public static final ForgeConfigSpec.BooleanValue SHOW_SKYRIM_COMPASS;
@@ -88,7 +87,7 @@ public class Config {
                 .defineInRange("durationTicks", 48, 1, 200);
         KILL_CAM_COOLDOWN_TICKS = builder.comment("Minimum ticks between kill cameras for the same player.")
                 .defineInRange("cooldownTicks", 100, 0, 12000);
-        KILL_CAM_REQUIRE_LAST_THREAT = builder.comment("Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected stealth kills.")
+        KILL_CAM_REQUIRE_LAST_THREAT = builder.comment("Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected kills.")
                 .define("requireLastThreat", true);
         KILL_CAM_HOSTILE_ONLY = builder.comment("Only trigger kill cameras when killing hostile mobs.")
                 .define("hostileOnly", true);
@@ -110,10 +109,6 @@ public class Config {
                 .defineInRange("restedSkillXpMultiplier", 1.10D, 1.0D, 10.0D);
         RESTED_SKILL_XP_DURATION_TICKS = builder.comment("Ticks the Well Rested skill XP bonus lasts after sleeping.")
                 .defineInRange("restedSkillXpDurationTicks", 24000, 0, 240000);
-        builder.pop();
-        builder.comment("Skyrim-style stealth awareness and sneak crosshair settings").push("stealth");
-        ENABLE_STEALTH_SYSTEM = builder.comment("Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.")
-                .define("enableStealthSystem", true);
         builder.pop();
         builder.comment("Skyrim-style HUD and stamina settings").push("hudAndStamina");
         ENABLE_SKYRIM_HUD_AND_STAMINA = builder.comment("Set to false to completely disable Thuumcraft's Skyrim-style HUD, stamina replacement, hunger override and Iron's Spellbooks mana bar replacement.")

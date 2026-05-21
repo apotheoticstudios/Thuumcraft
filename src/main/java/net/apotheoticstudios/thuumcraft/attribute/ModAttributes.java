@@ -16,7 +16,6 @@ public class ModAttributes {
     private static final double DEFAULT_ATTRIBUTE_MIN = -1024.0D;
     private static final double DEFAULT_ATTRIBUTE_MAX = 1024.0D;
     private static final double SKYRIM_SKILL_ATTRIBUTE_MAX = 100.0D;
-    private static final double BASE_SNEAK_ATTACK_CRIT_DAMAGE = 2.0D;
     private static final double BASE_STAMINA = 100.0D;
     private static final double BASE_STAMINA_REGENERATION = 10.0D;
 
@@ -37,13 +36,10 @@ public class ModAttributes {
     public static final RegistryObject<Attribute> ILLUSION = registerSkillAttribute("illusion");
     public static final RegistryObject<Attribute> LIGHT_ARMOR = registerSkillAttribute("light_armor");
     public static final RegistryObject<Attribute> LOCKPICKING = registerSkillAttribute("lockpicking");
-    public static final RegistryObject<Attribute> MELEE_SNEAK_ATTACK_CRIT_DAMAGE = registerPositiveAttribute("melee_sneak_attack_crit_damage", BASE_SNEAK_ATTACK_CRIT_DAMAGE);
     public static final RegistryObject<Attribute> ONE_HANDED = registerSkillAttribute("one_handed");
     public static final RegistryObject<Attribute> PICKPOCKET = registerSkillAttribute("pickpocket");
-    public static final RegistryObject<Attribute> RANGED_SNEAK_ATTACK_CRIT_DAMAGE = registerPositiveAttribute("ranged_sneak_attack_crit_damage", BASE_SNEAK_ATTACK_CRIT_DAMAGE);
     public static final RegistryObject<Attribute> RESTORATION = registerSkillAttribute("restoration");
     public static final RegistryObject<Attribute> SMITHING = registerSkillAttribute("smithing");
-    public static final RegistryObject<Attribute> SNEAK = registerSkillAttribute("sneak");
     public static final RegistryObject<Attribute> STAMINA = registerPositiveAttribute("stamina", BASE_STAMINA);
     public static final RegistryObject<Attribute> STAMINA_REGENERATION = registerPositiveAttribute("stamina_regeneration", BASE_STAMINA_REGENERATION);
     public static final RegistryObject<Attribute> TWO_HANDED = registerSkillAttribute("two_handed");

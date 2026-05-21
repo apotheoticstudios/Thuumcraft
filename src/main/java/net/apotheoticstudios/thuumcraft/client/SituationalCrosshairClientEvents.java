@@ -1,8 +1,6 @@
 package net.apotheoticstudios.thuumcraft.client;
 
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
-import net.apotheoticstudios.thuumcraft.Config;
-import net.apotheoticstudios.thuumcraft.stealth.SneakAwareness;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
@@ -123,19 +121,6 @@ public final class SituationalCrosshairClientEvents {
             }
         }
 
-        SneakAwareness sneakAwareness = ClientSneakAwarenessState.awareness();
-        if (isTryingToSneak(player)
-                && Config.ENABLE_STEALTH_SYSTEM.get()
-                && sneakAwareness != SneakAwareness.DISABLED) {
-            return switch (sneakAwareness) {
-                case DISABLED -> CrosshairProfile.of(CrosshairSprite.NORMAL);
-                case DETECTED -> CrosshairProfile.of(CrosshairSprite.SNEAK_DETECTED);
-                case SEARCHING -> CrosshairProfile.of(CrosshairSprite.SNEAK_SEARCHING);
-                case SUSPICIOUS -> CrosshairProfile.of(CrosshairSprite.SNEAK_SUSPICIOUS);
-                case HIDDEN -> CrosshairProfile.of(CrosshairSprite.SNEAK_HIDDEN);
-            };
-        }
-
         if (player.isUsingItem() && isBlockingItem(activeOrMainHand)) {
             return CrosshairProfile.of(CrosshairSprite.BLOCK);
         }
@@ -170,25 +155,6 @@ public final class SituationalCrosshairClientEvents {
         }
 
         return CrosshairProfile.of(CrosshairSprite.NORMAL);
-    }
-
-    private static boolean isTryingToSneak(Player player) {
-        return (player.isCrouching() || player.isShiftKeyDown()) && canEnterStealthMode(player);
-    }
-
-    private static boolean canEnterStealthMode(Player player) {
-        if (!player.onGround()
-                || player.isInWaterOrBubble()
-                || player.isInLava()
-                || player.isSwimming()
-                || player.isFallFlying()
-                || player.getAbilities().flying) {
-            return false;
-        }
-
-        BlockPos groundPos = player.getOnPos();
-        BlockState groundState = player.level().getBlockState(groundPos);
-        return !groundState.getCollisionShape(player.level(), groundPos).isEmpty();
     }
 
     private static ItemStack getActiveOrMainHandItem(Player player) {
@@ -359,11 +325,7 @@ public final class SituationalCrosshairClientEvents {
         COMBAT("combat"),
         HOSTILE("hostile"),
         AIM("aim"),
-        BLOCK("block"),
-        SNEAK_HIDDEN("sneak_hidden", 32, 16),
-        SNEAK_SUSPICIOUS("sneak_suspicious", 32, 16),
-        SNEAK_SEARCHING("sneak_searching", 32, 16),
-        SNEAK_DETECTED("sneak_detected", 32, 16);
+        BLOCK("block");
 
         private final ResourceLocation texture;
         private final int width;

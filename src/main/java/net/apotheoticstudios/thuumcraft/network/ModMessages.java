@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static final String PROTOCOL_VERSION = "10";
+    private static final String PROTOCOL_VERSION = "11";
     private static int packetId = 0;
     private static SimpleChannel channel;
 
@@ -21,12 +21,6 @@ public class ModMessages {
                 .encoder(ClientboundKnownIngredientEffectsPacket::encode)
                 .decoder(ClientboundKnownIngredientEffectsPacket::new)
                 .consumerMainThread(ClientboundKnownIngredientEffectsPacket::handle)
-                .add();
-
-        channel.messageBuilder(ClientboundSneakAwarenessPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
-                .encoder(ClientboundSneakAwarenessPacket::encode)
-                .decoder(ClientboundSneakAwarenessPacket::new)
-                .consumerMainThread(ClientboundSneakAwarenessPacket::handle)
                 .add();
 
         channel.messageBuilder(ClientboundStaminaPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)

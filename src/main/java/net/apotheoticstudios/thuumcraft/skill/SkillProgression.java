@@ -214,7 +214,6 @@ public final class SkillProgression {
         LIGHT_ARMOR("light_armor", "Light Armor", ModAttributes.LIGHT_ARMOR),
         ONE_HANDED("one_handed", "One-Handed", ModAttributes.ONE_HANDED),
         SMITHING("smithing", "Smithing", ModAttributes.SMITHING),
-        SNEAK("sneak", "Sneak", ModAttributes.SNEAK, "ThuumcraftSneakLevel", "ThuumcraftSneakXp"),
         TWO_HANDED("two_handed", "Two-Handed", ModAttributes.TWO_HANDED);
 
         private final String id;

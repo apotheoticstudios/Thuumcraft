@@ -14,6 +14,7 @@ import net.apotheoticstudios.thuumcraft.item.ModItems;
 import net.apotheoticstudios.thuumcraft.loot.ModLootModifiers;
 import net.apotheoticstudios.thuumcraft.magic.IronSpellbooksItemDisabler;
 import net.apotheoticstudios.thuumcraft.magic.ModSpellSchools;
+import net.apotheoticstudios.thuumcraft.magic.spell.ModSpells;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.sound.ModSounds;
 import net.apotheoticstudios.thuumcraft.util.ModTags;
@@ -53,6 +54,7 @@ public class Thuumcraft {
         ModEffects.register(modEventBus);
 
         ModSpellSchools.register(modEventBus);
+        ModSpells.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);

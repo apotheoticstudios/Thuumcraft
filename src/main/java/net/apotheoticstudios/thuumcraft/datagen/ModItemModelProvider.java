@@ -37,6 +37,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.LEATHER_STRIPS);
         simpleItem(ModItems.HANDLE);
         simpleItem(ModItems.SEPTIM);
+        ModItems.SPELL_TOMES.forEach(this::simpleItem);
         ModItems.INGREDIENT_ITEMS.forEach(this::simpleItem);
         simpleItem(ModItems.ORICHALCUM_INGOT);
 

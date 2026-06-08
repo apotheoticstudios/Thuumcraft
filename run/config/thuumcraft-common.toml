@@ -13,11 +13,6 @@
 	#Range: 0.0 ~ 1.0
 	fishingDropChance = 0.03
 
-#Skyrim-style stealth awareness and sneak crosshair settings
-[stealth]
-	#Set to false to completely disable Thuumcraft's stealth awareness, crosshair and sneak attack system.
-	enableStealthSystem = true
-
 #Skyrim-style HUD and stamina settings
 [hudAndStamina]
 	#Set to false to completely disable Thuumcraft's Skyrim-style HUD, stamina replacement, hunger override and Iron's Spellbooks mana bar replacement.
@@ -164,7 +159,7 @@
 	#Minimum ticks between kill cameras for the same player.
 	#Range: 0 ~ 12000
 	cooldownTicks = 100
-	#Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected stealth kills.
+	#Only trigger when the kill leaves no nearby hostile mob actively targeting or recently hurt by the player. This approximates Skyrim's combat-ending killmove rule while still allowing undetected kills.
 	requireLastThreat = true
 	#Only trigger kill cameras when killing hostile mobs.
 	hostileOnly = true

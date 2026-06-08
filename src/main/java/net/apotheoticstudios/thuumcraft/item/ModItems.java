@@ -1,9 +1,12 @@
 package net.apotheoticstudios.thuumcraft.item;
 
+import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.entity.ModEntities;
+import net.apotheoticstudios.thuumcraft.magic.spell.ModSpells;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -14,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -29,6 +33,11 @@ public class ModItems {
 
     private static RegistryObject<Item> registerWarAxe(String name, Tier tier) {
         return ITEMS.register(name, () -> new AxeItem(tier, 5, -3.0f, new Item.Properties()));
+    }
+
+    private static RegistryObject<Item> registerSpellTome(String name, Supplier<? extends AbstractSpell> spell) {
+        return ITEMS.register("spell_tome_" + name,
+                () -> new SkyrimSpellTomeItem(spell, new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     }
 
     public static final RegistryObject<Item> REFINED_MALACHITE = ITEMS.register("refined_malachite",
@@ -70,6 +79,33 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HANDLE = ITEMS.register("handle",
             () -> new Item(new Item.Properties()));
+
+    // Skyrim-style spell tomes
+    public static final RegistryObject<Item> SPELL_TOME_FLAMES = registerSpellTome("flames", ModSpells.FLAMES);
+    public static final RegistryObject<Item> SPELL_TOME_FROSTBITE = registerSpellTome("frostbite", ModSpells.FROSTBITE);
+    public static final RegistryObject<Item> SPELL_TOME_SPARKS = registerSpellTome("sparks", ModSpells.SPARKS);
+    public static final RegistryObject<Item> SPELL_TOME_HEALING = registerSpellTome("healing", ModSpells.HEALING);
+    public static final RegistryObject<Item> SPELL_TOME_LESSER_WARD = registerSpellTome("lesser_ward", ModSpells.LESSER_WARD);
+    public static final RegistryObject<Item> SPELL_TOME_OAKFLESH = registerSpellTome("oakflesh", ModSpells.OAKFLESH);
+    public static final RegistryObject<Item> SPELL_TOME_COURAGE = registerSpellTome("courage", ModSpells.COURAGE);
+    public static final RegistryObject<Item> SPELL_TOME_FURY = registerSpellTome("fury", ModSpells.FURY);
+    public static final RegistryObject<Item> SPELL_TOME_CLAIRVOYANCE = registerSpellTome("clairvoyance", ModSpells.CLAIRVOYANCE);
+    public static final RegistryObject<Item> SPELL_TOME_CONJURE_FAMILIAR = registerSpellTome("conjure_familiar", ModSpells.CONJURE_FAMILIAR);
+    public static final RegistryObject<Item> SPELL_TOME_RAISE_ZOMBIE = registerSpellTome("raise_zombie", ModSpells.RAISE_ZOMBIE);
+
+    public static final List<RegistryObject<Item>> SPELL_TOMES = List.of(
+            SPELL_TOME_FLAMES,
+            SPELL_TOME_FROSTBITE,
+            SPELL_TOME_SPARKS,
+            SPELL_TOME_HEALING,
+            SPELL_TOME_LESSER_WARD,
+            SPELL_TOME_OAKFLESH,
+            SPELL_TOME_COURAGE,
+            SPELL_TOME_FURY,
+            SPELL_TOME_CLAIRVOYANCE,
+            SPELL_TOME_CONJURE_FAMILIAR,
+            SPELL_TOME_RAISE_ZOMBIE
+    );
 
 
     // Ingredients

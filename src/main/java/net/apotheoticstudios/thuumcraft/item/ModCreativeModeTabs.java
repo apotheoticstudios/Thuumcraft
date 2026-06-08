@@ -79,6 +79,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.GIANT_SPAWN_EGG.get());
                         pOutput.accept(ModItems.SKEEVER_SPAWN_EGG.get());
 
+                        ModItems.SPELL_TOMES.forEach(tome -> pOutput.accept(tome.get()));
+
 
                     })
                     .build());

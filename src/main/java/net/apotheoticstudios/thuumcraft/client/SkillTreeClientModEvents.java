@@ -13,6 +13,7 @@ public final class SkillTreeClientModEvents {
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
+        event.register(SkyrimTweenMenuClientEvents.OPEN_TWEEN_MENU);
         event.register(SkillTreeClientEvents.OPEN_SKILL_TREES);
         event.register(SkillPerkClientEvents.EAGLE_EYE_ZOOM);
     }

@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static final String PROTOCOL_VERSION = "11";
+    private static final String PROTOCOL_VERSION = "13";
     private static int packetId = 0;
     private static SimpleChannel channel;
 
@@ -69,6 +69,12 @@ public class ModMessages {
                 .encoder(ServerboundEagleEyeZoomPacket::encode)
                 .decoder(ServerboundEagleEyeZoomPacket::new)
                 .consumerMainThread(ServerboundEagleEyeZoomPacket::handle)
+                .add();
+
+        channel.messageBuilder(ServerboundCastSelectedSpellPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ServerboundCastSelectedSpellPacket::encode)
+                .decoder(ServerboundCastSelectedSpellPacket::new)
+                .consumerMainThread(ServerboundCastSelectedSpellPacket::handle)
                 .add();
     }
 

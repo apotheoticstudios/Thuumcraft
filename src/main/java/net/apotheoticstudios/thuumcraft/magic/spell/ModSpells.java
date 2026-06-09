@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.api.events.SpellHealEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+import io.redspace.ironsspellbooks.api.spells.CastResult;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
@@ -14,6 +15,7 @@ import io.redspace.ironsspellbooks.api.util.AnimationHolder;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.capabilities.magic.TargetEntityCastData;
+import io.redspace.ironsspellbooks.config.ServerConfigs;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.entity.mobs.SummonedZombie;
@@ -23,6 +25,7 @@ import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.magic.ModSpellSchools;
+import net.apotheoticstudios.thuumcraft.magic.SkyrimMagicScaling;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
@@ -49,6 +52,7 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
@@ -153,6 +157,39 @@ public final class ModSpells {
         @Override
         public boolean isLearned(Player player) {
             return player != null && MagicData.getPlayerMagicData(player).getSyncedData().isSpellLearned(this);
+        }
+
+        @Override
+        public float getSpellPower(int level, Entity source) {
+            float power = super.getSpellPower(level, source);
+            if (source instanceof LivingEntity caster) {
+                power *= (float) SkyrimMagicScaling.spellPowerMultiplier(this, caster);
+            }
+            return power;
+        }
+
+        @Override
+        public CastResult canBeCastedBy(int level, CastSource castSource, MagicData magicData, Player player) {
+            CastResult rawResult = super.canBeCastedBy(level, castSource, magicData, player);
+            if (rawResult.isSuccess()
+                    || !castSource.consumesMana()
+                    || getManaCost(level) <= SkyrimMagicScaling.adjustedManaCost(this, level, player)) {
+                return rawResult;
+            }
+            if (ServerConfigs.DISABLE_ADVENTURE_MODE_CASTING.get()
+                    && player instanceof ServerPlayer serverPlayer
+                    && serverPlayer.gameMode.getGameModeForPlayer() == GameType.ADVENTURE) {
+                return rawResult;
+            }
+            if (castSource.respectsCooldown() && magicData.getPlayerCooldowns().isOnCooldown(this)) {
+                return rawResult;
+            }
+
+            int adjustedManaCost = SkyrimMagicScaling.adjustedManaCost(this, level, player);
+            if (magicData.getMana() >= adjustedManaCost) {
+                return new CastResult(CastResult.Type.SUCCESS);
+            }
+            return rawResult;
         }
 
         protected MutableComponent info(String key, Object value) {
@@ -447,7 +484,7 @@ public final class ModSpells {
         @Override
         public List<MutableComponent> getUniqueInfo(int level, LivingEntity caster) {
             return List.of(
-                    info("ui.thuumcraft.armor_rating", "40"),
+                    info("ui.thuumcraft.armor_rating", number(getArmorRating(level, caster), 0)),
                     info("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(level, caster), 1))
             );
         }
@@ -475,6 +512,10 @@ public final class ModSpells {
         private int getDuration(int level, LivingEntity caster) {
             return durationFromPower(level, caster, 0.0F, 1.0F);
         }
+
+        private float getArmorRating(int level, LivingEntity caster) {
+            return getSpellPower(level, caster);
+        }
     }
 
     private static class CourageSpell extends SkyrimSpell {
@@ -487,7 +528,7 @@ public final class ModSpells {
         public List<MutableComponent> getUniqueInfo(int level, LivingEntity caster) {
             return List.of(
                     info("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(level, caster), 1)),
-                    info("ui.thuumcraft.courage_bonus", number(getTemporaryHealth(level), 0))
+                    info("ui.thuumcraft.courage_bonus", number(getTemporaryHealth(level, caster), 0))
             );
         }
 
@@ -529,8 +570,8 @@ public final class ModSpells {
             return durationFromPower(level, caster, 0.0F, 1.0F);
         }
 
-        private float getTemporaryHealth(int level) {
-            return 4.0F + level * 2.0F;
+        private float getTemporaryHealth(int level, LivingEntity caster) {
+            return 4.0F + level * 2.0F + getSpellPower(level, caster) * 0.05F;
         }
     }
 
@@ -584,7 +625,7 @@ public final class ModSpells {
         }
 
         private int getDuration(int level, LivingEntity caster) {
-            return seconds(30.0F + level * 5.0F);
+            return durationFromPower(level, caster, 5.0F, 5.0F);
         }
     }
 

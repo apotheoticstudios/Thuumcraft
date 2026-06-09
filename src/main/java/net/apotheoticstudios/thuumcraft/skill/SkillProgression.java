@@ -207,12 +207,20 @@ public final class SkillProgression {
 
     public enum Skill {
         ALCHEMY("alchemy", "Alchemy", ModAttributes.ALCHEMY),
+        ALTERATION("alteration", "Alteration", ModAttributes.ALTERATION),
         ARCHERY("archery", "Archery", ModAttributes.ARCHERY),
         BARTER("barter", "Barter", ModAttributes.BARTER),
         BLOCK("block", "Block", ModAttributes.BLOCK),
+        CONJURATION("conjuration", "Conjuration", ModAttributes.CONJURATION),
+        DESTRUCTION("destruction", "Destruction", ModAttributes.DESTRUCTION),
+        ENCHANTING("enchanting", "Enchanting", ModAttributes.ENCHANTING),
         HEAVY_ARMOR("heavy_armor", "Heavy Armor", ModAttributes.HEAVY_ARMOR),
+        ILLUSION("illusion", "Illusion", ModAttributes.ILLUSION),
         LIGHT_ARMOR("light_armor", "Light Armor", ModAttributes.LIGHT_ARMOR),
+        LOCKPICKING("lockpicking", "Lockpicking", ModAttributes.LOCKPICKING),
         ONE_HANDED("one_handed", "One-Handed", ModAttributes.ONE_HANDED),
+        PICKPOCKET("pickpocket", "Pickpocket", ModAttributes.PICKPOCKET),
+        RESTORATION("restoration", "Restoration", ModAttributes.RESTORATION),
         SMITHING("smithing", "Smithing", ModAttributes.SMITHING),
         TWO_HANDED("two_handed", "Two-Handed", ModAttributes.TWO_HANDED);
 

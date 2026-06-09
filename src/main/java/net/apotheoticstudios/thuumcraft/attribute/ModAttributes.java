@@ -16,6 +16,8 @@ public class ModAttributes {
     private static final double DEFAULT_ATTRIBUTE_MIN = -1024.0D;
     private static final double DEFAULT_ATTRIBUTE_MAX = 1024.0D;
     private static final double SKYRIM_SKILL_ATTRIBUTE_MAX = 100.0D;
+    private static final double SPELL_POWER_ATTRIBUTE_MIN = -100.0D;
+    private static final double SPELL_POWER_ATTRIBUTE_MAX = 100.0D;
     private static final double BASE_STAMINA = 100.0D;
     private static final double BASE_STAMINA_REGENERATION = 10.0D;
 
@@ -32,13 +34,21 @@ public class ModAttributes {
     public static final RegistryObject<Attribute> CONJURATION = registerSkillAttribute("conjuration");
     public static final RegistryObject<Attribute> DESTRUCTION = registerSkillAttribute("destruction");
     public static final RegistryObject<Attribute> ENCHANTING = registerSkillAttribute("enchanting");
+    public static final RegistryObject<Attribute> ALTERATION_SPELL_POWER = registerSpellPowerAttribute("alteration_spell_power");
+    public static final RegistryObject<Attribute> CONJURATION_SPELL_POWER = registerSpellPowerAttribute("conjuration_spell_power");
+    public static final RegistryObject<Attribute> DESTRUCTION_SPELL_POWER = registerSpellPowerAttribute("destruction_spell_power");
+    public static final RegistryObject<Attribute> FIRE_SPELL_POWER = registerSpellPowerAttribute("fire_spell_power");
+    public static final RegistryObject<Attribute> FROST_SPELL_POWER = registerSpellPowerAttribute("frost_spell_power");
+    public static final RegistryObject<Attribute> SHOCK_SPELL_POWER = registerSpellPowerAttribute("shock_spell_power");
     public static final RegistryObject<Attribute> HEAVY_ARMOR = registerSkillAttribute("heavy_armor");
     public static final RegistryObject<Attribute> ILLUSION = registerSkillAttribute("illusion");
+    public static final RegistryObject<Attribute> ILLUSION_SPELL_POWER = registerSpellPowerAttribute("illusion_spell_power");
     public static final RegistryObject<Attribute> LIGHT_ARMOR = registerSkillAttribute("light_armor");
     public static final RegistryObject<Attribute> LOCKPICKING = registerSkillAttribute("lockpicking");
     public static final RegistryObject<Attribute> ONE_HANDED = registerSkillAttribute("one_handed");
     public static final RegistryObject<Attribute> PICKPOCKET = registerSkillAttribute("pickpocket");
     public static final RegistryObject<Attribute> RESTORATION = registerSkillAttribute("restoration");
+    public static final RegistryObject<Attribute> RESTORATION_SPELL_POWER = registerSpellPowerAttribute("restoration_spell_power");
     public static final RegistryObject<Attribute> SMITHING = registerSkillAttribute("smithing");
     public static final RegistryObject<Attribute> STAMINA = registerPositiveAttribute("stamina", BASE_STAMINA);
     public static final RegistryObject<Attribute> STAMINA_REGENERATION = registerPositiveAttribute("stamina_regeneration", BASE_STAMINA_REGENERATION);
@@ -54,6 +64,10 @@ public class ModAttributes {
 
     private static RegistryObject<Attribute> registerPositiveAttribute(String name, double defaultValue) {
         return registerAttribute(name, defaultValue, 0.0D, DEFAULT_ATTRIBUTE_MAX);
+    }
+
+    private static RegistryObject<Attribute> registerSpellPowerAttribute(String name) {
+        return registerAttribute(name, 1.0D, SPELL_POWER_ATTRIBUTE_MIN, SPELL_POWER_ATTRIBUTE_MAX);
     }
 
     private static RegistryObject<Attribute> registerAttribute(String name, double maxValue) {

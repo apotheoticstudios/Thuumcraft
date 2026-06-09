@@ -18,12 +18,23 @@ public final class IronLearnedSpellHelper {
     }
 
     public static Set<ResourceLocation> learnedSpellIds(MagicData magicData) {
+        if (magicData == null) {
+            return Set.of();
+        }
         return learnedSpellIds(magicData.getSyncedData());
     }
 
     public static Set<ResourceLocation> learnedSpellIds(SyncedSpellData syncedSpellData) {
+        if (syncedSpellData == null) {
+            return Set.of();
+        }
+
         CompoundTag tag = new CompoundTag();
-        syncedSpellData.saveNBTData(tag);
+        try {
+            syncedSpellData.saveNBTData(tag);
+        } catch (RuntimeException exception) {
+            return Set.of();
+        }
         ListTag learnedSpells = tag.getList(LEARNED_SPELLS, Tag.TAG_STRING);
         Set<ResourceLocation> result = new HashSet<>();
         for (int i = 0; i < learnedSpells.size(); i++) {
@@ -36,6 +47,9 @@ public final class IronLearnedSpellHelper {
     }
 
     public static boolean hasLearned(MagicData magicData, AbstractSpell spell) {
+        if (spell == null || spell.getSpellResource() == null) {
+            return false;
+        }
         return learnedSpellIds(magicData).contains(spell.getSpellResource());
     }
 }

@@ -357,6 +357,8 @@
   "message.thuumcraft.magic.not_learned": "You have not learned %s",
   "message.thuumcraft.magic.main_hand_blocked": "Your right hand must be empty to cast",
   "message.thuumcraft.magic.off_hand_blocked": "Your left hand must be empty to cast",
+  "message.thuumcraft.magic.cast_failed": "%s failed to cast",
+  "message.thuumcraft.magic.cast_failed_generic": "Spell failed to cast",
   "effect.thuumcraft.damage_magicka": "Damage Magicka",
   "effect.thuumcraft.damage_magicka_regeneration": "Damage Magicka Regeneration",
   "effect.thuumcraft.fear": "Fear",

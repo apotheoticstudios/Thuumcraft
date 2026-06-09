@@ -1,5 +1,6 @@
 package net.apotheoticstudios.thuumcraft.client;
 
+import com.mojang.logging.LogUtils;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.CastType;
@@ -11,122 +12,185 @@ import net.apotheoticstudios.thuumcraft.magic.IronLearnedSpellHelper;
 import net.apotheoticstudios.thuumcraft.magic.SkyrimMagicScaling;
 import net.apotheoticstudios.thuumcraft.network.ModMessages;
 import net.apotheoticstudios.thuumcraft.network.ServerboundCastSelectedSpellPacket;
+import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
+import org.slf4j.Logger;
 
 @Mod.EventBusSubscriber(modid = Thuumcraft.MOD_ID, value = Dist.CLIENT)
 public final class SkyrimMagicClientEvents {
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     private static InteractionHand heldCastHand;
+    private static boolean attackKeyWasDown;
+    private static boolean useKeyWasDown;
+    private static long lastBlockedHandMessageMillis;
 
     private SkyrimMagicClientEvents() {
     }
 
     @SubscribeEvent
     public static void castSelectedSpell(InputEvent.InteractionKeyMappingTriggered event) {
-        InteractionHand castHand = castHandFor(event);
-        if (castHand == null) {
-            return;
-        }
+        try {
+            InteractionHand castHand = castHandFor(event);
+            if (castHand == null) {
+                return;
+            }
 
-        Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.player == null || minecraft.level == null || minecraft.screen != null) {
-            return;
-        }
+            Minecraft minecraft = Minecraft.getInstance();
+            if (minecraft.player == null || minecraft.level == null || minecraft.screen != null) {
+                return;
+            }
 
-        ResourceLocation spellId = SelectedMagicSpellState.selectedSpellId(castHand);
-        if (spellId == null) {
-            return;
+            if (tryStartSelectedSpellCast(castHand)) {
+                cancelInteraction(event);
+            }
+        } catch (RuntimeException exception) {
+            LOGGER.error("Failed to handle selected spell interaction input", exception);
         }
-
-        if (heldCastHand != null) {
-            event.setSwingHand(false);
-            event.setCanceled(true);
-            return;
-        }
-
-        if (!minecraft.player.getItemInHand(castHand).isEmpty()) {
-            minecraft.player.displayClientMessage(Component.translatable(castHand == InteractionHand.OFF_HAND
-                    ? "message.thuumcraft.magic.off_hand_blocked"
-                    : "message.thuumcraft.magic.main_hand_blocked").withStyle(ChatFormatting.RED), true);
-            return;
-        }
-
-        AbstractSpell spell = SelectedMagicSpellState.selectedSpell(castHand);
-        if (spell == null || spell == SpellRegistry.none() || spell.getCastType() == CastType.NONE) {
-            SelectedMagicSpellState.clear(castHand);
-            return;
-        }
-
-        if (!IronLearnedSpellHelper.learnedSpellIds(ClientMagicData.getSyncedSpellData(minecraft.player)).contains(spell.getSpellResource())) {
-            minecraft.player.displayClientMessage(Component.translatable("message.thuumcraft.magic.not_learned", spell.getDisplayName(minecraft.player))
-                    .withStyle(ChatFormatting.RED), true);
-            return;
-        }
-
-        ModMessages.sendToServer(new ServerboundCastSelectedSpellPacket(spellId.toString(), castHand));
-        heldCastHand = castHand;
-        event.setSwingHand(false);
-        event.setCanceled(true);
     }
 
     @SubscribeEvent
     public static void releaseSelectedSpellMouse(InputEvent.MouseButton.Pre event) {
-        Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.options == null || event.getAction() != GLFW.GLFW_RELEASE) {
-            return;
-        }
+        try {
+            Minecraft minecraft = Minecraft.getInstance();
+            if (minecraft.options == null) {
+                return;
+            }
 
-        if (heldCastHand == InteractionHand.MAIN_HAND && minecraft.options.keyAttack.matchesMouse(event.getButton())) {
-            releaseSelectedSpellCast();
-        } else if (heldCastHand == InteractionHand.OFF_HAND && minecraft.options.keyUse.matchesMouse(event.getButton())) {
-            releaseSelectedSpellCast();
+            if (event.getAction() == GLFW.GLFW_PRESS) {
+                if (minecraft.options.keyAttack.matchesMouse(event.getButton())
+                        && tryStartSelectedSpellCast(InteractionHand.MAIN_HAND)) {
+                    cancelMouse(event);
+                } else if (minecraft.options.keyUse.matchesMouse(event.getButton())
+                        && tryStartSelectedSpellCast(InteractionHand.OFF_HAND)) {
+                    cancelMouse(event);
+                }
+                return;
+            }
+
+            if (event.getAction() != GLFW.GLFW_RELEASE) {
+                return;
+            }
+
+            if (heldCastHand == InteractionHand.MAIN_HAND && minecraft.options.keyAttack.matchesMouse(event.getButton())) {
+                releaseSelectedSpellCast();
+            } else if (heldCastHand == InteractionHand.OFF_HAND && minecraft.options.keyUse.matchesMouse(event.getButton())) {
+                releaseSelectedSpellCast();
+            }
+        } catch (RuntimeException exception) {
+            LOGGER.error("Failed to handle selected spell mouse input", exception);
         }
     }
 
     @SubscribeEvent
     public static void releaseSelectedSpellKey(InputEvent.Key event) {
-        Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.options == null || event.getAction() != GLFW.GLFW_RELEASE) {
-            return;
-        }
+        try {
+            Minecraft minecraft = Minecraft.getInstance();
+            if (minecraft.options == null || event.getAction() != GLFW.GLFW_RELEASE) {
+                return;
+            }
 
-        if (heldCastHand == InteractionHand.MAIN_HAND && minecraft.options.keyAttack.matches(event.getKey(), event.getScanCode())) {
-            releaseSelectedSpellCast();
-        } else if (heldCastHand == InteractionHand.OFF_HAND && minecraft.options.keyUse.matches(event.getKey(), event.getScanCode())) {
-            releaseSelectedSpellCast();
+            if (heldCastHand == InteractionHand.MAIN_HAND && minecraft.options.keyAttack.matches(event.getKey(), event.getScanCode())) {
+                releaseSelectedSpellCast();
+            } else if (heldCastHand == InteractionHand.OFF_HAND && minecraft.options.keyUse.matches(event.getKey(), event.getScanCode())) {
+                releaseSelectedSpellCast();
+            }
+        } catch (RuntimeException exception) {
+            LOGGER.error("Failed to handle selected spell key input", exception);
+        }
+    }
+
+    @SubscribeEvent
+    public static void tickSelectedSpellInputAndParticles(TickEvent.ClientTickEvent event) {
+        try {
+            if (event.phase != TickEvent.Phase.END) {
+                return;
+            }
+
+            Minecraft minecraft = Minecraft.getInstance();
+            if (minecraft.player == null || minecraft.level == null || minecraft.options == null) {
+                attackKeyWasDown = false;
+                useKeyWasDown = false;
+                return;
+            }
+
+            spawnSelectedSpellHandParticles(minecraft);
+
+            boolean attackDown = minecraft.options.keyAttack.isDown();
+            boolean useDown = minecraft.options.keyUse.isDown();
+            if (minecraft.screen == null) {
+                if (attackDown && !attackKeyWasDown) {
+                    tryStartSelectedSpellCast(InteractionHand.MAIN_HAND);
+                }
+                if (useDown && !useKeyWasDown) {
+                    tryStartSelectedSpellCast(InteractionHand.OFF_HAND);
+                }
+            }
+
+            if (!attackDown && attackKeyWasDown && heldCastHand == InteractionHand.MAIN_HAND) {
+                releaseSelectedSpellCast();
+            }
+            if (!useDown && useKeyWasDown && heldCastHand == InteractionHand.OFF_HAND) {
+                releaseSelectedSpellCast();
+            }
+
+            attackKeyWasDown = attackDown;
+            useKeyWasDown = useDown;
+        } catch (RuntimeException exception) {
+            LOGGER.error("Failed to tick selected spell input or hand particles", exception);
+            heldCastHand = null;
+            attackKeyWasDown = false;
+            useKeyWasDown = false;
         }
     }
 
     @SubscribeEvent
     public static void hideContinuousSkyrimCastBar(RenderGuiOverlayEvent.Pre event) {
-        if (!ClientMagicData.isCasting()
-                || ClientMagicData.getCastType() != CastType.CONTINUOUS
-                || event.getOverlay() == null
-                || event.getOverlay().id() == null) {
-            return;
-        }
+        try {
+            if (!ClientMagicData.isCasting()
+                    || ClientMagicData.getCastType() != CastType.CONTINUOUS
+                    || event.getOverlay() == null
+                    || event.getOverlay().id() == null) {
+                return;
+            }
 
-        AbstractSpell spell = SpellRegistry.getSpell(ClientMagicData.getCastingSpellId());
-        if (SkyrimMagicScaling.isThuumcraftSkyrimSpell(spell)
-                && "irons_spellbooks".equals(event.getOverlay().id().getNamespace())
-                && event.getOverlay().id().getPath().contains("cast")) {
-            event.setCanceled(true);
+            AbstractSpell spell = SpellRegistry.getSpell(ClientMagicData.getCastingSpellId());
+            if (SkyrimMagicScaling.isThuumcraftSkyrimSpell(spell)
+                    && "irons_spellbooks".equals(event.getOverlay().id().getNamespace())
+                    && event.getOverlay().id().getPath().contains("cast")
+                    && event.isCancelable()) {
+                event.setCanceled(true);
+            }
+        } catch (RuntimeException exception) {
+            LOGGER.error("Failed to hide Skyrim continuous cast bar", exception);
         }
     }
 
     @SubscribeEvent
     public static void clearSelectedSpell(ClientPlayerNetworkEvent.LoggingOut event) {
         heldCastHand = null;
+        attackKeyWasDown = false;
+        useKeyWasDown = false;
         SelectedMagicSpellState.clear();
     }
 
@@ -138,6 +202,171 @@ public final class SkyrimMagicClientEvents {
             return InteractionHand.OFF_HAND;
         }
         return null;
+    }
+
+    private static boolean tryStartSelectedSpellCast(InteractionHand castHand) {
+        Minecraft minecraft = Minecraft.getInstance();
+        if (minecraft.player == null || minecraft.level == null || minecraft.screen != null) {
+            return false;
+        }
+
+        ResourceLocation spellId = SelectedMagicSpellState.selectedSpellId(castHand);
+        if (spellId == null) {
+            return false;
+        }
+
+        if (heldCastHand != null) {
+            return true;
+        }
+
+        if (!minecraft.player.getItemInHand(castHand).isEmpty()) {
+            displayBlockedHandMessage(minecraft, castHand);
+            return false;
+        }
+
+        AbstractSpell spell = SelectedMagicSpellState.selectedSpell(castHand);
+        if (spell == null || spell == SpellRegistry.none() || spell.getCastType() == CastType.NONE) {
+            SelectedMagicSpellState.clear(castHand);
+            return false;
+        }
+
+        if (!isLearnedOnClient(minecraft, spell)) {
+            minecraft.player.displayClientMessage(Component.translatable("message.thuumcraft.magic.not_learned", spell.getDisplayName(minecraft.player))
+                    .withStyle(ChatFormatting.RED), true);
+            return false;
+        }
+
+        ModMessages.sendToServer(new ServerboundCastSelectedSpellPacket(spellId.toString(), castHand));
+        heldCastHand = castHand;
+        return true;
+    }
+
+    private static void displayBlockedHandMessage(Minecraft minecraft, InteractionHand castHand) {
+        long now = System.currentTimeMillis();
+        if (now - lastBlockedHandMessageMillis < 450L) {
+            return;
+        }
+        lastBlockedHandMessageMillis = now;
+        minecraft.player.displayClientMessage(Component.translatable(castHand == InteractionHand.OFF_HAND
+                ? "message.thuumcraft.magic.off_hand_blocked"
+                : "message.thuumcraft.magic.main_hand_blocked").withStyle(ChatFormatting.RED), true);
+    }
+
+    private static void spawnSelectedSpellHandParticles(Minecraft minecraft) {
+        if (minecraft.player.tickCount % 2 != 0) {
+            return;
+        }
+
+        spawnSelectedSpellHandParticles(minecraft, InteractionHand.MAIN_HAND);
+        spawnSelectedSpellHandParticles(minecraft, InteractionHand.OFF_HAND);
+    }
+
+    private static void spawnSelectedSpellHandParticles(Minecraft minecraft, InteractionHand hand) {
+        if (!minecraft.player.getItemInHand(hand).isEmpty()) {
+            return;
+        }
+
+        AbstractSpell spell = SelectedMagicSpellState.selectedSpell(hand);
+        if (spell == null || spell == SpellRegistry.none() || spell.getCastType() == CastType.NONE) {
+            return;
+        }
+        if (!isLearnedOnClient(minecraft, spell)) {
+            return;
+        }
+
+        HandParticleStyle style = particleStyle(spell);
+        Vec3 position = handParticlePosition(minecraft, hand);
+        RandomSource random = minecraft.player.getRandom();
+        double jitter = 0.055D;
+        minecraft.level.addParticle(style.dust(),
+                position.x + random.nextGaussian() * jitter,
+                position.y + random.nextGaussian() * jitter,
+                position.z + random.nextGaussian() * jitter,
+                0.0D, 0.012D, 0.0D);
+
+        if (minecraft.player.tickCount % style.accentInterval() == 0) {
+            minecraft.level.addParticle(style.accent(),
+                    position.x + random.nextGaussian() * jitter,
+                    position.y + random.nextGaussian() * jitter,
+                    position.z + random.nextGaussian() * jitter,
+                    random.nextGaussian() * 0.008D, 0.012D, random.nextGaussian() * 0.008D);
+        }
+    }
+
+    private static Vec3 handParticlePosition(Minecraft minecraft, InteractionHand hand) {
+        Vec3 look = minecraft.player.getLookAngle().normalize();
+        float yawRadians = minecraft.player.getYRot() * Mth.DEG_TO_RAD;
+        Vec3 right = new Vec3(Mth.cos(yawRadians), 0.0D, Mth.sin(yawRadians));
+        boolean mainArmRight = minecraft.player.getMainArm() == HumanoidArm.RIGHT;
+        double mainSide = mainArmRight ? 0.38D : -0.38D;
+        double side = hand == InteractionHand.MAIN_HAND ? mainSide : -mainSide;
+
+        if (minecraft.options.getCameraType().isFirstPerson()) {
+            return minecraft.player.getEyePosition()
+                    .add(look.scale(0.72D))
+                    .add(right.scale(side))
+                    .add(0.0D, -0.32D, 0.0D);
+        }
+
+        return minecraft.player.position()
+                .add(0.0D, minecraft.player.getBbHeight() * 0.68D, 0.0D)
+                .add(look.scale(0.28D))
+                .add(right.scale(side));
+    }
+
+    private static HandParticleStyle particleStyle(AbstractSpell spell) {
+        return switch (SkyrimMagicScaling.elementFor(spell)) {
+            case FIRE -> new HandParticleStyle(dust(1.0F, 0.24F, 0.04F, 0.75F), ParticleTypes.FLAME, 4);
+            case FROST -> new HandParticleStyle(dust(0.45F, 0.85F, 1.0F, 0.7F), ParticleTypes.SNOWFLAKE, 5);
+            case SHOCK -> new HandParticleStyle(dust(0.62F, 0.58F, 1.0F, 0.75F), ParticleTypes.END_ROD, 3);
+            case NONE -> schoolParticleStyle(spell);
+        };
+    }
+
+    private static HandParticleStyle schoolParticleStyle(AbstractSpell spell) {
+        SkillProgression.Skill skill = SkyrimMagicScaling.skillFor(spell);
+        if (skill == SkillProgression.Skill.ALTERATION) {
+            return new HandParticleStyle(dust(0.45F, 0.95F, 0.82F, 0.65F), ParticleTypes.COMPOSTER, 6);
+        }
+        if (skill == SkillProgression.Skill.CONJURATION) {
+            return new HandParticleStyle(dust(0.48F, 0.18F, 0.92F, 0.75F), ParticleTypes.PORTAL, 5);
+        }
+        if (skill == SkillProgression.Skill.ILLUSION) {
+            return new HandParticleStyle(dust(0.92F, 0.42F, 1.0F, 0.7F), ParticleTypes.ENCHANT, 5);
+        }
+        if (skill == SkillProgression.Skill.RESTORATION) {
+            return new HandParticleStyle(dust(0.42F, 1.0F, 0.48F, 0.7F), ParticleTypes.HAPPY_VILLAGER, 5);
+        }
+        return new HandParticleStyle(dust(0.82F, 0.82F, 0.82F, 0.55F), ParticleTypes.ENCHANT, 7);
+    }
+
+    private static boolean isLearnedOnClient(Minecraft minecraft, AbstractSpell spell) {
+        if (minecraft.player == null || spell == null) {
+            return false;
+        }
+        try {
+            return IronLearnedSpellHelper.learnedSpellIds(ClientMagicData.getSyncedSpellData(minecraft.player))
+                    .contains(spell.getSpellResource());
+        } catch (RuntimeException exception) {
+            return false;
+        }
+    }
+
+    private static void cancelInteraction(InputEvent.InteractionKeyMappingTriggered event) {
+        event.setSwingHand(false);
+        if (event.isCancelable()) {
+            event.setCanceled(true);
+        }
+    }
+
+    private static void cancelMouse(InputEvent.MouseButton.Pre event) {
+        if (event.isCancelable()) {
+            event.setCanceled(true);
+        }
+    }
+
+    private static DustParticleOptions dust(float red, float green, float blue, float scale) {
+        return new DustParticleOptions(new Vector3f(red, green, blue), scale);
     }
 
     private static void releaseSelectedSpellCast() {
@@ -154,6 +383,13 @@ public final class SkyrimMagicClientEvents {
         boolean triggerCooldown = spell != null
                 && spell.getCastType() == CastType.CONTINUOUS
                 && spell.getSpellCooldown() > 0;
-        Messages.sendToServer(new ServerboundCancelCast(triggerCooldown));
+        try {
+            Messages.sendToServer(new ServerboundCancelCast(triggerCooldown));
+        } catch (RuntimeException exception) {
+            LOGGER.error("Failed to release selected spell cast", exception);
+        }
+    }
+
+    private record HandParticleStyle(ParticleOptions dust, ParticleOptions accent, int accentInterval) {
     }
 }

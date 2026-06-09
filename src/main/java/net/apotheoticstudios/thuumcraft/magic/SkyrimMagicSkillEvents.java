@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+import io.redspace.ironsspellbooks.capabilities.magic.PlayerCooldowns;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.attribute.ModAttributes;
@@ -25,6 +26,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = Thuumcraft.MOD_ID)
@@ -49,6 +51,8 @@ public final class SkyrimMagicSkillEvents {
         if (event.phase != TickEvent.Phase.END || !(event.player instanceof ServerPlayer player)) {
             return;
         }
+
+        removeSkyrimSpellCooldowns(player);
 
         if (!SkillPerk.isSystemEnabled() || player.isSpectator() || player.isCreative() || !player.isAlive()) {
             removeMagicPowerModifiers(player);
@@ -226,6 +230,21 @@ public final class SkyrimMagicSkillEvents {
         player.getPersistentData().putLong(AVOID_DEATH_LAST_USE_TAG, gameTime);
         player.heal(player.getMaxHealth() * 0.5F);
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1, false, false, true));
+    }
+
+    private static void removeSkyrimSpellCooldowns(ServerPlayer player) {
+        MagicData magicData = MagicData.getPlayerMagicData(player);
+        PlayerCooldowns cooldowns = magicData.getPlayerCooldowns();
+        boolean changed = false;
+        for (String spellId : new ArrayList<>(cooldowns.getSpellCooldowns().keySet())) {
+            AbstractSpell spell = SpellRegistry.getSpell(spellId);
+            if (SkyrimMagicScaling.usesSkyrimNoCooldownRules(spell)) {
+                changed |= cooldowns.removeCooldown(spellId);
+            }
+        }
+        if (changed) {
+            cooldowns.syncToPlayer(player);
+        }
     }
 
     private static void removeMagicPowerModifiers(ServerPlayer player) {

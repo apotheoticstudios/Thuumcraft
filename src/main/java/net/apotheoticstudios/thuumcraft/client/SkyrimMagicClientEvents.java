@@ -43,7 +43,6 @@ public final class SkyrimMagicClientEvents {
     private static InteractionHand heldCastHand;
     private static boolean attackKeyWasDown;
     private static boolean useKeyWasDown;
-    private static long lastBlockedHandMessageMillis;
 
     private SkyrimMagicClientEvents() {
     }
@@ -187,11 +186,19 @@ public final class SkyrimMagicClientEvents {
     }
 
     @SubscribeEvent
-    public static void clearSelectedSpell(ClientPlayerNetworkEvent.LoggingOut event) {
+    public static void loadSelectedSpells(ClientPlayerNetworkEvent.LoggingIn event) {
         heldCastHand = null;
         attackKeyWasDown = false;
         useKeyWasDown = false;
-        SelectedMagicSpellState.clear();
+        SelectedMagicSpellState.load(event.getPlayer());
+    }
+
+    @SubscribeEvent
+    public static void resetSelectedSpellInput(ClientPlayerNetworkEvent.LoggingOut event) {
+        heldCastHand = null;
+        attackKeyWasDown = false;
+        useKeyWasDown = false;
+        SelectedMagicSpellState.forgetLoadedPlayer();
     }
 
     private static InteractionHand castHandFor(InputEvent.InteractionKeyMappingTriggered event) {
@@ -220,7 +227,6 @@ public final class SkyrimMagicClientEvents {
         }
 
         if (!minecraft.player.getItemInHand(castHand).isEmpty()) {
-            displayBlockedHandMessage(minecraft, castHand);
             return false;
         }
 
@@ -239,17 +245,6 @@ public final class SkyrimMagicClientEvents {
         ModMessages.sendToServer(new ServerboundCastSelectedSpellPacket(spellId.toString(), castHand));
         heldCastHand = castHand;
         return true;
-    }
-
-    private static void displayBlockedHandMessage(Minecraft minecraft, InteractionHand castHand) {
-        long now = System.currentTimeMillis();
-        if (now - lastBlockedHandMessageMillis < 450L) {
-            return;
-        }
-        lastBlockedHandMessageMillis = now;
-        minecraft.player.displayClientMessage(Component.translatable(castHand == InteractionHand.OFF_HAND
-                ? "message.thuumcraft.magic.off_hand_blocked"
-                : "message.thuumcraft.magic.main_hand_blocked").withStyle(ChatFormatting.RED), true);
     }
 
     private static void spawnSelectedSpellHandParticles(Minecraft minecraft) {
@@ -382,7 +377,8 @@ public final class SkyrimMagicClientEvents {
         AbstractSpell spell = SpellRegistry.getSpell(ClientMagicData.getCastingSpellId());
         boolean triggerCooldown = spell != null
                 && spell.getCastType() == CastType.CONTINUOUS
-                && spell.getSpellCooldown() > 0;
+                && spell.getSpellCooldown() > 0
+                && !SkyrimMagicScaling.usesSkyrimNoCooldownRules(spell);
         try {
             Messages.sendToServer(new ServerboundCancelCast(triggerCooldown));
         } catch (RuntimeException exception) {

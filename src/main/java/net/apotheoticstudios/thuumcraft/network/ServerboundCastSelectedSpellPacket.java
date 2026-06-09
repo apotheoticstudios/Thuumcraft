@@ -74,9 +74,6 @@ public class ServerboundCastSelectedSpellPacket {
         }
 
         if (!player.getItemInHand(hand).isEmpty()) {
-            player.displayClientMessage(Component.translatable(hand == InteractionHand.OFF_HAND
-                    ? "message.thuumcraft.magic.off_hand_blocked"
-                    : "message.thuumcraft.magic.main_hand_blocked").withStyle(ChatFormatting.RED), true);
             return;
         }
 

@@ -19,13 +19,17 @@ import io.redspace.ironsspellbooks.config.ServerConfigs;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.entity.mobs.SummonedZombie;
+import io.redspace.ironsspellbooks.network.ClientboundSyncMana;
+import io.redspace.ironsspellbooks.network.ServerboundCancelCast;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
+import io.redspace.ironsspellbooks.setup.Messages;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.effect.ModEffects;
 import net.apotheoticstudios.thuumcraft.magic.ModSpellSchools;
 import net.apotheoticstudios.thuumcraft.magic.SkyrimMagicScaling;
+import net.apotheoticstudios.thuumcraft.skill.SkillProgression;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
@@ -84,6 +88,7 @@ public final class ModSpells {
     public static final RegistryObject<AbstractSpell> RAISE_ZOMBIE = SPELLS.register("raise_zombie", RaiseZombieSpell::new);
 
     private static final int TICKS_PER_SECOND = 20;
+    private static final int CONCENTRATION_MANA_INTERVAL = 10;
     private static final float CONCENTRATION_TICK_FRACTION = 0.25F;
     private static final int CONCENTRATION_DAMAGE_INTERVAL = 5;
     private static final int CONCENTRATION_HEAL_INTERVAL = 10;
@@ -190,6 +195,62 @@ public final class ModSpells {
                 return new CastResult(CastResult.Type.SUCCESS);
             }
             return rawResult;
+        }
+
+        protected boolean consumeManualContinuousMana(Level level, int spellLevel, LivingEntity caster, MagicData playerMagicData) {
+            if (level.isClientSide()
+                    || getCastType() != CastType.CONTINUOUS
+                    || getCastTime(spellLevel) > 0
+                    || !(caster instanceof ServerPlayer player)
+                    || playerMagicData == null
+                    || !playerMagicData.isCasting()
+                    || !getSpellId().equals(playerMagicData.getCastingSpellId())) {
+                return true;
+            }
+
+            CastSource castSource = playerMagicData.getCastSource();
+            if (castSource == null || !castSource.consumesMana()) {
+                return true;
+            }
+
+            if (caster.tickCount % CONCENTRATION_MANA_INTERVAL != 0) {
+                return true;
+            }
+
+            float intervalCost = SkyrimMagicScaling.adjustedManaCost(this, spellLevel, player)
+                    * (CONCENTRATION_MANA_INTERVAL / (float) TICKS_PER_SECOND);
+            if (intervalCost <= 0.0F) {
+                return true;
+            }
+
+            float currentMana = playerMagicData.getMana();
+            if (currentMana + 0.001F < intervalCost) {
+                playerMagicData.setMana(0.0F);
+                syncMana(player, playerMagicData);
+                ServerboundCancelCast.cancelCast(player, false);
+                return false;
+            }
+
+            float remainingMana = Math.max(0.0F, currentMana - intervalCost);
+            playerMagicData.setMana(remainingMana);
+            syncMana(player, playerMagicData);
+            awardContinuousExperience(player, intervalCost);
+
+            if (remainingMana <= 0.001F) {
+                ServerboundCancelCast.cancelCast(player, false);
+            }
+            return true;
+        }
+
+        private void syncMana(ServerPlayer player, MagicData magicData) {
+            Messages.sendToPlayer(new ClientboundSyncMana(magicData), player);
+        }
+
+        private void awardContinuousExperience(ServerPlayer player, float manaSpent) {
+            SkillProgression.Skill skill = SkyrimMagicScaling.skillFor(this);
+            if (skill != null && manaSpent > 0.0F) {
+                SkillProgression.award(player, skill, Math.max(0.25D, Math.sqrt(manaSpent) * 0.45D));
+            }
         }
 
         protected MutableComponent info(String key, Object value) {
@@ -307,13 +368,15 @@ public final class ModSpells {
 
         @Override
         public void onServerCastTick(Level level, int spellLevel, LivingEntity caster, MagicData playerMagicData) {
+            if (!consumeManualContinuousMana(level, spellLevel, caster, playerMagicData)) {
+                return;
+            }
             spawnTrailParticles(level, caster, particle, range, 7, 0.05D);
             if (caster.tickCount % CONCENTRATION_DAMAGE_INTERVAL == 0) {
                 float damage = getDamagePerSecond(spellLevel, caster) * CONCENTRATION_TICK_FRACTION;
                 getConeTargets(level, caster, range, 1.35F, 0.84F)
                         .forEach(target -> applyElementalHit(caster, target, spellLevel, damage));
             }
-            super.onServerCastTick(level, spellLevel, caster, playerMagicData);
         }
 
         protected float getDamagePerSecond(int level, LivingEntity caster) {
@@ -415,6 +478,9 @@ public final class ModSpells {
 
         @Override
         public void onServerCastTick(Level level, int spellLevel, LivingEntity caster, MagicData playerMagicData) {
+            if (!consumeManualContinuousMana(level, spellLevel, caster, playerMagicData)) {
+                return;
+            }
             if (caster.tickCount % CONCENTRATION_HEAL_INTERVAL == 0 && caster.getHealth() < caster.getMaxHealth()) {
                 float heal = getHealingPerSecond(spellLevel, caster) * 0.5F;
                 SpellHealEvent event = new SpellHealEvent(caster, caster, heal, getSchoolType());
@@ -423,7 +489,6 @@ public final class ModSpells {
                 spawnBurst(level, ParticleTypes.HEART, caster.position().add(0.0D, caster.getBbHeight() * 0.65D, 0.0D),
                         3, 0.35D, 0.02D);
             }
-            super.onServerCastTick(level, spellLevel, caster, playerMagicData);
         }
 
         private float getHealingPerSecond(int level, LivingEntity caster) {
@@ -457,13 +522,15 @@ public final class ModSpells {
 
         @Override
         public void onServerCastTick(Level level, int spellLevel, LivingEntity caster, MagicData playerMagicData) {
+            if (!consumeManualContinuousMana(level, spellLevel, caster, playerMagicData)) {
+                return;
+            }
             if (caster.tickCount % 10 == 0) {
                 caster.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 18, 0, false, false, true));
                 caster.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 18, Math.max(0, spellLevel - 1), false, false, true));
                 caster.addEffect(new MobEffectInstance(ModEffects.SPELL_ABSORPTION.get(), 18, 0, false, false, true));
                 spawnBurst(level, ParticleHelper.WISP, caster.position().add(0.0D, 1.0D, 0.0D), 8, 0.5D, 0.01D);
             }
-            super.onServerCastTick(level, spellLevel, caster, playerMagicData);
         }
 
         private float getArmorRating(int level, LivingEntity caster) {
@@ -647,6 +714,9 @@ public final class ModSpells {
 
         @Override
         public void onServerCastTick(Level level, int spellLevel, LivingEntity caster, MagicData playerMagicData) {
+            if (!consumeManualContinuousMana(level, spellLevel, caster, playerMagicData)) {
+                return;
+            }
             if (!(caster instanceof ServerPlayer player) || !(level instanceof ServerLevel serverLevel)) {
                 return;
             }
@@ -675,7 +745,6 @@ public final class ModSpells {
                 player.displayClientMessage(Component.translatable("message.thuumcraft.clairvoyance",
                         target.getX(), target.getY(), target.getZ()), true);
             }
-            super.onServerCastTick(level, spellLevel, caster, playerMagicData);
         }
     }
 

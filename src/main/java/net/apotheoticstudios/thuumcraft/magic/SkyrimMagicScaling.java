@@ -2,6 +2,7 @@ package net.apotheoticstudios.thuumcraft.magic;
 
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
+import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
@@ -74,10 +75,15 @@ public final class SkyrimMagicScaling {
     }
 
     public static int adjustedCooldownTicks(AbstractSpell spell, Player player) {
-        if (spell == null || player == null || spell.getSpellCooldown() <= 0) {
+        if (usesSkyrimNoCooldownRules(spell) || spell == null || player == null || spell.getSpellCooldown() <= 0) {
             return 0;
         }
         return MagicManager.getEffectiveSpellCooldown(spell, player, CastSource.SPELLBOOK);
+    }
+
+    public static boolean usesSkyrimNoCooldownRules(AbstractSpell spell) {
+        return spell != null && spell.getCastType() != null && spell.getCastType() != CastType.NONE
+                && skillFor(spell) != null;
     }
 
     public static double elementPowerFor(AbstractSpell spell, LivingEntity caster) {

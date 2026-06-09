@@ -3,6 +3,11 @@ package net.apotheoticstudios.thuumcraft.magic;
 import io.redspace.ironsspellbooks.api.events.ChangeManaEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+import io.redspace.ironsspellbooks.api.spells.CastSource;
+import io.redspace.ironsspellbooks.api.spells.CastType;
+import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import net.apotheoticstudios.thuumcraft.Config;
 import net.apotheoticstudios.thuumcraft.Thuumcraft;
 import net.apotheoticstudios.thuumcraft.network.ClientboundManaPacket;
@@ -11,6 +16,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -42,9 +48,25 @@ public final class IronManaSyncEvents {
         syncManaIfNeeded(player, getCurrentMana(player), getMaxMana(player));
     }
 
+    private static void cancelPassiveManaRegenWhileDraining(ChangeManaEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer)
+                || event.getNewMana() <= event.getOldMana()
+                || !isIronPassiveManaRegen()
+                || !isManaDrainingCast(event.getMagicData())) {
+            return;
+        }
+
+        event.setCanceled(true);
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void cancelPassiveManaRegenBeforeSync(ChangeManaEvent event) {
+        cancelPassiveManaRegenWhileDraining(event);
+    }
+
     @SubscribeEvent
     public static void syncManaOnChange(ChangeManaEvent event) {
-        if (!shouldSyncMana() || !(event.getEntity() instanceof ServerPlayer player)) {
+        if (event.isCanceled() || !shouldSyncMana() || !(event.getEntity() instanceof ServerPlayer player)) {
             return;
         }
 
@@ -82,6 +104,33 @@ public final class IronManaSyncEvents {
 
     private static float getMaxMana(ServerPlayer player) {
         return Math.max(1.0F, (float) player.getAttributeValue(AttributeRegistry.MAX_MANA.get()));
+    }
+
+    private static boolean isManaDrainingCast(MagicData magicData) {
+        if (magicData == null || !magicData.isCasting()) {
+            return false;
+        }
+
+        CastSource castSource = magicData.getCastSource();
+        if (castSource == null || !castSource.consumesMana()) {
+            return false;
+        }
+
+        AbstractSpell spell = SpellRegistry.getSpell(magicData.getCastingSpellId());
+        return spell != null
+                && spell != SpellRegistry.none()
+                && spell.getCastType() == CastType.CONTINUOUS
+                && SkyrimMagicScaling.skillFor(spell) != null;
+    }
+
+    private static boolean isIronPassiveManaRegen() {
+        String magicManagerClass = MagicManager.class.getName();
+        for (StackTraceElement frame : Thread.currentThread().getStackTrace()) {
+            if (magicManagerClass.equals(frame.getClassName()) && "regenPlayerMana".equals(frame.getMethodName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static void syncManaIfNeeded(ServerPlayer player, float mana, float maxMana) {

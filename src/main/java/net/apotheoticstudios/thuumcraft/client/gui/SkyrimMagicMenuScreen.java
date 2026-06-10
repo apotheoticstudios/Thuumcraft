@@ -415,10 +415,17 @@ public class SkyrimMagicMenuScreen extends Screen {
         }
 
         AbstractSpell spell = visibleSpells.get(selectedSpell).spell();
-        SelectedMagicSpellState.select(spell, hand);
-        minecraft.player.displayClientMessage(Component.translatable(hand == InteractionHand.OFF_HAND
-                ? "message.thuumcraft.magic.selected_off"
-                : "message.thuumcraft.magic.selected_main", spell.getDisplayName(minecraft.player)), true);
+        if (SelectedMagicSpellState.isSelected(spell, hand)) {
+            SelectedMagicSpellState.clear(hand);
+            minecraft.player.displayClientMessage(Component.translatable(hand == InteractionHand.OFF_HAND
+                    ? "message.thuumcraft.magic.unequipped_off"
+                    : "message.thuumcraft.magic.unequipped_main", spell.getDisplayName(minecraft.player)), true);
+        } else {
+            SelectedMagicSpellState.select(spell, hand);
+            minecraft.player.displayClientMessage(Component.translatable(hand == InteractionHand.OFF_HAND
+                    ? "message.thuumcraft.magic.selected_off"
+                    : "message.thuumcraft.magic.selected_main", spell.getDisplayName(minecraft.player)), true);
+        }
         if (closeMenu) {
             minecraft.setScreen(null);
         }

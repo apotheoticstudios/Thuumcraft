@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stronghold",
+    "minecraft:ancient_city",
+    "minecraft:mineshaft",
+    "minecraft:mineshaft_mesa",
+    "minecraft:bastion_remnant",
+    "minecraft:fortress",
+    "minecraft:trail_ruins",
+    "thuumcraft:crypt_entry"
+  ]
+}

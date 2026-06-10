@@ -62,6 +62,9 @@ public class Config {
     public static final ForgeConfigSpec.DoubleValue FOOD_MEAL_HEALTH_REGEN_PER_SECOND;
     public static final ForgeConfigSpec.DoubleValue FOOD_MEAL_STAMINA_REGEN_PER_SECOND;
     public static final ForgeConfigSpec.DoubleValue FOOD_MEAL_MAGICKA_REGEN_PER_SECOND;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_DYNAMIC_AMBIENT_SOUNDS;
+    public static final ForgeConfigSpec.DoubleValue DYNAMIC_AMBIENT_SOUND_VOLUME;
+    public static final ForgeConfigSpec.DoubleValue DYNAMIC_AMBIENT_SOUND_FREQUENCY;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -196,6 +199,15 @@ public class Config {
         HEALTH_REGEN_COMBAT_DURATION_TICKS = builder.comment("Ticks a player remains in combat after dealing or taking damage.")
                 .defineInRange("combatDurationTicks", 200, 0, 12000);
         builder.pop();
+        builder.pop();
+
+        builder.comment("Skyrim-style dynamic ambient sound settings").push("dynamicSounds");
+        ENABLE_DYNAMIC_AMBIENT_SOUNDS = builder.comment("Enable context-aware ambient one-shot sounds. Sound files must exist under assets/thuumcraft/sounds/dynamic/.")
+                .define("enableDynamicAmbientSounds", true);
+        DYNAMIC_AMBIENT_SOUND_VOLUME = builder.comment("Global volume multiplier for dynamic ambient sounds.")
+                .defineInRange("volume", 0.65D, 0.0D, 2.0D);
+        DYNAMIC_AMBIENT_SOUND_FREQUENCY = builder.comment("How often dynamic ambient sounds are attempted. 0 disables playback; 1 is default; higher values play more often.")
+                .defineInRange("frequency", 1.0D, 0.0D, 5.0D);
         builder.pop();
         COMMON_CONFIG = builder.build();
     }

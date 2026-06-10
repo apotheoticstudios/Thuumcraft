@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "net.apotheoticstudios.thuumcraft.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "FramedBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

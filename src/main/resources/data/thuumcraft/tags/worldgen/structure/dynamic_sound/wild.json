@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:swamp_hut",
+    "minecraft:igloo",
+    "minecraft:mansion",
+    "minecraft:nether_fossil",
+    "thuumcraft:shack_desolate",
+    "thuumcraft:shack_river"
+  ]
+}

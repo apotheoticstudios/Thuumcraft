@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:village_plains",
+    "minecraft:village_desert",
+    "minecraft:village_savanna",
+    "minecraft:village_snowy",
+    "minecraft:village_taiga",
+    "minecraft:pillager_outpost",
+    "minecraft:mansion",
+    "minecraft:igloo",
+    "minecraft:swamp_hut",
+    "thuumcraft:shack_desolate",
+    "thuumcraft:shack_river"
+  ]
+}

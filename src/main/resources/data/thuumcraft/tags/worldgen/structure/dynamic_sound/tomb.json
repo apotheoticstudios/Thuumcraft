@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:ancient_city",
+    "minecraft:trail_ruins",
+    "thuumcraft:crypt_entry"
+  ]
+}

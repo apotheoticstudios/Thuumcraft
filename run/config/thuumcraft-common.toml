@@ -175,3 +175,14 @@
 	#Hide HUD overlays during the kill camera.
 	hideHud = true
 
+#Skyrim-style dynamic ambient sound settings
+[dynamicSounds]
+	#Enable context-aware ambient one-shot sounds. Sound files must exist under assets/thuumcraft/sounds/dynamic/.
+	enableDynamicAmbientSounds = true
+	#Global volume multiplier for dynamic ambient sounds.
+	#Range: 0.0 ~ 2.0
+	volume = 0.65
+	#How often dynamic ambient sounds are attempted. 0 disables playback; 1 is default; higher values play more often.
+	#Range: 0.0 ~ 5.0
+	frequency = 1.0
+

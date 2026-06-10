@@ -1,30 +1,1680 @@
 {
   "giant_idle": {
     "subtitle": "Giant Grumbles",
-    "sounds": [ "thuumcraft:giant_idle" ]
+    "sounds": [
+      "thuumcraft:giant_idle"
+    ]
   },
   "giant_damaged": {
     "subtitle": "Giant Hurt",
-    "sounds": [ "thuumcraft:giant_damaged" ]
+    "sounds": [
+      "thuumcraft:giant_damaged"
+    ]
   },
   "giant_death": {
     "subtitle": "Giant Dies",
-    "sounds": [ "thuumcraft:giant_death" ]
+    "sounds": [
+      "thuumcraft:giant_death"
+    ]
   },
   "skeever_idle": {
     "subtitle": "Skeever Squeaks",
-    "sounds": [ "thuumcraft:skeever_idle" ]
+    "sounds": [
+      "thuumcraft:skeever_idle"
+    ]
   },
   "skeever_hurt": {
     "subtitle": "Skeever Hurt",
-    "sounds": [ "thuumcraft:skeever_hurt" ]
+    "sounds": [
+      "thuumcraft:skeever_hurt"
+    ]
   },
   "skeever_death": {
     "subtitle": "Skeever Dies",
-    "sounds": [ "thuumcraft:skeever_death" ]
+    "sounds": [
+      "thuumcraft:skeever_death"
+    ]
   },
   "skeever_attack": {
     "subtitle": "Skeever Attacks",
-    "sounds": [ "thuumcraft:skeever_attack" ]
+    "sounds": [
+      "thuumcraft:skeever_attack"
+    ]
+  },
+  "dynamic.forest_birds_day": {
+    "subtitle": "Ambient forest birds",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_day_19",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.forest_birds_night": {
+    "subtitle": "Ambient night birds",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_birds_night_12",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.forest_rustle": {
+    "subtitle": "Ambient forest rustle",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/forest_rustle",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_rustle_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_rustle_03",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.forest_insects": {
+    "subtitle": "Ambient forest insects",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/forest_insects",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_insects_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/forest_insects_03",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.plains_birds": {
+    "subtitle": "Ambient plains birds",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/plains_birds",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_19",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_20",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_birds_21",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.plains_wind": {
+    "subtitle": "Ambient plains wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/plains_wind",
+        "stream": true
+      },
+      {
+        "name": "thuumcraft:dynamic/plains_wind_02",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.mountain_wind": {
+    "subtitle": "Ambient mountain wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/mountain_wind",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/mountain_wind_02",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.mountain_eagle": {
+    "subtitle": "Ambient mountain eagle",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/mountain_eagle",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/mountain_eagle_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/mountain_eagle_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/mountain_eagle_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/mountain_eagle_05",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.snow_wind": {
+    "subtitle": "Ambient snow wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/snow_wind",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/snow_wind_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/snow_wind_03",
+        "stream": true
+      },
+      {
+        "name": "thuumcraft:dynamic/snow_wind_04",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.tundra_wind": {
+    "subtitle": "Ambient tundra wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/tundra_wind",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/tundra_wind_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/tundra_wind_03",
+        "stream": true
+      },
+      {
+        "name": "thuumcraft:dynamic/tundra_wind_04",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.swamp_frogs": {
+    "subtitle": "Ambient swamp frogs",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_frogs_07",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.swamp_insects": {
+    "subtitle": "Ambient swamp insects",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/swamp_insects",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_insects_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/swamp_insects_03",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.river_water": {
+    "subtitle": "Ambient river water",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/river_water",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/river_water_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/river_water_03",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.shore_waves": {
+    "subtitle": "Ambient shore waves",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/shore_waves",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/shore_waves_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/shore_waves_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/shore_waves_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/shore_waves_05",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.rain_drips": {
+    "subtitle": "Ambient rain drips",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/rain_drips",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/rain_drips_10",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.thunder_distance": {
+    "subtitle": "Distant thunder",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/thunder_distance",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/thunder_distance_12",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.night_owl": {
+    "subtitle": "Ambient owl",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/night_owl",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_owl_09",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.night_wolf": {
+    "subtitle": "Distant wolf",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/night_wolf",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/night_wolf_09",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.cave_rumble": {
+    "subtitle": "Ambient cave rumble",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/cave_rumble",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_rumble_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_rumble_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_rumble_04",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.cave_drips": {
+    "subtitle": "Ambient cave drips",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/cave_drips",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_drips_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_drips_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_drips_04",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.cave_wind": {
+    "subtitle": "Ambient cave wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/cave_wind",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_wind_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_wind_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/cave_wind_04",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.ice_cave": {
+    "subtitle": "Ambient ice cave",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/ice_cave",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ice_cave_10",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.dungeon_chain": {
+    "subtitle": "Ambient dungeon chain",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_19",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_20",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_21",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_22",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_23",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_24",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_25",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_26",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_chain_27",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.dungeon_whisper": {
+    "subtitle": "Ambient dungeon whisper",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_19",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_20",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/dungeon_whisper_21",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.ruin_stone": {
+    "subtitle": "Ambient ruin stone",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/ruin_stone",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/ruin_stone_13",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.desert_wind": {
+    "subtitle": "Ambient desert wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/desert_wind",
+        "stream": true
+      },
+      {
+        "name": "thuumcraft:dynamic/desert_wind_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/desert_wind_03",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.jungle_birds": {
+    "subtitle": "Ambient jungle birds",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/jungle_birds",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/jungle_birds_19",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.badlands_wind": {
+    "subtitle": "Ambient badlands wind",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/badlands_wind",
+        "stream": true
+      },
+      {
+        "name": "thuumcraft:dynamic/badlands_wind_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/badlands_wind_03",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.village_distant": {
+    "subtitle": "Distant village",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/village_distant",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_19",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_20",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_21",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_22",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/village_distant_23",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.farm_animals": {
+    "subtitle": "Distant farm animals",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/farm_animals",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/farm_animals_19",
+        "stream": false
+      }
+    ]
+  },
+  "dynamic.city_crowd": {
+    "subtitle": "Distant city crowd",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/city_crowd",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_19",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_20",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_21",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_22",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_23",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_24",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_25",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_26",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_27",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_28",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_29",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_30",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_31",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_32",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_33",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_34",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_35",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_36",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_37",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_38",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_39",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_40",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_41",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_42",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_43",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_44",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_45",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_46",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_47",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_48",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_49",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_50",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_51",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_52",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_53",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_54",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_55",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_56",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_57",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_58",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/city_crowd_59",
+        "stream": true
+      }
+    ]
+  },
+  "dynamic.interior_creak": {
+    "subtitle": "Ambient interior creak",
+    "sounds": [
+      {
+        "name": "thuumcraft:dynamic/interior_creak",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_02",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_03",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_04",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_05",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_06",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_07",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_08",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_09",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_10",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_11",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_12",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_13",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_14",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_15",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_16",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_17",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_18",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_19",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_20",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_21",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_22",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_23",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_24",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_25",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_26",
+        "stream": false
+      },
+      {
+        "name": "thuumcraft:dynamic/interior_creak_27",
+        "stream": false
+      }
+    ]
   }
 }

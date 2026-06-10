@@ -37,8 +37,8 @@ public final class SelectedMagicSpellState {
 
         UUID playerUuid = player.getUUID();
         Properties properties = readProperties();
-        mainHandSpellId = parseSpellId(properties.getProperty(key(playerUuid, MAIN_HAND_SUFFIX)));
-        offHandSpellId = parseSpellId(properties.getProperty(key(playerUuid, OFF_HAND_SUFFIX)));
+        mainHandSpellId = parsePersistedSpellId(properties.getProperty(key(playerUuid, MAIN_HAND_SUFFIX)));
+        offHandSpellId = parsePersistedSpellId(properties.getProperty(key(playerUuid, OFF_HAND_SUFFIX)));
         loadedPlayerUuid = playerUuid;
     }
 
@@ -47,6 +47,11 @@ public final class SelectedMagicSpellState {
     }
 
     public static void select(AbstractSpell spell, InteractionHand hand) {
+        if (spell == null || spell == SpellRegistry.none()) {
+            clear(hand);
+            return;
+        }
+
         if (hand == InteractionHand.OFF_HAND) {
             offHandSpellId = spell.getSpellResource();
         } else {
@@ -121,11 +126,18 @@ public final class SelectedMagicSpellState {
         }
     }
 
-    private static ResourceLocation parseSpellId(String value) {
+    private static ResourceLocation parsePersistedSpellId(String value) {
         if (value == null || value.isBlank()) {
             return null;
         }
-        return ResourceLocation.tryParse(value);
+
+        ResourceLocation spellId = ResourceLocation.tryParse(value);
+        if (spellId == null) {
+            return null;
+        }
+
+        AbstractSpell spell = SpellRegistry.getSpell(spellId);
+        return spell == null || spell == SpellRegistry.none() ? null : spellId;
     }
 
     private static Properties readProperties() {

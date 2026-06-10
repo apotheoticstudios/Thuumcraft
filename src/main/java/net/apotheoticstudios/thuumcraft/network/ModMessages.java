@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static final String PROTOCOL_VERSION = "13";
+    private static final String PROTOCOL_VERSION = "14";
     private static int packetId = 0;
     private static SimpleChannel channel;
 
@@ -51,6 +51,12 @@ public class ModMessages {
                 .encoder(ClientboundSkillPerksPacket::encode)
                 .decoder(ClientboundSkillPerksPacket::new)
                 .consumerMainThread(ClientboundSkillPerksPacket::handle)
+                .add();
+
+        channel.messageBuilder(ClientboundStructureSoundContextPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ClientboundStructureSoundContextPacket::encode)
+                .decoder(ClientboundStructureSoundContextPacket::new)
+                .consumerMainThread(ClientboundStructureSoundContextPacket::handle)
                 .add();
 
         channel.messageBuilder(ServerboundUnlockPerkPacket.class, nextPacketId(), NetworkDirection.PLAY_TO_SERVER)

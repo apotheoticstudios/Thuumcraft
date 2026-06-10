@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:trail_ruins",
+    "minecraft:ancient_city",
+    "minecraft:desert_pyramid",
+    "minecraft:jungle_pyramid",
+    "minecraft:ocean_ruin_cold",
+    "minecraft:ocean_ruin_warm",
+    "minecraft:monument",
+    "minecraft:end_city",
+    "minecraft:nether_fossil",
+    "minecraft:ruined_portal",
+    "minecraft:ruined_portal_desert",
+    "minecraft:ruined_portal_jungle",
+    "minecraft:ruined_portal_swamp",
+    "minecraft:ruined_portal_mountain",
+    "minecraft:ruined_portal_ocean",
+    "minecraft:ruined_portal_nether",
+    "thuumcraft:crypt_entry"
+  ]
+}

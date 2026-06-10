@@ -24,6 +24,47 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BoatItem;
+import net.minecraft.world.item.BoneMealItem;
+import net.minecraft.world.item.BottleItem;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.EggItem;
+import net.minecraft.world.item.ElytraItem;
+import net.minecraft.world.item.EmptyMapItem;
+import net.minecraft.world.item.EndCrystalItem;
+import net.minecraft.world.item.EnderEyeItem;
+import net.minecraft.world.item.EnderpearlItem;
+import net.minecraft.world.item.ExperienceBottleItem;
+import net.minecraft.world.item.FireChargeItem;
+import net.minecraft.world.item.FireworkRocketItem;
+import net.minecraft.world.item.FishingRodItem;
+import net.minecraft.world.item.FlintAndSteelItem;
+import net.minecraft.world.item.FoodOnAStickItem;
+import net.minecraft.world.item.HangingEntityItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.HoneycombItem;
+import net.minecraft.world.item.HorseArmorItem;
+import net.minecraft.world.item.InstrumentItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.LeadItem;
+import net.minecraft.world.item.MilkBucketItem;
+import net.minecraft.world.item.MinecartItem;
+import net.minecraft.world.item.NameTagItem;
+import net.minecraft.world.item.SaddleItem;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.ThrowablePotionItem;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.WritableBookItem;
+import net.minecraft.world.item.WrittenBookItem;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
@@ -39,6 +80,12 @@ import org.slf4j.Logger;
 @Mod.EventBusSubscriber(modid = Thuumcraft.MOD_ID, value = Dist.CLIENT)
 public final class SkyrimMagicClientEvents {
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static final double FIRST_PERSON_HAND_FORWARD = 0.48D;
+    private static final double FIRST_PERSON_HAND_SIDE = 0.50D;
+    private static final double FIRST_PERSON_HAND_DOWN = 0.56D;
+    private static final double THIRD_PERSON_HAND_FORWARD = 0.16D;
+    private static final double THIRD_PERSON_HAND_SIDE = 0.44D;
+    private static final double THIRD_PERSON_HAND_HEIGHT = 0.55D;
 
     private static InteractionHand heldCastHand;
     private static boolean attackKeyWasDown;
@@ -205,7 +252,7 @@ public final class SkyrimMagicClientEvents {
         if (event.isAttack()) {
             return InteractionHand.MAIN_HAND;
         }
-        if (event.isUseItem()) {
+        if (event.isUseItem() && event.getHand() == InteractionHand.OFF_HAND) {
             return InteractionHand.OFF_HAND;
         }
         return null;
@@ -219,6 +266,13 @@ public final class SkyrimMagicClientEvents {
 
         ResourceLocation spellId = SelectedMagicSpellState.selectedSpellId(castHand);
         if (spellId == null) {
+            return false;
+        }
+
+        if (castHand == InteractionHand.OFF_HAND && shouldDeferOffhandSpellToRightClickUse(minecraft)) {
+            if (heldCastHand != null) {
+                releaseSelectedSpellCast();
+            }
             return false;
         }
 
@@ -247,6 +301,93 @@ public final class SkyrimMagicClientEvents {
         return true;
     }
 
+    private static boolean shouldDeferOffhandSpellToRightClickUse(Minecraft minecraft) {
+        if (minecraft.player == null) {
+            return false;
+        }
+        return canUseWithRightClick(minecraft, minecraft.player.getMainHandItem())
+                || canUseWithRightClick(minecraft, minecraft.player.getOffhandItem());
+    }
+
+    private static boolean canUseWithRightClick(Minecraft minecraft, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+
+        Item item = stack.getItem();
+        if (hasAirRightClickUse(minecraft, stack, item)) {
+            return true;
+        }
+
+        HitResult hitResult = minecraft.hitResult;
+        if (hitResult == null) {
+            return false;
+        }
+        if (hitResult.getType() == HitResult.Type.BLOCK) {
+            return hasBlockRightClickUse(item);
+        }
+        return hitResult.getType() == HitResult.Type.ENTITY && hasEntityRightClickUse(item);
+    }
+
+    private static boolean hasAirRightClickUse(Minecraft minecraft, ItemStack stack, Item item) {
+        UseAnim useAnimation = stack.getUseAnimation();
+        if (useAnimation == UseAnim.EAT) {
+            FoodProperties food = stack.getFoodProperties(minecraft.player);
+            return food != null && minecraft.player.canEat(food.canAlwaysEat());
+        }
+        if (useAnimation != UseAnim.NONE) {
+            return true;
+        }
+        return item instanceof BucketItem
+                || item instanceof BottleItem
+                || item instanceof MilkBucketItem
+                || item instanceof EnderpearlItem
+                || item instanceof EggItem
+                || item instanceof ExperienceBottleItem
+                || item instanceof ThrowablePotionItem
+                || item instanceof FireworkRocketItem
+                || item instanceof FishingRodItem
+                || item instanceof EnderEyeItem
+                || item instanceof InstrumentItem
+                || item instanceof EmptyMapItem
+                || item instanceof WritableBookItem
+                || item instanceof WrittenBookItem
+                || item instanceof FoodOnAStickItem<?>
+                || item instanceof ArmorItem
+                || item instanceof HorseArmorItem
+                || item instanceof ElytraItem;
+    }
+
+    private static boolean hasBlockRightClickUse(Item item) {
+        return item instanceof BlockItem
+                || item instanceof BoatItem
+                || item instanceof MinecartItem
+                || item instanceof SpawnEggItem
+                || item instanceof EndCrystalItem
+                || item instanceof HangingEntityItem
+                || item instanceof BucketItem
+                || item instanceof BottleItem
+                || item instanceof FlintAndSteelItem
+                || item instanceof FireChargeItem
+                || item instanceof BoneMealItem
+                || item instanceof DyeItem
+                || item instanceof HoneycombItem
+                || item instanceof ShearsItem
+                || item instanceof HoeItem
+                || item instanceof ShovelItem
+                || item instanceof AxeItem;
+    }
+
+    private static boolean hasEntityRightClickUse(Item item) {
+        return item instanceof SpawnEggItem
+                || item instanceof NameTagItem
+                || item instanceof LeadItem
+                || item instanceof SaddleItem
+                || item instanceof BucketItem
+                || item instanceof ShearsItem
+                || item instanceof DyeItem;
+    }
+
     private static void spawnSelectedSpellHandParticles(Minecraft minecraft) {
         if (minecraft.player.tickCount % 2 != 0) {
             return;
@@ -272,19 +413,24 @@ public final class SkyrimMagicClientEvents {
         HandParticleStyle style = particleStyle(spell);
         Vec3 position = handParticlePosition(minecraft, hand);
         RandomSource random = minecraft.player.getRandom();
-        double jitter = 0.055D;
-        minecraft.level.addParticle(style.dust(),
-                position.x + random.nextGaussian() * jitter,
-                position.y + random.nextGaussian() * jitter,
-                position.z + random.nextGaussian() * jitter,
-                0.0D, 0.012D, 0.0D);
+        boolean activeCastHand = hand == heldCastHand && ClientMagicData.isCasting();
+        double jitter = activeCastHand ? 0.034D : 0.045D;
+        int dustCount = activeCastHand ? 2 : 1;
+        for (int i = 0; i < dustCount; i++) {
+            minecraft.level.addParticle(style.dust(),
+                    position.x + random.nextGaussian() * jitter,
+                    position.y + random.nextGaussian() * jitter,
+                    position.z + random.nextGaussian() * jitter,
+                    random.nextGaussian() * 0.002D, 0.010D, random.nextGaussian() * 0.002D);
+        }
 
-        if (minecraft.player.tickCount % style.accentInterval() == 0) {
+        int accentInterval = activeCastHand ? Math.max(2, style.accentInterval() / 2) : style.accentInterval();
+        if (minecraft.player.tickCount % accentInterval == 0) {
             minecraft.level.addParticle(style.accent(),
                     position.x + random.nextGaussian() * jitter,
                     position.y + random.nextGaussian() * jitter,
                     position.z + random.nextGaussian() * jitter,
-                    random.nextGaussian() * 0.008D, 0.012D, random.nextGaussian() * 0.008D);
+                    random.nextGaussian() * 0.006D, 0.010D, random.nextGaussian() * 0.006D);
         }
     }
 
@@ -293,20 +439,19 @@ public final class SkyrimMagicClientEvents {
         float yawRadians = minecraft.player.getYRot() * Mth.DEG_TO_RAD;
         Vec3 right = new Vec3(Mth.cos(yawRadians), 0.0D, Mth.sin(yawRadians));
         boolean mainArmRight = minecraft.player.getMainArm() == HumanoidArm.RIGHT;
-        double mainSide = mainArmRight ? 0.38D : -0.38D;
-        double side = hand == InteractionHand.MAIN_HAND ? mainSide : -mainSide;
+        double sideSign = (hand == InteractionHand.MAIN_HAND) == mainArmRight ? 1.0D : -1.0D;
 
         if (minecraft.options.getCameraType().isFirstPerson()) {
             return minecraft.player.getEyePosition()
-                    .add(look.scale(0.72D))
-                    .add(right.scale(side))
-                    .add(0.0D, -0.32D, 0.0D);
+                    .add(look.scale(FIRST_PERSON_HAND_FORWARD))
+                    .add(right.scale(sideSign * FIRST_PERSON_HAND_SIDE))
+                    .add(0.0D, -FIRST_PERSON_HAND_DOWN, 0.0D);
         }
 
         return minecraft.player.position()
-                .add(0.0D, minecraft.player.getBbHeight() * 0.68D, 0.0D)
-                .add(look.scale(0.28D))
-                .add(right.scale(side));
+                .add(0.0D, minecraft.player.getBbHeight() * THIRD_PERSON_HAND_HEIGHT, 0.0D)
+                .add(look.scale(THIRD_PERSON_HAND_FORWARD))
+                .add(right.scale(sideSign * THIRD_PERSON_HAND_SIDE));
     }
 
     private static HandParticleStyle particleStyle(AbstractSpell spell) {
